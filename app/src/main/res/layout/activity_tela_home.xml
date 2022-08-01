@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="?attr/actionBarSize">
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="173dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/vector_1"
+        tools:srcCompat="@drawable/vector_1" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="29dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="173dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/vector_2"
+        tools:srcCompat="@drawable/vector_2" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
@@ -16,18 +37,347 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <fragment
         android:id="@+id/nav_host_fragment_activity_tela_home"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="432dp"
+        android:layout_height="733dp"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@id/nav_view"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.62"
         app:navGraph="@navigation/mobile_navigation" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/inter_thin"
+        android:text="NURZED"
+        android:textColor="#009688"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/inter_thin"
+        android:text="MEUS PLANTÕES"
+        android:textColor="#FFAB08"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="361dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="144dp"
+        app:cardBackgroundColor="#BFEBE3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/CALEN"
+            android:layout_width="43dp"
+            android:layout_height="42dp"
+            android:translationX="12dp"
+            android:translationY="16dp"
+            android:translationZ="12dp"
+            app:srcCompat="@drawable/icons8_calend_rio_100_1" />
+
+        <TextView
+            android:id="@+id/TXT6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Início   -"
+            android:textColor="#117D6A "
+            android:translationX="60dp"
+            android:translationY="14dp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Final    -"
+            android:textColor="#117D6A "
+            android:translationX="60dp"
+            android:translationY="44dp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  00:00"
+            android:textColor="#117D6A"
+            android:translationX="108dp"
+            android:translationY="14dp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  00:00"
+            android:textColor="#117D6A"
+            android:translationX="108dp"
+            android:translationY="44dp" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:translationX="260dp"
+            android:translationY="10dp" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MÊS"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:translationX="250dp"
+            android:translationY="33dp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="362dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="240dp"
+        app:cardBackgroundColor="#94DED1 "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:translationX="260dp"
+            android:translationY="10dp" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MÊS"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:translationX="250dp"
+            android:translationY="33dp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  00:00"
+            android:textColor="#117D6A"
+            android:translationX="108dp"
+            android:translationY="44dp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  00:00"
+            android:textColor="#117D6A"
+            android:translationX="108dp"
+            android:translationY="14dp" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Final    -"
+            android:textColor="#117D6A "
+            android:translationX="60dp"
+            android:translationY="44dp" />
+
+        <TextView
+            android:id="@+id/TXT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Início   -"
+            android:textColor="#117D6A "
+            android:translationX="60dp"
+            android:translationY="14dp" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="40dp"
+            android:layout_height="39dp"
+            android:translationX="12dp"
+            android:translationY="16dp"
+            android:translationZ="12dp"
+            app:srcCompat="@drawable/icons8_calend_rio_100_1" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="362dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="336dp"
+        app:cardBackgroundColor="#BFEBE3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:translationX="260dp"
+            android:translationY="10dp" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MÊS"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:translationX="250dp"
+            android:translationY="33dp" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  00:00"
+            android:textColor="#117D6A"
+            android:translationX="108dp"
+            android:translationY="44dp" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  00:00"
+            android:textColor="#117D6A"
+            android:translationX="108dp"
+            android:translationY="14dp" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Final    -"
+            android:textColor="#117D6A "
+            android:translationX="60dp"
+            android:translationY="44dp" />
+
+        <TextView
+            android:id="@+id/TXT2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Início   -"
+            android:textColor="#117D6A "
+            android:translationX="60dp"
+            android:translationY="14dp" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="40dp"
+            android:layout_height="39dp"
+            android:translationX="12dp"
+            android:translationY="16dp"
+            android:translationZ="12dp"
+            app:srcCompat="@drawable/icons8_calend_rio_100_1" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="362dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="436dp"
+        app:cardBackgroundColor="#94DED1 "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:translationX="260dp"
+            android:translationY="10dp" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MÊS"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:translationX="250dp"
+            android:translationY="33dp" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  00:00"
+            android:textColor="#117D6A"
+            android:translationX="108dp"
+            android:translationY="44dp" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  00:00"
+            android:textColor="#117D6A"
+            android:translationX="108dp"
+            android:translationY="14dp" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Final    -"
+            android:textColor="#117D6A "
+            android:translationX="60dp"
+            android:translationY="44dp" />
+
+        <TextView
+            android:id="@+id/TXT3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Início   -"
+            android:textColor="#117D6A "
+            android:translationX="60dp"
+            android:translationY="14dp" />
+
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="40dp"
+            android:layout_height="39dp"
+            android:translationX="12dp"
+            android:translationY="16dp"
+            android:translationZ="12dp"
+            app:srcCompat="@drawable/icons8_calend_rio_100_1" />
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
