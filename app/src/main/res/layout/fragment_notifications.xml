@@ -6,17 +6,120 @@
     android:layout_height="match_parent"
     tools:context=".ui.notifications.NotificationsFragment">
 
-    <TextView
-        android:id="@+id/text_notifications"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <androidx.cardview.widget.CardView
+        android:layout_width="423dp"
+        android:layout_height="81dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="176dp"
+            android:layout_marginTop="16dp"
+            app:srcCompat="@drawable/vector_1"
+            tools:srcCompat="@drawable/vector_1" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="29dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="176dp"
+            android:layout_marginTop="16dp"
+            app:srcCompat="@drawable/vector_2"
+            tools:srcCompat="@drawable/vector_2" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/inter_thin"
+            android:text="NURZED"
+            android:textColor="#009688"
+            android:textSize="34sp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="339dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="140dp"
+        app:cardBackgroundColor="#FFF1D7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView14"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/icons8_setas_ordenadas_90_1"
+            android:translationX="20dp"
+            android:translationY="14dp" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_thin"
+            android:text="Seu plantão foi Alterado"
+            android:textColor="#117D6A"
+            android:textSize="16sp"
+            android:translationX="90dp"
+            android:translationY="14dp" />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_thin"
+            android:text="00/00/0000  as  00:00"
+            android:textColor="#DB9103"
+            android:textSize="16sp"
+            android:translationX="90dp"
+            android:translationY="32dp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="339dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="236dp"
+        app:cardBackgroundColor="#FFF1D7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_thin"
+            android:text="00/00/0000  as  00:00"
+            android:textColor="#DB9103"
+            android:textSize="16sp"
+            android:translationX="90dp"
+            android:translationY="32dp" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_thin"
+            android:text="Seu plantão foi Alterado"
+            android:textColor="#117D6A"
+            android:textSize="16sp"
+            android:translationX="90dp"
+            android:translationY="14dp" />
+
+        <ImageView
+            android:id="@+id/imageView16"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/icons8_setas_ordenadas_90_1"
+            android:translationX="20dp"
+            android:translationY="14dp" />
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
