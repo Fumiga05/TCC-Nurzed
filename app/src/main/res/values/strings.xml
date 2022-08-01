@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Nurzed</string>
+    <string name="title_activity_tela_home">TelaHome</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Notificação</string>
+    <string name="title_notifications">Perfil</string>
 </resources>

@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Nurzed">
         <activity
+            android:name=".TelaHome"
+            android:exported="true"
+            android:label="@string/title_activity_tela_home" />
+        <activity
             android:name=".TelaLogin"
             android:exported="true" />
         <activity
@@ -21,6 +25,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
