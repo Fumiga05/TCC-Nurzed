@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.nome_do_cliente.nurzed.ui.home.HomeFragment;
+import com.nome_do_cliente.nurzed.ui.home.HomeViewModel;
+
 public class TelaLogin extends AppCompatActivity {
 
     @Override
@@ -19,7 +22,8 @@ public class TelaLogin extends AppCompatActivity {
         btlogar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it =  new Intent(TelaLogin.this, TelaHome.class);
+                Intent it =  new Intent(TelaLogin.this,HomeFragment.class
+                );
             }
         });
     }
