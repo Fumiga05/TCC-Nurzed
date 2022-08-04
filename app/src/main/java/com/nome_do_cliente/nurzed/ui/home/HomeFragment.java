@@ -41,4 +41,9 @@ public class HomeFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+    public Bundle onCreateView(HomeViewModel homeViewModel) {
+        Bundle homeViewMode = new Bundle();
+        return homeViewMode;
+    }
 }

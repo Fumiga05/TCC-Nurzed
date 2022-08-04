@@ -1,6 +1,8 @@
 package com.nome_do_cliente.nurzed;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,8 +24,13 @@ public class TelaLogin extends AppCompatActivity {
         btlogar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it =  new Intent(TelaLogin.this,HomeFragment.class
-                );
+                NavHostFragment navHostFragment =
+                        (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_container);
+
+
+                navHostFragment.onCreate(new HomeFragment().onCreateView(new HomeViewModel()));
+
+
             }
         });
     }
