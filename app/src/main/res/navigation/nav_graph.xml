@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/home2">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.nome_do_cliente.nurzed.ui.dashboard.DashboardFragment"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" />
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.nome_do_cliente.nurzed.ui.notifications.NotificationsFragment"
+        android:label="fragment_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.nome_do_cliente.nurzed.home"
+        android:label="fragment_home2"
+        tools:layout="@layout/fragment_home2" />
+</navigation>
