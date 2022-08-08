@@ -5,12 +5,18 @@ import android.os.Bundle;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.nome_do_cliente.nurzed.databinding.ActivityTelaHomeBinding;
+import com.nome_do_cliente.nurzed.ui.dashboard.DashboardFragment;
+import com.nome_do_cliente.nurzed.ui.home.HomeFragment;
+import com.nome_do_cliente.nurzed.ui.notifications.NotificationsFragment;
 
 public class TelaHome extends AppCompatActivity {
 
@@ -22,16 +28,37 @@ public class TelaHome extends AppCompatActivity {
 
         binding = ActivityTelaHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        replacefragment(new HomeFragment());
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.navigation_home);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(binding.navView, navController);
+        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+
+
+            switch (item.getItemId()){
+                case R.id.home:
+                    replacefragment(new HomeFragment());
+                    break;
+                case R.id.perfil:
+                    replacefragment(new DashboardFragment());
+                    break;
+                case R.id.notific:
+                    replacefragment(new NotificationsFragment());
+                    break;
+
+            }
+
+
+
+            return  true;
+        });
+    }
+
+    private void  replacefragment (Fragment fragment){
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout,fragment);
+        fragmentTransaction.commit();
+
     }
 
 }
