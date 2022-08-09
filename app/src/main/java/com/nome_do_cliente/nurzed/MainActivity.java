@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btentrar = findViewById(R.id.btEntrar3);
+        Button btentrar = findViewById(R.id.btentrar3);
 
 
         btentrar.setOnClickListener(new View.OnClickListener() {

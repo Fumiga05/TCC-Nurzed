@@ -32,7 +32,7 @@
             android:id="@+id/imageView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="176dp"
+            android:layout_marginStart="250dp"
             android:layout_marginTop="16dp"
             app:srcCompat="@drawable/vector_1"
             tools:srcCompat="@drawable/vector_1" />
@@ -41,7 +41,7 @@
             android:id="@+id/imageView10"
             android:layout_width="29dp"
             android:layout_height="20dp"
-            android:layout_marginStart="176dp"
+            android:layout_marginStart="250dp"
             android:layout_marginTop="16dp"
             app:srcCompat="@drawable/vector_2"
             tools:srcCompat="@drawable/vector_2" />
@@ -50,7 +50,7 @@
             android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
+            android:layout_marginStart="120dp"
             android:layout_marginTop="28dp"
             android:fontFamily="@font/inter_thin"
             android:text="NURZED"

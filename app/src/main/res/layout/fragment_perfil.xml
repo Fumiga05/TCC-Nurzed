@@ -7,24 +7,18 @@
     tools:context=".ui.dashboard.DashboardFragment">
 
     <TextView
-        android:id="@+id/text_dashboard"
-        android:layout_width="match_parent"
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="460dp"
+        android:text="Especialidade:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="409dp"
-        android:layout_height="74dp"
+        android:layout_width="411dp"
+        android:layout_height="77dp"
         android:layout_marginStart="1dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -33,7 +27,7 @@
             android:id="@+id/textView30"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
+            android:layout_marginStart="120dp"
             android:layout_marginTop="28dp"
             android:fontFamily="@font/inter_thin"
             android:text="NURZED"
@@ -44,7 +38,7 @@
             android:id="@+id/imageView15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="176dp"
+            android:layout_marginStart="250dp"
             android:layout_marginTop="16dp"
             app:srcCompat="@drawable/vector_1"
             tools:srcCompat="@drawable/vector_1" />
@@ -53,7 +47,7 @@
             android:id="@+id/imageView17"
             android:layout_width="29dp"
             android:layout_height="20dp"
-            android:layout_marginStart="176dp"
+            android:layout_marginStart="250dp"
             android:layout_marginTop="16dp"
             app:srcCompat="@drawable/vector_2"
             tools:srcCompat="@drawable/vector_2" />
@@ -73,159 +67,13 @@
         android:id="@+id/txtNome"
         android:layout_width="224dp"
         android:layout_height="18dp"
-        android:layout_marginStart="128dp"
+        android:layout_marginStart="92dp"
         android:layout_marginTop="232dp"
         android:fontFamily="@font/inter_thin"
         android:text="Nome completo"
         android:textColor="#0B5A4C"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView33"
-        android:layout_width="31dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="302dp"
-        android:text="CPF:"
-        android:textColor="#0B5A4C"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView36"
-        android:layout_width="42dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="313dp"
-        android:text="Cargo:"
-        android:textColor="#0B5A4C"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView35"
-        android:layout_width="62dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="345dp"
-        android:text="Telefone: "
-        android:textColor="#0B5A4C"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView37"
-        android:layout_width="91dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="435dp"
-        android:text="Especialidade:"
-        android:textColor="#0B5A4C"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView34"
-        android:layout_width="51dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="331dp"
-        android:text="COREM:"
-        android:textColor="#0B5A4C"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView32"
-        android:layout_width="134dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="274dp"
-        android:fontFamily="@font/inter_thin"
-        android:text="Data de Nascimento: "
-        android:textColor="#0B5A4C"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/etddn"
-        android:layout_width="210dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="252dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="   "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <EditText
-        android:id="@+id/etcpf"
-        android:layout_width="210dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="276dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="   "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <EditText
-        android:id="@+id/etCOREM"
-        android:layout_width="210dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="304dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="   "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <EditText
-        android:id="@+id/etTel"
-        android:layout_width="210dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="340dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="   "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <EditText
-        android:id="@+id/etCargo"
-        android:layout_width="210dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="376dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="   "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <EditText
-        android:id="@+id/etEspecialidade"
-        android:layout_width="210dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="412dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="   "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="409dp"
@@ -259,4 +107,55 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck"
         tools:src="@drawable/icons8_c_mera_96_1" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="292dp"
+        android:text="Data de Nascimento:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="324dp"
+        android:text="CPF:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="356dp"
+        android:text="COREM:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="388dp"
+        android:text="Telefone:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="424dp"
+        android:text="Cargo:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
