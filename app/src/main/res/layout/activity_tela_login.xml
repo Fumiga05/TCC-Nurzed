@@ -113,7 +113,7 @@
         android:layout_height="62dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="516dp"
-        android:background="@drawable/botaoredond"
+        android:background="@drawable/botaoamarelo"
         android:backgroundTint="#FFAB08"
         android:text="Logar"
         android:textColor="#117D6A"

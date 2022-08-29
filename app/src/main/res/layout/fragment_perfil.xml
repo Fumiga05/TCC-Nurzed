@@ -101,6 +101,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="327dp"
         android:layout_marginTop="499dp"
+        android:background="@drawable/botaoamarelo"
         android:backgroundTint="#FFAB08"
         android:src="@drawable/icons8_c_mera_96_1"
         app:layout_constraintStart_toStartOf="parent"
