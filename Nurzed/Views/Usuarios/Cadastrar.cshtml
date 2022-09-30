@@ -1,0 +1,189 @@
+﻿@model Nurzed.Models.Usuarios
+@{
+    ViewData["Title"] = "Cadastrar";
+    IEnumerable<Universidade> listaUniversidade = ViewData["listaUniversidade"] as IEnumerable<Universidade>; 
+    IEnumerable<Curso> listaCurso = ViewData["listaCurso"] as IEnumerable<Curso>;
+    IEnumerable<Especialidade> listaEspecialidade = ViewData["listaEspecialidade"] as IEnumerable<Especialidade>;
+    IEnumerable<Cargo> listaCargo = ViewData["listaCargo"] as IEnumerable<Cargo>;
+    IEnumerable<Area> listaArea = ViewData["listaArea"] as IEnumerable<Area>;
+
+}
+
+
+<h1>Cadastrar</h1>
+
+<h4>Usuarios2</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Cadastrar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+          
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" value="Fernando Vieira Melo"   class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Senha" class="control-label"></label>
+                <input asp-for="Senha" value="Fernando123" type="password" class="form-control" />
+                <span asp-validation-for="Senha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nome_da_mae" class="control-label"></label>
+                <input asp-for="Nome_da_mae" value="Katia Vieira Melo" class="form-control" />
+                <span asp-validation-for="Nome_da_mae" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nome_do_pai" class="control-label"></label>
+                <input asp-for="Nome_do_pai" value="Antonio Vieira Melo" class="form-control" />
+                <span asp-validation-for="Nome_do_pai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Data_de_nascimento" class="control-label"></label>
+                <input asp-for="Data_de_nascimento" value="1970-06-01" type="date" class="form-control" />
+                <span asp-validation-for="Data_de_nascimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sexo" class="control-label"></label>
+                <select asp-for="Sexo" class="form-control">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                </select>
+                
+                <span asp-validation-for="Sexo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cpf" class="control-label"></label>
+                <input asp-for="Cpf" value="12345678"  class="form-control" />
+                <span asp-validation-for="Cpf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rg" class="control-label"></label>
+                <input asp-for="Rg" value="12345678" class="form-control" />
+                <span asp-validation-for="Rg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Data_de_inicio_Universidade"  class="control-label"></label>
+                <input asp-for="Data_de_inicio_Universidade" value="2004-05-10" type="date" class="form-control" />
+                <span asp-validation-for="Data_de_inicio_Universidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Data_de_termino_Universidade" class="control-label"></label>
+                <input asp-for="Data_de_termino_Universidade" value="2008-05-10"  type="date" class="form-control" />
+                <span asp-validation-for="Data_de_termino_Universidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Coren" class="control-label"></label>
+                <input asp-for="Coren" value="coren2022" class="form-control" />
+                <span asp-validation-for="Coren" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cep" class="control-label"></label>
+                <input asp-for="Cep" value="13056-201" class="form-control" />
+                <span asp-validation-for="Cep" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefone" class="control-label"></label>
+                <input asp-for="Telefone" value="19992938392" class="form-control" />
+                <span asp-validation-for="Telefone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Matricula" class="control-label"></label>
+                <input asp-for="Matricula" value="123456789"  class="form-control" />
+                <span asp-validation-for="Matricula" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Area</label>
+
+                <select asp-for="Id_Area"   class="form-control" >
+                @foreach(var item in listaArea)
+                {
+                        <option value="@item.Id">@item.Nome</option>
+                    }
+                </select>
+                <span asp-validation-for="Id_Area" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Especialidade</label>
+                <select asp-for="Id_Especialidade" class="form-control">
+                @foreach(var item in listaEspecialidade)
+                {
+                    <option value="@item.Id">@item.Nome</option>
+                }
+                </select>
+                <span asp-validation-for="Id_Especialidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Especialidade</label>
+                <select asp-for="Id_Cargo" class="form-control">
+                    @foreach(var item in listaCargo)
+                    {
+                        <option asp-for="Id_Cargo" value="@item.Id">@item.Nome</option>
+                    }
+
+                
+                
+                </select>
+                <span asp-validation-for="Id_Cargo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tipo_de_contrato" class="control-label"></label>
+                <select asp-for="Tipo_de_contrato" class="form-control">
+                    
+                    <option asp-for="Tipo_de_contrato" value="Terceirizado">Terceirizado</option>
+                    <option asp-for="Tipo_de_contrato"  value="Concursado">Concursado</option>
+                </select>
+                
+                <span asp-validation-for="Tipo_de_contrato" class="text-danger"></span>
+            </div>
+         
+            <div class="form-group">
+                <label asp-for="Privilegios" class="control-label"></label>                
+               <select asp-for="Privilegios" class="form-control">
+                   <option value="administrador">Administrador</option>
+                   <option value="usuario">Usuário</option>                   
+               </select>
+                <span asp-validation-for="Privilegios" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Universidade</label>     
+                <select id="select" asp-for="Id_Universidade" class="form-control">
+                    @foreach(var item in listaUniversidade)
+                    {
+                    <option value="@item.Id">@item.Nome (@item.Sigla)</option>
+                    }
+                </select>
+
+                
+               
+            </div>
+            <div class="form-group">
+                <label class="control-label">Curso</label>
+                <select asp-for="Id_Curso" class="form-control">
+                    @foreach(var item in listaCurso)
+                    {
+                        <option value="@item.Id">@item.Nome </option>
+                    }
+                </select>
+                
+                
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script>
+
+    //import $ from "jquery"
+  $(document).ready(function() {
+  $('#select').select2();
+});
+</script>
