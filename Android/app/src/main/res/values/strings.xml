@@ -1,0 +1,6 @@
+<resources>
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100display=swap');
+
+    <string name="app_name">NurZed</string>
+</resources>
