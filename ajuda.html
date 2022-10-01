@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajuda</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  
+  <nav>
+    <a href="home_.html" class="ancora_nav_logo">logo<img src="" alt="" class="logo_nav"></a>
+    <div id="aux14">
+        <button class="btn_deslogar">Deslogar</button> <br>
+        <a href="ajuda.html"><img src="img/ajuda_icon.png" alt="" class="ajuda_icon"></a>
+    </div>
+</nav><br>
+
+</nav><br>
+
+    <h1 id="titulo_ajuda">Ajuda ao usuário</h1>
+
+    <div id="aviso_ajuda">
+        <img src="img/aviso.png"  id="img_aviso" alt="">
+        <p id="msg_aviso_ajuda">Antes de entrar em contato, certifique se o problema não pode ser corrigido pela equipe administrativa hospitalar ou a equipe de TI.</p>
+    </div>
+
+    <h2 class="titulo_faq">Perguntas Frequentes</h2>
+            
+        <div class="faq">
+
+            <button class="accordion">Section 1</button>
+            <div class="panel">
+            <p>Lorem ipsum...</p>
+            </div>
+            <br>
+            <button class="accordion">Section 2</button>
+            <div class="panel">
+            <p>Lorem ipsum...</p>
+            </div>
+            <br>
+            <button class="accordion">Section 3</button>
+            <div class="panel">
+            <p>Lorem ipsum...</p>
+            </div>
+
+        </div>
+
+
+  <form id="form_ajuda"><br>
+      <h3 id="titulo_form">Sua pergunta ou problema ainda <br> nâo foi resolvido?</h3>
+      <div id="caixa_perguntas">
+          <br><label for="" class="label">Nome completo:</label><br>
+          <input type="text" name="" id="" class="campos_form_ajuada" minlength="3" maxlength="250" required><br>
+
+          <label for="" class="label">Email:</label><br>
+          <input type="email" name="" id=""  class="campos_form_ajuada"minlength="2" maxlength="250" required><br>
+
+          <label for="" class="label">Como posso ajudar?</label><br>
+          <textarea name="" id="comentario_cliente" cols="30" rows="10"minlength="2" maxlength="2500" required></textarea><br>
+
+          <button class="btn_form_ajuda">Enviar</button>
+
+      </div>
+  </form>
+
+  <footer>
+    <img src="img/cartaicon.png" id="logo_rodape" alt="">
+    <div id="redes_socias_rodape">
+        <span id="linha_rodape"></span>
+        <img src="img/Brasil.png" alt="">
+        <img src="img/instaicon.png" alt="">
+        <img src="img/cartaicon.png" alt="">
+    </div>
+</footer>
+
+
+</body>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+</html>

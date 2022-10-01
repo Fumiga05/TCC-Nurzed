@@ -1,0 +1,63 @@
+#conteiner_solicitar{
+    display: flex;
+    font-size: 30px;
+    font-family: 'Inter',  Arial;
+    font-weight: 500;
+    margin: 0 auto;
+    width: 77%;
+    color: #063F35;
+    justify-content: space-evenly;
+    
+}
+
+.caixa_solicitacao_troca{
+    background-color: #BFEBE3;
+    border: solid 2px #6FCCBB;
+    width: 300px;
+    font-size: 20px;
+    font-family: 'Inter',  Arial, sans-serif;
+    color: #063F35;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+#conteiner_btn_solicitar{
+    text-align: center;
+    width: 100%;
+    margin: 75px 0;
+}
+
+.btn_solicitar{
+    background-color: #6FCCBB;
+    color:#fff ;
+    border: solid 1px #6FCCBB;
+    width: 180px;
+    font-size: 25px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn_solicitar:hover{
+    background-color: #7adecc;
+}
+
+.btn_solicitar:active{
+    background-color: #fff;
+    color:#6FCCBB ;
+}
+
+#cars{
+width: 350px;
+background-color: #DDF3EF;
+border: solid 2px #117D6A;
+font-size: 20px;
+font-family: 'Inter',  Arial;
+color: #042a23;
+height: 35px;
+}
+
+#cars:hover{
+    background-color: #d5f8f2;
+}

@@ -1,0 +1,230 @@
+#sec_cadastro{
+    width: 50%;
+    margin: 0 auto;
+}
+
+select{
+cursor: pointer;
+}
+
+.label_cadastro{
+    margin: 10px 0 10px 0  ;
+    color: black;
+    font-size: 30px;
+    font-family: 'Inter',  Arial;
+}
+
+.asteritico{
+    color: #ff0000;
+    font-weight: 800;
+    font-size: 20px;
+    margin-left: 1px;
+}
+
+.caixa_texto{
+    margin: 10px 0 20px 0  ;
+    background-color: #fff;
+    border: solid 3px #7AE5D2;
+    color: #117D6A;
+    font-size: 25px;
+    font-family: 'Inter',  Arial;
+    width: 100%;
+    height: 35px;
+    border-radius: 9px;
+}
+
+.linha_cadastro{
+    border: solid 2px #FFAB08;
+    background-color: #FFAB08;
+    margin: 40px auto;
+    width: 100%;
+}
+
+.input2{
+ display: flex;
+ margin: 10px 0 20px 0 ;
+ width: 100%;
+}
+
+.caixa_texto_mini{
+    margin: 10px 30px 0 0  ;
+    background-color: #fff;
+    border: solid 3px #7AE5D2;
+    color: #117D6A;
+    font-size: 25px;
+    font-family: 'Inter',  Arial;
+    width: 415px;
+    height: 35px;
+    border-radius: 9px;
+}
+
+#v{
+    margin-right: 9% ;
+}
+
+#btn_final_cadastro_adm{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.btn_Finalizar_adm{
+margin: 50px auto 20px 0;
+background-color: #FFAB08;
+color: #fff;
+width: 250px;
+height: 50px;
+font-size: 30px;
+font-family: 'Inter',  Arial;
+border: solid 3px #DB9103;
+border-radius: 10px;
+cursor: pointer;
+text-decoration: none;
+}
+
+.btn_Finalizar_adm:hover{
+    background-color: #DB9103;
+}
+
+.btn_Finalizar_adm:active{
+    background-color: #fff;
+    color: #FFAB08;
+}
+
+.btn_Deletar_adm{
+    margin: 10px auto 40px 0;
+    background-color: #FD013D;
+    color: #fff;
+    width: 250px;
+    height: 50px;
+    font-size: 30px;
+    font-family: 'Inter',  Arial;
+    border: solid 3px #FF0000;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn_Deletar_adm:hover{
+    background-color: #FF0000;
+}
+
+.btn_Deletar_adm:active{
+    background-color: #fff;
+    color: #FD013D;
+}
+
+#area_selecao_user{
+width: 41%;
+margin: 0 auto 40px auto;
+}
+
+#area_selecao_user h3{
+    text-align: center;
+    font-family: 'Inter',  Arial;
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: #063F35;
+}
+
+.radio_opicao_area_selecao_user{
+    width: 30px;
+
+}
+
+.opicao_area_selecao_user{
+    margin-bottom: 15px;
+    display: flex;
+    font-size: 25px;
+    font-family: 'Inter',  Arial;
+}
+
+
+/*moldal*/
+
+.moldal_btns{
+display: flex;
+width: 100%;
+text-align: center;
+justify-content: space-around;
+border-radius: 30px;
+margin: 10px 0;
+}
+
+.texto_moldal{
+    height: 90px;
+    text-align: center;
+    font-size: 29px;
+    font-family: 'Inter',  Arial;
+}
+
+.texto_moldal2{
+    text-align: center;
+    font-size: 29px;
+    font-family: 'Inter',  Arial;
+}
+
+.div_btn_fechar{
+    margin: 5px 6px;
+    display: flex;
+    justify-content: end;
+}
+
+.modal-content{
+margin-top: 200px;
+border: none;
+box-shadow: 10px 10px 8px #021916ad;
+}
+
+.btn_nao_moldal{
+    width: 25%;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #FFAB08;
+    border: solid 2px #FFAB08;
+    border-radius: 11px;
+    color: #fff;
+}
+
+.btn_nao_moldal:active{
+    background-color: #ffffff;
+    color: #FFAB08;
+}
+
+.btn_nao_moldal:hover{
+    background-color: #DB9103;
+    border: solid 2px #DB9103;
+}
+
+.btn_sim_moldal{
+    width: 25%;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #36AB96;
+    border: solid 2px #36AB96;
+    border-radius: 11px;
+    color: #fff;
+}
+
+.btn_sim_moldal:active{
+    background-color: #fff;
+    color: #36AB96;
+}
+
+.btn_sim_moldal:hover{
+    background-color: #117D6A;
+    border: solid 1px #117D6A;
+}
+
+.aux20{
+    width: 500px;
+    height: 250px;
+}
+
+#destaque_red{
+color: #FF0000;
+font-weight: 600;
+text-align: center;
+font-size: 29px;
+font-family: 'Inter',  Arial;
+}

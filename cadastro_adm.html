@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Cadastro</title>
+</head>
+<body>
+
+    <nav>
+        <a href="home_adm.html" class="ancora_nav_logo">logo<img src="" alt="" class="logo_nav"></a>
+        <div id="aux14">
+            <button class="btn_deslogar">Deslogar</button> <br>
+            <a href="ajuda.html"><img src="img/ajuda_icon.png" alt="" class="ajuda_icon"></a>
+        </div>
+    </nav><br>
+    
+
+
+    <br><br>
+    <div class="contaner_titulo_index">
+        <a href="home_adm.html">
+            <button class="btn_voltar_adm">
+                 <img src="img/voltar.png" alt="" class="img_btn_voltar">
+             </button>
+         </a>
+    </div>
+    <h1 class="titulo_pagina_adm">Adicionar usuário</h1>
+
+
+   <div id="area_selecao_user">
+       <h3>Que tipo de usúario deseja adicionar ? </h3>
+
+       <div class="opicao_area_selecao_user"><input type="radio" name="user" class="radio_opicao_area_selecao_user"> <p>Enfermeiro</p></div>
+       <div class="opicao_area_selecao_user"><input type="radio" name="user" class="radio_opicao_area_selecao_user"> <p>Gestor</p></div>
+       <div class="opicao_area_selecao_user"><input type="radio" name="user" class="radio_opicao_area_selecao_user"> <p>Administrador</p></div>
+   </div>
+
+
+<section id="sec_cadastro">
+
+    <Label class="label_cadastro">Nome Completo: </Label><sup class="asteritico">*</sup><br>
+    <input type="text" name="" id="" class="caixa_texto" minlength="2" maxlength="100" required><br>
+
+    <Label class="label_cadastro">Nome da mãe: </Label><sup class="asteritico">*</sup><br>
+    <input type="text" name="" id="" class="caixa_texto" minlength="2" maxlength="100" required><br>
+
+
+    <Label class="label_cadastro">Nome do pai: </Label><br>
+    <input type="text" name="" id="" class="caixa_texto" minlength="2" maxlength="100" required>
+
+    <div class="input2">
+        <div id="v">
+            <Label class="label_cadastro">Data de nascimento: </Label><sup class="asteritico">*</sup><br>
+            <input type="text" name="data_nascimento" id="data_nascimento" class="caixa_texto_mini"  required>
+        </div>
+
+        <div>
+            <Label class="label_cadastro">CPF: </Label><sup class="asteritico">*</sup><br>
+            <input type="text" name="cpf" id="cpf" class="caixa_texto_mini" minlength="14" maxlength="14" required>
+        </div>
+    </div>
+
+    <div class="input2">
+        <div id="v">
+            <Label class="label_cadastro">Sexo: </Label><sup class="asteritico">*</sup><br>
+            <input type="text" name="" id="" class="caixa_texto_mini" minlength="2" maxlength="250" required>
+        </div>
+
+        <div>
+            <Label class="label_cadastro">RG: </Label><sup class="asteritico">*</sup><br>
+            <input type="text" name="" id="rg" class="caixa_texto_mini" minlength="12" maxlength="12" required>
+        </div>
+    </div>
+
+    <div class="input2">
+        <div id="v">
+            <Label class="label_cadastro">CEP: </Label><sup class="asteritico">*</sup><br>
+            <input type="text" name="" id="cep" class="caixa_texto_mini" minlength="9" maxlength="9" required>
+        </div>
+
+        <div>
+            <Label class="label_cadastro">Telefone: </Label><sup class="asteritico">*</sup><br>
+            <input type="text" name="" id="telefone" class="caixa_texto_mini" minlength="14" maxlength="14" required>
+        </div>
+    </div>
+
+    <hr class="linha_cadastro">
+
+    <Label class="label_cadastro"> Curso:</Label><sup class="asteritico">*</sup><br>
+    <select class="caixa_texto">
+        <option>oi</option>
+    </select>
+        <br>
+
+    <Label class="label_cadastro">Universidade:</Label><sup class="asteritico">*</sup><br>
+    <select class="caixa_texto">
+        <option>oi</option>
+    </select>
+        <br>
+
+    <div class="input2">
+        <div id="v">
+            <Label class="label_cadastro">Data de início universidade: </Label><sup class="asteritico">*</sup><br>
+            <input type="date" name="" id="" class="caixa_texto_mini" minlength="8" max="2022-09-28" required>
+        </div>
+
+        <div>
+            <Label class="label_cadastro">Data término universidade: </Label><sup class="asteritico">*</sup><br>
+            <input type="date" name="" id="" class="caixa_texto_mini" required>
+        </div>
+    </div>
+
+    <hr class="linha_cadastro">
+
+    <Label class="label_cadastro">Cargo:</Label><sup class="asteritico">*</sup><br>
+    <select class="caixa_texto">
+        <option>oi</option>
+    </select>
+        <br>
+
+    <Label class="label_cadastro">Área:</Label><sup class="asteritico">*</sup><br>
+    <select class="caixa_texto">
+        <option>oi</option>
+    </select>
+        <br>
+
+    <Label class="label_cadastro">Especialidade:</Label><sup class="asteritico">*</sup><br>
+    <select class="caixa_texto">
+        <option>oi</option>
+    </select>
+        <br>
+
+    <Label class="label_cadastro">Tipo de contrato:</Label><sup class="asteritico">*</sup><br>
+    <select class="caixa_texto">
+        <option>oi</option>
+    </select>
+        <br>
+
+    <div class="input2">
+        <div id="v">
+            <Label class="label_cadastro">COREN: </Label><sup class="asteritico">*</sup><br>
+            <input type="text" name="" id="coren" class="caixa_texto_mini" minlength="2" maxlength="250" required>
+        </div>
+
+        <div>
+            <Label class="label_cadastro">Matrícula: </Label><sup class="asteritico">*</sup><br>
+            <input type="text" name="" id="" class="caixa_texto_mini" minlength="9" maxlength="9" required>
+        </div>
+    </div>
+
+    <div class="input2">
+        <div id="v">
+            <Label class="label_cadastro">Senha: </Label><sup class="asteritico">*</sup><br>
+            <input type="text" name="" id="" class="caixa_texto_mini" minlength="8" maxlength="40" required>
+        </div>
+
+    </div>
+
+</section>
+
+<div id="btn_final_cadastro_adm">
+   <button class="btn_Finalizar_adm" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="validacaoData()">Finalizar</button>
+    <br><br>
+  <button class="btn_Deletar_adm" data-toggle="modal" data-target="#meuModal">Deletar</button>
+</div>
+
+
+
+  <!-- Modal 1-->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="div_btn_fechar">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="texto_moldal">Tem certeza que deseja 
+            finalizar?</p>
+        </div>
+        <div class="moldal_btns">
+          <button type="button" class="btn_nao_moldal" data-bs-dismiss="modal">Não</button>
+          <button type="button" class="btn_sim_moldal" data-bs-dismiss="modal" >Sim</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal 2-->
+<div id="meuModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content aux20" >
+      <div >
+        <div class="modal-body">
+            <p class="texto_moldal2">Tem certeza que deseja <p id="destaque_red">DELETAR ?</p> </p>
+        </div>
+      </div>
+      <div class="moldal_btns">
+        <button type="button" class="btn_nao_moldal" data-dismiss="modal">Não</button>
+        <button type="button" class="btn_sim_moldal" data-dismiss="modal">Sim</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<footer>
+    <img src="img/cartaicon.png" id="logo_rodape" alt="">
+    <div id="redes_socias_rodape">
+        <span id="linha_rodape"></span>
+        <img src="img/Brasil.png" alt="">
+        <img src="img/instaicon.png" alt="">
+        <img src="img/cartaicon.png" alt="">
+    </div>
+</footer>
+    
+    
+</body>
+<script src="js/funcao.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script src="js/jquery.mask.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#rg').mask('00.000.000-00');
+        $('#cep').mask('00000-000');
+        $('#cpf').mask('000.000.000-00')
+        $('#telefone').mask('(00) 00000-0000')
+        $('#coren').mask('COREN-AA 000.000-AAAA')
+        $('#data_nascimento').mask('00/00/0000')
+        
+        })
+</script>
+
+</html>

@@ -1,0 +1,84 @@
+.container_troca{
+  width: 70%;
+  background-color: #fff;
+  border: solid 3px #FFAB08;
+  border-radius: 15px;
+  margin: 0 auto;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.img_robo{
+  margin: 20px 30px;
+  width: 90px;
+  height: 90px;
+}
+
+.textos_troca{
+  margin: 20px 30px 0 30px;
+}
+
+.nome_toca{
+  font-size: 30px;
+  font-family: 'Inter',  Arial;
+  color: #DB9103;
+}
+
+.msg_toca{
+  font-size: 25px;
+  font-family: 'Inter',  Arial;
+  color: #117D6A;
+}
+
+.btn_troca_aceitar{
+  margin: 20px 40px;
+  display: block;
+ border-radius: 10px;
+ font-size: 25px;
+ border: solid 2px #FBC45D;
+ background-color: #FBC45D;
+ color: #fff;
+ cursor: pointer;
+ width: 105px;
+ height: 35px;
+ cursor: pointer;
+text-decoration: none;
+}
+
+.btn_troca_aceitar:hover{
+  background-color: #facf7f;
+}
+
+.btn_troca_aceitar:active{
+  background-color: #fff;
+  color: #FBC45D;
+}
+
+.btn_troca_negar{
+  margin: 0px 40px;
+  border: solid 2px #117D6A;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: #117D6A;
+  color: #fff;
+  cursor: pointer;
+  width: 105px;
+ height: 35px;
+ cursor: pointer;
+text-decoration: none;
+}
+
+.btn_troca_negar:hover{
+  background-color: #2f9683;
+}
+
+.btn_troca_negar:active{
+  background-color: #fff;
+  color: #117D6A;
+}
+
+
+
+
+
+

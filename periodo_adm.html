@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/periodo.css">
+    <title>Período</title>
+</head>
+
+<body>
+    <nav>
+        <a href="home_adm.html" class="ancora_nav_logo">logo<img src="" alt="" class="logo_nav"></a>
+        <div id="aux14">
+            <button class="btn_deslogar">Deslogar</button> <br>
+            <a href="ajuda.html"><img src="img/ajuda_icon.png" alt="" class="ajuda_icon"></a>
+        </div>
+    </nav><br>
+
+    <br><br>
+    <div class="contaner_titulo_index">
+        <a href="ver_plantao_adm.html">
+            <button class="btn_voltar_adm">
+                 <img src="img/voltar.png" alt="" class="img_btn_voltar">
+             </button>
+         </a>
+    </div>
+    <h1 class="titulo_pagina_adm">Período</h1>
+        
+    <div id="sec_horario">
+        <div id="aux36">
+            <div id="aux15">
+                <select name="cars" id="" class="selecao_area">
+                    <option selected disabled value="">Selecione a Área</option>
+                    <option class="selecao_area_opicoes">################# </option>
+                </select>
+            </div><br><br><br>
+
+            <div class="conteiner_hario">
+                <div class="vazio"></div>
+                <div class="conteiner_hora">
+                    <input type="radio" name="hora" id="manha" checked  class="radio_hora" value="S">
+                    <p  class="radio_hora_text">07:00 às 13:00</p>
+                </div>
+
+                <div class="conteiner_hora">
+                    <input type="radio" name="hora" id="tarde" class="radio_hora" value="N">
+                    <p class="radio_hora_text">13:00 às 19:00</p>
+                </div>
+
+                <div class="conteiner_hora">
+                    <input type="radio" name="hora" id="noite"  class="radio_hora" value="F">
+                    <p class="radio_hora_text">21:00 às 07:00</p>
+                </div>
+                <div class="vazio"></div>
+            </div>
+
+                <hr id="linha_horario_adm">
+                
+            <div class="btn_avancar">
+                <button class="btn_pediodo_adm" onclick="avaPeriodoADM()">Avançar</button>
+            </div>
+            <div id="aux47"></div>
+        </div>
+
+    </div>
+
+    <div id="aux38">
+        <div class="btn_avancar" id="aux37">
+            <button class="btn_pediodo_adm" onclick="f5()">Trocar Horário</button>
+        </div>
+
+        <div class="cabecalho_adm">
+            <div id="aux">
+                <div class="cabecalho_dia_adm">
+                    <p>1</p>
+                </div>
+                <div>
+                    <p id="cabecalho_mes_adm">Mês</p>
+                    <p id="cabecalho_info_adm">Leitos ativos: 0</p>
+                    <p id="cabecalho_info_adm">Leitos desativados: 0</p>
+                </div>
+                <div class="cabecalho_hora_adm">
+                    <p>7:00 às 13:30 </p>
+                </div>
+            </div>
+        </div>
+
+            <div class="n_enf">
+                <p>Enfermeiros:0</p>
+                <p>Técnicos de enfermagem:0</p>
+                <p>Auxiliar de enfermagem:0</p>
+            </div>
+    
+
+        <div id="sec_gerenciamento">
+
+            <h2 class="funcio">Enfermeiros</h2>
+
+            <div class="card_funcionario_periodo">
+                <div>
+                <img src="img/enfermeiro.png" alt="seringa medica" class="icon_funcio_periodo">
+                </div>
+                <div class="dados_user_periodo">
+                    <p class="funcio_periodo_Nome">Nome Completo</p>
+                    <p class="funcio_periodo_dados">Matrícula: 000000</p>
+                    <p class="funcio_periodo_dados">COREN: 00000000</p>
+                </div>
+                <div class="funcio_periodo_dias">
+                    <p>7</p>
+                </div>
+            </div>
+
+
+
+            <h2 class="funcio">Técnicos de enfermagem</h2>
+
+            <div class="card_funcionario_periodo">
+                <div>
+                <img src="img/Tecnico.png" alt="seringa medica" class="icon_funcio_periodo">
+                </div>
+                <div class="dados_user_periodo">
+                    <p class="funcio_periodo_Nome">Nome Completo</p>
+                    <p class="funcio_periodo_dados">Matrícula: 000000</p>
+                    <p class="funcio_periodo_dados">COREN: 00000000</p>
+                </div>
+                <div class="funcio_periodo_dias">
+                    <p>7</p>
+                </div>
+            </div>
+
+            <h2 class="funcio">Auxiliar de enfermagem</h2>
+
+            <div class="card_funcionario_periodo">
+                <div>
+                <img src="img/auxiliar.png" alt="seringa medica" class="icon_funcio_periodo">
+                </div>
+                <div class="dados_user_periodo">
+                    <p class="funcio_periodo_Nome">Nome Completo</p>
+                    <p class="funcio_periodo_dados">Matrícula: 000000</p>
+                    <p class="funcio_periodo_dados">COREN: 00000000</p>
+                </div>
+                <div class="funcio_periodo_dias">
+                    <p>7</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="sec_ausencia">
+
+            <div class="conteiner_ausencia_adm"><br>
+                <h3 id="title_ausencia">Ausentes</h3><br>
+                <hr id="linha_ausencia">
+
+                <div class="cedula_ausente_adm">
+                    <p class="nome_ausencia">Nome Completo</p>
+                    <hr class="separa_ausencia">
+                    <p class="cargo_ausencia">Cargo</p>
+                    <p class="status_ausencia_adm">X</p>
+                </div>
+
+                <div class="cedula_ausente_adm">
+                    <p class="nome_ausencia">Nome Completo</p>
+                    <hr class="separa_ausencia">
+                    <p class="cargo_ausencia">Cargo</p>
+                    <p class="status_ausencia_adm">ABF</p>
+                </div>
+
+                <div class="cedula_ausente_adm">
+                    <p class="nome_ausencia">Nome Completo</p>
+                    <hr class="separa_ausencia">
+                    <p class="cargo_ausencia">Cargo</p>
+                    <p class="status_ausencia_adm">FE</p>
+                </div>
+            <br>
+            </div>
+
+        </div>
+
+        <div id="sec_legenda">
+
+            <div class="container_legenda">
+                <h3 id="title_legenda">Legenda</h3>
+                <hr class="linha_legenda">
+                <div class="info_legenda_container">
+                    <p class="info_legenda">
+                        PR:Presente <br>
+                        X: Folga <br>
+                        ABA: Folga Abonada <br>
+                        LTS: Licença tratamento de saúde <br>
+                        LP: Licença Prêmio  <br>
+                        LG: Licença gala <br>
+                        FE: Férias <br>
+                    </p>
+
+                    <p  class="info_legenda">
+                        FI: Falta injustificada <br>
+                        PF: Ponto Facultativo <br>
+                        CH: Compensação de hora <br>
+                        TL: Projeto Trocando de Lugar <br>
+                        AF: Afastado <br>
+                        TC: Término de contrato <br>
+                        FT:Folga trabalhada<br>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <br><br>
+    <footer>
+        <img src="img/cartaicon.png" id="logo_rodape" alt="">
+        <div id="redes_socias_rodape">
+            <span id="linha_rodape"></span>
+            <img src="img/Brasil.png" alt="">
+            <img src="img/instaicon.png" alt="">
+            <img src="img/cartaicon.png" alt="">
+        </div>
+    </footer>
+    
+</body>
+<script src="js/funcao.js"></script>
+</html>
