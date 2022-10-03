@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -8,7 +9,15 @@
     @*<link rel="stylesheet" href="~/css/site.css" />*@
 </head>
 <body>
-
+     @if (Context.Session.GetString("usuarios") != null)
+    {
+        <nav>
+        <a asp-controller="Usuarios" asp-action="Sair">
+                    <div><i class="fa-solid fa-arrow-right-from-bracket" title="Sair">Sair</i></div>
+                </a>
+    </nav>
+    }
+    
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

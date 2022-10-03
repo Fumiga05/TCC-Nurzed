@@ -160,7 +160,11 @@ namespace Nurzed.Controllers
             
            
         }
-
+        public IActionResult Sair()
+        {
+            HttpContext.Session.Remove("usuarios");
+            return RedirectToAction("Login");
+        }
         public IActionResult HomeAdm()
         {
             PadraoController padrao = new PadraoController();
