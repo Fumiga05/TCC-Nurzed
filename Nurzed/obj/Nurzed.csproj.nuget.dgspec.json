@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Senai\\3DSB\\Sprint3\\Nurzed\\Nurzed.csproj": {}
+    "F:\\Senai\\3DSB\\Sprint3\\TCC-Nurzed\\Nurzed\\Nurzed.csproj": {}
   },
   "projects": {
-    "F:\\Senai\\3DSB\\Sprint3\\Nurzed\\Nurzed.csproj": {
+    "F:\\Senai\\3DSB\\Sprint3\\TCC-Nurzed\\Nurzed\\Nurzed.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Senai\\3DSB\\Sprint3\\Nurzed\\Nurzed.csproj",
+        "projectUniqueName": "F:\\Senai\\3DSB\\Sprint3\\TCC-Nurzed\\Nurzed\\Nurzed.csproj",
         "projectName": "Nurzed",
-        "projectPath": "F:\\Senai\\3DSB\\Sprint3\\Nurzed\\Nurzed.csproj",
+        "projectPath": "F:\\Senai\\3DSB\\Sprint3\\TCC-Nurzed\\Nurzed\\Nurzed.csproj",
         "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
-        "outputPath": "F:\\Senai\\3DSB\\Sprint3\\Nurzed\\obj\\",
+        "outputPath": "F:\\Senai\\3DSB\\Sprint3\\TCC-Nurzed\\Nurzed\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,10 +40,6 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
-            "GitHub": {
-              "target": "Package",
-              "version": "[1.34.0, )"
-            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.5, )"

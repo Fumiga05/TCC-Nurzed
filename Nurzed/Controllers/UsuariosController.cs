@@ -164,7 +164,7 @@ namespace Nurzed.Controllers
         public IActionResult HomeAdm()
         {
             PadraoController padrao = new PadraoController();
-            
+
             if (padrao.Logado(HttpContext) == true)
             {
                 if (padrao.Privilegios(HttpContext) == "adm")
@@ -177,7 +177,7 @@ namespace Nurzed.Controllers
                 }
                 else if (padrao.Privilegios(HttpContext) == "Enfermeiro")
                 {
-                    return RedirectToAction("HomesEnf");
+                    return RedirectToAction("HomeEnf");
                 }
                 else
                 {
@@ -189,14 +189,63 @@ namespace Nurzed.Controllers
                 return RedirectToAction("Login");
             }
         }
-         
-        //public IActionResult HomeGestor()
-        //{
-        //    return View();
-        //}
-        //public IActionResult HomeEnf()
-        //{
-        //    return View();
-        //}
+
+        public IActionResult HomeGestor()
+        {
+            PadraoController padrao = new PadraoController();
+            if (padrao.Logado(HttpContext) == true)
+            {
+                if (padrao.Privilegios(HttpContext) == "adm")
+                {
+                    return RedirectToAction("HomeAdm");
+                }
+                else if (padrao.Privilegios(HttpContext) == "Gestor")
+                {
+                    return View();
+                }
+                else if (padrao.Privilegios(HttpContext) == "Enfermeiro")
+                {
+                    return RedirectToAction("HomeEnf");
+                }
+                else
+                {
+                    return RedirectToAction("Login");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+
+        }
+
+        public IActionResult HomeEnf()
+        {
+            PadraoController padrao = new PadraoController();
+            if (padrao.Logado(HttpContext) == true)
+            {
+                if (padrao.Privilegios(HttpContext) == "adm")
+                {
+                    return RedirectToAction("HomeAdm");
+                }
+                else if (padrao.Privilegios(HttpContext) == "Gestor")
+                {
+                    return RedirectToAction("HomeGestor");
+                }
+                else if (padrao.Privilegios(HttpContext) == "Enfermeiro")
+                {
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Login");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
     }
 }
+
