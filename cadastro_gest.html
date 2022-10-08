@@ -47,7 +47,7 @@
     <div class="input2">
         <div id="v">
             <Label class="label_cadastro">Data de nascimento: </Label><sup class="asteritico">*</sup><br>
-            <input type="date" name="" id="" class="caixa_texto_mini" minlength="10" maxlength="10" required>
+            <input type="text" name="data_nascimento" id="data_nascimento" class="caixa_texto_mini"  required>
         </div>
 
         <div>
@@ -97,12 +97,12 @@
     <div class="input2">
         <div id="v">
             <Label class="label_cadastro">Data de início universidade: </Label><sup class="asteritico">*</sup><br>
-            <input type="date" name="" id="" class="caixa_texto_mini" minlength="10" maxlength="10" required>
+            <input type="text" name="" id="uni_inicio" class="caixa_texto_mini" minlength="8" required>
         </div>
 
         <div>
             <Label class="label_cadastro">Data término universidade: </Label><sup class="asteritico">*</sup><br>
-            <input type="date" name="" id="" class="caixa_texto_mini" minlength="10" maxlength="10" required>
+            <input type="text" name="" id="uni_fim" class="caixa_texto_mini" required>
         </div>
     </div>
 
@@ -155,7 +155,9 @@
 </section>
 
 <div id="btn_final_cadastro_adm">
-   <button class="btn_Finalizar_adm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Finalizar</button>
+    <button class="btn_Finalizar_adm" data-bs-target="#staticBackdrop" onclick="validacaoData()">Finalizar</button>
+    <br>
+    <p id="ganbiara">Clicke 2x para finalizar</p>
     <br><br>
   
 
@@ -193,6 +195,8 @@
 </footer>
     
 </body>
+
+<script src="js/funcao.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 

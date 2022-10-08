@@ -129,6 +129,7 @@ function validacaoData() {
             }
         }else{
             alert("Data invalida , verifique os campos");
+            console.log("aqui")
         }
     }
 
@@ -160,15 +161,28 @@ function validacaoData() {
     }
 
 
-   if(validacao1 == true || validacao2 == true && validacao3 == true || validacao4 == true && validacao5 == true || validacao6 == true ){
-    
-    let teste = document.getElementsByClassName('btn_Finalizar_adm')[0] 
-    teste.setAttribute("data-bs-toggle", "modal")
-    
+    if(validacao1 == true || validacao2 == true){
+        console.log("1 ok");
+        if(validacao3 == true || validacao4 == true){
+            console.log("2 ok");
+            if(validacao5 == true || validacao6 == true){
+                console.log("3 ok");
+                let teste = document.getElementsByClassName('btn_Finalizar_adm')[0] 
+                teste.setAttribute("data-bs-toggle", "modal") 
+            }else{
+                let teste = document.getElementsByClassName('btn_Finalizar_adm')[0] 
+                teste.setAttribute("data-bs-toggle", "null")
+                console.log("abacate")
+            }
+        }else{
+            let teste = document.getElementsByClassName('btn_Finalizar_adm')[0] 
+            teste.setAttribute("data-bs-toggle", "null")
+            console.log("roxo")
+        }
    }else{
     let teste = document.getElementsByClassName('btn_Finalizar_adm')[0] 
-    teste.removeAttribute("data-bs-toggle", "modal")
-
+    teste.setAttribute("data-bs-toggle", "null")
+    console.log("deu ruiiiiim")
 
 
 
