@@ -106,12 +106,12 @@
     <div class="input2">
         <div id="v">
             <Label class="label_cadastro">Data de início universidade: </Label><sup class="asteritico">*</sup><br>
-            <input type="date" name="" id="" class="caixa_texto_mini" minlength="8" max="2022-09-28" required>
+            <input type="text" name="" id="uni_inicio" class="caixa_texto_mini" minlength="8" required>
         </div>
 
         <div>
             <Label class="label_cadastro">Data término universidade: </Label><sup class="asteritico">*</sup><br>
-            <input type="date" name="" id="" class="caixa_texto_mini" required>
+            <input type="text" name="" id="uni_fim" class="caixa_texto_mini" required>
         </div>
     </div>
 
@@ -164,32 +164,36 @@
 </section>
 
 <div id="btn_final_cadastro_adm">
-   <button class="btn_Finalizar_adm" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="validacaoData()">Finalizar</button>
+   <button class="btn_Finalizar_adm" data-bs-target="#staticBackdrop" onclick="validacaoData()">Finalizar</button>
+   <br>
+   <p id="ganbiara">Clicke 2x para finalizar</p>
     <br><br>
   <button class="btn_Deletar_adm" data-toggle="modal" data-target="#meuModal">Deletar</button>
+  <br>
 </div>
 
 
 
   <!-- Modal 1-->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="div_btn_fechar">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="div_btn_fechar">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <p class="texto_moldal">Tem certeza que deseja 
+                    finalizar?</p>
+                </div>
+                <div class="moldal_btns">
+                <button type="button" class="btn_nao_moldal" data-bs-dismiss="modal">Não</button>
+                <button type="button" class="btn_sim_moldal" data-bs-dismiss="modal" >Sim</button>
+                </div>
+            </div>
+            </div>
         </div>
-        <div class="modal-body">
-          <p class="texto_moldal">Tem certeza que deseja 
-            finalizar?</p>
-        </div>
-        <div class="moldal_btns">
-          <button type="button" class="btn_nao_moldal" data-bs-dismiss="modal">Não</button>
-          <button type="button" class="btn_sim_moldal" data-bs-dismiss="modal" >Sim</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
+   
 <!-- Modal 2-->
 <div id="meuModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
