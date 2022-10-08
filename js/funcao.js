@@ -51,32 +51,46 @@ function avaPeriodoADM() {
 
 
 function validacaoData() {
-
     var data = new Date();
     var dia = String(data.getDate()).padStart(2, '0');
     var mes = String(data.getMonth() + 1).padStart(2, '0');
     var ano = data.getFullYear();
-    dataAtual = dia  +"/"+ mes +"/" + ano;
-    console.log(dataAtual);
 
     var data = document.querySelector("#data_nascimento").value;
-    console.log(data);
+    var resultado = data.split("/");
+  
+    var primeiro = resultado[0];
+    var segundo = resultado[1];
+    var terseiro = resultado[2];
 
-    var stringExemplo = "dataAtual";
-    var resultado = stringExemplo.split("/");
-    console.log(resultado);
+ 
+    if(terseiro < ano && terseiro > 1890){
+        if(segundo > 12){
+            alert("Data invalida , verifique os campos")
+        }
+        if(primeiro > 31){
+            alert("Data invalida , verifique os campos")
+        }
 
-   /* var stringExemplo1 = "data";
-    var resultado1 = stringExemplo.split("/");
-    console.log(resultado1);*/
+        /*desparador */
+    }else{
+        if(terseiro == ano){
+            if(segundo <= mes){
+                if(segundo == mes ){
+                    if(primeiro <= dia){
+                    
+                    /*desparador */
+                    }else{
+                        alert("Data invalida , verifique os campos");
+                    }
+                }
+            }else{
+                alert("Data invalida , verifique os campos");
+            }
 
-  // if(data >= dataAtual){
-  //  alert("Data Invalida");
-  // }else{
-   // console.log("Data Valida");
-  // }
-
-
+        }else{
+            alert("Data invalida , verifique os campos");
+        }
+    }
 }
-
 
