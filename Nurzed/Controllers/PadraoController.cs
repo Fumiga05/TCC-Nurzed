@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Nurzed.Models;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Nurzed.Controllers
 {
@@ -42,7 +44,24 @@ namespace Nurzed.Controllers
             }
            
         }
+        public string Criptografar(string senha)
+        {
+            //Criar um objeto da classe SHA256
+            SHA256 sha256 = SHA256.Create();
 
+            //Converte a senha para um vetor de bytes
+            byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(senha));
+
+            //Converter o vetor de bytes para String
+            StringBuilder builder = new StringBuilder();
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                builder.Append(bytes[i].ToString("x2"));
+            }
+
+            //Retorna a senha em String
+            return builder.ToString();
+        }
         public Usuarios RetornarObjeto(HttpContext httpContext)
         {
 

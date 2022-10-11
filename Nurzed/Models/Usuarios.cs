@@ -144,7 +144,7 @@ namespace Nurzed.Models
                 qry.Parameters.AddWithValue("@coren", coren);
                 qry.Parameters.AddWithValue("@cep", cep);
                 qry.Parameters.AddWithValue("@telefone", telefone);
-                qry.Parameters.AddWithValue("@matricula", matricula);
+                qry.Parameters.AddWithValue("@matricula", int.Parse(matricula));
                 qry.Parameters.AddWithValue("@id_Especialidade", id_Especialidade);
                 qry.Parameters.AddWithValue("@id_Cargo", id_Cargo);
                 qry.Parameters.AddWithValue("@tipo_de_contrato", tipo_de_contrato);

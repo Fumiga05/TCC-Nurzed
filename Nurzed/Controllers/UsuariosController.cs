@@ -9,11 +9,11 @@ namespace Nurzed.Controllers
 {
     public class UsuariosController : Controller
     {
-        
+        PadraoController padrao = new PadraoController();
 
         public IActionResult Cadastrar()
         {
-            PadraoController padrao = new PadraoController();
+            
             if (padrao.Logado(HttpContext) == true)
             {
                 if(padrao.Privilegios(HttpContext) == "adm" || padrao.Privilegios(HttpContext) == "Gestor")
@@ -43,7 +43,7 @@ namespace Nurzed.Controllers
         {
 
             
-            Usuarios usuarios = new Usuarios(id,status1, nome, senha, nome_da_mae, nome_do_pai, data_de_nascimento, sexo, cpf, rg, data_de_inicio_Universidade, data_de_termino_Universidade, coren, cep, telefone, matricula, Id_Especialidade, Id_Cargo, tipo_de_contrato, data_de_criacao, data_de_modificacao, privilegios, id_Universidade, id_Curso, id_Area)
+            Usuarios usuarios = new Usuarios(id,status1, nome,padrao.Criptografar(senha), nome_da_mae, nome_do_pai, data_de_nascimento, sexo, cpf, rg, data_de_inicio_Universidade, data_de_termino_Universidade, coren, cep, telefone, matricula, Id_Especialidade, Id_Cargo, tipo_de_contrato, data_de_criacao, data_de_modificacao, privilegios, id_Universidade, id_Curso, id_Area)
             {
 
             };
@@ -54,6 +54,8 @@ namespace Nurzed.Controllers
             return RedirectToAction("Login");
 
         }
+
+
 
        public IActionResult Listar()
         
@@ -128,7 +130,7 @@ namespace Nurzed.Controllers
         public IActionResult Login(string cpf,string senha)
         {
 
-            Usuarios u = new Usuarios("","", "",senha, "", "", "", "", cpf, "", "", "", "", "", "", "", "", "", "", "", "","", "", "","");
+            Usuarios u = new Usuarios("","", "",padrao.Criptografar(senha), "", "", "", "", cpf, "", "", "", "", "", "", "", "", "", "", "", "","", "", "","");
             Usuarios usuarios = u.Verificar();
            
 
