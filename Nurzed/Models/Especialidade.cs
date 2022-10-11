@@ -44,7 +44,7 @@ namespace Nurzed.Models
         public static List<Especialidade> Listar()
         {
             List<Especialidade> lista = new List<Especialidade>();
-            int i =  0;
+            
             try
             {
                 con.Open();
@@ -56,12 +56,43 @@ namespace Nurzed.Models
                 {
                     Especialidade especialidade = new Especialidade(leitor["id"].ToString(), leitor["nome"].ToString());
                     lista.Add(especialidade);
-                    i++;
+                    
                 }
                     leitor.Close();
                     return lista;
 
             }catch(Exception e)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public static List<Especialidade> ListarEditar()
+        {
+            List<Especialidade> lista = new List<Especialidade>();
+
+            try
+            {
+                con.Open();
+                MySqlCommand qry = new MySqlCommand("SELECT * FROM Especialidade ORDER BY nome", con);
+
+                MySqlDataReader leitor = qry.ExecuteReader();
+
+                while (leitor.Read())
+                {
+                    Especialidade especialidade = new Especialidade(leitor["id"].ToString(), leitor["nome"].ToString());
+                    lista.Add(especialidade);
+
+                }
+                leitor.Close();
+                return lista;
+
+            }
+            catch (Exception e)
             {
                 return null;
             }

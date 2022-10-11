@@ -5,7 +5,7 @@
 @{
     ViewData["Title"] = "Listar";
     Usuarios u = JsonConvert.DeserializeObject<Usuarios>(Context.Session.GetString("usuarios"));
-    //Usuarios2 usuriarios2 = JsonConvert.DeserializeObject<Usuarios2>(Context.Session.GetString("usuarios2"));
+    
 
 }
 
@@ -73,7 +73,8 @@
             </td>
 
             <td>
-                @Html.ActionLink("Editar", "Editar", new { cpf = item.Cpf }) |
+                @Html.ActionLink("Editar", "Editar", new { id = item.Id, cpf = item.Cpf, especialidade = item.Id_Especialidade, cargo = item.Id_Cargo}) 
+                
                 @Html.ActionLink("Ativar", "Ativar", new { cpf = item.Cpf }) |
                 @Html.ActionLink("Inativar", "Inativar", new { cpf = item.Cpf })
             </td>

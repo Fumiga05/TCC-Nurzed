@@ -4,7 +4,11 @@
 
 @{
     ViewData["Title"] = "Editar";
-     //Usuarios2 usuarios2 = JsonConvert.DeserializeObject<Usuarios2>(Context.Session.GetString("usuarios2"));
+    IEnumerable<Universidade> listaUniversidade = ViewData["listaUniversidade"] as IEnumerable<Universidade>; 
+    IEnumerable<Curso> listaCurso = ViewData["listaCurso"] as IEnumerable<Curso>;
+    IEnumerable<Especialidade> listaEspecialidade = ViewData["listaEspecialidade"] as IEnumerable<Especialidade>;
+    IEnumerable<Cargo> listaCargo = ViewData["listaCargo"] as IEnumerable<Cargo>;
+    IEnumerable<Area> listaArea = ViewData["listaArea"] as IEnumerable<Area>;
      IEnumerable<Usuarios> dados = ViewData["dados"] as IEnumerable<Usuarios>;
     
 }
@@ -16,7 +20,7 @@
      
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Editar">
+        <form asp-action="Salvar">
              @foreach(var item in dados){
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -92,12 +96,34 @@
             </div>
             <div class="form-group">
                 <label  class="control-label">Especialidade</label>
-                <input asp-for="Id_Especialidade" value="@item.Id_Especialidade" class="form-control" />
+                <select asp-for="Id_Especialidade" class="form-control">
+                <option value="@item.Id_Especialidade">@item.Id_Especialidade</option>
+                @foreach(var itemEspecialidade in listaEspecialidade)
+                {
+                            if(item.Id_Especialidade != itemEspecialidade.Nome)
+                            {
+                                <option value="@itemEspecialidade.Nome">@itemEspecialidade.Nome</option>
+                            }
+                    
+                }
+                </select>
                 <span asp-validation-for="Id_Especialidade" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label  class="control-label">Cargo</label>
-                <input asp-for="Id_Cargo" value="@item.Id_Cargo" class="form-control" />
+                <select asp-for="Id_Cargo" class="form-control">
+                    <option value="@item.Id_Cargo">@item.Id_Cargo</option>
+                    @foreach(var itemCargo in listaCargo)
+                    {
+                            if(item.Id_Cargo != itemCargo.Nome)
+                            {
+                                <option asp-for="Id_Cargo" value="@itemCargo.Nome">@itemCargo.Nome</option>
+                            }
+                            
+                    }              
+                
+                </select>
                 <span asp-validation-for="Id_Cargo" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -113,14 +139,39 @@
             </div>
             <div class="form-group">
                 <label  class="control-label">Universidade</label>
-                <input asp-for="Id_Universidade" value="@item.Id_Universidade" class="form-control" />
-                <span asp-validation-for="Id_Universidade" class="text-danger"></span>
+                <select id="select" asp-for="Id_Universidade" class="form-control">
+                    <option value="@item.Id_Universidade">@item.Id_Universidade</option>
+                    @foreach(var itemUniversidade in listaUniversidade)
+                    {
+                            if(item.Id_Universidade != itemUniversidade.Nome)
+                            {
+                                <option value="@itemUniversidade.Nome">@itemUniversidade.Nome (@itemUniversidade.Sigla)</option>
+                            }
+                            
+                    }
+                </select>
             </div>
             <div class="form-group">
                 <label  class="control-label">Curso</label>
-                <input asp-for="Id_Curso" value="@item.Id_Curso" class="form-control" />
-                <span asp-validation-for="Id_Curso" class="text-danger"></span>
+                 <select asp-for="Id_Curso" class="form-control">
+                     <option value="@item.Id_Curso">@item.Id_Curso</option>
+                    @foreach(var itemCurso in listaCurso)
+                    {
+                            if(item.Id_Curso != itemCurso.Nome)
+                            {
+                                <option value="@itemCurso.Nome">@itemCurso.Nome </option>
+                            }
+                            
+                    }
+                </select>
             </div>
+
+            <div class="form-group">
+                <label  class="control-label">Data Modificação</label>
+                <input asp-for="Data_de_modificacao" disabled="" value="@item.Data_de_modificacao" class="form-control" />
+                <span asp-validation-for="Data_de_modificacao" class="text-danger"></span>
+            </div>
+            
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

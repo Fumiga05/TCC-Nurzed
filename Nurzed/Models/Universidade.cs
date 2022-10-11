@@ -49,7 +49,7 @@ namespace Nurzed.Models
 
             List<Universidade> lista = new List<Universidade>();
             
-            int i = 0;
+           
             try
             {
                 con.Open();
@@ -62,7 +62,7 @@ namespace Nurzed.Models
                 {
                     Universidade universidade = new Universidade(leitor["id"].ToString(), leitor["nome"].ToString(), leitor["sigla"].ToString());
                     lista.Add(universidade);                   
-                    i++;
+                    
                 }             
                 
                 leitor.Close();
