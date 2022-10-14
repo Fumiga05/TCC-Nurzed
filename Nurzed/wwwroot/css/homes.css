@@ -1,0 +1,190 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+/*padrao*/
+
+.container_home{
+  width: 84%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.container_home_btn{
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  margin-top: 100px;
+  margin-bottom: 6%;
+}
+
+#nome_rodape_gest{
+  color: #6FCCBB;
+  text-align: center;
+  font-size: 20px;
+  font-family: arial;
+  margin:14%  0 0 0  ; 
+}
+
+#nome_rodape{
+  color: #6FCCBB;
+  text-align: center;
+  font-size: 20px;
+  font-family: arial;
+  margin-top: 81px;
+}
+
+#nome_rodape{
+  color: #6FCCBB;
+  text-align: center;
+  font-size: 20px;
+  font-family: arial;
+  margin-top: 81px;
+}
+    
+
+/*padrao fim*/
+
+
+/*Home adm ------------------------------------------------------------------------*/
+
+#area_trab_adm{
+  color:#063F35 ;
+  font-size: 30px;
+  font-family: arial;
+  margin: 30px 0 40px 50px;
+}
+
+#area_trab_adm:active{
+color: #05322a;
+}
+
+.btn_acoens_home_adm{
+background-color: #fff;
+border-radius: 20px;
+border: solid 3px #063F35;
+width: 360px;
+height: 140px;
+margin: 2px 100px;
+box-shadow: 0 8px 15px rgba(0, 0, 0, 0.158);
+cursor: pointer;
+text-decoration: none;
+}
+
+.btn_acoens_home_adm:hover{
+  background-color: rgb(230, 242, 239);
+}
+
+.btn_acoens_home_adm:active{
+  background-color: rgb(201, 219, 217);
+}
+
+.img_btn_home_enf{
+width: 60px;
+height: 60px;
+}
+
+.texto_btn_adm{
+  font-size: 35px;
+  font-family: arial;
+  color: #063F35;
+}
+
+/*fim home adm*/
+/*Home gest -------------------------------------------------------------------------*/
+
+#area_trab_gest{
+  color:#FFAB08 ;
+  font-size: 35px;
+  font-family: arial;
+  margin: 30px 0 40px 50px;
+}
+
+#area_trab_gest{
+  color: #e89d08;
+}
+
+.btn_acoens_home_gest{
+background-color: #fff;
+border-radius: 20px;
+border: solid 3px #FFAB08;
+width: 360px;
+height: 140px;
+margin: 2px 100px;
+box-shadow: 0 8px 15px rgba(0, 0, 0, 0.158);
+cursor: pointer;
+text-decoration: none;
+}
+
+.btn_acoens_home_gest:hover{
+  background-color: rgb(251, 248, 240);
+}
+
+.btn_acoens_home_gest:active{
+  background-color: rgb(233, 225, 213);
+}
+
+.img_btn_home_enf{
+width: 60px;
+height: 60px;
+}
+
+.texto_btn_gest{
+  font-size: 35px;
+  font-family: arial;
+  color: #FFAB08;
+}
+
+
+/*fim home gest*/
+
+/*Home enf ----------------------------------------------------------------------------------*/
+
+#area_trab_enf{
+  color:#6FCCBB ;
+  font-size: 30px;
+  font-family: arial;
+  margin: 32px 0 40px 50px;
+}
+
+#area_trab_enf:active{
+  color: #5fafa0;
+}
+
+.btn_acoens_home_enf{
+background-color: #fff;
+border-radius: 20px;
+border: solid 3px #6FCCBB;
+width: 380px;
+height: 130px;
+margin: 2px 100px;
+box-shadow: 0 8px 15px rgba(0, 0, 0, 0.158);
+cursor: pointer;
+text-decoration: none;
+}
+
+.btn_acoens_home_enf:hover{
+  background-color: rgb(240, 251, 251);
+}
+
+.btn_acoens_home_enf:active{
+  background-color: rgb(213, 233, 233);
+}
+
+.img_btn_home_enf{
+width: 50px;
+height: 50px;
+}
+
+.texto_btn_enf{
+  font-size: 31px;
+  font-family: arial;
+  color: #6FCCBB;
+}
+
+/*fim home enf*/
+
+
+
+

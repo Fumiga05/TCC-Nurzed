@@ -171,6 +171,12 @@
                 <input asp-for="Data_de_modificacao" disabled="" value="@item.Data_de_modificacao" class="form-control" />
                 <span asp-validation-for="Data_de_modificacao" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label  class="control-label">Usuário Executor</label>
+                <input name="Nome_do_usuario" disabled="" value="@item.Usuario_modificacao" class="form-control" />
+                <span asp-validation-for="Usuario_modificacao" class="text-danger"></span>
+            </div>
             
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

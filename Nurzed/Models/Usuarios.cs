@@ -8,7 +8,7 @@ namespace Nurzed.Models
 {
     public class Usuarios
     {
-        private string id,status1, nome, senha, nome_da_mae, nome_do_pai, data_de_nascimento, sexo, cpf, rg, data_de_inicio_Universidade, data_de_termino_Universidade, coren, cep, telefone, matricula, id_Especialidade, id_Cargo, tipo_de_contrato, data_de_criacao, data_de_modificacao, privilegios,id_Universidade, id_Curso,id_Area;
+        private string id,status1, nome, senha, nome_da_mae, nome_do_pai, data_de_nascimento, sexo, cpf, rg, data_de_inicio_Universidade, data_de_termino_Universidade, coren, cep, telefone, matricula, id_Especialidade, id_Cargo, tipo_de_contrato, data_de_criacao, data_de_modificacao, privilegios,id_Universidade, id_Curso,id_Area,usuario_modificacao;
      
 
         static MySqlConnection con = new MySqlConnection("server=localhost;database=vct;user id=teste;password=12345678");
@@ -18,7 +18,7 @@ namespace Nurzed.Models
             string data_de_inicio_Universidade, string data_de_termino_Universidade, string coren,
             string cep, string telefone, string matricula, string id_Especialidade, string id_Cargo,
             string tipo_de_contrato, string data_de_criacao, string data_de_modificacao, string privilegios,
-            string id_Universidade, string id_Curso,string id_Area)
+            string id_Universidade, string id_Curso,string id_Area,string usuario_modificacao)
         {
             this.id = id;
             this.status1 = status1;
@@ -45,6 +45,7 @@ namespace Nurzed.Models
             this.id_Universidade = id_Universidade;
             this.id_Curso = id_Curso;
             this.id_Area = id_Area;
+            this.usuario_modificacao = usuario_modificacao;
         }
 
         public string Id { get => id; set => id = value; }
@@ -74,7 +75,7 @@ namespace Nurzed.Models
         public string Id_Universidade { get => id_Universidade; set => id_Universidade = value; }
         public string Id_Curso { get => id_Curso; set => id_Curso = value; }
         public string Id_Area { get => id_Area; set => id_Area = value; }
-       
+        public string Usuario_modificacao { get => usuario_modificacao; set => usuario_modificacao = value; }
 
         public static string RemoveHora(string s)
         {
@@ -124,10 +125,10 @@ namespace Nurzed.Models
                 MySqlCommand qry = new MySqlCommand("INSERT INTO Usuarios(status1, nome, senha, nome_da_mae, nome_do_pai, data_de_nascimento," +
                     "sexo, cpf, rg, data_de_inicio_Universidade, data_de_termino_Universidade, id_Universidade, id_Curso," +
                     "coren, cep, telefone, matricula,id_Especialidade, id_Cargo, tipo_de_contrato, data_de_criacao, data_de_modificacao," +
-                    "privilegios,id_Area) VALUES('ativado',@nome,@senha,@nome_da_mae,@nome_do_pai,@data_de_nascimento," +
+                    "privilegios,id_Area,usuario_modificacao) VALUES('ativado',@nome,@senha,@nome_da_mae,@nome_do_pai,@data_de_nascimento," +
                     "@sexo,@cpf,@rg,@data_de_inicio_Universidade,@data_de_termino_Universidade,@id_Universidade,@id_Curso," +
                     "@coren,@cep,@telefone,@matricula,@id_Especialidade,@id_Cargo,@tipo_de_contrato,@data_de_criacao,@data_de_modificacao," +
-                    "@privilegios,@id_Area); ", con);
+                    "@privilegios,@id_Area,@usuario_modificacao); ", con);
                 var date = DateTime.Now;
                 data_de_criacao  = String.Format("{0:yyyy-MM-dd HH:mm:ss}", date);
                 data_de_modificacao = String.Format("{0:yyyy-MM-dd HH:mm:ss}", date);
@@ -154,6 +155,7 @@ namespace Nurzed.Models
                 qry.Parameters.AddWithValue("@id_Universidade",id_Universidade);
                 qry.Parameters.AddWithValue("@id_Curso",id_Curso);
                 qry.Parameters.AddWithValue("@id_Area",id_Area);
+                qry.Parameters.AddWithValue("@usuario_modificacao", usuario_modificacao);
 
                 qry.ExecuteNonQuery();
                 return "Usuário cadastrado com Sucesso";
@@ -183,7 +185,7 @@ namespace Nurzed.Models
 
                 while (leitor.Read())
                 {
-                    Usuarios usuarios = new Usuarios(leitor["id"].ToString(),leitor["status1"].ToString(), leitor["nome"].ToString(),"","", "", "","", leitor["cpf"].ToString(), "","", "","", "", "","", leitor["nomeEspec"].ToString(), leitor["nomeCargo"].ToString(), "", "", "", "", "", "","");
+                    Usuarios usuarios = new Usuarios(leitor["id"].ToString(),leitor["status1"].ToString(), leitor["nome"].ToString(),"","", "", "","", leitor["cpf"].ToString(), "","", "","", "", "","", leitor["nomeEspec"].ToString(), leitor["nomeCargo"].ToString(), "", "", "", "", "", "","","");
                     lista.Add(usuarios);
                 }
 
@@ -214,7 +216,7 @@ namespace Nurzed.Models
                 MySqlCommand qry = new MySqlCommand("SELECT u.id,u.status1,u.nome,u.nome_da_mae,u.nome_do_pai," +
                     "u.data_de_nascimento,u.sexo,u.cpf,u.rg,u.data_de_inicio_Universidade," +
                     "u.data_de_termino_Universidade,u.coren, u.cep, u.telefone, u.matricula," +
-                    " u.tipo_de_contrato, u.privilegios,u.data_de_modificacao,a.nome AS nomeArea, e.nome AS nomeEspec, uni.nome AS nomeUni," +
+                    " u.tipo_de_contrato, u.privilegios,u.data_de_modificacao,u.usuario_modificacao,a.nome AS nomeArea, e.nome AS nomeEspec, uni.nome AS nomeUni," +
                     " cur.nome AS cursoNome, car.nome AS cargoNome FROM Usuarios AS u, Especialidade AS e," +
                     " Universidade AS uni, Curso AS cur,Area AS a, Cargo AS car WHERE u.id = @id AND u.id_Area = a.id AND u.id_Universidade = uni.id AND u.id_Curso = cur.id AND "+
                      "u.id_Especialidade = e.id AND u.id_Cargo = car.id", con);
@@ -226,8 +228,8 @@ namespace Nurzed.Models
                
                 while (leitor.Read())
                 {
-                    Usuarios usuarios = new Usuarios(leitor["id"].ToString(),leitor["status1"].ToString(),leitor["nome"].ToString(),"", leitor["nome_da_mae"].ToString(), leitor["nome_do_pai"].ToString(), RemoveHora(leitor["data_de_nascimento"].ToString()), leitor["sexo"].ToString(),leitor["cpf"].ToString(), leitor["rg"].ToString(), RemoveHora(leitor["data_de_inicio_Universidade"].ToString()), RemoveHora(leitor["data_de_termino_Universidade"].ToString()),leitor["coren"].ToString(),leitor["cep"].ToString(), leitor["telefone"].ToString(), leitor["matricula"].ToString(),leitor["nomeEspec"].ToString(), leitor["cargoNome"].ToString(), leitor["tipo_de_contrato"].ToString(), "", leitor["data_de_modificacao"].ToString(), leitor["privilegios"].ToString(), leitor["nomeUni"].ToString(), leitor["cursoNome"].ToString(), 
-                        leitor["nomeArea"].ToString());
+                    Usuarios usuarios = new Usuarios(leitor["id"].ToString(),leitor["status1"].ToString(),leitor["nome"].ToString(),"", leitor["nome_da_mae"].ToString(), leitor["nome_do_pai"].ToString(), RemoveHora(leitor["data_de_nascimento"].ToString()), leitor["sexo"].ToString(),leitor["cpf"].ToString(), leitor["rg"].ToString(), RemoveHora(leitor["data_de_inicio_Universidade"].ToString()), RemoveHora(leitor["data_de_termino_Universidade"].ToString()),leitor["coren"].ToString(),leitor["cep"].ToString(), leitor["telefone"].ToString(), leitor["matricula"].ToString(),leitor["nomeEspec"].ToString(), leitor["cargoNome"].ToString(), leitor["tipo_de_contrato"].ToString(), "", leitor["data_de_modificacao"].ToString(), leitor["privilegios"].ToString(), leitor["nomeUni"].ToString(), leitor["cursoNome"].ToString(),
+                        leitor["nomeArea"].ToString(), leitor["usuario_modificacao"].ToString());
                     lista.Add(usuarios);
                 }
                 
@@ -262,7 +264,7 @@ namespace Nurzed.Models
                         leitor["matricula"].ToString(), leitor["id_Especialidade"].ToString(),
                         leitor["id_Cargo"].ToString(), leitor["tipo_de_contrato"].ToString(),
                         "", "", leitor["privilegios"].ToString(), leitor["id_Universidade"].ToString(),
-                        leitor["id_Curso"].ToString(), leitor["id_Area"].ToString());
+                        leitor["id_Curso"].ToString(), leitor["id_Area"].ToString(), leitor["usuario_modificacao"].ToString());
                 }
                 else
                 {
@@ -286,7 +288,11 @@ namespace Nurzed.Models
             try
             {
                 con.Open();
-                MySqlCommand qry = new MySqlCommand("UPDATE Usuarios SET status1 = @status1,nome = @nome,nome_da_mae = @nome_da_mae,nome_do_pai = @nome_do_pai,data_de_nascimento = @data_de_nascimento, sexo = @sexo, cpf = @cpf, rg = @rg, data_de_inicio_Universidade = @data_de_inicio_Universidade,data_de_termino_Universidade = @data_de_termino_Universidade, id_Universidade = @id_Universidade, id_Curso = @id_Curso, coren = @coren, cep = @cep, telefone = @telefone, matricula = @matricula, id_Especialidade = @id_Especialidade, id_Cargo = @id_Cargo, tipo_de_contrato = @tipo_de_contrato, privilegios = @privilegios,data_de_modificacao = @data_de_modificacao WHERE id = '28'; ", con);
+                MySqlCommand qry = new MySqlCommand("UPDATE Usuarios SET status1 = @status1,nome = @nome,nome_da_mae = @nome_da_mae,nome_do_pai = @nome_do_pai," +
+                    "data_de_nascimento = @data_de_nascimento, sexo = @sexo, cpf = @cpf, rg = @rg, data_de_inicio_Universidade = @data_de_inicio_Universidade," +
+                    "data_de_termino_Universidade = @data_de_termino_Universidade, id_Universidade = @id_Universidade, id_Curso = @id_Curso, coren = @coren," +
+                    " cep = @cep, telefone = @telefone, matricula = @matricula, id_Especialidade = @id_Especialidade, id_Cargo = @id_Cargo, tipo_de_contrato = @tipo_de_contrato," +
+                    " privilegios = @privilegios,data_de_modificacao = @data_de_modificacao,usuario_modificacao = @usuario_modificacao WHERE id = @id; ", con);
                 
                 var date = DateTime.Now;
                 data_de_modificacao = String.Format("{0:yyyy-MM-dd HH:mm:ss}", date);
@@ -314,6 +320,7 @@ namespace Nurzed.Models
                 qry.Parameters.AddWithValue("@id_Curso",EncontrarForeignKey( id_Curso,"Curso"));
                 qry.Parameters.AddWithValue("@id_Area",EncontrarForeignKey( id_Area,"Area"));
                 qry.Parameters.AddWithValue("@data_de_modificacao", data_de_modificacao);
+                qry.Parameters.AddWithValue("@usuario_modificcao", usuario_modificacao);
                 
                 
                 qry.ExecuteNonQuery();

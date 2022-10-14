@@ -1,2 +1,25 @@
-﻿<h1>Area do administrador</h1>
- 
+﻿    <link rel="stylesheet" href="~/css/homes.css">
+    <link rel="stylesheet" href="~/css/index.css">
+<div class="container_home">
+        <br><br><br><p id="area_trab_adm">Área de trabalho:</p>
+
+        <div class="container_home_btn">
+            <a ><button class="btn_acoens_home_adm"><img src="~/img/calendario_adm.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_adm">Ver Plantão</p></button></a>
+            <a asp-controller="Especialidade" asp-action="Cadastrar"><button class="btn_acoens_home_adm" ><img src="~/img/adm_add.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_adm">Add Especialidades</p></button></a>
+            
+        </div>
+
+        <div class="container_home_btn">
+            <a asp-controller="Usuarios" asp-action="Cadastrar"><button class="btn_acoens_home_adm"><img src="~/img/adm_add4.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_adm">Adicionar User</p></button></a>
+            <a><button class="btn_acoens_home_adm"><img src="~/img/Historico_adm.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_adm">Histórico</p></button></a>
+        </div>
+
+        <div class="container_home_btn">
+            <a asp-controller="Area" asp-action="Cadastrar"><button class="btn_acoens_home_adm"><img src="~/img/adm_add3.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_adm">Adicionar Áreas</p></button></a>
+            <a asp-controller="Usuarios" asp-action="Listar"><button class="btn_acoens_home_adm"><img src="~/img/dados_user.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_adm">Dados dos users</p></button></a>
+        </div>
+
+    </div>
+
+
+    <p id="nome_rodape">nome completo</p>
