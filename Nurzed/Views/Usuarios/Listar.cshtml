@@ -1,121 +1,75 @@
-﻿@using Microsoft.AspNetCore.Http
-@using Newtonsoft.Json
-@model IEnumerable<Nurzed.Models.Usuarios>
+﻿@{
+    ViewData["Title"] = "Dados do usuário";
 
-@{
-    ViewData["Title"] = "Listar";
-    Usuarios u = JsonConvert.DeserializeObject<Usuarios>(Context.Session.GetString("usuarios"));
-    
-
+    IEnumerable<Usuarios> listaUsuarios = ViewData["listaUsuarios"] as IEnumerable<Usuarios>;
 }
-
-<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+   
+    
+    
+    <link rel="stylesheet" href="~/css/dados.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.3.1/jquery.quicksearch.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
-<h1>Listar</h1>
-<p>@u.Nome</p>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<div class="contaner_titulo_index">
-        <a href="home_adm.html">
-            <button class="btn_voltar_adm">
-                 <img src="img/voltar.png" alt="" class="img_btn_voltar">
+
+    
+
+    <div class="contaner_titulo_index">
+        <a asp-action="Voltar">
+            <button   class="btn_voltar_adm" >
+                 <img src="~/img/voltar.png" alt="" class="img_btn_voltar">
              </button>
          </a>
     </div>
     <h1 class="titulo_pagina_adm">Dados do usário</h1>
 
-
+    
     <section>
-        <div id="aux4">
-            <input type="text" id="pesquisa_cpf"> <img src="img/lupa.png" id="lupa" alt="" minlength="4" maxlength="250" required>
-        </div>
-
-        <div class="container_dados">
-            <img src="img/dados_user.png" alt="" class="img_user_dados">
-            <div class="texto_dados">
-                <p class="texto_dados_nome">Nome Completo</p>
-                <p class="texto_dados_pessoais">CPF</p>
-                <p class="texto_dados_pessoais">cargo</p>
-                <p class="texto_dados_pessoais">Area que trabalha</p>
+        <div class="form-group input-group" id="div-group-tabela">
+            
+            <div id="aux4">
+                <input name="consulta" id="pesquisa_cpf" placeholder="Consultar CPF" type="text" class="form-control"> <img src="~/img/lupa.png" id="lupa" alt="" minlength="4" maxlength="250" required>
             </div>
-            <button class="btn_editar_dados">Editar</button>
-        </div>
+            </div>
+            <table class="table" id="tabela">
+    
+        <tbody>
+            @foreach(var item in listaUsuarios)
+            {
+                <tr>
 
+                <td id="td">
+            <div class="container_dados">
+                
+                <img src="~/img/dados_user.png" alt="" class="img_user_dados">
+                <div class="texto_dados">
+                    <p class="texto_dados_nome">@item.Nome</p>
+                    <p class="texto_dados_pessoais">@item.Cpf</p>
+                    <p class="texto_dados_pessoais">@item.Id_Cargo</p>
+                    <p class="texto_dados_pessoais">@item.Id_Area</p>
+                </div>
+                <button class="btn_editar_dados">Editar</button>
+            
+            </div>
+        </td>
+             </tr>   
+            }
+            
+    </tbody>
+
+        
         
         
     </section>
-    <div class="form-group input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-        <input name="consulta" id="txt_consulta" placeholder="Consultar" type="text" class="form-control">
-        </div>
-<table class="table" id="tabela">
-    <thead>
-        <tr>
-            <th>
-                Status
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>          
-            
-            <th>
-                CPF
-            </th>
-           
-            
-            <th>
-                Especialidade
-            </th>
-            <th>
-                Cargo
-            </th>
-            
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Cpf)
-            </td>
-  
-            <td>
-                @Html.DisplayFor(modelItem => item.Id_Especialidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id_Cargo)
-            </td>
 
-            <td>
-                @Html.ActionLink("Editar", "Editar", new { id = item.Id, cpf = item.Cpf, especialidade = item.Id_Especialidade, cargo = item.Id_Cargo}) 
-                
-                @Html.ActionLink("Ativar", "Ativar", new { cpf = item.Cpf }) |
-                @Html.ActionLink("Inativar", "Inativar", new { cpf = item.Cpf })
-            </td>
-        </tr>
-        
-}
-    </tbody>
-</table>
+   
+    
 
 <script>
-
-
-
-
-    $('input#txt_consulta').quicksearch('table#tabela tbody tr');
-</script>
+    $('input#pesquisa_cpf').quicksearch('table#tabela tbody tr');
+     </script>
+</html>

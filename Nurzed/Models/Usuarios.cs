@@ -228,7 +228,12 @@ namespace Nurzed.Models
                
                 while (leitor.Read())
                 {
-                    Usuarios usuarios = new Usuarios(leitor["id"].ToString(),leitor["status1"].ToString(),leitor["nome"].ToString(),"", leitor["nome_da_mae"].ToString(), leitor["nome_do_pai"].ToString(), RemoveHora(leitor["data_de_nascimento"].ToString()), leitor["sexo"].ToString(),leitor["cpf"].ToString(), leitor["rg"].ToString(), RemoveHora(leitor["data_de_inicio_Universidade"].ToString()), RemoveHora(leitor["data_de_termino_Universidade"].ToString()),leitor["coren"].ToString(),leitor["cep"].ToString(), leitor["telefone"].ToString(), leitor["matricula"].ToString(),leitor["nomeEspec"].ToString(), leitor["cargoNome"].ToString(), leitor["tipo_de_contrato"].ToString(), "", leitor["data_de_modificacao"].ToString(), leitor["privilegios"].ToString(), leitor["nomeUni"].ToString(), leitor["cursoNome"].ToString(),
+                    Usuarios usuarios = new Usuarios(leitor["id"].ToString(),leitor["status1"].ToString(),leitor["nome"].ToString(),"",
+                        leitor["nome_da_mae"].ToString(), leitor["nome_do_pai"].ToString(), RemoveHora(leitor["data_de_nascimento"].ToString()),
+                        leitor["sexo"].ToString(),leitor["cpf"].ToString(), leitor["rg"].ToString(), RemoveHora(leitor["data_de_inicio_Universidade"].ToString()),
+                        RemoveHora(leitor["data_de_termino_Universidade"].ToString()),leitor["coren"].ToString(),leitor["cep"].ToString(), leitor["telefone"].ToString(),
+                        leitor["matricula"].ToString(),leitor["nomeEspec"].ToString(), leitor["cargoNome"].ToString(), leitor["tipo_de_contrato"].ToString(), "",
+                        leitor["data_de_modificacao"].ToString(), leitor["privilegios"].ToString(), leitor["nomeUni"].ToString(), leitor["cursoNome"].ToString(),
                         leitor["nomeArea"].ToString(), leitor["usuario_modificacao"].ToString());
                     lista.Add(usuarios);
                 }
@@ -249,7 +254,15 @@ namespace Nurzed.Models
             try
             {
                 con.Open();
-                MySqlCommand qry = new MySqlCommand("SELECT * FROM Usuarios WHERE cpf = @cpf AND senha = @senha;", con);
+                MySqlCommand qry = new MySqlCommand("SELECT u.id,u.status1,u.nome,u.nome_da_mae,u.nome_do_pai," +
+                    "u.data_de_nascimento,u.sexo,u.cpf,u.rg,u.data_de_inicio_Universidade," +
+                    "u.data_de_termino_Universidade,u.coren, u.cep, u.telefone, u.matricula," +
+                    " u.tipo_de_contrato,u.data_de_criacao,u.data_de_modificacao,u.privilegios,u.data_de_modificacao,u.usuario_modificacao,a.nome AS nomeArea, e.nome AS nomeEspec, uni.nome AS nomeUni," +
+                    " cur.nome AS cursoNome, car.nome AS cargoNome FROM Usuarios AS u, Especialidade AS e," +
+                    " Universidade AS uni, Curso AS cur,Area AS a, Cargo AS car WHERE u.cpf = @cpf AND u.senha = @senha AND u.id_Area = a.id AND u.id_Universidade = uni.id AND u.id_Curso = cur.id AND " +
+                     "u.id_Especialidade = e.id AND u.id_Cargo = car.id", con);
+
+                //MySqlCommand qry = new MySqlCommand("SELECT * FROM Usuarios WHERE cpf = @cpf AND senha = @senha;", con);
                 qry.Parameters.AddWithValue("@cpf", cpf);
                 qry.Parameters.AddWithValue("@senha", senha);
                 MySqlDataReader leitor = qry .ExecuteReader();
@@ -261,10 +274,10 @@ namespace Nurzed.Models
                         leitor["sexo"].ToString(), leitor["cpf"].ToString(), leitor["rg"].ToString(), 
                         leitor["data_de_inicio_Universidade"].ToString(), leitor["data_de_termino_Universidade"].ToString(),
                         leitor["coren"].ToString(), leitor["cep"].ToString(), leitor["telefone"].ToString(),
-                        leitor["matricula"].ToString(), leitor["id_Especialidade"].ToString(),
-                        leitor["id_Cargo"].ToString(), leitor["tipo_de_contrato"].ToString(),
-                        "", "", leitor["privilegios"].ToString(), leitor["id_Universidade"].ToString(),
-                        leitor["id_Curso"].ToString(), leitor["id_Area"].ToString(), leitor["usuario_modificacao"].ToString());
+                        leitor["matricula"].ToString(), leitor["nomeEspec"].ToString(),
+                        leitor["cargoNome"].ToString(), leitor["tipo_de_contrato"].ToString(),
+                        leitor["data_de_criacao"].ToString(), leitor["data_de_modificacao"].ToString(), leitor["privilegios"].ToString(), leitor["nomeUni"].ToString(),
+                        leitor["cursoNome"].ToString(), leitor["nomeArea"].ToString(), leitor["usuario_modificacao"].ToString());
                 }
                 else
                 {
@@ -343,25 +356,7 @@ namespace Nurzed.Models
             }
         }
 
-        public string Salvar()
-        {
-            try
-            {
-                con.Open();
 
-                
-
-                return "Usuário salvo com sucesso";
-            }
-            catch(Exception e)
-            {
-                return "Erro:"+ e;
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
 
         public string AtivarInativar(string acao)
         {

@@ -146,9 +146,9 @@ namespace Nurzed.Controllers
 
 
 
-       public IActionResult Listar()
-        
+       public IActionResult Listar()        
         {
+            ViewData["listaUsuarios"] = Usuarios.Listar();
             return View(Usuarios.Listar());
         }
         
@@ -302,7 +302,10 @@ namespace Nurzed.Controllers
                 return RedirectToAction("Login");
             }
         }
-
+        public IActionResult Voltar()
+        {
+            return padrao.Home(HttpContext);
+        }
         public IActionResult Cronograma()
         {
             return View();

@@ -68,5 +68,20 @@ namespace Nurzed.Controllers
             Usuarios u = JsonConvert.DeserializeObject<Usuarios>(httpContext.Session.GetString("usuarios"));
             return u;
         }
+
+        public IActionResult Home(HttpContext httpContext)
+        {
+            if (Privilegios(httpContext) == "adm")
+            {
+                return RedirectToAction("HomeAdm");
+            }else if(Privilegios(httpContext) == "Gestor")
+            {
+                return RedirectToAction("HomeGestor");
+            }
+            else
+            {
+                return RedirectToAction("HomeEnf");
+            }
+        }
     }
 }

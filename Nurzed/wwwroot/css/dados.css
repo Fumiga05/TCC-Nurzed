@@ -7,7 +7,6 @@
     /* justify-conten: alinha na vertical */
     justify-content: center;
     gap: 0.5rem;
-
 }
 
 #pesquisa_cpf {
@@ -16,7 +15,7 @@
     border-radius: 10px;
     width: 500px;
     font-size: 25px;
-    font-family: 'Inter',  Arial;
+    font-family: 'Inter', Arial;
     color: #0B5A4C;
     text-decoration: none;
     cursor: pointer;
@@ -27,18 +26,18 @@
     height: 30px;
 }
 
-#lupa:active{
-    width: 32px;
-    height: 32px;
-}
+    #lupa:active {
+        width: 32px;
+        height: 32px;
+    }
 
 
 .container_dados {
     background-color: #BFEBE3;
     display: flex;
-    margin: 30px auto;
+    margin: 15px auto;
     width: 70%;
-
+    border-radius: 15px;
 }
 
 .img_user_dados {
@@ -55,19 +54,19 @@
 .texto_dados_nome {
     color: #0B5A4C;
     font-size: 25px;
-    font-family: 'Inter',  Arial;
+    font-family: 'Inter', Arial;
     margin-top: 10px;
 }
 
 .texto_dados_pessoais {
     color: #117D6A;
     font-size: 25px;
-    font-family: 'Inter',  Arial;
+    font-family: 'Inter', Arial;
     margin-top: 2.5px;
     margin-bottom: 2.5px;
 }
 
-.btn_editar_dados{
+.btn_editar_dados {
     width: 100px;
     height: 28px;
     margin: 100px 0 10px 10%;
@@ -76,12 +75,20 @@
     color: #fff;
     border-radius: 10px;
     font-size: 18px;
-    font-family: 'Inter',  Arial;
+    font-family: 'Inter', Arial;
     text-decoration: none;
     cursor: pointer;
 }
 
-.btn_editar_dados:active{
-    background-color: #36AB96;
-    border: 2px solid #117D6A;
+    .btn_editar_dados:active {
+        background-color: #36AB96;
+        border: 2px solid #117D6A;
+    }
+
+#td {
+    border: none;
+}
+
+#div-group-tabela {
+    display: block;
 }
