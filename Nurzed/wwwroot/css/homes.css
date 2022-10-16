@@ -15,6 +15,7 @@
   width: 70%;
   margin: 0 auto;
   display: flex;
+  justify-content: space-between;
   margin-top: 100px;
   margin-bottom: 6%;
 }
@@ -23,7 +24,7 @@
   color: #6FCCBB;
   text-align: center;
   font-size: 20px;
-  font-family: arial;
+  font-family: 'Inter',  Arial;
   margin:14%  0 0 0  ; 
 }
 
@@ -31,7 +32,7 @@
   color: #6FCCBB;
   text-align: center;
   font-size: 20px;
-  font-family: arial;
+  font-family: 'Inter',  Arial;
   margin-top: 81px;
 }
 
@@ -39,7 +40,7 @@
   color: #6FCCBB;
   text-align: center;
   font-size: 20px;
-  font-family: arial;
+  font-family: 'Inter',  Arial;
   margin-top: 81px;
 }
     
@@ -52,7 +53,7 @@
 #area_trab_adm{
   color:#063F35 ;
   font-size: 30px;
-  font-family: arial;
+  font-family: 'Inter',  Arial;
   margin: 30px 0 40px 50px;
 }
 
@@ -87,8 +88,9 @@ height: 60px;
 
 .texto_btn_adm{
   font-size: 35px;
-  font-family: arial;
+  font-family: 'Inter',  Arial;
   color: #063F35;
+  text-decoration: none;
 }
 
 /*fim home adm*/
@@ -97,8 +99,9 @@ height: 60px;
 #area_trab_gest{
   color:#FFAB08 ;
   font-size: 35px;
-  font-family: arial;
-  margin: 30px 0 40px 50px;
+  font-family: 'Inter',  Arial;
+ margin-top: 1%;
+ margin-left: 20px;
 }
 
 #area_trab_gest{
@@ -132,11 +135,22 @@ height: 60px;
 
 .texto_btn_gest{
   font-size: 35px;
-  font-family: arial;
+  font-family: 'Inter',  Arial;
   color: #FFAB08;
 }
 
+.container_area_de_trabalho{
+  margin-top:30px ;
+  display: flex;
+  width: 1005;
+}
 
+.icon_troca_area_gest{
+  text-decoration: none;
+  cursor: pointer;
+width: 65px;
+height: 65px;
+}
 /*fim home gest*/
 
 /*Home enf ----------------------------------------------------------------------------------*/
@@ -144,7 +158,7 @@ height: 60px;
 #area_trab_enf{
   color:#6FCCBB ;
   font-size: 30px;
-  font-family: arial;
+  font-family: 'Inter',  Arial;
   margin: 32px 0 40px 50px;
 }
 
@@ -179,7 +193,7 @@ height: 50px;
 
 .texto_btn_enf{
   font-size: 31px;
-  font-family: arial;
+  font-family: 'Inter',  Arial;
   color: #6FCCBB;
 }
 

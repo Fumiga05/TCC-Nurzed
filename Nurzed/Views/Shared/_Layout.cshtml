@@ -12,18 +12,23 @@
 <body>
      @if (Context.Session.GetString("usuarios") != null)
     {
-        <nav>
-        <a asp-controller="Usuarios" asp-action="Sair">
-                    <div><i class="fa-solid fa-arrow-right-from-bracket" title="Sair">Sair</i></div>
-                </a>
-    </nav>
+
+
+        <nav id="nav_bar">
+            <a asp-controller="Usuarios" asp-action="HomeAdm" class="ancora_nav_logo">logo<img src="" alt="" class="logo_nav"></a>
+            <div id="aux14">
+                <a asp-controller="Usuarios" asp-action="Sair"><button class="btn_deslogar">Deslogar</button></a> <br>
+                <a href="ajuda.html"><img src="~/img/ajuda_icon.png" alt="" class="ajuda_icon"></a>
+            </div>
+        </nav><br>   
+    
+    
+        <br><br>
     }
     
-    <div class="container">
-        <main role="main" class="pb-3">
+    
             @RenderBody()
-        </main>
-    </div>
+     
 
     @*<footer class="border-top footer text-muted">
         <img src="~/img/cartaicon.png" id="logo_rodape" alt="">

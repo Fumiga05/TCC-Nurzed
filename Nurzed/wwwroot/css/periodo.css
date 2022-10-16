@@ -1,0 +1,530 @@
+.conteiner_hario{
+    display: flex;
+}
+
+.conteiner_hora{
+    display: flex;
+    margin: auto;
+}
+
+.vazio{
+    width: 450px;
+}
+
+#aux15{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.selecao_area{
+    background-color: #6FCCBB;
+    border: solid 2px #6FCCBB;
+    color: #fff;
+    width: 400px;
+    height: 35px;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 30px 0;
+}
+
+.selecao_area_opicoes{
+background-color: #DDF3EF;
+color: #6FCCBB;
+}
+
+.radio_hora{
+    background-color:#6FCCBB ;
+    border: solid 10px #6FCCBB;
+    width: 30px;
+    height: 30px;
+}
+
+.radio_hora_text{
+    margin: 4px 0 0 9px;
+    margin-top: 4px;
+    font-size: 20px;
+    font-family: 'Inter', Arial;
+    color: #063F35;
+}
+
+#linha_horario_adm{
+    background-color: #4ABEA9;
+    border:solid 2px #4ABEA9 ;
+    margin: 30px auto;
+    width: 60%;
+}
+
+#linha_horario_gest{
+    background-color: #DB9103;
+    border:solid 2px #DB9103 ;
+    margin: 30px auto;
+    width: 60%;
+}
+
+#linha_horario_enf{
+    background-color: #117D6A;
+    border:solid 2px #117D6A ;
+    margin: 30px auto;
+    width: 60%;
+}
+
+.btn_avancar {
+    display: block;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#aux38{
+    display: none;
+}
+
+#aux39{
+    display: block;
+    width: 100%;
+    height: 520px;
+}
+
+#aux47{
+    display: block;
+    width: 100%;
+    height: 365px;
+}
+
+.btn_pediodo_adm{
+    text-align: center;
+    width: 250px;
+    height: 50px;
+    background-color: #BFEBE3;
+    color: #0B5A4C;
+    border: solid 3px #36AB96;
+    border-radius: 10px;
+    font-size: 30px;
+   font-family: 'Inter', Arial;
+    font-weight: 600;
+    margin-top: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn_pediodo_adm:hover{
+background-color: #c6e9e2;
+}
+
+.btn_pediodo_adm:active{
+    background-color: #DDF3EF;
+    color: #117D6A;
+}
+
+.btn_pediodo_gest{
+    text-align: center;
+    width: 250px;
+    height: 50px;
+    background-color: #FBC45D;
+    color: #fff;
+    border: solid 3px #DB9103;
+    border-radius: 10px;
+    font-size: 30px;
+    font-family: 'Inter', Arial;
+    font-weight: 600;
+    margin-top: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn_pediodo_gest:hover{
+    background-color: #FFDC9B;
+    }
+    
+.btn_pediodo_gest:active{
+    background-color: #FFE6B7;
+    color: #FFAB08;
+    border: solid 4px #FFAB08;
+}
+
+.btn_pediodo_enf{
+    text-align: center;
+    width: 250px;
+    height: 50px;
+    background-color: #BFEBE3;
+    color: #36AB96;
+    border: solid 3px #6FCCBB;
+    border-radius: 10px;
+    font-size: 30px;
+    font-family: 'Inter', Arial;
+    font-weight: 600;
+    margin-top: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn_pediodo_enf:hover{
+    background-color: #c6e9e2;
+    }
+    
+    .btn_pediodo_enf:active{
+        background-color: #DDF3EF;
+        color: #117D6A;
+    }
+
+
+/**/
+
+#aux{
+    width: 95%;
+    height: 90%;
+    display: flex;
+    margin:0 auto;
+}
+.cabecalho_adm{
+    width: 75%;
+    background-color: #0B5A4C;
+    display: flex;
+    margin: 60px auto;
+}
+
+.cabecalho_enf{
+    width: 75%;
+    background-color: #DDF3EF;
+    display: flex;
+    margin: 60px auto;
+}
+
+.cabecalho_gest{
+    width: 75%;
+    background-color: #FFE6B7;
+    display: flex;
+    margin: 60px auto;
+}
+
+.cabecalho_dia_adm{
+    margin: 0 20px;
+    color: #fff;
+    font-size: 140px;
+    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: #6FCCBB;
+    font-family: Arial, Helvetica,Arial, Helvetica;
+    font-weight: 600;
+}
+
+.cabecalho_dia_gest{
+    margin: 0 20px;
+    color: #fff;
+    font-size: 140px;
+    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: #FFAB08;
+    font-family:Arial, Helvetica, Arial;
+    font-weight: 600;
+}
+
+.cabecalho_dia_enf{
+    margin: 0 20px;
+    color: #fff;
+    font-size: 140px;
+    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: #6FCCBB;
+    font-family: Arial, Helvetica,Arial;
+    font-weight: 600;
+}
+
+
+#cabecalho_mes_adm{
+    font-family: 'Carrois Gothic', Arial;
+    margin: 10px 50px;
+    font-size: 40px;
+    font-weight: 600;
+    color: #6FCCBB;
+}
+
+#cabecalho_mes_gest{
+    font-family: 'Carrois Gothic', Arial;
+    margin: 10px 50px;
+    font-size: 40px;
+    font-weight: 600;
+    color: #FFAB08;
+}
+
+#cabecalho_mes_enf{
+    font-family: 'Carrois Gothic', Arial;
+    margin: 10px 50px;
+    font-size: 40px;
+    font-weight: 600;
+    color: #117D6A;
+}
+
+#cabecalho_info_gest{
+    font-family: 'Inter',Arial;
+    margin: 5px 50px;
+    color: #DB9103;
+    font-size: 30px;
+}
+
+#aux37{
+    display: none;
+}
+
+#cabecalho_info_adm{
+    font-family: 'Inter', Arial;
+    margin: 5px 50px;
+    color: #BFEBE3;
+    font-size: 30px;
+}
+
+#cabecalho_info_enf{
+    font-family: 'Inter', Arial;
+    margin: 5px 50px;
+    color: #117D6A;
+    font-size: 30px;
+}
+
+.cabecalho_hora_adm{
+    color: #fff;
+    font-family: 'Inter', Arial;
+    margin-left: auto;
+    margin-top: auto;
+    font-size: 30px;
+}
+
+.cabecalho_hora_gest{
+    color: #DB9103;
+    font-family: 'Inter', Arial;
+    margin-left: auto;
+    margin-top: auto;
+    font-size: 30px;
+}
+
+.cabecalho_hora_enf{
+    color: #117D6A;
+    font-family: 'Inter', Arial;
+    margin-left: auto;
+    margin-top: auto;
+    font-size: 30px;
+}
+
+/**/
+
+.card_funcionario_periodo{
+    background-color: #BFEBE3;
+    display: flex;
+    margin: 0 auto;
+    width: 75%;
+    margin-top: 15px;
+}
+
+
+.icon_funcio_periodo{
+    margin: 30px 60px;
+    width: 80px;
+    height: 80px;
+}
+
+.n_enf{
+    color: #063F35;
+    font-size: 30px;
+    font-family: 'Inter', Arial;
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.n_enf {
+   justify-content: space-evenly;
+}
+
+.dados_user_periodo{
+width: 65% ;
+   
+}
+
+.funcio{
+    color: #063F35;
+    font-size: 31px;
+    font-family: 'Inter', Arial;
+    font-weight: 600;
+   margin: 45px 0 10px 12.5%; 
+}
+
+.funcio_periodo_Nome{
+ margin-top: 15px;
+ color: #063F35;
+ font-size: 30px;
+ font-family: Arial, Helvetica, Arial;
+}
+
+.funcio_periodo_dados{
+ color: #0B5A4C;
+ margin-top: 5px;
+ font-size: 25px;
+ font-family: 'Inter', Arial;
+}
+
+.funcio_periodo_dias{
+    margin-top: 15px;
+    font-size: 100px;
+    font-family: 'Inter', Arial;
+    color: #6FCCBB;
+    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: #6FCCBB;
+}
+
+/**/
+
+.conteiner_ausencia_gest{
+    background-color: #FBC45D;
+    border-radius: 25px;
+    width: 70%;
+    margin: 70px auto;
+}
+
+.conteiner_ausencia_adm{
+    background-color: #0B5A4C;
+    border-radius: 25px;
+    width: 70%;
+    margin: 70px auto;
+}
+
+.conteiner_ausencia_enf{
+    background-color: #6FCCBB;
+    border-radius: 25px;
+    width: 72%;
+    margin: 70px auto;
+}
+
+#title_ausencia{
+    color: #fff;
+    text-align: center;
+    font-family: 'Inter', Arial;
+    font-size: 36px;
+    
+}
+
+#linha_ausencia{
+    width: 85%;
+    border: solid 2px #fff;
+    border-radius: 1px;
+    margin: 0 auto 5px auto;
+    margin-bottom: 25px;
+}
+
+.cedula_ausente_adm{
+    width: 85%;
+    border-radius: 12px;
+    margin: 15px auto 20px auto;
+    background-color:#BFEBE3;
+    display: flex;
+    height: 60px;
+}
+
+.cedula_ausente_enf{
+    width: 85%;
+    border-radius: 12px;
+    margin: 15px auto 20px auto;
+    background-color:#FFE6B7;
+    display: flex;
+    height: 60px;
+}
+
+.cedula_ausente_gest{
+    width: 85%;
+    border-radius: 12px;
+    margin: 15px auto 20px auto;
+    background-color:#FFE6B7;
+    display: flex;
+    height: 60px;
+}
+
+.nome_ausencia{
+    width: 50%;
+    color: #063F35;
+    margin: 13px 10px 10px 30px;
+    font-size: 25px;
+    font-family: 'Inter', Arial;
+}
+
+.separa_ausencia{
+    background-color: #0B5A4C;
+    border: solid 1.5px #0B5A4C;
+    margin-top:10px;
+    height: 35px;
+}
+
+.cargo_ausencia{
+    color: #0B5A4C;
+    margin: 14px 10px;
+    font-size: 23px;
+    font-family: 'Inter', Arial;
+}
+
+.status_ausencia_adm{
+   margin-left: 10%;
+    color: #0B5A4C;
+    margin-top: 4px ;
+    font-size: 50px;
+    font-family: 'Inter', Arial;
+    font-weight: 600;
+}
+
+.status_ausencia_gest{
+    margin-left: 10%;
+     color: #DB9103;
+     margin-top: 4px ;
+     font-size: 50px;
+     font-family: 'Inter', Arial;
+     font-weight: 600;
+}
+
+.status_ausencia_enf{
+margin-left: 10%;
+    color: #36AB96;
+    margin-top: 4px ;
+    font-size: 50px;
+    font-family: 'Inter', Arial;
+    font-weight: 600;
+}
+
+/**/
+
+.container_legenda{
+    margin: 0 auto;
+    background-color: #FFE9C8;
+    border: solid 2px #4ABEA9;
+    width: 60%;
+    border-radius: 20px;
+
+}
+
+#title_legenda{
+    color: #fff;
+    text-align: center;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #117D6A;
+    font-weight: 800;
+    font-size: 30px;
+    font-family: Arial, Helvetica, Arial;
+    margin: 10px 0;
+}
+
+.linha_legenda{
+    background-color:#117D6A ;
+    border: solid 1.6px #117D6A;
+    width: 85%;
+    margin: 5px auto;
+    border-radius: 2px;
+}
+
+.info_legenda_container{
+    display: flex;
+    margin: 0 auto;
+    width: 75%;
+}
+
+.info_legenda{
+    color: #117D6A;
+    font-size: 20px;
+    font-family: Arial, Helvetica, Arial;
+    margin-top:20px ;
+    margin-bottom: 20px;
+    margin-left: 8%;
+    
+}

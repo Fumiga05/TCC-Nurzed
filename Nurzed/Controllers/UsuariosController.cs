@@ -11,6 +11,90 @@ namespace Nurzed.Controllers
     {
         PadraoController padrao = new PadraoController();
 
+
+
+        public IActionResult Login()
+        {
+            
+            if (HttpContext.Session.GetString("usuarios") == null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Listar");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Login(string cpf, string senha)
+        {
+            if (cpf != null && senha != null)
+            {
+
+
+                Usuarios u = new Usuarios("", "", "", padrao.Criptografar(senha), "", "", "", "", cpf, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+                Usuarios usuarios = u.Verificar();
+
+
+                if (usuarios != null)
+                {
+
+                    if (usuarios.Status1 == "ativado")
+                    {
+                        if (usuarios.Privilegios == "adm")
+                        {
+                            HttpContext.Session.SetString("usuarios", JsonConvert.SerializeObject(usuarios));
+                            TempData["value"] = true;
+                            return RedirectToAction("HomeAdm");
+                        }
+                        else if (usuarios.Privilegios == "Gestor")
+                        {
+                            HttpContext.Session.SetString("usuarios", JsonConvert.SerializeObject(usuarios));
+                            TempData["value"] = true;
+                            return RedirectToAction("HomeGestor");
+                        }
+                        else if (usuarios.Privilegios == "Enfermeiro")
+                        {
+                            HttpContext.Session.SetString("usuarios", JsonConvert.SerializeObject(usuarios));
+                            TempData["value"] = true;
+                            return RedirectToAction("HomeEnf");
+                        }
+                        else
+                        {
+                            TempData["msg"] = "Privilegio incorreto";
+                            TempData["value"] = false;
+                            return RedirectToAction("Login");
+                        }
+
+
+                    }
+                    else
+                    {
+                        TempData["msg"] = "Usuário/Senha Incorreto(s)";
+                        TempData["value"] = false;
+                        return RedirectToAction("Login");
+                    }
+                }
+                else
+                {
+                    TempData["msg"] = "Usuário/Senha Incorreto(s)";
+                    TempData["value"] = false;
+                    return RedirectToAction("Login");
+                }
+            }
+            else
+            {
+
+                TempData["msg"] = "Por favor, preencha os campos em branco";
+                TempData["value"] = false;
+                return RedirectToAction("Login");
+            }
+
+        }
+
+
+
         public IActionResult Cadastrar()
         {
             
@@ -114,95 +198,24 @@ namespace Nurzed.Controllers
                 privilegios, id_Universidade, id_Curso, id_Area, u.Nome);
 
             TempData["id"] = id;
-            TempData["msg"] = usuarios.Editar(id);
+            TempData["msgEditar"] = usuarios.Editar(id);
 
             return RedirectToAction("Listar");
             
-        }
+        }      
 
        
-
-        public IActionResult Login()
-        {
-            TempData["msg"] = "";
-            if (HttpContext.Session.GetString("usuarios") == null)
-            {
-                return View();
-            } else
-            {
-                return RedirectToAction("Listar");
-            }
-        }
-
-        [HttpPost]
-        public IActionResult Login(string cpf,string senha)
-        {
-            if(cpf != null && senha != null)
-            {
-
-            
-            Usuarios u = new Usuarios("","", "",padrao.Criptografar(senha), "", "", "", "", cpf, "", "", "", "", "", "", "", "", "", "", "", "","", "", "","","");
-            Usuarios usuarios = u.Verificar();
-
-               
-            if (usuarios != null)
-            {
-
-                if (usuarios.Status1 == "ativado")
-                {
-                    if(usuarios.Privilegios == "adm")
-                    {
-                        HttpContext.Session.SetString("usuarios", JsonConvert.SerializeObject(usuarios));
-                        TempData["value"] = true;
-                        return RedirectToAction("HomeAdm");
-                    }
-                    else if (usuarios.Privilegios == "Gestor")  
-                    {
-                        HttpContext.Session.SetString("usuarios", JsonConvert.SerializeObject(usuarios));
-                        TempData["value"] = true;
-                        return RedirectToAction("HomeGestor");
-                    }else if (usuarios.Privilegios == "Enfermeiro")
-                    {
-                        HttpContext.Session.SetString("usuarios", JsonConvert.SerializeObject(usuarios));
-                        TempData["value"] = true;
-                        return RedirectToAction("HomeEnf");
-                    }else
-                    {
-                        TempData["msg"] = "Privilegio incorreto";
-                        TempData["value"] = false;
-                        return RedirectToAction("Login");
-                    }
-                    
-
-                }
-                else
-                {
-                    TempData["msg"] = "Usuário/Senha Incorreto(s)";
-                    TempData["value"] = false;
-                    return RedirectToAction("Login");
-                }
-            }
-            else
-            {
-                TempData["msg"] = "Usuário/Senha Incorreto(s)";
-                TempData["value"] = false;
-                return RedirectToAction("Login");
-            }
-            }
-            else
-            {
-                
-                TempData["msg"] = "Por favor, preencha os campos em branco";
-                TempData["value"] = false;
-                return RedirectToAction("Login");
-            }
-
-        }
         public IActionResult Sair()
         {
             HttpContext.Session.Remove("usuarios");
             return RedirectToAction("Login");
         }
+
+
+
+
+
+
         public IActionResult HomeAdm()
         {
             PadraoController padrao = new PadraoController();
@@ -288,6 +301,11 @@ namespace Nurzed.Controllers
             {
                 return RedirectToAction("Login");
             }
+        }
+
+        public IActionResult Cronograma()
+        {
+            return View();
         }
     }
 }

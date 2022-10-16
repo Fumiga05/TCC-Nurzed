@@ -1,0 +1,2039 @@
+﻿
+    <link rel="stylesheet" href="~/css/cronograma.css">
+    <link rel="stylesheet" href="~/css/periodo.css">    
+  
+
+    
+ <body>      
+        <div class="contaner_titulo_index">
+            <a href="ver_plantao_adm.html">
+                <button class="btn_voltar_adm">
+                     <img src="~/img/voltar.png" alt="" class="img_btn_voltar">
+                 </button>
+             </a>
+        </div>
+        <h1 class="titulo_pagina_adm">Adicionar Cronograma</h1>
+
+      <div id="container_btns_adm">
+            <div class="container">
+                  <button class="btn_mes_crono_adm">Janeiro</button>
+                  <button class="btn_mes_crono_adm">Fevereiro</button>
+                  <button class="btn_mes_crono_adm">Março</button>
+                  <button class="btn_mes_crono_adm">Abril</button>
+                  <button class="btn_mes_crono_adm">Maio</button>
+                  <button class="btn_mes_crono_adm">Junho</button>
+            </div>
+            
+            <div class="container">
+                  <button class="btn_mes_crono_adm">Julho</button>
+                  <button class="btn_mes_crono_adm">Agosto</button>
+                  <button class="btn_mes_crono_adm">Setembro</button>
+                  <button class="btn_mes_crono_adm">Outubro</button>
+                  <button class="btn_mes_crono_adm">Novembro</button>
+                  <button class="btn_mes_crono_adm">Dezembro</button>
+            </div>
+      </div>
+
+
+<div id="aux9">
+      <select name="cars" id="" class="selecao_area">
+            <option selected disabled value="">Selecione a Área</option>
+            <option class="selecao_area_opicoes">################# </option>
+      </select>
+</div>
+
+
+    <h1 class="mes_selcionado_adm">AGOSTO</h1>
+
+      <div class="conteiner_hario">
+            <div class="vazio"></div>
+            <div class="conteiner_hora">
+                <input type="radio" name="hora" id="manha" checked  class="radio_hora" value="S">
+                <p  class="radio_hora_text">07:00 às 13:00</p>
+            </div>
+
+            <div class="conteiner_hora">
+                <input type="radio" name="hora" id="tarde" class="radio_hora" value="N">
+                <p class="radio_hora_text">13:00 às 19:00</p>
+            </div>
+
+            <div class="conteiner_hora">
+                <input type="radio" name="hora" id="noite"  class="radio_hora" value="F">
+                <p class="radio_hora_text">21:00 às 07:00</p>
+            </div>
+            <div class="vazio"></div>
+        </div>
+
+            <hr id="linha_horario_adm">
+      </div>
+
+      <div id="aux10" >
+            <button class="btn_avancar_conograma_adm"  onclick="avaCronograma()" >Avançar</button>
+      </div>
+
+      <div id="aux31" >
+            <button class="btn_avancar_conograma_adm" onclick="f5()">Trocar Horário</button>
+      </div>
+
+
+      <section id="aux30">
+
+                  <div class="aux11">  
+                        <p class="leitos_titulo">Leitos ativos:</p>
+                        <input type="number" class="leitos_input" min="0" minlength="2" maxlength="250" required>
+                  </div>
+
+                  <div class="aux11">
+                  <p class="leitos_titulo">Leitos desativados:</p>
+                  <input type="number" class="leitos_input" min="0" minlength="2" maxlength="250" required>
+                  </div>
+
+
+                  <div class="aux13">
+                        <table class="tabela_crono_adm">
+                              <tr class="linha_1_cronograma_enf">
+                                    <td class="nome_infermeiro_tabela_adm">ENFERMEIROS</td>
+                                    <td class="corem_infermeiro_tabela_adm">COREN</td>
+                                    <td class="select_infermeiro_tabela_adm">01</td>
+                                    <td class="select_infermeiro_tabela_adm">02</td>
+                                    <td class="select_infermeiro_tabela_adm">03</td>
+                                    <td class="select_infermeiro_tabela_adm">04</td>
+                                    <td class="select_infermeiro_tabela_adm">05</td>
+                                    <td class="select_infermeiro_tabela_adm">06</td>
+                                    <td class="select_infermeiro_tabela_adm">07</td>
+                                    <td class="select_infermeiro_tabela_adm">08</td>
+                                    <td class="select_infermeiro_tabela_adm">09</td>
+                                    <td class="select_infermeiro_tabela_adm">10</td>
+                                    <td class="select_infermeiro_tabela_adm">11</td>
+                                    <td class="select_infermeiro_tabela_adm">12</td>
+                                    <td class="select_infermeiro_tabela_adm">13</td>
+                                    <td class="select_infermeiro_tabela_adm">14</td>
+                                    <td class="select_infermeiro_tabela_adm">15</td>
+                                    <td class="select_infermeiro_tabela_adm">16</td>
+                                    <td class="select_infermeiro_tabela_adm">17</td>
+                                    <td class="select_infermeiro_tabela_adm">18</td>
+                                    <td class="select_infermeiro_tabela_adm">19</td>
+                                    <td class="select_infermeiro_tabela_adm">20</td>
+                                    <td class="select_infermeiro_tabela_adm">21</td>
+                                    <td class="select_infermeiro_tabela_adm">22</td>
+                                    <td class="select_infermeiro_tabela_adm">23</td>
+                                    <td class="select_infermeiro_tabela_adm">24</td>
+                                    <td class="select_infermeiro_tabela_adm">25</td>
+                                    <td class="select_infermeiro_tabela_adm">26</td>
+                                    <td class="select_infermeiro_tabela_adm">27</td>
+                                    <td class="select_infermeiro_tabela_adm">28</td>
+                                    <td class="select_infermeiro_tabela_adm">29</td> 
+                                    <td class="select_infermeiro_tabela_adm">30</td>
+                                    <td class="select_infermeiro_tabela_adm">31</td>
+                              
+                              </tr>
+                        
+                              <tr  class="tabela_cronograma_adm">
+                                    <td class="opcao_tabela_cronograma_enf nome_infermeiro_tabela_adm">Nome do enfermiro</td>
+
+                                    <td class="opcao_tabela_cronograma_enf corem_infermeiro_tabela_adm">9999-9999</td>  
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm
+                                          select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+                                    <td class="opcao_tabela_cronograma_enf"> 
+                                          <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                                <option selected> PR </option>
+                                                <option> X</option>
+                                                <option> ABA </option>
+                                                <option> LTS </option>
+                                                <option> LP </option>
+                                                <option> LG </option>
+                                                <option> FE </option>
+                                                <option> FI </option>
+                                                <option> PF </option>
+                                                <option> CH</option>
+                                                <option> TL </option>
+                                                <option> AF </option>
+                                                <option> TC </option>
+                                                <option> FT </option>
+                                          </select>
+                                    </td>
+                              
+                              </tr>
+                              
+                        </table>
+                  </div>
+
+
+
+            <!-------------------------------------------------------------------->
+
+            <div class="aux13">
+                  <table class="tabela_crono_adm">
+                        <tr class="linha_1_cronograma_enf">
+                              <td class="nome_infermeiro_tabela_adm">TÉC. DE ENFERMAGEM</td>
+                              <td class="corem_infermeiro_tabela_adm">COREN</td>
+                              <td class="select_infermeiro_tabela_adm">01</td>
+                              <td class="select_infermeiro_tabela_adm">02</td>
+                              <td class="select_infermeiro_tabela_adm">03</td>
+                              <td class="select_infermeiro_tabela_adm">04</td>
+                              <td class="select_infermeiro_tabela_adm">05</td>
+                              <td class="select_infermeiro_tabela_adm">06</td>
+                              <td class="select_infermeiro_tabela_adm">07</td>
+                              <td class="select_infermeiro_tabela_adm">08</td>
+                              <td class="select_infermeiro_tabela_adm">09</td>
+                              <td class="select_infermeiro_tabela_adm">10</td>
+                              <td class="select_infermeiro_tabela_adm">11</td>
+                              <td class="select_infermeiro_tabela_adm">12</td>
+                              <td class="select_infermeiro_tabela_adm">13</td>
+                              <td class="select_infermeiro_tabela_adm">14</td>
+                              <td class="select_infermeiro_tabela_adm">15</td>
+                              <td class="select_infermeiro_tabela_adm">16</td>
+                              <td class="select_infermeiro_tabela_adm">17</td>
+                              <td class="select_infermeiro_tabela_adm">18</td>
+                              <td class="select_infermeiro_tabela_adm">19</td>
+                              <td class="select_infermeiro_tabela_adm">20</td>
+                              <td class="select_infermeiro_tabela_adm">21</td>
+                              <td class="select_infermeiro_tabela_adm">22</td>
+                              <td class="select_infermeiro_tabela_adm">23</td>
+                              <td class="select_infermeiro_tabela_adm">24</td>
+                              <td class="select_infermeiro_tabela_adm">25</td>
+                              <td class="select_infermeiro_tabela_adm">26</td>
+                              <td class="select_infermeiro_tabela_adm">27</td>
+                              <td class="select_infermeiro_tabela_adm">28</td>
+                              <td class="select_infermeiro_tabela_adm">29</td> 
+                              <td class="select_infermeiro_tabela_adm">30</td>
+                              <td class="select_infermeiro_tabela_adm">31</td>
+                        
+                        </tr>
+                  
+                        <tr  class="tabela_cronograma_adm">
+                              <td class="opcao_tabela_cronograma_enf nome_infermeiro_tabela_adm">Nome do enfermiro</td>
+
+                              <td class="opcao_tabela_cronograma_enf corem_infermeiro_tabela_adm">9999-9999</td>  
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm
+                                    select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+                        
+                        </tr>
+                        
+                  </table>
+            </div>
+
+            <!----------------------------------------------------------------------->
+
+
+            <div class="aux13">
+                  <table class="tabela_crono_adm">
+                        <tr class="linha_1_cronograma_enf">
+                              <td class="nome_infermeiro_tabela_adm">AUX. DE ENFERMAGEM</td>
+                              <td class="corem_infermeiro_tabela_adm">COREN</td>
+                              <td class="select_infermeiro_tabela_adm">01</td>
+                              <td class="select_infermeiro_tabela_adm">02</td>
+                              <td class="select_infermeiro_tabela_adm">03</td>
+                              <td class="select_infermeiro_tabela_adm">04</td>
+                              <td class="select_infermeiro_tabela_adm">05</td>
+                              <td class="select_infermeiro_tabela_adm">06</td>
+                              <td class="select_infermeiro_tabela_adm">07</td>
+                              <td class="select_infermeiro_tabela_adm">08</td>
+                              <td class="select_infermeiro_tabela_adm">09</td>
+                              <td class="select_infermeiro_tabela_adm">10</td>
+                              <td class="select_infermeiro_tabela_adm">11</td>
+                              <td class="select_infermeiro_tabela_adm">12</td>
+                              <td class="select_infermeiro_tabela_adm">13</td>
+                              <td class="select_infermeiro_tabela_adm">14</td>
+                              <td class="select_infermeiro_tabela_adm">15</td>
+                              <td class="select_infermeiro_tabela_adm">16</td>
+                              <td class="select_infermeiro_tabela_adm">17</td>
+                              <td class="select_infermeiro_tabela_adm">18</td>
+                              <td class="select_infermeiro_tabela_adm">19</td>
+                              <td class="select_infermeiro_tabela_adm">20</td>
+                              <td class="select_infermeiro_tabela_adm">21</td>
+                              <td class="select_infermeiro_tabela_adm">22</td>
+                              <td class="select_infermeiro_tabela_adm">23</td>
+                              <td class="select_infermeiro_tabela_adm">24</td>
+                              <td class="select_infermeiro_tabela_adm">25</td>
+                              <td class="select_infermeiro_tabela_adm">26</td>
+                              <td class="select_infermeiro_tabela_adm">27</td>
+                              <td class="select_infermeiro_tabela_adm">28</td>
+                              <td class="select_infermeiro_tabela_adm">29</td> 
+                              <td class="select_infermeiro_tabela_adm">30</td>
+                              <td class="select_infermeiro_tabela_adm">31</td>
+                        
+                        </tr>
+                  
+                        <tr  class="tabela_cronograma_adm">
+                              <td class="opcao_tabela_cronograma_enf nome_infermeiro_tabela_adm">Nome do enfermiro</td>
+
+                              <td class="opcao_tabela_cronograma_enf corem_infermeiro_tabela_adm">9999-9999</td>  
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm
+                                    select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+                              <td class="opcao_tabela_cronograma_enf"> 
+                                    <select class="select_cronograma_adm select_infermeiro_tabela_adm">
+                                          <option selected> PR </option>
+                                          <option> X</option>
+                                          <option> ABA </option>
+                                          <option> LTS </option>
+                                          <option> LP </option>
+                                          <option> LG </option>
+                                          <option> FE </option>
+                                          <option> FI </option>
+                                          <option> PF </option>
+                                          <option> CH</option>
+                                          <option> TL </option>
+                                          <option> AF </option>
+                                          <option> TC </option>
+                                          <option> FT </option>
+                                    </select>
+                              </td>
+                        
+                        </tr>
+                        
+                  </table>
+            </div>
+
+
+
+      
+
+            <div class="aux12">
+                  <button id="btn_finalizar_cronograma">Finalizar</button>
+            </div>
+
+            <br><br>
+            <section id="sec_legenda">
+
+                  <div class="container_legenda">
+                  <h3 id="title_legenda">Legenda</h3>
+                  <hr class="linha_legenda">
+                        <div class="info_legenda_container">
+                        <p class="info_legenda">
+                              PR:Presente <br>
+                              X: Folga <br>
+                              ABA: Folga Abonada <br>
+                              LTS: Licença tratamento de saúde <br>
+                              LP: Licença Prêmio  <br>
+                              LG: Licença gala <br>
+                              FE: Férias <br>
+                        </p>
+      
+                        <p  class="info_legenda">
+                              FI: Falta injustificada <br>
+                              PF: Ponto Facultativo <br>
+                              CH: Compensação de hora <br>
+                              TL: Projeto Trocando de Lugar <br>
+                              AF: Afastado <br>
+                              TC: Término de contrato <br>
+                              FT:Folga trabalhada<br>
+                        </p>
+      
+                        </div>
+      
+                  </div>
+      
+            </section>
+      <br><br>
+
+      </section>
+      </body>
+<script src="~/js/funcao.js"></script>

@@ -1,9 +1,15 @@
-﻿    <link rel="stylesheet" href="~/css/homes.css">
+﻿@using Microsoft.AspNetCore.Http
+@using Newtonsoft.Json
+@{
+    Usuarios u = JsonConvert.DeserializeObject<Usuarios>(Context.Session.GetString("usuarios"));
+}    
+
+    <link rel="stylesheet" href="~/css/homes.css">
     <link rel="stylesheet" href="~/css/index.css">
 
-    <input type="hidden" id="value" value="true"/>
+    
 
-<body onload="vota()">
+<body>
         <div class="container_home">
         <br><br><br><p id="area_trab_adm">Área de trabalho:</p>
 
@@ -27,6 +33,6 @@
 </body>
 
 
-    <p id="nome_rodape">nome completo</p>
+    <p id="nome_rodape">@u.Nome</p>
 
             <script src="~/js/site.js"></script>

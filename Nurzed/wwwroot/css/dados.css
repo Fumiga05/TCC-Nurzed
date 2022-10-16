@@ -1,0 +1,87 @@
+#aux4 {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    /* Aling-Items: alinha na horizontal */
+    align-items: center;
+    /* justify-conten: alinha na vertical */
+    justify-content: center;
+    gap: 0.5rem;
+
+}
+
+#pesquisa_cpf {
+    background-color: #fff;
+    border: solid 3px #FFAB08;
+    border-radius: 10px;
+    width: 500px;
+    font-size: 25px;
+    font-family: 'Inter',  Arial;
+    color: #0B5A4C;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#lupa {
+    width: 30px;
+    height: 30px;
+}
+
+#lupa:active{
+    width: 32px;
+    height: 32px;
+}
+
+
+.container_dados {
+    background-color: #BFEBE3;
+    display: flex;
+    margin: 30px auto;
+    width: 70%;
+
+}
+
+.img_user_dados {
+    margin: 10px 40px;
+    width: 120px;
+    height: 120px;
+}
+
+.texto_dados {
+    margin-left: 10px;
+    width: 55%;
+}
+
+.texto_dados_nome {
+    color: #0B5A4C;
+    font-size: 25px;
+    font-family: 'Inter',  Arial;
+    margin-top: 10px;
+}
+
+.texto_dados_pessoais {
+    color: #117D6A;
+    font-size: 25px;
+    font-family: 'Inter',  Arial;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+}
+
+.btn_editar_dados{
+    width: 100px;
+    height: 28px;
+    margin: 100px 0 10px 10%;
+    background-color: #117D6A;
+    border: 2px solid #0B5A4C;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: 'Inter',  Arial;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn_editar_dados:active{
+    background-color: #36AB96;
+    border: 2px solid #117D6A;
+}

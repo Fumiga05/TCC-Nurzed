@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-<body  onload="vota()">
+<body>
 
     <div class="header">
         <h1>Nurzed</h1>  
@@ -42,80 +42,21 @@
                     <label class="label-input" for="">
                         <i class="fas fa-lock icon-modify"></i>
                         <input type="password" name="senha" placeholder="Senha">
-                    </label>
-                    
-                    @{
-                        if(TempData["value"] != null)
-                        {
-                            bool valor = (bool) TempData["value"];
-
-                            if(valor == true)
-                            {
-                                                 <input type="hidden" id="value" value="true"/>
-                            }else
-                            {
-                                                <input type="hidden" id="value" value="false"/>
-                            }
-                        } else
-                        {
-                                            <input type="hidden" id="value" value="sim"/>
-                        }
-                    }
+                    </label>                    
+                
                    
-                    <p >@TempData["msg"]</p>
+                    <p>@TempData["msg"]</p>
 
                     <button type="submit" class="btn btn-second">sign up</button>      
                 </form>
             </div>
         </div>
-        <div class="content second-content">
-            <div class="first-column">
-                <h2 class="title title-primary">Ainda não tem uma conta?</h2>
-                <p class="description description-primary">Insira seus dados pessoais</p>
-                <p class="description description-primary">e comece sua jornada conosco</p>
-                <button id="signup" class="btn btn-primary">sign up</button>
-            </div>
-            <div class="second-column">
-                <h2 class="title title-second">Conectar</h2>
-                <div class="social-media">
-                    <ul class="list-social-media">
-                        <a class="link-social-media" href="#">
-                            <li class="item-social-media">
-                                
-                            </li>
-                        </a>
-                        <a class="link-social-media" href="#">
-                            <li class="item-social-media">
-                                
-                            </li>
-                        </a>
-                        <a class="link-social-media" href="#">
-                            <li class="item-social-media">
-                                
-                            </li>
-                        </a>
-                    </ul>
-                </div>
-                <p class="description description-second">or use your email account:</p>
-                <form class="form">
-                
-          
-                
-                    <label class="label-input" for="">
-                        <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" placeholder="Password">
-                    </label>
-                
-                    <a class="password" href="#">Esqueceu a senha?</a>
-                    <button class="btn btn-second">sign in</button>
-                </form>
-            </div>
-        </div>  
+ 
 
  
 
         
     </div>
-    <script src="~/js/site.js"></script>
+
 </body>
 </html>
