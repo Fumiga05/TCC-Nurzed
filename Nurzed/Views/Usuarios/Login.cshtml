@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-<body>
+<body  onload="vota()">
 
     <div class="header">
         <h1>Nurzed</h1>  
@@ -44,9 +44,27 @@
                         <input type="password" name="senha" placeholder="Senha">
                     </label>
                     
-                    
-                    <button type="submit" class="btn btn-second">sign up</button>        
-                    <p>@TempData["msg"]</p>
+                    @{
+                        if(TempData["value"] != null)
+                        {
+                            bool valor = (bool) TempData["value"];
+
+                            if(valor == true)
+                            {
+                                                 <input type="hidden" id="value" value="true"/>
+                            }else
+                            {
+                                                <input type="hidden" id="value" value="false"/>
+                            }
+                        } else
+                        {
+                                            <input type="hidden" id="value" value="sim"/>
+                        }
+                    }
+                   
+                    <p >@TempData["msg"]</p>
+
+                    <button type="submit" class="btn btn-second">sign up</button>      
                 </form>
             </div>
         </div>
@@ -92,38 +110,12 @@
                     <button class="btn btn-second">sign in</button>
                 </form>
             </div>
-        </div>
-
-     
+        </div>  
 
  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         
     </div>
-    <script src="teste.js"></script>
+    <script src="~/js/site.js"></script>
 </body>
 </html>

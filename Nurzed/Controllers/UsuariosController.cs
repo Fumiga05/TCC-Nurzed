@@ -88,7 +88,7 @@ namespace Nurzed.Controllers
             return RedirectToAction("Listar");
         }
 
-        public IActionResult Editar(string id,string cpf, string especialidade, string universidade, string curso, string cargo)
+        public IActionResult Editar(string id,string cpf, string especialidade, string cargo)
         {
             TempData["id"] = id;
             TempData["cpf"] = cpf;
@@ -106,30 +106,25 @@ namespace Nurzed.Controllers
         public IActionResult Editar(string id,string status1, string nome, string senha, string nome_da_mae, string nome_do_pai,
             string data_de_nascimento, string sexo, string cpf, string rg, string data_de_inicio_Universidade, string data_de_termino_Universidade,
             string coren, string cep, string telefone, string matricula, string Id_Especialidade, string Id_Cargo, string tipo_de_contrato,
-            string data_de_criacao, string data_de_modificacao, string privilegios, string id_Universidade, string id_Curso,string usuario_modificacao)
+            string data_de_criacao, string data_de_modificacao, string privilegios, string id_Universidade, string id_Curso,string id_Area,string usuario_modificacao)
         {
-            return RedirectToAction("Editar");
-        }
-
-        [HttpPost]
-        public IActionResult Salvar(string id,string status1, string nome, string senha, string nome_da_mae, string nome_do_pai,
-            string data_de_nascimento, string sexo, string cpf, string rg, string data_de_inicio_Universidade, string data_de_termino_Universidade,
-            string coren, string cep, string telefone, string matricula, string Id_Especialidade, string Id_Cargo, string tipo_de_contrato,
-            string data_de_criacao, string data_de_modificacao, string privilegios, string id_Universidade, string id_Curso, string id_Area,string usuario_modificacao)
-        {
-            Usuarios usuarios = new Usuarios(id,status1, nome, senha, nome_da_mae, nome_do_pai, data_de_nascimento, sexo, cpf, rg, data_de_inicio_Universidade, 
+            Usuarios u = padrao.RetornarObjeto(HttpContext);
+            Usuarios usuarios = new Usuarios(id, status1, nome, senha, nome_da_mae, nome_do_pai, data_de_nascimento, sexo, cpf, rg, data_de_inicio_Universidade,
                 data_de_termino_Universidade, coren, cep, telefone, matricula, Id_Especialidade, Id_Cargo, tipo_de_contrato, data_de_criacao, data_de_modificacao,
-                privilegios, id_Universidade, id_Curso, id_Area,usuario_modificacao);
+                privilegios, id_Universidade, id_Curso, id_Area, u.Nome);
 
+            TempData["id"] = id;
+            TempData["msg"] = usuarios.Editar(id);
 
-            TempData["msg"] = usuarios.Editar();    
-
-           return RedirectToAction("Listar");
+            return RedirectToAction("Listar");
+            
         }
+
+       
 
         public IActionResult Login()
         {
-
+            TempData["msg"] = "";
             if (HttpContext.Session.GetString("usuarios") == null)
             {
                 return View();
@@ -158,19 +153,23 @@ namespace Nurzed.Controllers
                     if(usuarios.Privilegios == "adm")
                     {
                         HttpContext.Session.SetString("usuarios", JsonConvert.SerializeObject(usuarios));
+                        TempData["value"] = true;
                         return RedirectToAction("HomeAdm");
                     }
                     else if (usuarios.Privilegios == "Gestor")  
                     {
                         HttpContext.Session.SetString("usuarios", JsonConvert.SerializeObject(usuarios));
+                        TempData["value"] = true;
                         return RedirectToAction("HomeGestor");
                     }else if (usuarios.Privilegios == "Enfermeiro")
                     {
                         HttpContext.Session.SetString("usuarios", JsonConvert.SerializeObject(usuarios));
+                        TempData["value"] = true;
                         return RedirectToAction("HomeEnf");
                     }else
                     {
                         TempData["msg"] = "Privilegio incorreto";
+                        TempData["value"] = false;
                         return RedirectToAction("Login");
                     }
                     
@@ -179,12 +178,14 @@ namespace Nurzed.Controllers
                 else
                 {
                     TempData["msg"] = "Usuário/Senha Incorreto(s)";
+                    TempData["value"] = false;
                     return RedirectToAction("Login");
                 }
             }
             else
             {
                 TempData["msg"] = "Usuário/Senha Incorreto(s)";
+                TempData["value"] = false;
                 return RedirectToAction("Login");
             }
             }
@@ -192,6 +193,7 @@ namespace Nurzed.Controllers
             {
                 
                 TempData["msg"] = "Por favor, preencha os campos em branco";
+                TempData["value"] = false;
                 return RedirectToAction("Login");
             }
 

@@ -178,7 +178,7 @@ namespace Nurzed.Models
             try
             {
                 con.Open();
-                MySqlCommand qry = new MySqlCommand("SELECT usuarios.id,usuarios.status1,usuarios.nome ,usuarios.cpf,usuarios.id_Especialidade,id_Cargo,especialidade.nome as nomeEspec,cargo.nome as nomeCargo FROM Usuarios,Especialidade,Cargo WHERE usuarios.id_Cargo = cargo.id AND usuarios.id_Especialidade = Especialidade.id ", con);
+                MySqlCommand qry = new MySqlCommand("SELECT usuarios.id,usuarios.status1,usuarios.nome ,usuarios.cpf,usuarios.id_Especialidade,id_Cargo,especialidade.nome as nomeEspec,cargo.nome as nomeCargo FROM Usuarios,Especialidade,Cargo WHERE usuarios.id_Cargo = cargo.id AND usuarios.id_Especialidade = Especialidade.id", con);
 
 
                 MySqlDataReader leitor = qry.ExecuteReader();
@@ -283,7 +283,7 @@ namespace Nurzed.Models
 
         }
 
-        public string Editar()
+        public string Editar(string id)
         {
             try
             {
@@ -292,7 +292,7 @@ namespace Nurzed.Models
                     "data_de_nascimento = @data_de_nascimento, sexo = @sexo, cpf = @cpf, rg = @rg, data_de_inicio_Universidade = @data_de_inicio_Universidade," +
                     "data_de_termino_Universidade = @data_de_termino_Universidade, id_Universidade = @id_Universidade, id_Curso = @id_Curso, coren = @coren," +
                     " cep = @cep, telefone = @telefone, matricula = @matricula, id_Especialidade = @id_Especialidade, id_Cargo = @id_Cargo, tipo_de_contrato = @tipo_de_contrato," +
-                    " privilegios = @privilegios,data_de_modificacao = @data_de_modificacao,usuario_modificacao = @usuario_modificacao WHERE id = @id; ", con);
+                    " privilegios = @privilegios,data_de_modificacao = @data_de_modificacao,usuario_modificacao = @usuario_modificacao WHERE id = @id", con);
                 
                 var date = DateTime.Now;
                 data_de_modificacao = String.Format("{0:yyyy-MM-dd HH:mm:ss}", date);
@@ -320,7 +320,7 @@ namespace Nurzed.Models
                 qry.Parameters.AddWithValue("@id_Curso",EncontrarForeignKey( id_Curso,"Curso"));
                 qry.Parameters.AddWithValue("@id_Area",EncontrarForeignKey( id_Area,"Area"));
                 qry.Parameters.AddWithValue("@data_de_modificacao", data_de_modificacao);
-                qry.Parameters.AddWithValue("@usuario_modificcao", usuario_modificacao);
+                qry.Parameters.AddWithValue("@usuario_modificacao", usuario_modificacao);
                 
                 
                 qry.ExecuteNonQuery();
