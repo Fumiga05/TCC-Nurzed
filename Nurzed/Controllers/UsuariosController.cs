@@ -112,7 +112,7 @@ namespace Nurzed.Controllers
                 }
                 else
                 {
-                    TempData["msg"] = "Privilegios insuficientes";
+                    TempData["msgPrivilegios"] = "Privilegios insuficientes";
                     return RedirectToAction("HomeEnf", "Usuarios");
                 }
             }
@@ -136,7 +136,7 @@ namespace Nurzed.Controllers
             {
 
             };
-            TempData["msg"] = usuarios.Cadastrar();
+            TempData["msgCadastrar"] = usuarios.Cadastrar();
 
             
             
@@ -159,7 +159,7 @@ namespace Nurzed.Controllers
             
                 Usuarios usuarios = new Usuarios("","","","","","","", "", cpf, "", "", "", "", "", "", "", "", "", "", "", "","","","","","");
 
-                TempData["msg"] = usuarios.AtivarInativar("ativar");
+                TempData["msgAtivar"] = usuarios.AtivarInativar("ativar");
                 return RedirectToAction("Listar");
            
 
@@ -168,7 +168,7 @@ namespace Nurzed.Controllers
         {
             Usuarios usuarios = new Usuarios("","", "", "", "", "", "", "",cpf, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "","","");
 
-            TempData["msg"] = usuarios.AtivarInativar("inativar");
+            TempData["msgInativar"] = usuarios.AtivarInativar("inativar");
             return RedirectToAction("Listar");
         }
 

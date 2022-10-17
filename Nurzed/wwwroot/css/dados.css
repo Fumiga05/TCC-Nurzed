@@ -69,7 +69,7 @@
 .btn_editar_dados {
     width: 100px;
     height: 28px;
-    margin: 100px 0 10px 10%;
+    margin: 100px 0 10px 1%;
     background-color: #117D6A;
     border: 2px solid #0B5A4C;
     color: #fff;
@@ -78,12 +78,15 @@
     font-family: 'Inter', Arial;
     text-decoration: none;
     cursor: pointer;
+    text-decoration: none;
 }
+
 
     .btn_editar_dados:active {
         background-color: #36AB96;
         border: 2px solid #117D6A;
     }
+
 
 #td {
     border: none;
@@ -91,4 +94,26 @@
 
 #div-group-tabela {
     display: block;
+}
+
+.btn_editar_dados a {
+    text-decoration: none !important;
+    color: white !important;
+}
+
+
+/*victor edit*/
+.btn_inativar {
+    background-color: coral;
+    border: 2px solid rgb(255, 86, 24);
+}
+
+.btn_ativar {
+    background-color: rgb(90, 197, 90);
+    border: 2px solid rgb(5, 189, 5);
+}
+
+.margin_btns {
+    margin-left: 10%;
+    display: flex;
 }

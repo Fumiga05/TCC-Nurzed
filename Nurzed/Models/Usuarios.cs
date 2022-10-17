@@ -262,7 +262,7 @@ namespace Nurzed.Models
                     " Universidade AS uni, Curso AS cur,Area AS a, Cargo AS car WHERE u.cpf = @cpf AND u.senha = @senha AND u.id_Area = a.id AND u.id_Universidade = uni.id AND u.id_Curso = cur.id AND " +
                      "u.id_Especialidade = e.id AND u.id_Cargo = car.id", con);
 
-                //MySqlCommand qry = new MySqlCommand("SELECT * FROM Usuarios WHERE cpf = @cpf AND senha = @senha;", con);
+                
                 qry.Parameters.AddWithValue("@cpf", cpf);
                 qry.Parameters.AddWithValue("@senha", senha);
                 MySqlDataReader leitor = qry .ExecuteReader();
@@ -374,8 +374,8 @@ namespace Nurzed.Models
                 }
                 else
                 {
-                    novoStatus = "desativado";
-                    msg = "Desativado";
+                    novoStatus = "inativo";
+                    msg = "Inativo";
                 }
 
                 MySqlCommand qry = new MySqlCommand("UPDATE Usuarios SET status1 = @status1 WHERE cpf = @cpf", con);

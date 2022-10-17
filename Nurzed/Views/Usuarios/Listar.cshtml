@@ -3,73 +3,82 @@
 
     IEnumerable<Usuarios> listaUsuarios = ViewData["listaUsuarios"] as IEnumerable<Usuarios>;
 }
-   
-    
-    
-    <link rel="stylesheet" href="~/css/dados.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.3.1/jquery.quicksearch.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+
+<link rel="stylesheet" href="~/css/dados.css">
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.3.1/jquery.quicksearch.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
 
 
-    
 
-    <div class="contaner_titulo_index">
-        <a asp-action="Voltar">
-            <button   class="btn_voltar_adm" >
-                 <img src="~/img/voltar.png" alt="" class="img_btn_voltar">
-             </button>
-         </a>
+
+<div class="contaner_titulo_index">
+    <a asp-action="Voltar">
+        <button class="btn_voltar_adm">
+            <img src="~/img/voltar.png" alt="" class="img_btn_voltar">
+        </button>
+    </a>
+</div>
+<h1 class="titulo_pagina_adm">Dados do usário</h1>
+
+
+<section>
+    <div class="form-group input-group" id="div-group-tabela">
+
+        <div id="aux4">
+            <input name="consulta" id="pesquisa_cpf" placeholder="Consultar CPF" type="text" class="form-control"> <img src="~/img/lupa.png" id="lupa" alt="" minlength="4" maxlength="250" required>
+        </div>
     </div>
-    <h1 class="titulo_pagina_adm">Dados do usário</h1>
+    <table class="table" id="tabela">
 
-    
-    <section>
-        <div class="form-group input-group" id="div-group-tabela">
-            
-            <div id="aux4">
-                <input name="consulta" id="pesquisa_cpf" placeholder="Consultar CPF" type="text" class="form-control"> <img src="~/img/lupa.png" id="lupa" alt="" minlength="4" maxlength="250" required>
-            </div>
-            </div>
-            <table class="table" id="tabela">
-    
         <tbody>
-            @foreach(var item in listaUsuarios)
+            @foreach (var item in listaUsuarios)
             {
                 <tr>
 
-                <td id="td">
-            <div class="container_dados">
-                
-                <img src="~/img/dados_user.png" alt="" class="img_user_dados">
-                <div class="texto_dados">
-                    <p class="texto_dados_nome">@item.Nome</p>
-                    <p class="texto_dados_pessoais">@item.Cpf</p>
-                    <p class="texto_dados_pessoais">@item.Id_Cargo</p>
-                    <p class="texto_dados_pessoais">@item.Id_Area</p>
-                </div>
-                <button class="btn_editar_dados">Editar</button>
-            
-            </div>
-        </td>
-             </tr>   
+                    <td id="td">
+                        <div class="container_dados">
+
+                            <img src="~/img/dados_user.png" alt="" class="img_user_dados">
+                            <div class="texto_dados">
+                                <p class="texto_dados_nome">@item.Nome</p>
+                                <p class="texto_dados_pessoais">@item.Cpf</p>
+                                <p class="texto_dados_pessoais">@item.Id_Cargo</p>
+                                <p class="texto_dados_pessoais">@item.Id_Area</p>
+                            </div>
+                            <div class="margin_btns">
+                            <button class="btn_editar_dados">@Html.ActionLink("Editar", "Editar", new { id = item.Id, cpf = item.Cpf, especialidade = item.Id_Especialidade, cargo = item.Id_Cargo})</button>
+                            @if (@item.Status1 == "ativado")
+                            {
+                                <button class="btn_editar_dados btn_inativar">@Html.ActionLink("Inativar", "Inativar", new { cpf = item.Cpf })</button>
+                            }
+                            else
+                            {
+                                <button class="btn_editar_dados btn_ativar">@Html.ActionLink("Ativar", "Ativar", new { cpf = item.Cpf })</button>
+                            }
+                        </div>
+                        </div>
+                    </td>
+                </tr>
             }
-            
-    </tbody>
 
-        
-        
-        
-    </section>
+        </tbody>
 
 
-   
-    
+
+
+</section>
+
+
+
+
 
 <script>
     $('input#pesquisa_cpf').quicksearch('table#tabela tbody tr');
-     </script>
+</script>
 </html>

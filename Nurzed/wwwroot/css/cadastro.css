@@ -235,3 +235,8 @@ color: #000;
 font-family: arial;
 text-align: center;
 }
+
+/*edit victor*/
+#v .caixa_texto {
+    margin-right: 23vw;
+}

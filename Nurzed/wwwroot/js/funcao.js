@@ -26,6 +26,7 @@ function avaPeriodo() {
     let btnTroca = document.getElementById('aux37');
     btnTroca.style.display = 'block';
 
+
     let conteudoPeriodo = document.getElementById('aux38');
     conteudoPeriodo.style.display = 'block';
 
