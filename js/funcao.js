@@ -1,3 +1,6 @@
+var CPFValido;
+var DataValida;
+
 function avaCronograma() {
 
     let section = document.getElementById('aux30');
@@ -51,118 +54,140 @@ function avaPeriodoADM() {
 
 
 function validacaoData() {
+    var validandoDatauniI;
+    var validandoDataNasc;
+    var validandoDatauniF;
+    
+
     var data = new Date();
     var dia = String(data.getDate()).padStart(2, '0');
     var mes = String(data.getMonth() + 1).padStart(2, '0');
     var ano = data.getFullYear();
 
-    var dataNasc = document.querySelector("#data_nascimento").value;
-    var resultado1 = dataNasc.split("/");
+    var nasc = document.querySelector("#data_nascimento").value;
+    var dataNasc = nasc.split("/");
 
-    var datauniI = document.querySelector("#uni_inicio").value;
-    var resultado2 = datauniI.split("/");
+    var dianasc = dataNasc[0];
+    var mesnasc = dataNasc[1];
+    var anonasc = dataNasc[2];
+   
+    var uniI = document.querySelector("#uni_inicio").value;
+    var dataUniI = uniI.split("/");
 
-    var datauniF = document.querySelector("#uni_fim").value;
-    var resultado3 = datauniF.split("/");
+    var diauniI = dataUniI[0];
+    var mesuniI = dataUniI[1];
+    var anouniI = dataUniI[2];
+
+    var uniF = document.querySelector("#uni_fim").value;
+    var dataUniF = uniF.split("/");
+
+    var diauniF = dataUniF[0];
+    var mesuniF = dataUniF[1];
+    var anouniF = dataUniF[2];
+
+    if(anonasc > 1900 && mesnasc <= 12 && dianasc <= 31){
+        if(anonasc == ano){
+            if(mesnasc == mes){
+                if(dianasc <= dia){
+                    validandoDataNasc = true;
+                }else{
+                    validandoDataNasc = false;
+                }
+            }else if(mesnasc < mes){
+                validandoDataNasc = true;
+            }else{
+                validandoDataNasc = false;
+            }
+        }else{
+            if(anonasc > ano){
+                validandoDataNasc = false;
+            }else{
+                validandoDataNasc = true;
+            }
+        }
+    }else{
+        validandoDataNasc = false;
+    }
+
+    if(anouniI > 1900 && mesuniI <= 12 && diauniI <= 31){
+        if(anouniI == ano){
+            if(mesuniI == mes){
+                if(diauniI <= dia){
+                    validandoDatauniI = true;
+                }else{
+                    validandoDatauniI = false;
+                    console.log("1")
+                }
+            }else if(mesuniI < mes){
+                validandoDatauniI = true;
+            }else{
+                validandoDatauniI = false;
+                console.log("2")
+            }
+        }else{
+            if(anouniI > ano){
+                validandoDatauniI = false;
+                console.log("3")
+            }else{
+                validandoDatauniI = true;
+            }
+        }
+    }else{
+        validandoDatauniI = false;
+        console.log("4")
+    }
+
+    if(anouniF > 1900 && mesuniF <= 12 && diauniF <= 31){
+        if(anouniF == ano){
+            if(mesuniF == mes){
+                if(diauniF <= dia){
+                    validandoDatauniF = true;
+                }else{
+                    validandoDatauniF = false;
+                }
+            }else if(mesuniF < mes){
+                validandoDatauniF = true;
+            }else{
+                validandoDatauniF = false;
+            }
+        }else{
+            if(anouniF > ano){
+                validandoDatauniF = false;
+            }else{
+                validandoDatauniF = true;
+            }
+        }
+    }else{
+        validandoDatauniF = false;
+    }
+
   
+    console.log(nasc)
+    console.log(uniI)
+    console.log(uniF)
 
-    var primeiro1 = resultado1[0];
-    var segundo1 = resultado1[1];
-    var terseiro1 = resultado1[2];
+    console.log(" -" + mesuniI)
 
-    var primeiro2 = resultado2[0];
-    var segundo2 = resultado2[1];
-    var terseiro2 = resultado2[2];
-
-    var primeiro3 = resultado3[0];
-    var segundo3 = resultado3[1];
-    var terseiro3 = resultado3[2];
+    console.log(validandoDataNasc)
+    console.log(validandoDatauniI)
+    console.log(validandoDatauniF)
 
 
-    if(terseiro1 < ano && terseiro1 > 1900){
-        if(segundo1 > 12){
-            alert("Data invalida , verifique os campos")
-        }
-        if(primeiro1 > 31){
-            alert("Data invalida , verifique os campos")
-        }
-       var validacao1 = true;
+    if(validandoDatauniF == true && validandoDatauniI == true && validandoDataNasc == true){
+        console.log("data valida")
+        DataValida = true 
+        dataNasc = []
+        dataUniI = []
+        dataUniF = []
     }else{
-        if(terseiro1 == ano){
-            if(segundo1 <= mes){
-                if(segundo1 == mes ){
-                    if(primeiro1 <= dia){
-                        var validacao2 = true;
-                    }else{
-                        alert("Data invalida , verifique os campos");
-                    }
-                }
-            }else{
-                alert("Data invalida , verifique os campos");
-            }
-        }else{
-            alert("Data invalida , verifique os campos");
-        }   
-     
+        alert("Data invalida verifique os campos")
+        console.log("data invalida")
+        DataValida = false 
+        dataNasc = []
+        dataUniI = []
+        dataUniF = []
     }
-
-    if(terseiro2 < ano && terseiro2 > 1900){
-        if(segundo2 > 12){
-            alert("Data invalida , verifique os campos")
-        }
-        if(primeiro2 > 31){
-            alert("Data invalida , verifique os campos")
-        }
-       var validacao3 = true;
-    }else{
-        if(terseiro2 == ano){
-            if(segundo2 <= mes){
-                if(segundo2 == mes ){
-                    if(primeiro2 <= dia){
-                        var validacao4 = true;
-                    }else{
-                        alert("Data invalida , verifique os campos");
-                    }
-                }
-            }else{
-                alert("Data invalida , verifique os campos");
-            }
-        }else{
-            alert("Data invalida , verifique os campos");
-            console.log("aqui")
-        }
-    }
-
-    if(terseiro3 < ano && terseiro3 > 1900){
-        if(segundo3 > 12){
-            alert("Data invalida , verifique os campos")
-        }
-        if(primeiro3 > 31){
-            alert("Data invalida , verifique os campos")
-        }
-       var validacao5 = true;
-    }else{
-        if(terseiro3 == ano){
-            if(segundo3 <= mes){
-                if(segundo3 == mes ){
-                    if(primeiro3 <= dia){
-                        var validacao6 = true;
-                    }else{
-                        alert("Data invalida , verifique os campos");
-                    }
-                }
-            }else{
-                alert("Data invalida , verifique os campos");
-            }
-        }else{
-            alert("Data invalida , verifique os campos");
-        }
-
-    }
-
-    
-//04/05/2005
-
+   
 }
 
 
@@ -170,14 +195,14 @@ function validacaoData() {
 function ValidarCPF(){
 
     var CPFnatural = document.querySelector("#cpf").value;
-    var Exemplo = CPFnatural
+    var Exemplo = CPFnatural;
     resultado = Exemplo.split("" ,14);
+    
 
     /*validacao simples */
 
     if (CPFnatural == "000.000.000-00" ||CPFnatural == "111.111.111-11" || CPFnatural == "222.222.222-22" ||CPFnatural == "333.333.333-33" ||CPFnatural == "444.444.444-44" ||CPFnatural == "555.555.555-55" ||CPFnatural == "666.666.666-66" ||CPFnatural == "777.777.777-77" ||CPFnatural == "888.888.888-88" ||CPFnatural == "999.999.999-99"){
        var ValidacaoSimples = false;
-       console.log("repetitividade encontrada")
     }
     
     /* Validacao primeiro digito */
@@ -227,7 +252,7 @@ function ValidarCPF(){
     var segundaSoma = digito01 + digito02+ digito03+ digito04+ digito05+ digito06+ digito07+ digito08+ digito09 + digito10;
 
     let divisao2 = segundaSoma % 11;
-    let sub2 = 11- divisao2 ;
+    let sub2 = 11 - divisao2 ;
 
     if(sub2 >= 10){
        if(resultado[13] == 0){
@@ -245,14 +270,16 @@ function ValidarCPF(){
 
     if(ValidacaoSimples == false){
         alert("CPF invalido , verifique o campo")
+        CPFValido = false;
     }else{
         if(primeDigit1 == 0 || primeDigit2 == true){
             if(segundDigit1 == 0 || segundDigit2 == true){
-                alert("todos os digitos validos")
-                var CPFValido = true;
+                console.log("CPF valido")
+                CPFValido = true;
             }else{
                 if(primeDigit1 == false ||  primeDigit2 == false || segundDigit1 == false || segundDigit2 == false){
                     alert("CPF invalido , verifique o campo")
+                    CPFValido = false;
                 }else{
                     alert("algo deu errado")
                 }
@@ -262,12 +289,8 @@ function ValidarCPF(){
         }
     }
     
-
-    //145.382.206-20
-    //184.251.808-99
-    //024.964.358-86
-    //184.254.358-03
-
+    
+    //invalidos
     //177.345.324-93
     //001.358.293-04
     //120.702.754-60
@@ -275,43 +298,19 @@ function ValidarCPF(){
 }
 
 
+function ValidacaoGeral(){
+
+    if(CPFValido == true && DataValida == true){
+        console.log("validou")
+        let teste = document.getElementsByClassName('btn_Finalizar_adm')[0] 
+        teste.setAttribute("data-bs-toggle","modal") 
+    }
+}
 
 
 
-
-
-/*function ValidacaoGeral(){
-
-    if(validacao1 == true || validacao2 == true){
-        console.log("1 ok");
-        if(validacao3 == true || validacao4 == true){
-            console.log("2 ok");
-            if(validacao5 == true || validacao6 == true){
-                console.log("3 ok");
-                let teste = document.getElementsByClassName('btn_Finalizar_adm')[0] 
-                teste.setAttribute("data-bs-toggle", "modal") 
-            }else{
-                let teste = document.getElementsByClassName('btn_Finalizar_adm')[0] 
-                teste.setAttribute("data-bs-toggle", "null")
-                console.log("abacate")
-            }
-        }else{
-            let teste = document.getElementsByClassName('btn_Finalizar_adm')[0] 
-            teste.setAttribute("data-bs-toggle", "null")
-            console.log("roxo")
-        }
-   }else{
-    let teste = document.getElementsByClassName('btn_Finalizar_adm')[0] 
-    teste.setAttribute("data-bs-toggle", "null")
-    console.log("deu ruiiiiim")
-   }
-
-}*/
-
-/*
-CPFValido
-
-
-*/
-
-
+function chamarBtn(){
+    validacaoData();
+    ValidarCPF();
+    ValidacaoGeral();
+}
