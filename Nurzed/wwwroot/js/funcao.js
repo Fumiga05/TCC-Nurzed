@@ -1,5 +1,21 @@
-function avaCronograma() {
+var marker = 0;
 
+if (marker == 1) {
+    let section = document.getElementById('aux30');
+    section.style.display = 'block';
+
+    let btnava = document.getElementById('aux10');
+    btnava.style.display = 'none';
+
+    let btntroc = document.getElementById('aux31');
+    btntroc.style.display = 'block';
+
+    let select = document.getElementById('aux9');
+    select.style.display = 'none';
+}
+
+function avaCronograma() {
+    marker = marker + 1
     let section = document.getElementById('aux30');
     section.style.display = 'block';
 

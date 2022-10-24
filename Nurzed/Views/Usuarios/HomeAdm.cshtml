@@ -5,7 +5,7 @@
 }    
 
     <link rel="stylesheet" href="~/css/homes.css">
-    <link rel="stylesheet" href="~/css/index.css">
+    
 
     
 
@@ -14,7 +14,7 @@
         <br><br><br><p id="area_trab_adm">Área de trabalho:@u.Id_Area</p>
 
         <div class="container_home_btn">
-            <a ><button class="btn_acoens_home_adm"><img src="~/img/calendario_adm.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_adm">Ver Plantão</p></button></a>
+            <a asp-action="Plantao"><button class="btn_acoens_home_adm" <img src="~/img/calendario_adm.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_adm">Ver Plantão</p></button></a>
             <a asp-controller="Especialidade" asp-action="Cadastrar"><button class="btn_acoens_home_adm" ><img src="~/img/adm_add.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_adm">Add Especialidades</p></button></a>
             
         </div>
