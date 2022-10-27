@@ -65,7 +65,7 @@
        
         </div>
     </div>
-    <form asp-action="Atualizar">
+       @* <form asp-action="Cadastrar2">*@
         <input type="hidden" id="mesRes" name="mes" value="teste">
 
         <div id="aux9">
@@ -82,7 +82,12 @@
     <input type="hidden" id="ano" name="ano">
     <div class="conteiner_hario">
         <div class="vazio"></div>
+    
+
+
+      
         <div class="conteiner_hora">
+
             <input type="radio" name="periodo" id="manha" checked class="radio_hora" onclick="EscolherPeriodo(this)" value="manha">
             <p class="radio_hora_text">07:00 às 13:00</p>
         </div>
@@ -96,16 +101,17 @@
             <input type="radio" name="periodo" id="noite" class="radio_hora" onclick="EscolherPeriodo(this)" value="noite">
             <p class="radio_hora_text">21:00 às 07:00</p>
         </div>
+
         <div class="vazio"></div>
     </div>
     <input type="hidden" id="periodoRes" name="periodo">
     <hr id="linha_horario_adm">
     </div>
-
+   
     <div id="aux10">
-        <a><button class="btn_avancar_conograma_adm" onclick="avaCronograma()">Avançar</button></a>
+        <a><button class="btn_avancar_conograma_adm"  onclick="clicar()" id="btn_Avancar">Avançar</button></a>
     </div>
-    </form>
+
 
     <div id="aux31">
         <button class="btn_avancar_conograma_adm" onclick="f5()">Trocar Horário</button>
@@ -126,80 +132,15 @@
 
         
         <div class="aux13">
-                <table class="tabela_crono_adm">
-                <tr class="linha_1_cronograma_enf">
+                <table class="tabela_crono_adm" id="tabela">
+                    <tbody id="tbody">
+                        <tr id="tr" class="linha_1_cronograma_enf">
+            
+            
+                       </tr>
 
-
-
-
-                    <td class="nome_infermeiro_tabela_adm">ENFERMEIROS</td>
-                    <td class="corem_infermeiro_tabela_adm">COREN</td>
-                        @{
-                            int aux = 0;
-                            int aux2 = 0;
-                            List<Cronograma> listaCronograma;
-                            
-                        }   
-                    @foreach  (var item in listaDias)
-                    {
-
-                        <td class="select_infermeiro_tabela_adm">@item</td>
-                        <input type="hidden" name="dias" value="@item">
-                    }
-
-                </tr>
-
-
-                
-
-                @foreach(var item in listaEnfermeiros){
-
-                    <tr class="tabela_cronograma_adm">
-                        <td class="opcao_tabela_cronograma_enf nome_infermeiro_tabela_adm" name="nFuncionarios">@item.Nome</td>
-                        <input type="hidden" value="@item.Id" name="nome">
-
-                        <td class="opcao_tabela_cronograma_enf corem_infermeiro_tabela_adm">@item.Coren</td>
-                        
-                        
-
-                        @foreach  (var item2 in listaDias)
-                        {
-
-                        
-                            <input type="hidden" name="Aux2" value="@aux2">
-                            <td class="opcao_tabela_cronograma_enf">
-                                <input type="hidden" name="diasAll" value="@item2">
-                                <select class="select_cronograma_adm select_infermeiro_tabela_adm" name="Legenda">
-                                    <option selected value="PR" name="@aux@aux2"> PR </option>
-                                    <option value="X">X</option>
-                                    <option value="ABA">ABA</option>
-                                    <option value="LTS">LTS</option>
-                                    <option value="LP">LP</option>
-                                    <option value="LG">LG</option>
-                                    <option value="FE">FE</option>
-                                    <option value="FI">FI</option>
-                                    <option value="PF">PF</option>
-                                    <option value="CH">CH</option>
-                                    <option value="TL">TL</option>
-                                    <option value="AF">AF</option>
-                                    <option value="TC">TC</option>
-                                    <option value="FT">FT</option>
-                                </select>
-                                </td>
-                               
-                                aux2++;
-                                
-                            }
-                       
-
-                    </tr>
-
-                        {
-                            aux++;
-                            
-                        }
-                        
-                }
+                    </tbody>
+             
 
             </table>
         </div>
@@ -209,55 +150,13 @@
         <!-------------------------------------------------------------------->
 
         <div class="aux13">
-            <table class="tabela_crono_adm">
-
-                <tr class="linha_1_cronograma_enf">
-                    <td class="nome_infermeiro_tabela_adm">TÉC. DE ENFERMAGEM</td>
-                    <td class="corem_infermeiro_tabela_adm">COREN</td>
-
-                    @foreach  (var item in listaDias)
-                    {
-
-                        <td class="select_infermeiro_tabela_adm">@item</td>
-                    }
+            <table class="tabela_crono_adm" >
+                <tbody id="tbody2">
+                <tr class="linha_1_cronograma_enf" id="tr2">
+                    
 
                 </tr>
-                @foreach(var item in listaTecnicos){           
-   
-                       <tr class="tabela_cronograma_adm">
-                        <td class="opcao_tabela_cronograma_enf nome_infermeiro_tabela_adm" >@item.Nome</td>
-
-                        <td class="opcao_tabela_cronograma_enf corem_infermeiro_tabela_adm">@item.Coren</td>
-
-                       @foreach (var item2 in listaDias)
-                        {
-
-                            
-                            <td class="opcao_tabela_cronograma_enf">
-                                <select class="select_cronograma_adm select_infermeiro_tabela_adm">
-                                    <option selected value="PR"> PR </option>
-                                    <option value="X"> X</option>
-                                    <option value="ABA"> ABA </option>
-                                    <option value="LTS"> LTS </option>
-                                    <option value="LP">LP </option>
-                                    <option value="LG"> LG </option>
-                                    <option value="FE">FE </option>
-                                    <option value="FI"> FI </option>
-                                    <option value="PF"> PF </option>
-                                    <option value="CH"> CH</option>
-                                    <option value="TL"> TL </option>
-                                    <option value="AF"> AF </option>
-                                    <option value="TC"> TC </option>
-                                    <option value="FT"> FT </option>
-                                </select>
-                            </td>
-                            
-                        }
-
-                        
-
-                    </tr>
-                }
+              </tbody>
             </table>
         </div>
 
@@ -354,6 +253,7 @@
 
     </section>
 </body>
+
 <script src="~/js/funcao.js"></script>
 <script src="~/js/cronograma.js"></script>
 
