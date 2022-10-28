@@ -230,10 +230,12 @@ function AdicionarUsuarios() {
 
 function AdicionarEnfermeiros() {
     //Retira tabela Enfermeiros caso não tenha nenhum usuário
-    if (listaEnfermeiros[0].length < 1) {
-        var div_Enfermeiros = document.getElementById('div_Enfermeiros')
-        div_Enfermeiros.parentNode.removeChild(div_Enfermeiros)
+    var div_Enfermeiros = document.getElementById('div_Enfermeiros')
+    div_Enfermeiros.setAttribute("style", "display:none;")
+    if (listaEnfermeiros[0].length >= 1) {
+    div_Enfermeiros.setAttribute("style", "display:block;")
     }
+    
     
 
     let opções = ["PR", "X", "ABA", "LTS", "LP", "LG", "FE", "FI", "PF", "CH", "TL", "AF", "TC", "FT"]
@@ -301,9 +303,10 @@ function AdicionarEnfermeiros() {
 
 function AdicionarTecnicos() {
     //Retira tabela Tecnicos caso não tenha nenhum usuário
-    if (listaTecnicos[0].length < 1) {
-        var div_Tecnicos = document.getElementById('div_Tecnicos')
-        div_Tecnicos.parentNode.removeChild(div_Tecnicos)
+    var div_Tecnicos = document.getElementById('div_Tecnicos')
+    div_Tecnicos.setAttribute("style", "display:none;")
+    if (listaTecnicos[0].length >= 1) {
+        div_Tecnicos.setAttribute("style", "display:block;")
     }
 
     let opções = ["PR", "X", "ABA", "LTS", "LP", "LG", "FE", "FI", "PF", "CH", "TL", "AF", "TC", "FT"]
@@ -372,9 +375,10 @@ function AdicionarTecnicos() {
 
 function AdicionarAuxEnf() {
     //Retira tabela AuxEnf caso não tenha nenhum usuário
-    if (listaAux[0].length < 1) {
-        var div_AuxEnf = document.getElementById('div_AuxEnf')
-        div_AuxEnf.parentNode.removeChild(div_AuxEnf)
+    var div_AuxEnf = document.getElementById('div_AuxEnf')
+    div_AuxEnf.setAttribute("style", "display:none;")
+    if (listaAux[0].length >= 1) {
+        div_AuxEnf.setAttribute("style", "display:block;")
     }
     
 
@@ -557,6 +561,15 @@ function Remover() {
         tr_AuxEnf.removeChild(tr_AuxEnf.firstChild);
     }
 
+    //var div_Enfermeiros = document.getElementById('div_Enfermeiros')
+    //div_Enfermeiros.parentNode.removeChild(div_Enfermeiros)
+
+    //var div_Tecnicos = document.getElementById('div_Tecnicos')
+    //div_Tecnicos.parentNode.removeChild(div_Tecnicos)
+
+    //var div_AuxEnf = document.getElementById('div_AuxEnf')
+    //div_AuxEnf.parentNode.removeChild(div_AuxEnf)
+
 
     //Remove os tr's o conteudo da tabela de enfermeiros
     var tbody_Enfermeiros = document.getElementById('tbody_Enfermeiros')
@@ -626,3 +639,37 @@ function EscolherPeriodo(valor) {
 //==============================================================================
 
 
+function teste() {
+   
+    var div_Enfermeiros = document.getElementById('div_Enfermeiros')
+    div_Enfermeiros.parentNode.removeChild(div_Enfermeiros)
+
+    var div_Tecnicos = document.getElementById('div_Tecnicos')
+    div_Tecnicos.parentNode.removeChild(div_Tecnicos)
+
+    var div_AuxEnf = document.getElementById('div_AuxEnf')
+    div_AuxEnf.parentNode.removeChild(div_AuxEnf)
+}
+
+function teste2() {
+    var aux30 = document.getElementById('aux30')
+    var div_Enfermeiros = "<div class='aux13' id='div_Enfermeiros'>"
+        + "<table class='tabela_crono_adm' id='tabela'><tbody id='tbody_Enfermeiros'>"
+        + "<tr id='tr_Enfermeiros' class='linha_1_cronograma_enf'></tr>"
+        + "</tbody></table></div>"
+    aux30.appendChild(div_Enfermeiros)
+
+    var div_Tecnicos = "<div class='aux13' id='div_Tecnicos'>"
+        + "<table class='tabela_crono_adm' id='tabela'><tbody id='tbody_Tecnicos'>"
+        + "<tr id='tr_Tecnicos' class='linha_1_cronograma_enf'></tr>"
+        + "</tbody></table></div>"
+    aux30.appendChild(div_Tecnicos)
+
+    //var div_AuxEnf = "<div class='aux13' id='div_AuxEnf'>"
+    //    + "<table class='tabela_crono_adm' id='tabela'><tbody id='tbody_AuxEnf'>"
+    //    + "<tr id='tr_AuxEnf' class='linha_1_cronograma_enf'></tr>"
+    //    + "</tbody></table></div>"
+    //aux30.innerHTML = div_AuxEnf
+
+
+}
