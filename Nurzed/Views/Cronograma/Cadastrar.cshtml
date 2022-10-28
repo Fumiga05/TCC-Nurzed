@@ -131,31 +131,30 @@
         </div>
 
         
-        <div class="aux13">
+        <div class="aux13" id="div_Enfermeiros">
                 <table class="tabela_crono_adm" id="tabela">
-                    <tbody id="tbody">
-                        <tr id="tr" class="linha_1_cronograma_enf">
+                    <tbody id="tbody_Enfermeiros">
+                        <tr id="tr_Enfermeiros" class="linha_1_cronograma_enf">
             
             
                        </tr>
 
-                    </tbody>
-             
+                    </tbody>         
 
-            </table>
+                </table>
         </div>
 
 
 
         <!-------------------------------------------------------------------->
 
-        <div class="aux13">
+        <div class="aux13" id="div_Tecnicos">
             <table class="tabela_crono_adm" >
-                <tbody id="tbody2">
-                <tr class="linha_1_cronograma_enf" id="tr2">
+                <tbody id="tbody_Tecnicos">
+                    <tr id="tr_Tecnicos" class="linha_1_cronograma_enf" >
                     
 
-                </tr>
+                    </tr>
               </tbody>
             </table>
         </div>
@@ -163,49 +162,14 @@
         <!----------------------------------------------------------------------->
 
 
-        <div class="aux13">
+        <div class="aux13" id="div_AuxEnf">
             <table class="tabela_crono_adm">
-                <tr class="linha_1_cronograma_enf">
-                    <td class="nome_infermeiro_tabela_adm">AUX. DE ENFERMAGEM</td>
-                    <td class="corem_infermeiro_tabela_adm">COREN</td>
-                                                                  @foreach  (var item in listaDias)
-                    {
+                <tbody id="tbody_AuxEnf">
+                    <tr id="tr_AuxEnf"class="linha_1_cronograma_enf">
+                   
 
-                        <td class="select_infermeiro_tabela_adm">@item</td>
-                    }
-
-                </tr>
-                @foreach  (var item in listaAux){                      
-   
-                       <tr class="tabela_cronograma_adm">
-                        <td class="opcao_tabela_cronograma_enf nome_infermeiro_tabela_adm">@item.Nome</td>
-                        <td class="opcao_tabela_cronograma_enf corem_infermeiro_tabela_adm">@item.Coren</td>
-                       @foreach (var item2 in listaDias)
-                        {
-
-
-                            <td class="opcao_tabela_cronograma_enf">
-                                <select class="select_cronograma_adm select_infermeiro_tabela_adm" name="legendas">
-
-                                    <option selected value="PR"> PR </option>
-                                    <option value="X"> X</option>
-                                    <option value="ABA"> ABA </option>
-                                    <option value="LTS"> LTS </option>
-                                    <option value="LP">LP </option>
-                                    <option value="LG"> LG </option>
-                                    <option value="FE">FE </option>
-                                    <option value="FI"> FI </option>
-                                    <option value="PF"> PF </option>
-                                    <option value="CH"> CH</option>
-                                    <option value="TL"> TL </option>
-                                    <option value="AF"> AF </option>
-                                    <option value="TC"> TC </option>
-                                    <option value="FT"> FT </option>
-                                </select>
-                            </td>
-                        }
                     </tr>
-                }
+                </tbody>
             </table>
         </div>
        

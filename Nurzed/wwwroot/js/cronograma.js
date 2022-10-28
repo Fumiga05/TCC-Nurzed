@@ -50,10 +50,8 @@ var aux = []
 
 
 
-ListaDias()
+
 clicar()
-AdicionarEnfermeiros()
-AdicionarTecnicos()
 
 
 
@@ -101,8 +99,7 @@ myForm.addEventListener("submit", async evt => {
 
      })
          .then(data => data.json())
-         .then(data => {
-             // data.forEach(item => {
+         .then(data => {           
 
              listaEnfermeiros.push(data[0]);
              listaTecnicos.push(data[1])
@@ -113,20 +110,17 @@ myForm.addEventListener("submit", async evt => {
              console.log(listaTecnicos[0])
              console.log(listaAux[0])
 
-             //});
-             Remover()
-             ListaDias()
-             AdicionarEnfermeiros()
-             AdicionarTecnicos()
-         })
-         .catch((error) => console.log('Erro: ' + error.status));
-
-  
              
-     
-     
+            Remover()
+            ListaDias()
 
+            AdicionarEnfermeiros()
+            AdicionarTecnicos()
+            AdicionarAuxEnf()
 
+         })
+         .catch((error) => console.log('Erro: ' + error.status));   
+  
 }
 
 
@@ -228,31 +222,30 @@ function AdicionarUsuarios() {
         listaAllUsuarios.push(item.value)
     })
 
-    //for (let i = 0; i < usuariosAll.length; i++) {
-    //    var listaUsuarios = []
-    //    for (let j = 0; j < dias.length; j++) {
-    //        listaUsuarios.push(listaAllUsuarios[i])
-    //    }
-    //    aux.push(listaUsuarios)
-    //}
+ 
 
     return listaAllUsuarios
 
 }
 
 function AdicionarEnfermeiros() {
-    //
-    let opções = ["PR", "X", "ABA", "LTS", "LP", "LG", "FE", "FI", "PF", "CH", "TL", "AF", "TC", "FT"]
-    var tabela = document.getElementById('tbody')
+    //Retira tabela Enfermeiros caso não tenha nenhum usuário
+    if (listaEnfermeiros[0].length < 1) {
+        var div_Enfermeiros = document.getElementById('div_Enfermeiros')
+        div_Enfermeiros.parentNode.removeChild(div_Enfermeiros)
+    }
+    
 
+    let opções = ["PR", "X", "ABA", "LTS", "LP", "LG", "FE", "FI", "PF", "CH", "TL", "AF", "TC", "FT"]
+    var tabela = document.getElementById('tbody_Enfermeiros')
     //Repete a quantidade de users
-    // for (let i = 0; i < listaEnfermeiros.length; i++) {
+  
     listaEnfermeiros[0].forEach(item => {
 
     
         var tr = document.createElement("tr");
         tabela.appendChild(tr)
-        tr.setAttribute("name", "tr_Usuarios")
+        tr.setAttribute("name", "tr_Enfermeiros")
         tr.setAttribute("class", "tabela_cronograma_adm")
 
         var tdNome = document.createElement("td")
@@ -307,18 +300,23 @@ function AdicionarEnfermeiros() {
 }
 
 function AdicionarTecnicos() {
-    //
+    //Retira tabela Tecnicos caso não tenha nenhum usuário
+    if (listaTecnicos[0].length < 1) {
+        var div_Tecnicos = document.getElementById('div_Tecnicos')
+        div_Tecnicos.parentNode.removeChild(div_Tecnicos)
+    }
+
     let opções = ["PR", "X", "ABA", "LTS", "LP", "LG", "FE", "FI", "PF", "CH", "TL", "AF", "TC", "FT"]
-    var tabela = document.getElementById('tbody2')
+    var tabela = document.getElementById('tbody_Tecnicos')
 
     //Repete a quantidade de users
-    
+
     listaTecnicos[0].forEach(item => {
 
 
         var tr = document.createElement("tr");
         tabela.appendChild(tr)
-        tr.setAttribute("name", "tr_Usuarios")
+        tr.setAttribute("name", "tr_Tecnicos")
         tr.setAttribute("class", "tabela_cronograma_adm")
 
         var tdNome = document.createElement("td")
@@ -326,6 +324,7 @@ function AdicionarTecnicos() {
         tdNome.setAttribute("class", "opcao_tabela_cronograma_enf nome_infermeiro_tabela_adm")
         tdNome.setAttribute("name", "nFuncionarios")
         tdNome.innerText = item["nome"]
+        console.log(listaTecnicos)
 
         var input = document.createElement("input");
         input.setAttribute("type", "hidden")
@@ -364,11 +363,83 @@ function AdicionarTecnicos() {
 
         }
     })
-    
+    // }
     console.log("teste Adicionar linha usuarios")
 
     return listaTecnicos
+}
 
+
+function AdicionarAuxEnf() {
+    //Retira tabela AuxEnf caso não tenha nenhum usuário
+    if (listaAux[0].length < 1) {
+        var div_AuxEnf = document.getElementById('div_AuxEnf')
+        div_AuxEnf.parentNode.removeChild(div_AuxEnf)
+    }
+    
+
+
+    let opções = ["PR", "X", "ABA", "LTS", "LP", "LG", "FE", "FI", "PF", "CH", "TL", "AF", "TC", "FT"]
+    var tabela = document.getElementById('tbody_AuxEnf')
+
+    //Repete a quantidade de users
+
+    listaAux[0].forEach(item => {
+
+        console.log(tabela)
+        var tr = document.createElement("tr");
+        tabela.appendChild(tr)
+        tr.setAttribute("name", "tr_AuxEnf")
+        tr.setAttribute("class", "tabela_cronograma_adm")
+
+        var tdNome = document.createElement("td")
+        tr.appendChild(tdNome)
+        tdNome.setAttribute("class", "opcao_tabela_cronograma_enf nome_infermeiro_tabela_adm")
+        tdNome.setAttribute("name", "nFuncionarios")
+        tdNome.innerText = item["nome"]
+        console.log(listaTecnicos)
+
+        var input = document.createElement("input");
+        input.setAttribute("type", "hidden")
+        input.setAttribute("value", "")
+        input.setAttribute("name", "nome")
+
+        var tdCoren = document.createElement("td")
+        tr.appendChild(tdCoren)
+        tdCoren.setAttribute("class", "opcao_tabela_cronograma_enf corem_infermeiro_tabela_adm")
+        tdCoren.innerText = item["coren"]
+
+        //Repete a quantidade de dias
+        for (let j = 1; j <= DiasDoMes(); j++) {
+
+
+            var td = document.createElement("td")
+            tr.appendChild(td)
+            td.setAttribute("class", "opcao_tabela_cronograma_enf")
+
+            var inputDiasAll = document.createElement("input")
+            inputDiasAll.setAttribute("type", "hidden")
+            inputDiasAll.setAttribute("name", "diasAll")
+            inputDiasAll.setAttribute("value", "")
+
+            var select = document.createElement("select")
+            td.append(select)
+            select.setAttribute("class", "select_cronograma_adm select_infermeiro_tabela_adm")
+            select.setAttribute("name", "Legenda")
+            //declaração das options
+            opções.forEach(item => {
+                var option = document.createElement("option")
+                select.appendChild(option)
+                option.innerText = item
+                option.setAttribute("value", item)
+            })
+
+        }
+    })
+    // }
+    console.log("teste Adicionar linha usuarios")
+
+    return listaEnfermeiros
 
 }
 
@@ -377,28 +448,76 @@ function AdicionarTecnicos() {
 
 
 
-
 function ListaDias() {
-    //TR Enferme
-    var tr = document.getElementById('tr')
-    tr.setAttribute("class", "linha_1_cronograma_enf-")
-    var tdNome = document.createElement("td")
-    tr.appendChild(tdNome)
-    tdNome.innerText = 'Enfermeiros'
-    tdNome.setAttribute("name", "diasd")
-    tdNome.setAttribute("class", "nome_infermeiro_tabela_adm")
-    var tdCoren = document.createElement("td")
-    tr.appendChild(tdCoren)
-    tdCoren.innerText = 'Coren'
-    tdCoren.setAttribute("name", "diasd")
-    tdCoren.setAttribute("class", "nome_infermeiro_tabela_adm")
+    //Tabela Enfermeiros
+    var tr_Enfermeiros = document.getElementById('tr_Enfermeiros')
+    tr_Enfermeiros.setAttribute("class", "linha_1_cronograma_enf") 
+
+    var tdNome_Enfermeiros = document.createElement("td")
+    tr_Enfermeiros.appendChild(tdNome_Enfermeiros)
+    tdNome_Enfermeiros.innerText = 'Enfermeiros'
+    tdNome_Enfermeiros.setAttribute("name", "diasd")
+    tdNome_Enfermeiros.setAttribute("class", "nome_infermeiro_tabela_adm")
+
+    var tdCoren_Enfermeiros = document.createElement("td")
+    tr_Enfermeiros.appendChild(tdCoren_Enfermeiros)
+    tdCoren_Enfermeiros.innerText = 'Coren'
+    tdCoren_Enfermeiros.setAttribute("name", "diasd")
+    tdCoren_Enfermeiros.setAttribute("class", "nome_infermeiro_tabela_adm")
+    //Tabela Técnicos
+    var tr_Tecnicos = document.getElementById('tr_Tecnicos')
+    tr_Tecnicos.setAttribute("class", "linha_1_cronograma_enf")   
+
+    var tdNome_Tecnicos = document.createElement("td")
+    tr_Tecnicos.appendChild(tdNome_Tecnicos)
+    tdNome_Tecnicos.innerText = 'TÉC. DE ENFERMAGEM'
+    tdNome_Tecnicos.setAttribute("name", "diasd")
+    tdNome_Tecnicos.setAttribute("class", "nome_infermeiro_tabela_adm")    
+
+    var tdCoren_Tecnicos = document.createElement("td")
+    tr_Tecnicos.appendChild(tdCoren_Tecnicos)
+    tdCoren_Tecnicos.innerText = 'Coren'
+    tdCoren_Tecnicos.setAttribute("name", "diasd")
+    tdCoren_Tecnicos.setAttribute("class", "nome_infermeiro_tabela_adm")
+
+    //Tabela Aux.Enfermagem
+    var tr_AuxEnf = document.getElementById('tr_AuxEnf')
+    tr_AuxEnf.setAttribute("class", "linha_1_cronograma_enf")
+
+    var tdNome_AuxEnf = document.createElement("td")
+    tr_AuxEnf.appendChild(tdNome_AuxEnf)
+    tdNome_AuxEnf.innerText = 'AUX.ENFERMAGEM'
+    tdNome_AuxEnf.setAttribute("name", "diasd")
+    tdNome_AuxEnf.setAttribute("class", "nome_infermeiro_tabela_adm")
+
+    var tdCoren_AuxEnf = document.createElement("td")
+    tr_AuxEnf.appendChild(tdCoren_AuxEnf)
+    tdCoren_AuxEnf.innerText = 'Coren'
+    tdCoren_AuxEnf.setAttribute("name", "diasd")
+    tdCoren_AuxEnf.setAttribute("class", "nome_infermeiro_tabela_adm")
+
+
+
 
     for (let i = 1; i <= DiasDoMes(); i++) {
-        var td = document.createElement("td")
-        tr.appendChild(td)
-        td.innerText = i
-        td.setAttribute("name", "diasd")
-        td.setAttribute("class", "select_infermeiro_tabela_adm")
+        var td_Enfermeiros = document.createElement("td")
+        tr_Enfermeiros.appendChild(td_Enfermeiros)
+        i >= 10 ? td_Enfermeiros.innerText = i : td_Enfermeiros.innerText = "0" + i
+        td_Enfermeiros.setAttribute("name", "diasd")
+        td_Enfermeiros.setAttribute("class", "select_infermeiro_tabela_adm")
+
+        var td_Tecnicos = document.createElement("td")        
+        tr_Tecnicos.appendChild(td_Tecnicos)        
+        i >= 10 ? td_Tecnicos.innerText = i : td_Tecnicos.innerText = "0" + i  
+        td_Tecnicos.setAttribute("name", "diasd")
+        td_Tecnicos.setAttribute("class", "select_infermeiro_tabela_adm")
+
+        var td_AuxEnf = document.createElement("td")
+        tr_AuxEnf.appendChild(td_AuxEnf)
+        i >= 10 ? td_AuxEnf.innerText = i : td_AuxEnf.innerText = "0" + i
+        td_AuxEnf.setAttribute("name", "diasd")
+        td_AuxEnf.setAttribute("class", "select_infermeiro_tabela_adm")
+
 
         var input = document.createElement("input")
         input.setAttribute("type", "hidden")
@@ -407,40 +526,67 @@ function ListaDias() {
     }
     var dias = document.getElementsByName('diasd')
 
-
-
-
+    
 }
 
 
+
+
 function Remover() {
-    //Remove os td's que foram adicionados anteriormente
-    var tr = document.getElementById('tr')
-    var dias = document.getElementsByName('diasd')
-    var marker = dias.length
 
-    for (let i = 0; i < marker; i++) {
-        tr.removeChild(dias[0])
+
+
+
+    //Remove o conteudo da tabela enfermeiros
+    var tr_Enfermeiros = document.getElementById('tr_Enfermeiros')  
+
+    while (tr_Enfermeiros.firstChild) {
+        tr_Enfermeiros.removeChild(tr_Enfermeiros.firstChild);
+    }
+    //Remove o conteudo da tabela Tecnicos
+    var tr_Tecnicos = document.getElementById('tr_Tecnicos')
+
+    while (tr_Tecnicos.firstChild) {
+        tr_Tecnicos.removeChild(tr_Tecnicos.firstChild);
+    }
+
+    //Remove o conteudo da tabela Aux.Enf
+    var tr_AuxEnf = document.getElementById('tr_AuxEnf')
+
+    while (tr_AuxEnf.firstChild) {
+        tr_AuxEnf.removeChild(tr_AuxEnf.firstChild);
     }
 
 
-    //Remove os tr's de usuário que foram adicionados anteriormente
-    var tabela = document.getElementById('tbody')
-    var tr_Usuarios = document.getElementsByName('tr_Usuarios')
-    var usuarios = tr_Usuarios.length
+    //Remove os tr's o conteudo da tabela de enfermeiros
+    var tbody_Enfermeiros = document.getElementById('tbody_Enfermeiros')
+    var tr_Enfermeiros = document.getElementsByName('tr_Enfermeiros')
+    var marker_Enfermeiros = tr_Enfermeiros.length    
 
-    for (let i = 0; i < usuarios; i++) {
+    for (let i = 0; i < marker_Enfermeiros; i++) {
+        tbody_Enfermeiros.removeChild(tr_Enfermeiros[0])
+    }
+    
+    //Remove os tr's o conteudo da tabela de Tecnicos
+    
+    var tbody_Tecnicos = document.getElementById('tbody_Tecnicos')
+    var tr_Tecnicos = document.getElementsByName('tr_Tecnicos')
+    var marker_Tecnicos = tr_Tecnicos.length
 
-        tabela.removeChild(tr_Usuarios[0])
+    for (let i = 0; i < marker_Tecnicos; i++) {
+        tbody_Tecnicos.removeChild(tr_Tecnicos[0])
+    }
+   
+    //Remove os tr's o conteudo da tabela de AuxEnf
+    var tbody_AuxEnf = document.getElementById('tbody_AuxEnf')
+    var tr_AuxEnf = document.getElementsByName('tr_AuxEnf')
+    var marker_AuxEnf = tr_AuxEnf.length
 
+    for (let i = 0; i < marker_AuxEnf; i++) {
+        tbody_AuxEnf.removeChild(tr_AuxEnf[0])
     }
 
-    // while (tabela.firstChild){
-    //     tabela.removeChild(tabela.firstChild)
-    // }
-    console.log("remover")
-
-    return console.log(usuarios)
+    
 }
 
 
@@ -458,7 +604,7 @@ function EscolherMes(nome) {
     mesRes.textContent = "Valor Retornado: " + h1.innerText
   
     Remover()
-    ListaDias()
+   
     clicar()
     
     return mes
