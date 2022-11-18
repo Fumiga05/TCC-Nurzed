@@ -11,12 +11,13 @@ namespace Nurzed
     public class APIController : ControllerBase
     {
         [HttpGet]
-        [Route("/api/[Controller]/{periodo}")]
-       public IActionResult Retornar(string periodo)
+        [Route("/api/[Controller]/periodo/{periodo}")]
+        public IActionResult RetornarFuncionariosCronograma(string periodo)
         {
             List<Usuarios> listaEnf = Usuarios.ListarUsuarios("5", periodo, "");
             List<Usuarios> listaTec = Usuarios.ListarUsuarios("1", periodo, "");
-            List<Usuarios> listaAux = Usuarios.ListarUsuarios("4",periodo,"");
+            List<Usuarios> listaAux = Usuarios.ListarUsuarios("4", periodo, "");
+            
 
             List<Object> lista = new List<Object>();
             lista.Add(listaEnf);
@@ -27,6 +28,27 @@ namespace Nurzed
         }
 
 
+        [HttpGet]
+        [Route("/api/[Controller]/data/{data1}/{periodo}")]
+        public IActionResult RetornarUsuariosPlantao(string data1,string periodo)
+        {
+            
+            List<Usuarios> listaEnf = Usuarios.ListarUsuariosPlantao(data1,"5", periodo, "");
+            List<Usuarios> listaTec = Usuarios.ListarUsuariosPlantao(data1, "1", periodo, "");
+            List<Usuarios> listaAux = Usuarios.ListarUsuariosPlantao(data1, "4", periodo, "");
+            List<Usuarios> listaAusentes = Usuarios.ListarUsuariosAusentesPlantao(data1, periodo, "");
+            List<Object> lista = new List<Object>();
+            lista.Add(listaEnf);
+            lista.Add(listaTec);
+            lista.Add(listaAux);
+            lista.Add(listaAusentes);
+            return Ok(lista);
+        }
+
+
+        
+
 
     }
-}
+
+    }

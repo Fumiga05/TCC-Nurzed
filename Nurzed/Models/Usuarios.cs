@@ -8,10 +8,10 @@ namespace Nurzed.Models
 {
     public class Usuarios
     {
-        private string id,status1, nome, senha, nome_da_mae, nome_do_pai, data_de_nascimento, sexo, cpf, rg, data_de_inicio_Universidade,
+        private string id, status1, nome, senha, nome_da_mae, nome_do_pai, data_de_nascimento, sexo, cpf, rg, data_de_inicio_Universidade,
             data_de_termino_Universidade, coren, cep, telefone, matricula, id_Especialidade, id_Cargo, tipo_de_contrato, data_de_criacao, data_de_modificacao,
-            privilegios,id_Universidade, id_Curso,id_Area,usuario_modificacao,periodo;
-     
+            privilegios, id_Universidade, id_Curso, id_Area, usuario_modificacao, periodo;
+
 
         static MySqlConnection con = new MySqlConnection("server=localhost;database=vct;user id=teste;password=12345678");
 
@@ -20,7 +20,7 @@ namespace Nurzed.Models
             string data_de_inicio_Universidade, string data_de_termino_Universidade, string coren,
             string cep, string telefone, string matricula, string id_Especialidade, string id_Cargo,
             string tipo_de_contrato, string data_de_criacao, string data_de_modificacao, string privilegios,
-            string id_Universidade, string id_Curso,string id_Area,string usuario_modificacao,string periodo)
+            string id_Universidade, string id_Curso, string id_Area, string usuario_modificacao, string periodo)
         {
             this.id = id;
             this.status1 = status1;
@@ -43,7 +43,7 @@ namespace Nurzed.Models
             this.tipo_de_contrato = tipo_de_contrato;
             this.data_de_criacao = data_de_criacao;
             this.data_de_modificacao = data_de_modificacao;
-            this.privilegios = privilegios;      
+            this.privilegios = privilegios;
             this.id_Universidade = id_Universidade;
             this.id_Curso = id_Curso;
             this.id_Area = id_Area;
@@ -95,30 +95,32 @@ namespace Nurzed.Models
 
             try
             {
-                MySqlCommand qry = new MySqlCommand("SELECT id FROM " + tabela + " WHERE nome = @nome;",con);
+                MySqlCommand qry = new MySqlCommand("SELECT id FROM " + tabela + " WHERE nome = @nome;", con);
                 qry.Parameters.AddWithValue("@nome", nome);
                 leitor = qry.ExecuteReader();
 
-                if(leitor.Read())
+                if (leitor.Read())
                 {
                     string id = leitor["id"].ToString();
-                    return id; 
-                } else
+                    return id;
+                }
+                else
                 {
                     return "Não foi possível encontrar";
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return "Erro: " + e;
-            } finally
+            }
+            finally
             {
                 leitor.Close();
             }
 
 
         }
-        
+
         public string Cadastrar()
         {
             try
@@ -134,7 +136,7 @@ namespace Nurzed.Models
                     "@coren,@cep,@telefone,@matricula,@id_Especialidade,@id_Cargo,@tipo_de_contrato,@data_de_criacao,@data_de_modificacao," +
                     "@privilegios,@id_Area,@usuario_modificacao,@periodo); ", con);
                 var date = DateTime.Now;
-                data_de_criacao  = String.Format("{0:yyyy-MM-dd HH:mm:ss}", date);
+                data_de_criacao = String.Format("{0:yyyy-MM-dd HH:mm:ss}", date);
                 data_de_modificacao = String.Format("{0:yyyy-MM-dd HH:mm:ss}", date);
                 qry.Parameters.AddWithValue("@nome", nome);
                 qry.Parameters.AddWithValue("@senha", senha);
@@ -155,10 +157,10 @@ namespace Nurzed.Models
                 qry.Parameters.AddWithValue("@tipo_de_contrato", tipo_de_contrato);
                 qry.Parameters.AddWithValue("@data_de_criacao", data_de_criacao);
                 qry.Parameters.AddWithValue("@data_de_modificacao", data_de_modificacao);
-                qry.Parameters.AddWithValue("@privilegios", privilegios);               
-                qry.Parameters.AddWithValue("@id_Universidade",id_Universidade);
-                qry.Parameters.AddWithValue("@id_Curso",id_Curso);
-                qry.Parameters.AddWithValue("@id_Area",id_Area);
+                qry.Parameters.AddWithValue("@privilegios", privilegios);
+                qry.Parameters.AddWithValue("@id_Universidade", id_Universidade);
+                qry.Parameters.AddWithValue("@id_Curso", id_Curso);
+                qry.Parameters.AddWithValue("@id_Area", id_Area);
                 qry.Parameters.AddWithValue("@usuario_modificacao", usuario_modificacao);
                 qry.Parameters.AddWithValue("@periodo", periodo);
 
@@ -176,7 +178,7 @@ namespace Nurzed.Models
 
         }
 
-        public static List <Usuarios> Listar()
+        public static List<Usuarios> Listar()
         {
             List<Usuarios> lista = new List<Usuarios>();
 
@@ -192,7 +194,8 @@ namespace Nurzed.Models
 
                 while (leitor.Read())
                 {
-                    Usuarios usuarios = new Usuarios(leitor["id"].ToString(),leitor["status1"].ToString(), leitor["nome"].ToString(),"","", "", "","", leitor["cpf"].ToString(), "","", "","", "", "","", leitor["nomeEspec"].ToString(), leitor["nomeCargo"].ToString(), "", "", "", "", "", "","","","");
+                    Usuarios usuarios = new Usuarios(leitor["id"].ToString(), leitor["status1"].ToString(), leitor["nome"].ToString(), "", "", "", "", "", leitor["cpf"].ToString(),
+                        "", "", "", "", "", "", "", leitor["nomeEspec"].ToString(), leitor["nomeCargo"].ToString(), "", "", "", "", "", "", "", "", "");
                     lista.Add(usuarios);
                 }
 
@@ -202,9 +205,9 @@ namespace Nurzed.Models
 
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                return null;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                return null;
 
             }
             finally
@@ -215,7 +218,7 @@ namespace Nurzed.Models
 
         public static List<Usuarios> ListarDados(string id)
         {
-            List<Usuarios> lista = new List<Usuarios>(); 
+            List<Usuarios> lista = new List<Usuarios>();
 
             try
             {
@@ -225,29 +228,29 @@ namespace Nurzed.Models
                     "u.data_de_termino_Universidade,u.coren, u.cep, u.telefone, u.matricula," +
                     " u.tipo_de_contrato, u.privilegios,u.data_de_modificacao,u.usuario_modificacao,u.periodo,a.nome AS nomeArea, e.nome AS nomeEspec, uni.nome AS nomeUni," +
                     " cur.nome AS cursoNome, car.nome AS cargoNome FROM Usuarios AS u, Especialidade AS e," +
-                    " Universidade AS uni, Curso AS cur,Area AS a, Cargo AS car WHERE u.id = @id AND u.id_Area = a.id AND u.id_Universidade = uni.id AND u.id_Curso = cur.id AND "+
+                    " Universidade AS uni, Curso AS cur,Area AS a, Cargo AS car WHERE u.id = @id AND u.id_Area = a.id AND u.id_Universidade = uni.id AND u.id_Curso = cur.id AND " +
                      "u.id_Especialidade = e.id AND u.id_Cargo = car.id", con);
                 qry.Parameters.AddWithValue("@id", id);
-              
+
                 MySqlDataReader leitor = qry.ExecuteReader();
 
                 string data = "2/5/2004 12:00:00 AM";
-               
+
                 while (leitor.Read())
                 {
-                    Usuarios usuarios = new Usuarios(leitor["id"].ToString(),leitor["status1"].ToString(),leitor["nome"].ToString(),"",
+                    Usuarios usuarios = new Usuarios(leitor["id"].ToString(), leitor["status1"].ToString(), leitor["nome"].ToString(), "",
                         leitor["nome_da_mae"].ToString(), leitor["nome_do_pai"].ToString(), RemoveHora(leitor["data_de_nascimento"].ToString()),
-                        leitor["sexo"].ToString(),leitor["cpf"].ToString(), leitor["rg"].ToString(), RemoveHora(leitor["data_de_inicio_Universidade"].ToString()),
-                        RemoveHora(leitor["data_de_termino_Universidade"].ToString()),leitor["coren"].ToString(),leitor["cep"].ToString(), leitor["telefone"].ToString(),
-                        leitor["matricula"].ToString(),leitor["nomeEspec"].ToString(), leitor["cargoNome"].ToString(), leitor["tipo_de_contrato"].ToString(), "",
+                        leitor["sexo"].ToString(), leitor["cpf"].ToString(), leitor["rg"].ToString(), RemoveHora(leitor["data_de_inicio_Universidade"].ToString()),
+                        RemoveHora(leitor["data_de_termino_Universidade"].ToString()), leitor["coren"].ToString(), leitor["cep"].ToString(), leitor["telefone"].ToString(),
+                        leitor["matricula"].ToString(), leitor["nomeEspec"].ToString(), leitor["cargoNome"].ToString(), leitor["tipo_de_contrato"].ToString(), "",
                         leitor["data_de_modificacao"].ToString(), leitor["privilegios"].ToString(), leitor["nomeUni"].ToString(), leitor["cursoNome"].ToString(),
                         leitor["nomeArea"].ToString(), leitor["usuario_modificacao"].ToString(), leitor["periodo"].ToString());
                     lista.Add(usuarios);
                 }
-                
+
                 return lista;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return null;
             }
@@ -257,7 +260,7 @@ namespace Nurzed.Models
             }
         }
 
-        public static List<Usuarios> ListarUsuarios( string id_Cargo,string periodo,string id_Area)
+        public static List<Usuarios> ListarUsuarios(string id_Cargo, string periodo, string id_Area)
         {
             List<Usuarios> listaUsuarios = new List<Usuarios>();
             try
@@ -267,11 +270,11 @@ namespace Nurzed.Models
                 MySqlCommand qry = new MySqlCommand("SELECT * FROM Usuarios WHERE id_Cargo = @id_Cargo AND periodo = @periodo AND id_Area =  1", con);
                 qry.Parameters.AddWithValue("@id_Cargo", id_Cargo);
                 qry.Parameters.AddWithValue("@periodo", periodo);
-                qry.Parameters.AddWithValue("@id_Area",id_Area);
+                qry.Parameters.AddWithValue("@id_Area", id_Area);
 
                 MySqlDataReader leitor = qry.ExecuteReader();
 
-                while(leitor.Read())
+                while (leitor.Read())
                 {
                     Usuarios usuarios = new Usuarios(leitor["id"].ToString(), leitor["status1"].ToString(), leitor["nome"].ToString(), "",
                        leitor["nome_da_mae"].ToString(), leitor["nome_do_pai"].ToString(), RemoveHora(leitor["data_de_nascimento"].ToString()),
@@ -284,7 +287,7 @@ namespace Nurzed.Models
                 }
                 return listaUsuarios;
 
-                
+
 
 
             }
@@ -298,10 +301,73 @@ namespace Nurzed.Models
             }
         }
 
+        public static List<Usuarios> ListarUsuariosPlantao(string data1, string id_Cargo, string periodo, string id_Area)
+        {
+            List<Usuarios> listaUsuariosPlantao = new List<Usuarios>();
+            try
+            {
+                con.Open();
+                MySqlCommand qry = new MySqlCommand("SELECT * FROM Usuarios INNER JOIN Cronograma ON usuarios.id = cronograma.id_Usuarios AND cronograma.data1 = @data1 AND usuarios.periodo = @periodo AND usuarios.id_Cargo = @id_Cargo AND cronograma.legenda = 'PR';", con);
+                qry.Parameters.AddWithValue("@data1", data1);
+                qry.Parameters.AddWithValue("@id_Cargo", id_Cargo);
+                qry.Parameters.AddWithValue("@periodo", periodo);
+                qry.Parameters.AddWithValue("@id_Area", id_Area);
+                MySqlDataReader leitor = qry.ExecuteReader();
+
+                while (leitor.Read())
+                {
+                    Usuarios usuarios = new Usuarios(leitor["id"].ToString(), leitor["status1"].ToString(), leitor["nome"].ToString(), "",
+                      leitor["nome_da_mae"].ToString(), leitor["nome_do_pai"].ToString(), RemoveHora(leitor["data_de_nascimento"].ToString()),
+                      leitor["sexo"].ToString(), leitor["cpf"].ToString(), leitor["rg"].ToString(), RemoveHora(leitor["data_de_inicio_Universidade"].ToString()),
+                      RemoveHora(leitor["data_de_termino_Universidade"].ToString()), leitor["coren"].ToString(), leitor["cep"].ToString(), leitor["telefone"].ToString(),
+                      leitor["matricula"].ToString(), leitor["id_Especialidade"].ToString(), leitor["id_Cargo"].ToString(), leitor["tipo_de_contrato"].ToString(), leitor["data_de_criacao"].ToString(),
+                      leitor["data_de_modificacao"].ToString(), leitor["privilegios"].ToString(), leitor["id_Universidade"].ToString(), leitor["id_Curso"].ToString(),
+                      leitor["id_Area"].ToString(), leitor["usuario_modificacao"].ToString(), leitor["periodo"].ToString());
+                    listaUsuariosPlantao.Add(usuarios);
+                }
+                return listaUsuariosPlantao;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
 
 
+        public static List<Usuarios> ListarUsuariosAusentesPlantao(string data1, string periodo, string id_Area)
+        {
+            List<Usuarios> listaUsuariosAusentesPlantao = new List<Usuarios>();
+            try
+            {
+                con.Open();
+                MySqlCommand qry = new MySqlCommand("SELECT usuarios.nome AS usuariosNome,usuarios.id AS usuariosId,cargo.nome AS cargoNome,cronograma.legenda FROM Usuarios INNER JOIN Cronograma INNER JOIN Cargo ON usuarios.id = cronograma.id_Usuarios AND usuarios.id_Cargo = cargo.id AND cronograma.data1 = @data1 AND usuarios.periodo = @periodo AND cronograma.legenda != 'PR';", con);
+                qry.Parameters.AddWithValue("@data1", data1);               
+                qry.Parameters.AddWithValue("@periodo", periodo);
+                qry.Parameters.AddWithValue("@id_Area", id_Area);
+                MySqlDataReader leitor = qry.ExecuteReader();
 
-
+                while (leitor.Read())
+                {
+                    Usuarios usuarios = new Usuarios(leitor["usuariosId"].ToString(), "", leitor["usuariosNome"].ToString(), "",
+                     "", "", "","", "", "", "","", "","", "","", "", leitor["cargoNome"].ToString(), "", "","", "", "", leitor["legenda"].ToString(),
+                      "", "", "");
+                    listaUsuariosAusentesPlantao.Add(usuarios);
+                }
+                return listaUsuariosAusentesPlantao;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
 
 
 
@@ -321,16 +387,16 @@ namespace Nurzed.Models
                     " Universidade AS uni, Curso AS cur,Area AS a, Cargo AS car WHERE u.cpf = @cpf AND u.senha = @senha AND u.id_Area = a.id AND u.id_Universidade = uni.id AND u.id_Curso = cur.id AND " +
                      "u.id_Especialidade = e.id AND u.id_Cargo = car.id", con);
 
-                
+
                 qry.Parameters.AddWithValue("@cpf", cpf);
                 qry.Parameters.AddWithValue("@senha", senha);
-                MySqlDataReader leitor = qry .ExecuteReader();
+                MySqlDataReader leitor = qry.ExecuteReader();
 
                 if (leitor.Read())
                 {
-                    return  new Usuarios(leitor["id"].ToString(),leitor["status1"].ToString(), leitor["nome"].ToString(), "",
+                    return new Usuarios(leitor["id"].ToString(), leitor["status1"].ToString(), leitor["nome"].ToString(), "",
                         leitor["nome_da_mae"].ToString(), leitor["nome_do_pai"].ToString(), leitor["data_de_nascimento"].ToString(),
-                        leitor["sexo"].ToString(), leitor["cpf"].ToString(), leitor["rg"].ToString(), 
+                        leitor["sexo"].ToString(), leitor["cpf"].ToString(), leitor["rg"].ToString(),
                         leitor["data_de_inicio_Universidade"].ToString(), leitor["data_de_termino_Universidade"].ToString(),
                         leitor["coren"].ToString(), leitor["cep"].ToString(), leitor["telefone"].ToString(),
                         leitor["matricula"].ToString(), leitor["nomeEspec"].ToString(),
@@ -344,7 +410,7 @@ namespace Nurzed.Models
                 }
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return null;
             }
@@ -365,13 +431,13 @@ namespace Nurzed.Models
                     "data_de_termino_Universidade = @data_de_termino_Universidade, id_Universidade = @id_Universidade, id_Curso = @id_Curso, coren = @coren," +
                     " cep = @cep, telefone = @telefone, matricula = @matricula, id_Especialidade = @id_Especialidade, id_Cargo = @id_Cargo, tipo_de_contrato = @tipo_de_contrato," +
                     " privilegios = @privilegios,data_de_modificacao = @data_de_modificacao,usuario_modificacao = @usuario_modificacao WHERE id = @id", con);
-                
+
                 var date = DateTime.Now;
                 data_de_modificacao = String.Format("{0:yyyy-MM-dd HH:mm:ss}", date);
 
                 qry.Parameters.AddWithValue("@id", id);
                 qry.Parameters.AddWithValue("@status1", status1);
-                qry.Parameters.AddWithValue("@nome", nome);               
+                qry.Parameters.AddWithValue("@nome", nome);
                 qry.Parameters.AddWithValue("@nome_da_mae", nome_da_mae);
                 qry.Parameters.AddWithValue("@nome_do_pai", nome_do_pai);
                 qry.Parameters.AddWithValue("@data_de_nascimento", data_de_nascimento);
@@ -384,19 +450,19 @@ namespace Nurzed.Models
                 qry.Parameters.AddWithValue("@cep", cep);
                 qry.Parameters.AddWithValue("@telefone", telefone);
                 qry.Parameters.AddWithValue("@matricula", matricula);
-                qry.Parameters.AddWithValue("@id_Especialidade", EncontrarForeignKey(id_Especialidade,"Especialidade"));
-                qry.Parameters.AddWithValue("@id_Cargo",EncontrarForeignKey( id_Cargo,"Cargo"));
-                qry.Parameters.AddWithValue("@tipo_de_contrato", tipo_de_contrato);           
+                qry.Parameters.AddWithValue("@id_Especialidade", EncontrarForeignKey(id_Especialidade, "Especialidade"));
+                qry.Parameters.AddWithValue("@id_Cargo", EncontrarForeignKey(id_Cargo, "Cargo"));
+                qry.Parameters.AddWithValue("@tipo_de_contrato", tipo_de_contrato);
                 qry.Parameters.AddWithValue("@privilegios", privilegios);
-                qry.Parameters.AddWithValue("@id_Universidade",EncontrarForeignKey(id_Universidade,"Universidade"));
-                qry.Parameters.AddWithValue("@id_Curso",EncontrarForeignKey( id_Curso,"Curso"));
-                qry.Parameters.AddWithValue("@id_Area",EncontrarForeignKey( id_Area,"Area"));
+                qry.Parameters.AddWithValue("@id_Universidade", EncontrarForeignKey(id_Universidade, "Universidade"));
+                qry.Parameters.AddWithValue("@id_Curso", EncontrarForeignKey(id_Curso, "Curso"));
+                qry.Parameters.AddWithValue("@id_Area", EncontrarForeignKey(id_Area, "Area"));
                 qry.Parameters.AddWithValue("@data_de_modificacao", data_de_modificacao);
                 qry.Parameters.AddWithValue("@usuario_modificacao", usuario_modificacao);
-                
-                
+
+
                 qry.ExecuteNonQuery();
-               
+
                 return "Usuários editado com sucesso";
 
 
@@ -405,7 +471,7 @@ namespace Nurzed.Models
 
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return "Erro: " + e;
             }
@@ -439,14 +505,14 @@ namespace Nurzed.Models
 
                 MySqlCommand qry = new MySqlCommand("UPDATE Usuarios SET status1 = @status1 WHERE cpf = @cpf", con);
                 qry.Parameters.AddWithValue("@cpf", cpf);
-                qry.Parameters.AddWithValue("@status1",novoStatus);
+                qry.Parameters.AddWithValue("@status1", novoStatus);
 
                 qry.ExecuteNonQuery();
 
                 return "Status do usuário atualizados com sucesso";
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return "Não foi possivel atualizar os status do usuário";
             }
@@ -455,7 +521,7 @@ namespace Nurzed.Models
                 con.Close();
             }
         }
-     
+
 
     }
 }

@@ -98,7 +98,7 @@ myForm.addEventListener("submit", async evt => {
      listaTecnicos = []
      listaAux = []
 
-     const req = fetch('https://localhost:44345/api/API/' + periodo, {
+     const req = fetch('https://localhost:44345/api/API/periodo/' + periodo, {
          method: 'GET',
          headers: { 'Content-Type': 'application/json' },
 
@@ -112,9 +112,7 @@ myForm.addEventListener("submit", async evt => {
              listaAux.push(data[2])
 
 
-             console.log(listaEnfermeiros[0])
-             console.log(listaTecnicos[0])
-             console.log(listaAux[0])
+            
 
              
             Remover()
@@ -125,7 +123,7 @@ myForm.addEventListener("submit", async evt => {
             AdicionarAuxEnf()
 
          })
-         .catch((error) => console.log('Erro: ' + error.status));   
+         .catch((error) => console.log('Erro: ' + error.status + '\n Req:' + req));   
   
 }
 
@@ -232,6 +230,7 @@ function AdicionarUsuarios() {
     var listaAllUsuarios = []
 
 
+
     usuariosAll.forEach(item => {
         listaAllUsuarios.push(item.value)
     })
@@ -311,8 +310,8 @@ function AdicionarEnfermeiros() {
 
         }
     })
-   // }
-    console.log("teste Adicionar linha usuarios")
+   
+    
 
     return listaEnfermeiros
 
@@ -344,7 +343,7 @@ function AdicionarTecnicos() {
         tdNome.setAttribute("class", "opcao_tabela_cronograma_enf nome_infermeiro_tabela_adm")
         tdNome.setAttribute("name", "nFuncionarios")
         tdNome.innerText = item["nome"]
-        console.log(listaTecnicos)
+        
 
         var input = document.createElement("input");
         tabela.appendChild(input)
@@ -384,8 +383,8 @@ function AdicionarTecnicos() {
 
         }
     })
-    // }
-    console.log("teste Adicionar linha usuarios")
+ 
+   
 
     return listaTecnicos
 }
@@ -408,7 +407,7 @@ function AdicionarAuxEnf() {
 
     listaAux[0].forEach(item => {
 
-        console.log(tabela)
+        
         var tr = document.createElement("tr");
         tabela.appendChild(tr)
         tr.setAttribute("name", "tr_AuxEnf")
@@ -419,7 +418,7 @@ function AdicionarAuxEnf() {
         tdNome.setAttribute("class", "opcao_tabela_cronograma_enf nome_infermeiro_tabela_adm")
         tdNome.setAttribute("name", "nFuncionarios")
         tdNome.innerText = item["nome"]
-        console.log(listaTecnicos)
+        
 
         var input = document.createElement("input");
         tabela.appendChild(input)
@@ -459,8 +458,8 @@ function AdicionarAuxEnf() {
 
         }
     })
-    // }
-    console.log("teste Adicionar linha usuarios")
+   
+    
 
     return listaEnfermeiros
 

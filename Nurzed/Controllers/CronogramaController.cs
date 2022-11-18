@@ -58,12 +58,6 @@ namespace Nurzed.Controllers
      
 
 
-        //    [HttpPost]
-        //public IActionResult Atualizar(string periodo, string ano, string mes)
-        //{
-        //    return RedirectToAction("Cadastrar");
-        //}
-
 
         public  List<string> DiasDoMes(int ano,int mes)
         {

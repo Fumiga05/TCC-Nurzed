@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Senai\\3DSB\\Sprint3\\TCC-Nurzed\\Nurzed\\Nurzed.csproj": {}
+    "F:\\Senai\\3DSB\\Sprint4\\TCC-Nurzed\\Nurzed\\Nurzed.csproj": {}
   },
   "projects": {
-    "F:\\Senai\\3DSB\\Sprint3\\TCC-Nurzed\\Nurzed\\Nurzed.csproj": {
+    "F:\\Senai\\3DSB\\Sprint4\\TCC-Nurzed\\Nurzed\\Nurzed.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Senai\\3DSB\\Sprint3\\TCC-Nurzed\\Nurzed\\Nurzed.csproj",
+        "projectUniqueName": "F:\\Senai\\3DSB\\Sprint4\\TCC-Nurzed\\Nurzed\\Nurzed.csproj",
         "projectName": "Nurzed",
-        "projectPath": "F:\\Senai\\3DSB\\Sprint3\\TCC-Nurzed\\Nurzed\\Nurzed.csproj",
+        "projectPath": "F:\\Senai\\3DSB\\Sprint4\\TCC-Nurzed\\Nurzed\\Nurzed.csproj",
         "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
-        "outputPath": "F:\\Senai\\3DSB\\Sprint3\\TCC-Nurzed\\Nurzed\\obj\\",
+        "outputPath": "F:\\Senai\\3DSB\\Sprint4\\TCC-Nurzed\\Nurzed\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -6,8 +6,8 @@ namespace Nurzed.Models
 {
     public class Cronograma
     {
-        private string id, id_Usuarios, legenda,periodo;
-        private string data;
+        private string id, id_Usuarios, legenda,periodo, data;
+       
         public static MySqlConnection con = new MySqlConnection("server=localhost;database=vct;user id=teste;password=12345678");
 
         public Cronograma(string id, string id_Usuarios,string data, string legenda,string periodo)
@@ -24,24 +24,7 @@ namespace Nurzed.Models
         public string Id_Usuarios { get => id_Usuarios; set => id_Usuarios = value; }
         public string Data { get => data; set => data = value; }
         public string Legenda { get => legenda; set => legenda = value; }
-        public string Periodo { get => periodo; set => periodo = value; }
-    
-
-        public int DiasDoMes(int ano, int mes)
-        {
-
-            ano = 2022;
-            mes = 10;
-            int dias = DateTime.DaysInMonth(ano, mes);
-            return dias;
-        }
-
-        public String[]  SepararValores(string texto)
-        {
-            string[] valores = texto.Split("/");   
-            string dia = valores[1];
-            return valores;
-        }
+        public string Periodo { get => periodo; set => periodo = value; }      
         
         public static string Cadastrar(string id,string id_Usuarios,string data,string legenda,string periodo)
         {

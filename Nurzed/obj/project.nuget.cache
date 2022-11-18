@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rYlZ1wzitBk8Bts7bL//RRgjzL9xgvJkO7108c9qwDH5J9Yf3E/W278DaU0Hv0LBSgIb4Vnqicfk5BhMu8LmJQ==",
+  "dgSpecHash": "jHMxry4x3gjgwCMfZNiX6yXw4phh5aWK9BYOwYAPsEAEwg0BvLa6UZTkuoV3OgGO1XaYtpiOoURaZvbsMltsfg==",
   "success": true,
-  "projectFilePath": "F:\\Senai\\3DSB\\Sprint3\\TCC-Nurzed\\Nurzed\\Nurzed.csproj",
+  "projectFilePath": "F:\\Senai\\3DSB\\Sprint4\\TCC-Nurzed\\Nurzed\\Nurzed.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\victo\\.nuget\\packages\\bouncycastle.netcore\\1.8.3\\bouncycastle.netcore.1.8.3.nupkg.sha512",
     "C:\\Users\\victo\\.nuget\\packages\\google.protobuf\\3.11.4\\google.protobuf.3.11.4.nupkg.sha512",
