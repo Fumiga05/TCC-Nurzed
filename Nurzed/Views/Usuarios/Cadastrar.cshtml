@@ -6,16 +6,13 @@
     IEnumerable<Especialidade> listaEspecialidade = ViewData["listaEspecialidade"] as IEnumerable<Especialidade>;
     IEnumerable<Cargo> listaCargo = ViewData["listaCargo"] as IEnumerable<Cargo>;
     IEnumerable<Area> listaArea = ViewData["listaArea"] as IEnumerable<Area>;
-
 }
 
 <link rel="stylesheet" href="~/css/cadastro.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<title>Cadastro</title>
-
+<link rel="stylesheet" href="~/iziToast/dist/css/iziToast.css">
 
 <div class="contaner_titulo_index">
-    <a asp-action="Voltar">
+    <a href="home_adm.html">
         <button class="btn_voltar_adm">
             <img src="~/img/voltar.png" alt="" class="img_btn_voltar">
         </button>
@@ -23,192 +20,221 @@
 </div>
 <h1 class="titulo_pagina_adm">Adicionar usuário</h1>
 
+<form asp id="myForm">
+    <div id="area_selecao_user">
+        <h3>Que tipo de usúario deseja adicionar ? </h3>
 
-<div id="area_selecao_user">
-    <h3>Que tipo de usúario deseja adicionar ? </h3>
-
-    <div class="opicao_area_selecao_user"><input type="radio" name="user" class="radio_opicao_area_selecao_user"> <p>Enfermeiro</p></div>
-    <div class="opicao_area_selecao_user"><input type="radio" name="user" class="radio_opicao_area_selecao_user"> <p>Gestor</p></div>
-    <div class="opicao_area_selecao_user"><input type="radio" name="user" class="radio_opicao_area_selecao_user"> <p>Administrador</p></div>
-</div>
-
-<form asp-action="Cadastrar">
-<section id="sec_cadastro">
-
-    <Label class="label_cadastro">Nome Completo: </Label><sup class="asteritico">*</sup><br>
-    <input type="text" name="Nome" id="" class="caixa_texto" minlength="2" maxlength="100" required><br>
-
-    <Label class="label_cadastro">Nome da mãe: </Label><sup class="asteritico">*</sup><br>
-    <input type="text" name="" id="Nome_da_mae" class="caixa_texto" minlength="2" maxlength="100" required><br>
-
-
-    <Label class="label_cadastro">Nome do pai: </Label><br>
-    <input type="text" name="" id="Nome_do_pai" class="caixa_texto" minlength="2" maxlength="100" required>
-
-    <div class="input2">
-        <div id="v">
-            <Label class="label_cadastro">Data de nascimento: </Label><sup class="asteritico">*</sup><br>
-            <input type="date" name="Data_de_nascimento" id="data_nascimento" class="caixa_texto_mini" required>
+        <div class="opicao_area_selecao_user">
+            <input type="radio" name="user" checked value="Enfermeiro"
+                   class="radio_opicao_area_selecao_user">
+            <p>Enfermeiro</p>
         </div>
-
-        <div>
-            <Label class="label_cadastro">CPF: </Label><sup class="asteritico">*</sup><br>
-            <input type="text" name="Cpf" id="cpf" class="caixa_texto_mini" minlength="14" maxlength="14" required>
+        <div class="opicao_area_selecao_user">
+            <input type="radio" name="user" value="Gestor"
+                   class="radio_opicao_area_selecao_user">
+            <p>Gestor</p>
+        </div>
+        <div class="opicao_area_selecao_user">
+            <input type="radio" name="user" value="Administrador"
+                   class="radio_opicao_area_selecao_user">
+            <p>Administrador</p>
         </div>
     </div>
 
-    <div class="input2">
-        <div id="v">
-            <Label class="label_cadastro">Sexo: </Label><sup class="asteritico">*</sup><br>
-            <select class="caixa_texto" name="Sexo">
-                <option value="Masculino">Masculino</option>
-                <option value="Feminino">Feminino</option>
-            </select>
+    <section id="sec_cadastro">
+        <Label class="label_cadastro">Nome Completo: </Label><sup class="asteritico">*</sup><br>
+        <input type="text" name="nomecompleto" id="nomecompleto" value="Victor Hugo Ferreira Marinho"
+               class="caixa_texto" minlength="2" maxlength="100" required><br>
+
+        <Label class="label_cadastro">Nome da mãe: </Label><sup class="asteritico">*</sup><br>
+        <input type="text" name="nomemae" id="nomemae" value="Victor Hugo Ferreira Marinho" class="caixa_texto"
+               minlength="2" maxlength="100" required><br>
+
+
+        <Label class="label_cadastro">Nome do pai: </Label><br>
+        <input type="text" name="nomepai" id="nomepai" value="Victor Hugo Ferreira Marinho" class="caixa_texto"
+               minlength="2" maxlength="100" required>
+
+        <div class="input2">
+            <div id="auxCamila">
+                <Label class="label_cadastro">Data de nascimento: </Label><sup class="asteritico">*</sup><br>
+                <input type="text" name="data_nascimento" value="05/02/2004" id="data_nascimento"
+                       class="caixa_texto_mini" required>
+            </div>
+
+            <div>
+                <Label class="label_cadastro">CPF: </Label><sup class="asteritico">*</sup><br>
+                <input type="text" name="cpf" id="cpf" value="494.235.608-30" class="caixa_texto_mini"
+                       minlength="14" maxlength="14" required>
+            </div>
         </div>
 
-        <div>
-            <Label class="label_cadastro">RG: </Label><sup class="asteritico">*</sup><br>
-            <input type="text" name="Rg" id="rg" class="caixa_texto_mini" minlength="12" maxlength="12" required>
+        <div class="input2">
+            <div id="auxCamila">
+                <Label class="label_cadastro">Sexo: </Label><sup class="asteritico">*</sup><br>
+                <select id="sexo" name="sexo" class="caixa_texto" style="margin: 10px 30px 0 0; width: 415px;">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                </select>
+            </div>
+
+            <div>
+                <Label class="label_cadastro">RG: </Label><sup class="asteritico">*</sup><br>
+                <input type="text" name="rg" id="rg" value="59.581.508-X" class="caixa_texto_mini" minlength="12"
+                       maxlength="12" required>
+            </div>
         </div>
+
+        <div class="input2">
+            <div id="auxCamila">
+                <Label class="label_cadastro">CEP: </Label><sup class="asteritico">*</sup><br>
+                <input type="text" name="cep" id="cep" value="13056-201" class="caixa_texto_mini" minlength="9"
+                       maxlength="9" required>
+            </div>
+
+            <div>
+                <Label class="label_cadastro">Telefone: </Label><sup class="asteritico">*</sup><br>
+                <input type="text" name="telefone" id="telefone" value="(19) 99286-6283" class="caixa_texto_mini"
+                       minlength="14" maxlength="14" required>
+            </div>
+        </div>
+
+        <hr class="linha_cadastro">
+
+        <Label class="label_cadastro"> Curso:</Label><sup class="asteritico">*</sup><br>
+        <select class="caixa_texto" name="Curso">
+            <option>--Escolha um curso--</option>
+            @foreach (var item in listaCurso)
+            {
+                <option value="@item.Id">@item.Nome </option>
+            }
+        </select>
+        <br>
+
+        <Label class="label_cadastro">Universidade:</Label><sup class="asteritico">*</sup><br>
+        <select class="caixa_texto" name="Universidade">
+            <option>--Escolha uma Universidade--</option>
+            @foreach (var item in listaUniversidade)
+            {
+                <option value="@item.Id">@item.Nome (@item.Sigla) </option>
+            }
+        </select>
+        <br>
+
+        <div class="input2">
+            <div id="auxCamila">
+                <Label class="label_cadastro">Data de início universidade: </Label><sup class="asteritico">*</sup><br>
+                <input type="text" name="uni_inicio" id="uni_inicio" value="05/02/2010" class="caixa_texto_mini"
+                       minlength="8" required>
+            </div>
+
+            <div>
+                <Label class="label_cadastro">Data término universidade: </Label><sup class="asteritico">*</sup><br>
+                <input type="text" name="uni_fim" id="uni_fim" value="05/02/2015" class="caixa_texto_mini" required>
+            </div>
+        </div>
+
+        <hr class="linha_cadastro">
+
+        <Label class="label_cadastro">Cargo:</Label><sup class="asteritico">*</sup><br>
+        <select class="caixa_texto" name="Cargo">
+            <option>--Escolha um cargo--</option>
+            @foreach (var item in listaCargo)
+            {
+                <option value="@item.Id">@item.Nome </option>
+            }
+        </select>
+        <br>
+
+        <Label class="label_cadastro">Área:</Label><sup class="asteritico">*</sup><br>
+        <select class="caixa_texto" name="Area">
+            <option>--Escolha uma area--</option>
+            @foreach (var item in listaArea)
+            {
+                <option value="@item.Id">@item.Nome </option>
+            }
+        </select>
+        <br>
+
+        <Label class="label_cadastro">Especialidade:</Label><sup class="asteritico">*</sup><br>
+        <select class="caixa_texto" name="Especialidade">
+            <option>--Escolha uma especialidade--</option>
+            @foreach (var item in listaEspecialidade)
+            {
+                <option value="@item.Id">@item.Nome </option>
+            }
+        </select>
+        <br>
+
+        <Label class="label_cadastro">Periodo:</Label><sup class="asteritico">*</sup><br>
+        <select class="caixa_texto" name="Tipo_de_contrato">
+            <option>--Escolha uma opção--</option>
+            <option asp-for="Tipo_de_contrato" value="Terceirizado">Terceirizado</option>
+            <option asp-for="Tipo_de_contrato" value="Concursado">Concursado</option>
+        </select>
+        <br>
+
+        <Label class="label_cadastro">Tipo de contrato:</Label><sup class="asteritico">*</sup><br>
+        <select class="caixa_texto" name="tipoContato">
+            <option value="oi">oi</option>
+        </select>
+        <br>
+
+        <div class="input2">
+            <div id="auxCamila">
+                <Label class="label_cadastro">COREN: </Label><sup class="asteritico">*</sup><br>
+                <input type="text" name="coren" id="coren" class="caixa_texto_mini" minlength="2" maxlength="250"
+                       required>
+            </div>
+
+            <div>
+                <Label class="label_cadastro">Matrícula: </Label><sup class="asteritico">*</sup><br>
+                <input type="text" name="matricula" id="matricula" class="caixa_texto_mini" minlength="9"
+                       maxlength="9" required>
+            </div>
+        </div>
+
+        <div class="input2">
+            <div id="auxCamila">
+                <Label class="label_cadastro">Senha: </Label><sup class="asteritico">*</sup><br>
+                <input type="password" name="senha" id="senha" class="caixa_texto_mini" minlength="8" maxlength="40"
+                       required>
+            </div>
+
+        </div>
+
+    </section>
+
+    <div id="btn_final_cadastro_adm">
+        <button class="btn_Finalizar_adm" id="btnModal" onSumit="chamarBtn(this)">Finalizar</button>
+        <br>
     </div>
 
-    <div class="input2">
-        <div id="v">
-            <Label class="label_cadastro">CEP: </Label><sup class="asteritico">*</sup><br>
-            <input type="text" name="Cep" id="cep" class="caixa_texto_mini" minlength="9" maxlength="9" required>
-        </div>
-
-        <div>
-            <Label class="label_cadastro">Telefone: </Label><sup class="asteritico">*</sup><br>
-            <input type="text" name="Telefone" id="telefone" class="caixa_texto_mini" minlength="14" maxlength="14" required>
-        </div>
+    <div id="auxCamila2">
+        <input type="text" name="" class="input-disabled" class="historico_auteracao">
+        <input type="text" name="" class="input-disabled" class="historico_auteracao">
     </div>
-
-    <hr class="linha_cadastro">
-
-    <Label class="label_cadastro"> Curso:</Label><sup class="asteritico">*</sup><br>
-    <select class="caixa_texto" name="Curso">
-        <option>--Escolha um curso--</option>
-        @foreach (var item in listaCurso)
-        {
-            <option value="@item.Id">@item.Nome </option>
-        }
-    </select>
-    <br>
-
-    <Label class="label_cadastro">Universidade:</Label><sup class="asteritico">*</sup><br>
-    <select class="caixa_texto" name="Universidade">
-        <option>--Escolha uma Universidade--</option>
-        @foreach (var item in listaUniversidade)
-        {
-            <option value="@item.Id">@item.Nome (@item.Sigla) </option>
-        }
-    </select>
-    <br>
-
-    <div class="input2">
-        <div id="v">
-            <Label class="label_cadastro">Data de início universidade: </Label><sup class="asteritico">*</sup><br>
-            <input type="date" name="" id="uni_inicio" class="caixa_texto_mini" minlength="8" required>
-        </div>
-
-        <div>
-            <Label class="label_cadastro">Data término universidade: </Label><sup class="asteritico">*</sup><br>
-            <input type="date" name="" id="uni_fim" class="caixa_texto_mini" required>
-        </div>
-    </div>
-
-    <hr class="linha_cadastro">
-
-    <Label class="label_cadastro">Cargo:</Label><sup class="asteritico">*</sup><br>
-    <select class="caixa_texto" name="Cargo">
-        <option>--Escolha um cargo--</option>
-        @foreach (var item in listaCargo)
-        {
-            <option value="@item.Id">@item.Nome </option>
-        }
-    </select>
-    <br>
-
-    <Label class="label_cadastro">Área:</Label><sup class="asteritico">*</sup><br>
-    <select class="caixa_texto" name="Area">
-        <option>--Escolha uma area--</option>
-        @foreach (var item in listaArea)
-        {
-            <option value="@item.Id">@item.Nome </option>
-        }
-    </select>
-    <br>
-
-    <Label class="label_cadastro">Especialidade:</Label><sup class="asteritico">*</sup><br>
-    <select class="caixa_texto" name="Especialidade">
-        <option>--Escolha uma especialidade--</option>
-        @foreach (var item in listaEspecialidade)
-        {
-            <option value="@item.Id">@item.Nome </option>
-        }
-    </select>
-    <br>
-
-    <Label class="label_cadastro">Tipo de contrato:</Label><sup class="asteritico">*</sup><br>
-    <select class="caixa_texto" name="Tipo_de_contrato">
-        <option>--Escolha uma opção--</option>
-        <option asp-for="Tipo_de_contrato" value="Terceirizado">Terceirizado</option>
-        <option asp-for="Tipo_de_contrato" value="Concursado">Concursado</option>
-    </select>
-    <br>
-
-    <div class="input2">
-        <div id="v">
-            <Label class="label_cadastro">COREN: </Label><sup class="asteritico">*</sup><br>
-            <input type="text" name="Coren" id="coren" class="caixa_texto_mini" minlength="2" maxlength="250" required>
-        </div>
-
-        <div>
-            <Label class="label_cadastro">Matrícula: </Label><sup class="asteritico">*</sup><br>
-            <input type="number" name="Matricula" id="" class="caixa_texto_mini" minlength="9" maxlength="9" required>
-        </div>
-    </div>
-
-    <div class="input2">
-        <div id="v">
-            <Label class="label_cadastro">Senha: </Label><sup class="asteritico">*</sup><br>
-            <input type="password" name="Senha" id="" class="caixa_texto_mini" minlength="8" maxlength="40" required>
-        </div>
-
-    </div>
-
-</section>
-
-<div id="btn_final_cadastro_adm">
-    <button class="btn_Finalizar_adm" type="submit" data-bs-target="#staticBackdrop" onclick="ValidarCPF()">Finalizar</button>
-    <br>
-    <p id="ganbiara">Clicke 2x para finalizar</p>
-    <br><br>
-    <button class="btn_Deletar_adm" data-toggle="modal" data-target="#meuModal">Deletar</button>
-    <br>
-</div>
 </form>
 
-
-
 <!-- Modal 1-->
-
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div id="staticBackdrop" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="div_btn_fechar">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p class="texto_moldal">
-                    Tem certeza que deseja
-                    finalizar?
-                </p>
+                <p class="texto_moldal">Tem certeza que deseja finalizar?</p>
             </div>
             <div class="moldal_btns">
                 <button type="button" class="btn_nao_moldal" data-bs-dismiss="modal">Não</button>
-                <button type="button" class="btn_sim_moldal" data-bs-dismiss="modal">Sim</button>
+                <a>
+                    <button type="submit" id="btn_sim_modal" onclick="CadastrarUsuario()" class="btn_sim_moldal"
+                            data-bs-dismiss="modal">
+                </a>
+                Sim
+                </button>
             </div>
         </div>
     </div>
@@ -220,7 +246,9 @@
         <div class="modal-content aux20">
             <div>
                 <div class="modal-body">
-                    <p class="texto_moldal2">Tem certeza que deseja <p id="destaque_red">DELETAR ?</p> </p>
+                    <p class="texto_moldal2">Tem certeza que deseja
+                    <p id="destaque_red">DELETAR ?</p>
+                    </p>
                 </div>
             </div>
             <div class="moldal_btns">
@@ -238,13 +266,21 @@
 
 
 
-<script src="~/js/funcao.js"></script>
-@*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>*@
-<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script src="~/js/valida_forms.js"></script>
+<script src="~/iziToast/dist/js/iziToast.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/15068104d6.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+        crossorigin="anonymous"></script>
 <script src="~/js/jquery.mask.js"></script>
+
+
 <script>
     $(document).ready(function() {
         $('#rg').mask('00.000.000-00');
@@ -253,8 +289,8 @@
         $('#telefone').mask('(00) 00000-0000')
         $('#coren').mask('COREN-AA 000.000-AAAA')
         $('#data_nascimento').mask('00/00/0000')
-
+        $('#uni_inicio').mask('00/00/0000')
+        $('#uni_fim').mask('00/00/0000')
     })
 </script>
 
-</html>

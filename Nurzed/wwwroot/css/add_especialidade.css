@@ -88,6 +88,7 @@ text-decoration: none;
     background-color: #FFAB08;
     border:solid 2px #FFAB08;
     margin: 8px 0 ;
+    height: auto;
 }
 
 .conteudo_lista_esp{

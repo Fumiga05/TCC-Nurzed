@@ -2,28 +2,66 @@
 
 @{
     ViewData["Title"] = "Cadastrar";
+    IEnumerable<Area> listaArea = ViewData["listaArea"] as IEnumerable<Area>;
+    IEnumerable<Especialidade> listaEspecialidade = ViewData["listaEspecialidade"] as IEnumerable<Especialidade>;
 }
+<link rel="stylesheet" href="~/css/add_especialidade.css">
 
-<h1>Cadastrar</h1>
-
-<h4>Especialidade</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Cadastrar">           
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    <div class="contaner_titulo_index">
+        <a asp-controller="Usuarios" asp-action="Voltar">
+            <button class="btn_voltar_adm">
+                 <img src="~/img/voltar.png" alt="" class="img_btn_voltar">
+             </button>
+         </a>
     </div>
-</div>
+    <h1 class="titulo_pagina_adm">Adicionar especialidades</h1>
+<form asp-action="Cadastrar">
+<section id="aux5">
+    <div id="aux6">
+        <div>
+            <label class="titulo_esp">Nome da especialidade :</label><br>
+            <input type="text" name="Nome" class="input_nome_esp" minlength="2" maxlength="250" required><br>
+            <label class="titulo_esp">Área de pertencimento :</label><br>
+        
+            <select name="nome_Area" class="select_esp">
+                @foreach (var item in listaArea)
+                 {
+            <option value="@item.Nome">@item.Nome </option>
+                 }
+            </select>
+        </div>
+        <div>
+            <button type="submit" class="btn_add_esp">Adicionar nova <br>
+                especialidade</button>
+        </div>
+    </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+</section>
+</form>
+
+<section>
+    <div class="container_lista_esp">
+        <div>
+            <h2 class="titulo_container_lista_esp">Especialidades</h2>
+            <hr class="linha_separa_container_lista_esp">
+            @foreach(var item in listaEspecialidade)
+            {
+             <p class="conteudo_lista_esp">@item.Nome</p>
+            }
+           
+           
+        </div>
+        <hr class="linha_separa_esp">
+        <div>
+            <h2 class="titulo_container_lista_esp">Área de Gestão</h2>
+            <hr class="linha_separa_container_lista_esp">
+            @foreach(var item in listaEspecialidade)
+            {
+            <p class="conteudo_lista_esp">@item.Nome_Area</p>                
+            }
+            
+        </div>
+    </div>
+    
+</section>
 
