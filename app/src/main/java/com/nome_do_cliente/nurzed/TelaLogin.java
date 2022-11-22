@@ -27,49 +27,49 @@ public class TelaLogin extends AppCompatActivity {
         EditText edtcpf = findViewById(R.id.edCpf);
         Button btlogar = findViewById(R.id.btlogin);
         String senha;
+        String cpf = null;
+
+        if (edtcpf.equals(cpf)) {
+            btlogar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    binding = ActivityTelaHomeBinding.inflate(getLayoutInflater());
+                    setContentView(binding.getRoot());
+                    replacefragment(new HomeFragment());
+
+                    binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 
 
+                        switch (item.getItemId()) {
+                            case R.id.home:
+                                replacefragment(new HomeFragment());
+                                break;
+                            case R.id.perfil:
+                                replacefragment(new DashboardFragment());
+                                break;
+                            case R.id.notific:
+                                replacefragment(new NotificationsFragment());
+                                break;
 
-        btlogar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                binding = ActivityTelaHomeBinding.inflate(getLayoutInflater());
-                setContentView(binding.getRoot());
-                replacefragment(new HomeFragment());
-
-                binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-
-
-                    switch (item.getItemId()){
-                        case R.id.home:
-                            replacefragment(new HomeFragment());
-                            break;
-                        case R.id.perfil:
-                            replacefragment(new DashboardFragment());
-                            break;
-                        case R.id.notific:
-                            replacefragment(new NotificationsFragment());
-                            break;
-
-                    }
+                        }
 
 
-
-                    return  true;
-                });
-            }
-
-            private void  replacefragment (Fragment fragment){
-
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.frame_layout,fragment);
-                fragmentTransaction.commit();
-
-            }
+                        return true;
+                    });
+                }
 
 
-            
-        });
+                private void replacefragment(Fragment fragment) {
+
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.frame_layout, fragment);
+                    fragmentTransaction.commit();
+
+                }
+
+
+            });
+        }
     }
 }

@@ -20,17 +20,17 @@ import com.nome_do_cliente.nurzed.ui.notifications.NotificationsFragment;
 
 public class TelaHome extends AppCompatActivity {
 
-    private ActivityTelaHomeBinding binding;
+    private ActivityTelaHomeBinding bind;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityTelaHomeBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        bind = ActivityTelaHomeBinding.inflate(getLayoutInflater());
+        setContentView(bind.getRoot());
         replacefragment(new HomeFragment());
 
-        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+        bind.bottomNavigationView.setOnItemSelectedListener(item -> {
 
 
             switch (item.getItemId()){
