@@ -26,10 +26,11 @@ public class TelaLogin extends AppCompatActivity {
         setContentView(R.layout.activity_tela_login);
         EditText edtcpf = findViewById(R.id.edCpf);
         Button btlogar = findViewById(R.id.btlogin);
-        String senha;
+        EditText edtsenha = findViewById(R.id.edtxtSenha);
+        String senha ="j" ;
         String cpf = null;
 
-        if (edtcpf.equals(cpf)) {
+        if (edtcpf.equals(cpf) && edtsenha.equals(senha) ) {
             btlogar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
