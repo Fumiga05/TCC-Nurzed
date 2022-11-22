@@ -26,6 +26,9 @@ public class TelaLogin extends AppCompatActivity {
         setContentView(R.layout.activity_tela_login);
         EditText edtcpf = findViewById(R.id.edCpf);
         Button btlogar = findViewById(R.id.btlogin);
+        String senha;
+
+
 
         btlogar.setOnClickListener(new View.OnClickListener() {
             @Override
