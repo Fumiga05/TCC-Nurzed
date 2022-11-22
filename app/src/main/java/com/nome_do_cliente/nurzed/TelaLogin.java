@@ -4,18 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.nome_do_cliente.nurzed.databinding.ActivityTelaHomeBinding;
 import com.nome_do_cliente.nurzed.ui.dashboard.DashboardFragment;
 import com.nome_do_cliente.nurzed.ui.home.HomeFragment;
-import com.nome_do_cliente.nurzed.ui.home.HomeViewModel;
 import com.nome_do_cliente.nurzed.ui.notifications.NotificationsFragment;
 
 public class TelaLogin extends AppCompatActivity {
@@ -27,8 +24,8 @@ public class TelaLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_login);
-
-        Button btlogar = findViewById(R.id.button2);
+        EditText edtcpf = findViewById(R.id.edCpf);
+        Button btlogar = findViewById(R.id.btlogin);
 
         btlogar.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btentrar3"
+        android:id="@+id/btentrar"
         android:layout_width="144dp"
         android:layout_height="62dp"
         android:layout_marginStart="140dp"
@@ -33,10 +33,10 @@
     <TextView
         android:id="@+id/NURZED3"
         android:layout_width="233dp"
-        android:layout_height="79dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="208dp"
-        android:fontFamily="@font/inter_thin"
+        android:layout_height="78dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="204dp"
+
         android:text="NURZED"
         android:textColor="#FFFFFF"
         android:textSize="60sp"
