@@ -35,31 +35,31 @@
 <section id="sec_cadastro">
 
     <Label class="label_cadastro">Nome Completo: </Label><sup class="asteritico">*</sup><br>
-    <input type="text" name="" id="" class="caixa_texto" minlength="2" maxlength="100" required><br>
+    <input type="text" name="" id="nomecompleto" class="caixa_texto" minlength="2" maxlength="100" required><br>
 
     <Label class="label_cadastro">Nome da mãe: </Label><sup class="asteritico">*</sup><br>
-    <input type="text" name="" id="" class="caixa_texto" minlength="2" maxlength="100" required><br>
+    <input type="text" name="" id="nomemae" class="caixa_texto" minlength="2" maxlength="100" required><br>
 
 
     <Label class="label_cadastro">Nome do pai: </Label><br>
-    <input type="text" name="" id="" class="caixa_texto" minlength="2" maxlength="100" required>
+    <input type="text" name="" id="nomepai" class="caixa_texto" minlength="2" maxlength="100" required>
 
     <div class="input2">
-        <div id="v">
+        <div id="auxCamila">
             <Label class="label_cadastro">Data de nascimento: </Label><sup class="asteritico">*</sup><br>
             <input type="text" name="data_nascimento" id="data_nascimento" class="caixa_texto_mini"  required>
         </div>
 
         <div>
             <Label class="label_cadastro">CPF: </Label><sup class="asteritico">*</sup><br>
-            <input type="text" name="" id="cpf" class="caixa_texto_mini" minlength="14" maxlength="14" required>
+            <input type="text" name="cpf" id="cpf" class="caixa_texto_mini" minlength="14" maxlength="14" required>
         </div>
     </div>
 
     <div class="input2">
-        <div id="v">
+        <div id="auxCamila">
             <Label class="label_cadastro">Sexo: </Label><sup class="asteritico">*</sup><br>
-            <input type="text" name="" id="" class="caixa_texto_mini" minlength="2" maxlength="250" required>
+            <input type="text" name="" id="sexo" class="caixa_texto_mini" minlength="2" maxlength="250" required>
         </div>
 
         <div>
@@ -69,7 +69,7 @@
     </div>
 
     <div class="input2">
-        <div id="v">
+        <div id="auxCamila">
             <Label class="label_cadastro">CEP: </Label><sup class="asteritico">*</sup><br>
             <input type="text" name="" id="cep" class="caixa_texto_mini" minlength="9" maxlength="9" required>
         </div>
@@ -95,7 +95,7 @@
         <br>
 
     <div class="input2">
-        <div id="v">
+        <div id="auxCamila">
             <Label class="label_cadastro">Data de início universidade: </Label><sup class="asteritico">*</sup><br>
             <input type="text" name="" id="uni_inicio" class="caixa_texto_mini" minlength="8" required>
         </div>
@@ -126,6 +126,12 @@
     </select>
         <br>
 
+        <Label class="label_cadastro">Periodo:</Label><sup class="asteritico">*</sup><br>
+        <select class="caixa_texto">
+            <option>oi</option>
+        </select>
+            <br>
+
     <Label class="label_cadastro">Tipo de contrato:</Label><sup class="asteritico">*</sup><br>
     <select class="caixa_texto">
         <option>oi</option>
@@ -133,21 +139,21 @@
         <br>
 
     <div class="input2">
-        <div id="v">
+        <div id="auxCamila">
             <Label class="label_cadastro">COREN: </Label><sup class="asteritico">*</sup><br>
             <input type="text" name="" id="coren" class="caixa_texto_mini" minlength="2" maxlength="250" required>
         </div>
 
         <div>
             <Label class="label_cadastro">Matrícula: </Label><sup class="asteritico">*</sup><br>
-            <input type="text" name="" id="" class="caixa_texto_mini" minlength="9" maxlength="9" required>
+            <input type="text" name="" id="matricula" class="caixa_texto_mini" minlength="9" maxlength="9" required>
         </div>
     </div>
 
     <div class="input2">
-        <div id="v">
+        <div id="auxCamila">
             <Label class="label_cadastro">Senha: </Label><sup class="asteritico">*</sup><br>
-            <input type="text" name="" id="" class="caixa_texto_mini" minlength="8" maxlength="40" required>
+            <input type="password" name="" id="senha" class="caixa_texto_mini" minlength="8" maxlength="40" required>
         </div>
 
     </div>
@@ -155,9 +161,9 @@
 </section>
 
 <div id="btn_final_cadastro_adm">
-    <button class="btn_Finalizar_adm" data-bs-target="#staticBackdrop" onclick="validacaoData()">Finalizar</button>
+    <button class="btn_Finalizar_adm" data-bs-target="#staticBackdrop" onclick="chamarBtn()">Finalizar</button>
     <br>
-    <p id="ganbiara">Clicke 2x para finalizar</p>
+    <p id="gambiarra">Clicke 2x para finalizar</p>
     <br><br>
   
 
@@ -196,7 +202,7 @@
     
 </body>
 
-<script src="js/funcao.js"></script>
+<script src="js/valida_forms.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
@@ -209,6 +215,9 @@
         $('#cpf').mask('000.000.000-00')
         $('#telefone').mask('(00) 00000-0000')
         $('#coren').mask('COREN-AA 000.000-AAAA')
+        $('#data_nascimento').mask('00/00/0000')
+        $('#uni_inicio').mask('00/00/0000')
+        $('#uni_fim').mask('00/00/0000')
         
         })
 </script>

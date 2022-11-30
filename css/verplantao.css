@@ -81,9 +81,9 @@ height:40px ;
     margin: 15px 0;
     background-color: #6FCCBB;
     border: solid 2px #117D6A;
-    width: 160px;
-    height: 31px;
-    font-size: 23px;
+    width: 200px;
+    height: 40px;
+    font-size: 28px;
     font-family: arial;
     color: #fff;
     border-radius: 10px;
@@ -104,9 +104,9 @@ color:  #6FCCBB;;
     margin: 15px 0;
     background-color: #FFAB08;
     border: solid 2px #DB9103;
-    width: 160px;
-    height: 31px;
-    font-size: 23px;
+    width: 200px;
+    height: 40px;
+    font-size: 28px;
     font-family: arial;
     color: #fff;
     border-radius: 10px;
@@ -127,9 +127,9 @@ color:  #FFAB08;;
     margin: 15px 0;
     background-color: #BFEBE3;
     border: solid 2px #4ABEA9;
-    width: 160px;
-    height: 31px;
-    font-size: 23px;
+    width: 200px;
+    height: 40px;
+    font-size: 28px;
     font-family: arial;
     color: #36AB96;
     border-radius: 10px;
@@ -186,146 +186,156 @@ cursor: pointer;
 #seta_direita{
     transform: rotate(-90deg);
 }
+.controladores_data{
+   text-align: center;
 
-/*adm*/
+}
+.controladores_componentes{
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: #0B5A4C;
+    width: 140px;
+    height: 50px;
+    border-radius: 10px;
+    border: solid 2px #36AB96;
+    background-color :#BFEBE3;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+#year{
+    margin-left: 30px;
+}
+
+.numero_calendario{
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 70px;
+    color: #fff;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.numero_calendario:hover{
+    color: rgb(236, 236, 236);
+    font-size: 71px;
+}
+
+.numero_calendario:active{
+    color: #7de0ce;
+}
+
+.dias{
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 70px;
+    color: #fff;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+
+
+/*-------CALENDARIOS--------*/
 
 .container_calendario_adm{
     margin: 10px auto;
     width: 70%;
-    background-color: #6FCCBB;
+    background-color: #117D6A;
+    height: 700px;
 }
+
+
+.continer_semana_adm{
+    margin-top: 25px;
+    color: #fff;
+    font-size: 30px;
+    font-family: arial;
+    font-weight: 500;
+    height: 60px;
+   color: #fff;
+    box-shadow: 0px 5px 10px #00170e4d;
+}
+
+/*************************/
 
 .container_calendario_gest{
     margin: 10px auto;
     width: 70%;
-    background-color: #FFDC9B;
+    background-color: #FDBD48;
+    height: 700px;
 }
+
+
+.continer_semana_gest{
+    margin-top: 25px;
+    font-size: 30px;
+    font-family: arial;
+    font-weight: 500;
+    height: 60px;
+   color: #FFF1D7;
+    box-shadow: 0px 5px 10px #8b58004d;
+}
+
+/*************************/
 
 .container_calendario_enf{
     margin: 10px auto;
     width: 70%;
-    background-color: #D1F3ED;
-}
-
-.continer_semana_adm{
-    background-color: #0B5A4C;
-    width: 97%;
-    height: 80px;
-    display: flex;
-    margin: 0px auto;
-    justify-content: space-around;
-    box-shadow: 0px 5px 10px #00170e4d;
-}
-
-.continer_semana_gest{
-    background-color: #FBC45D;
-    width: 97%;
-    height: 80px;
-    display: flex;
-    margin: 0px auto;
-    justify-content: space-around;
-    box-shadow: 0px 5px 10px #170e004d;
-}
-.continer_semana_enf{
-    background-color: #6FCCBB;
-    width: 97%;
-    height: 80px;
-    display: flex;
-    margin: 0px auto;
-    justify-content: space-around;
-    box-shadow: 0px 5px 10px #170e004d;
-}
-
-.dias_da_semana{
-margin-top: 25px;
-color: #fff;
-font-size: 30px;
-font-family: arial;
-font-weight: 500;
-}
-
-.conteiner_dias_adm{
-    background-color: #36AB96;
-    margin: 20px auto;
-    display:flex ;
-    justify-content: space-around;
-    width: 97%;
-    height: 110px;
-}
-
-.conteiner_dias_gest{
-    background-color: #FFF1D7;
-    margin: 20px auto;
-    display:flex ;
-    justify-content: space-around;
-    width: 97%;
-    height: 110px;
-}
-
-.conteiner_dias_enf{
     background-color: #BFEBE3;
-    margin: 20px auto;
-    display:flex ;
-    justify-content: space-around;
-    width: 97%;
-    height: 110px;
+    height: 700px;
 }
 
 
-.dias_adm{
-    font-family: 'Inter', sans-serif;
-    font-size: 70px;
+.continer_semana_enf{
+    margin-top: 25px;
+    color: #4ABEA9;
+    font-size: 30px;
+    font-family: arial;
+    font-weight: 500;
+    height: 60px;
+   
+    box-shadow: 0px 5px 10px #008b4a3a;
+}
+
+/*tooltip*/
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 130px;
+    background-color: rgb(94, 64, 34);
     color: #fff;
-    margin-top: 10px;
-    text-decoration: none;
-}
-
-.dias_gest{
-    font-family: 'Inter', sans-serif;
-    font-size: 70px;
-    color: #fff;
-    margin-top: 10px;
-    text-decoration: none;
-    text-shadow: 0 0 4px #FFAB08;
-
-}
-
-.dias_enf{
-    font-family: 'Inter', sans-serif;
-    font-size: 70px;
-    color: #fff;
-    margin-top: 10px;
-    text-decoration: none;
-    text-shadow: 0 0 6px #36AB96;
-}
-
-
-.dias_adm:hover{
-color: rgb(236, 236, 236);
-}
-
-.dias_adm:active{
-color: #6fcfbe;
-}
-
-.dias_gest:hover{
-color: rgb(236, 236, 236);
-}
-
-.dias_gest:active{
-color: #ffd077;
-}
-
-.dias_enf:hover{
-    color: rgb(236, 236, 236);
-}
-
-.dias_enf:active{
-color: #83eeda;
-}
-
-.aux24{
-    text-decoration: none;
-    cursor: pointer;
-}
-
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(94, 64, 34) transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }

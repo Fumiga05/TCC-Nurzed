@@ -7,6 +7,23 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/periodo.css">
     <title>Período</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+    <script>
+        $( document ).ready(function() {
+            var dia = localStorage.getItem("dia_adm");
+            var mes = localStorage.getItem("mes");
+            document.getElementById("dia_numero_periodo").innerText = dia;
+            document.getElementById("cabecalho_mes_adm").innerText = mes;
+           
+           /* localStorage.setItem("dia_adm", "");
+            localStorage.setItem("mes", "")*/
+        });
+        
+    </script>
+
 </head>
 
 <body>
@@ -74,10 +91,10 @@
         <div class="cabecalho_adm">
             <div id="aux">
                 <div class="cabecalho_dia_adm">
-                    <p>1</p>
+                    <p id="dia_numero_periodo"></p>
                 </div>
                 <div>
-                    <p id="cabecalho_mes_adm">Mês</p>
+                    <p id="cabecalho_mes_adm"></p>
                     <p id="cabecalho_info_adm">Leitos ativos: 0</p>
                     <p id="cabecalho_info_adm">Leitos desativados: 0</p>
                 </div>
@@ -224,5 +241,5 @@
     </footer>
     
 </body>
-<script src="js/funcao.js"></script>
+<script src="js/ocultacoes.js"></script>
 </html>

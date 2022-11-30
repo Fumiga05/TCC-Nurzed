@@ -58,7 +58,7 @@ cursor: pointer;
     border-radius: 9px;
 }
 
-#v{
+#auxCamila{
     margin-right: 9% ;
 }
 
@@ -129,7 +129,6 @@ margin: 0 auto 40px auto;
 
 .radio_opicao_area_selecao_user{
     width: 30px;
-
 }
 
 .opicao_area_selecao_user{
@@ -229,9 +228,23 @@ font-size: 29px;
 font-family: 'Inter',  Arial;
 }
 
-#ganbiara{
+#gambiarra{
 font-size: 15px;
 color: #000;
 font-family: arial;
 text-align: center;
 }
+
+/*historico*/
+
+.historico_auteracao{
+    margin: 20px auto ;
+    background-color: #fff;
+    border: solid 1px ;
+    color: #84908d;
+    font-size: 20px;
+    font-family: 'Inter',  Arial;
+    width: 40%;
+    height: 30px;
+}
+

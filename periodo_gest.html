@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/periodo.css">
     <title>Período</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+    <script>
+        $( document ).ready(function() {
+            var dia = localStorage.getItem("dia_gest");
+            var mes = localStorage.getItem("mes");
+            document.getElementById("dia_numero_periodo").innerText = dia;
+            document.getElementById("cabecalho_mes_gest").innerText = mes;
+           
+        });
+    </script>
+
 </head>
 
 <body>
@@ -67,10 +81,10 @@
                 <div id="aux">
 
                     <div class="cabecalho_dia_gest">
-                        <p>1</p>
+                        <p id="dia_numero_periodo"></p>
                     </div>
                     <div>
-                        <p id="cabecalho_mes_gest">Mes</p>
+                        <p id="cabecalho_mes_gest"></p>
                         <p id="cabecalho_info_gest">Leitos ativos: 0</p>
                         <p id="cabecalho_info_gest">Leitos desativados: 0</p>
                     </div>
@@ -217,5 +231,5 @@
     </footer>
     
 </body>
-<script src="js/funcao.js"></script>
+<script src="js/ocultacoes.js"></script>
 </html>
