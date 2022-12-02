@@ -16,9 +16,16 @@ namespace Nurzed.Controllers
         {
             Especialidade especialidade = new Especialidade(id, nome,nome_Area);
 
-            TempData["msg"] = especialidade.Cadastrar();
-            
-            return RedirectToAction("Cadastrar");
+            if(especialidade.Cadastrar().Contains("Duplicate"))
+            {
+                TempData["msg"] = "Já está cadastrado";
+
+                return View();
+            } else
+            {
+                return RedirectToAction("Cadastrar");
+            }
+
         }
 
 

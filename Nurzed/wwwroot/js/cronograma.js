@@ -13,8 +13,11 @@ ano.setAttribute("value",anoRes)
 //Mes Atual/Selecionado
 var h1 = document.getElementById("h1_mes")
 var mes = hoje.getMonth() + 1
+
+
 var mesRes = document.getElementById("mesRes")
-mesRes.setAttribute("value", mes)  
+mesRes.setAttribute("value", mes)
+
 
 //Periodo selecionado por padrão
 var periodoRes = document.getElementById("periodoRes")
@@ -49,7 +52,7 @@ var aux = []
 
 
 
-
+VerificarMes()
 clicar()
 
 
@@ -93,7 +96,8 @@ myForm.addEventListener("submit", async evt => {
 })
 
 /////////////////////////////////////////////////////////////////////////////////
- function clicar() {
+function clicar() {
+
      listaEnfermeiros = []
      listaTecnicos = []
      listaAux = []
@@ -111,9 +115,7 @@ myForm.addEventListener("submit", async evt => {
              listaTecnicos.push(data[1])
              listaAux.push(data[2])
 
-
-            
-
+             
              
             Remover()
             ListaDias()
@@ -551,6 +553,8 @@ function ListaDias() {
     }
     var dias = document.getElementsByName('diasd')
 
+    let h1_mes = document.getElementById("h1_mes")
+   
     
 }
 
@@ -647,7 +651,7 @@ function EscolherMes(nome) {
     h1.textContent = nome.innerText
     mesRes.setAttribute("value", mes)
     mesRes.textContent = "Valor Retornado: " + h1.innerText
-  
+    
     Remover()
    
     clicar()
@@ -672,8 +676,18 @@ function EscolherPeriodo(valor) {
 
 
 
+function VerificarMes() {
+    let mesTexto
+    let meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 
-function teste() {
-    
-   
+    for (let i = 0; i < meses.length; i++) {       
+        if (mes-1 == i) {
+             mesTexto = meses[i]
+            break
+        }
+    }
+
+    h1.innerHTML = mesTexto
+    return mesTexto
+
 }

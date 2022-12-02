@@ -9,13 +9,33 @@
 
     Usuarios u = JsonConvert.DeserializeObject<Usuarios>(Context.Session.GetString("usuarios"));
 }
+@if(u.Id_Cargo == "SUPORTE TI")
+{
+    <link rel="stylesheet" href="~/css/cronograma.css">
+}
+else
+{
+    <link rel="stylesheet" href="~/css/cronograma_Gestor.css">
+    <style>
+        .titulo_pagina_adm{
+            color:#FFAB08;
+        }
+        .mes_selcionado_adm{
+            color:#DB9103;
+        }
+        #linha_horario_adm{
+            background-color: #DB9103 !important;
+            border: solid 2px #DB9103 !important;
+        }
 
-<link rel="stylesheet" href="~/css/cronograma.css">
+    </style>
+}
+
 <link rel="stylesheet" href="~/css/periodo.css">
 
 
 
-<body>
+
     <div class="contaner_titulo_index">
         <a asp-action="Voltar" asp-controller="Usuarios">
             <button class="btn_voltar_adm">
@@ -68,12 +88,16 @@
        @* <form asp-action="Cadastrar2">*@
         <input type="hidden" id="mesRes" name="mes" value="teste">
 
-        <div id="aux9">
+@if(u.Id_Cargo == "SUPORTE TI")
+{
+    <div id="aux9">
           <select name="cars" id="" class="selecao_area">
             <option selected disabled value="">Selecione a Área</option>
             <option class="selecao_area_opicoes">################# </option>
           </select>
         </div>
+
+}
 
         <p>@u.Id_Area</p>
 
@@ -107,11 +131,6 @@
     <input type="hidden" id="periodoRes" name="periodo">
     <hr id="linha_horario_adm">
     </div>
-   
-    <div id="aux10">
-        <a><button class="btn_avancar_conograma_adm"  onclick="clicar()" id="btn_Avancar">Avançar</button></a>
-    </div>
-
 
     <div id="aux31">
         <button class="btn_avancar_conograma_adm" onclick="f5()">Trocar Horário</button>
@@ -216,7 +235,7 @@
           <br><br>
 
     </section>
-</body>
+
 
 <script src="~/js/funcao.js"></script>
 <script src="~/js/cronograma.js"></script>

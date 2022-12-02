@@ -46,7 +46,17 @@ namespace Nurzed
         }
 
 
-        
+        [HttpGet]
+        [Route("/api/[Controller]/cronograma_editar/{mes}")]
+        public IActionResult RetornarCronograma(string mes)
+        {
+            List<Cronograma> listaCronograma = Cronograma.Listar(mes);
+
+            return Ok(listaCronograma);
+
+        }
+
+
 
 
     }

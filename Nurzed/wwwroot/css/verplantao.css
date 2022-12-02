@@ -1,38 +1,38 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 
-.aux7{
-margin: 0 auto;
-width: 60%;
-justify-content:end;
-display: flex;
+.aux7 {
+    margin: 0 auto;
+    width: 60%;
+    justify-content: end;
+    display: flex;
 }
 
-.btn_add_cronograma{
-margin: 10px 0;
- background-color: #36AB96;
- border: solid 2px #36AB96;
- width: 230px;
- height: 30px;
- font-size: 23px;
- font-family: arial;
- color: #fff;
- border-radius: 10px;
- text-decoration: none;
- cursor: pointer;
+.btn_add_cronograma {
+    margin: 10px 0;
+    background-color: #36AB96;
+    border: solid 2px #36AB96;
+    width: 230px;
+    height: 30px;
+    font-size: 23px;
+    font-family: arial;
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.btn_add_cronograma:hover{
-    background-color: #148d77;
-}
+    .btn_add_cronograma:hover {
+        background-color: #148d77;
+    }
 
-.btn_add_cronograma:active{
-background-color: #fff;
-color: #36AB96;
-}
+    .btn_add_cronograma:active {
+        background-color: #fff;
+        color: #36AB96;
+    }
 
-.btn_add_solicit{
+.btn_add_solicit {
     margin: 10px 0;
     background-color: #FFAB08;
     border: solid 2px #FFAB08;
@@ -46,44 +46,44 @@ color: #36AB96;
     cursor: pointer;
 }
 
-.btn_add_solicit:hover{
-    background-color: #DB9103;
+    .btn_add_solicit:hover {
+        background-color: #DB9103;
+    }
+
+    .btn_add_solicit:active {
+        background-color: #fff;
+        color: #FFAB08;
+    }
+
+.btn_edita_calen {
+    margin: 5px 0px;
+    display: block;
+    background-color: #FFAB08;
+    border: solid 3px #FFAB08;
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.btn_add_solicit:active{
-    background-color: #fff;
-    color: #FFAB08;
+    .btn_edita_calen:hover {
+        background-color: #ec9a00;
+        border: solid 3px #e69500;
+    }
+
+.img_edit_calendario {
+    width: 40px;
+    height: 40px;
 }
 
-.btn_edita_calen{
-margin: 5px 0px;
-display: block;
-background-color: #FFAB08;
-border: solid 3px #FFAB08;
-width:60px ;
-height:60px ;
-border-radius: 6px;
-text-decoration: none;
- cursor: pointer;
-}
-
-.btn_edita_calen:hover{
-background-color:#ec9a00 ;
-border: solid 3px #e69500;
-}
-
-.img_edit_calendario{
-width:40px ;
-height:40px ;
-}
-
-.btn_Imprimir_adm{
+.btn_Imprimir_adm {
     margin: 15px 0;
     background-color: #6FCCBB;
     border: solid 2px #117D6A;
-    width: 160px;
-    height: 31px;
-    font-size: 23px;
+    width: 200px;
+    height: 40px;
+    font-size: 28px;
     font-family: arial;
     color: #fff;
     border-radius: 10px;
@@ -91,22 +91,23 @@ height:40px ;
     cursor: pointer;
 }
 
-.btn_Imprimir_adm:hover{
-background-color: #4ABEA9;
-}
+    .btn_Imprimir_adm:hover {
+        background-color: #4ABEA9;
+    }
 
-.btn_Imprimir_adm:active{
-background-color: #fff;
-color:  #6FCCBB;;
-}
+    .btn_Imprimir_adm:active {
+        background-color: #fff;
+        color: #6FCCBB;
+        ;
+    }
 
-.btn_Imprimir_gest{
+.btn_Imprimir_gest {
     margin: 15px 0;
     background-color: #FFAB08;
     border: solid 2px #DB9103;
-    width: 160px;
-    height: 31px;
-    font-size: 23px;
+    width: 200px;
+    height: 40px;
+    font-size: 28px;
     font-family: arial;
     color: #fff;
     border-radius: 10px;
@@ -114,22 +115,23 @@ color:  #6FCCBB;;
     cursor: pointer;
 }
 
-.btn_Imprimir_gest:hover{
-background-color: #e69500;
-}
+    .btn_Imprimir_gest:hover {
+        background-color: #e69500;
+    }
 
-.btn_Imprimir_gest:active{
-background-color: #fff;
-color:  #FFAB08;;
-}
+    .btn_Imprimir_gest:active {
+        background-color: #fff;
+        color: #FFAB08;
+        ;
+    }
 
-.btn_Imprimir_enf{
+.btn_Imprimir_enf {
     margin: 15px 0;
     background-color: #BFEBE3;
     border: solid 2px #4ABEA9;
-    width: 160px;
-    height: 31px;
-    font-size: 23px;
+    width: 200px;
+    height: 40px;
+    font-size: 28px;
     font-family: arial;
     color: #36AB96;
     border-radius: 10px;
@@ -137,195 +139,207 @@ color:  #FFAB08;;
     cursor: pointer;
 }
 
-.btn_Imprimir_enf:hover{
-background-color: #4ABEA9;
-}
-
-.btn_Imprimir_enf:active{
-background-color: #fff;
-color:  #BFEBE3;;
-}
-
-.nome_do_mes_adm{
-color: #117D6A;
-font-size: 110px;
-text-align: center;
-font-family: 'Carrois Gothic', Arial;
-}
-
-.nome_do_mes_gest{
-    color: #DB9103;
-    font-size: 110px;
-    text-align: center;
-    font-family: 'Carrois Gothic', Arial;
+    .btn_Imprimir_enf:hover {
+        background-color: #4ABEA9;
     }
 
-.nome_do_mes_enf{
+    .btn_Imprimir_enf:active {
+        background-color: #fff;
+        color: #BFEBE3;
+        ;
+    }
+
+.nome_do_mes_adm {
     color: #117D6A;
     font-size: 110px;
     text-align: center;
     font-family: 'Carrois Gothic', Arial;
+}
+
+.nome_do_mes_gest {
+    color: #DB9103;
+    font-size: 110px;
+    text-align: center;
+    font-family: 'Carrois Gothic', Arial;
+}
+
+.nome_do_mes_enf {
+    color: #117D6A;
+    font-size: 110px;
+    text-align: center;
+    font-family: 'Carrois Gothic', Arial;
+}
+
+.setas {
+    width: 70%;
+    margin: 5px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+    .setas img {
+        width: 70px;
+        height: 70px;
+        cursor: pointer;
     }
 
-.setas{
-width: 70% ;
-margin: 5px auto;
-display: flex;
-justify-content: space-between;
-}
-
-.setas img{
-width: 70px;
-height: 70px;
-cursor: pointer;
-}
-
-#seta_esquerda{
+#seta_esquerda {
     transform: rotate(90deg);
 }
-#seta_direita{
+
+#seta_direita {
     transform: rotate(-90deg);
 }
 
-/*adm*/
-
-.container_calendario_adm{
-    margin: 10px auto;
-    width: 70%;
-    background-color: #6FCCBB;
+.controladores_data {
+    text-align: center;
 }
 
-.container_calendario_gest{
-    margin: 10px auto;
-    width: 70%;
-    background-color: #FFDC9B;
+.controladores_componentes {
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: #0B5A4C;
+    width: 140px;
+    height: 50px;
+    border-radius: 10px;
+    border: solid 2px #36AB96;
+    background-color: #BFEBE3;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    text-align: center;
 }
 
-.container_calendario_enf{
-    margin: 10px auto;
-    width: 70%;
-    background-color: #D1F3ED;
+#year {
+    margin-left: 30px;
 }
 
-.continer_semana_adm{
-    background-color: #0B5A4C;
-    width: 97%;
-    height: 80px;
-    display: flex;
-    margin: 0px auto;
-    justify-content: space-around;
+.numero_calendario {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 70px;
+    color: #fff;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+    .numero_calendario:hover {
+        color: rgb(236, 236, 236);
+        font-size: 71px;
+    }
+
+    .numero_calendario:active {
+        color: #7de0ce;
+    }
+
+.dias {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 70px;
+    color: #fff;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+
+
+/*-------CALENDARIOS--------*/
+
+.container_calendario_adm {
+    margin: 10px auto;
+    width: 70%;
+    background-color: #117D6A;
+    height: 700px;
+}
+
+
+.continer_semana_adm {
+    margin-top: 25px;
+    color: #fff;
+    font-size: 30px;
+    font-family: arial;
+    font-weight: 500;
+    height: 60px;
+    color: #fff;
     box-shadow: 0px 5px 10px #00170e4d;
 }
 
-.continer_semana_gest{
-    background-color: #FBC45D;
-    width: 97%;
-    height: 80px;
-    display: flex;
-    margin: 0px auto;
-    justify-content: space-around;
-    box-shadow: 0px 5px 10px #170e004d;
-}
-.continer_semana_enf{
-    background-color: #6FCCBB;
-    width: 97%;
-    height: 80px;
-    display: flex;
-    margin: 0px auto;
-    justify-content: space-around;
-    box-shadow: 0px 5px 10px #170e004d;
+/*************************/
+
+.container_calendario_gest {
+    margin: 10px auto;
+    width: 70%;
+    background-color: #FDBD48;
+    height: 700px;
 }
 
-.dias_da_semana{
-margin-top: 25px;
-color: #fff;
-font-size: 30px;
-font-family: arial;
-font-weight: 500;
+
+.continer_semana_gest {
+    margin-top: 25px;
+    font-size: 30px;
+    font-family: arial;
+    font-weight: 500;
+    height: 60px;
+    color: #FFF1D7;
+    box-shadow: 0px 5px 10px #8b58004d;
 }
 
-.conteiner_dias_adm{
-    background-color: #36AB96;
-    margin: 20px auto;
-    display:flex ;
-    justify-content: space-around;
-    width: 97%;
-    height: 110px;
-}
+/*************************/
 
-.conteiner_dias_gest{
-    background-color: #FFF1D7;
-    margin: 20px auto;
-    display:flex ;
-    justify-content: space-around;
-    width: 97%;
-    height: 110px;
-}
-
-.conteiner_dias_enf{
+.container_calendario_enf {
+    margin: 10px auto;
+    width: 70%;
     background-color: #BFEBE3;
-    margin: 20px auto;
-    display:flex ;
-    justify-content: space-around;
-    width: 97%;
-    height: 110px;
+    height: 700px;
 }
 
 
-.dias_adm{
-    font-family: 'Inter', sans-serif;
-    font-size: 70px;
-    color: #fff;
-    margin-top: 10px;
-    text-decoration: none;
+.continer_semana_enf {
+    margin-top: 25px;
+    color: #4ABEA9;
+    font-size: 30px;
+    font-family: arial;
+    font-weight: 500;
+    height: 60px;
+    box-shadow: 0px 5px 10px #008b4a3a;
 }
 
-.dias_gest{
-    font-family: 'Inter', sans-serif;
-    font-size: 70px;
-    color: #fff;
-    margin-top: 10px;
-    text-decoration: none;
-    text-shadow: 0 0 4px #FFAB08;
+/*tooltip*/
 
+.tooltip {
+    position: relative;
+    display: inline-block;
 }
 
-.dias_enf{
-    font-family: 'Inter', sans-serif;
-    font-size: 70px;
-    color: #fff;
-    margin-top: 10px;
-    text-decoration: none;
-    text-shadow: 0 0 6px #36AB96;
-}
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 130px;
+        background-color: rgb(94, 64, 34);
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
 
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: rgb(94, 64, 34) transparent transparent transparent;
+        }
 
-.dias_adm:hover{
-color: rgb(236, 236, 236);
-}
-
-.dias_adm:active{
-color: #6fcfbe;
-}
-
-.dias_gest:hover{
-color: rgb(236, 236, 236);
-}
-
-.dias_gest:active{
-color: #ffd077;
-}
-
-.dias_enf:hover{
-    color: rgb(236, 236, 236);
-}
-
-.dias_enf:active{
-color: #83eeda;
-}
-
-.aux24{
-    text-decoration: none;
-    cursor: pointer;
-}
-
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }

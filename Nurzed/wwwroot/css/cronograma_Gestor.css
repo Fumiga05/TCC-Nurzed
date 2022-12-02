@@ -1,0 +1,289 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic&display=swap');
+
+#aux30 {
+    display: block;
+}
+
+#container_btns_adm {
+    background-color: #FFF1D7;
+}
+
+
+.container {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.btn_mes_crono_adm {
+    color: #fff;
+    width: 160px;
+    height: 40px;
+    font-weight: 600;
+    border-radius: 8px;
+    font-size: 23px;
+    border: solid 2px #DB9103;
+    background-color: #FFAB08;
+    margin: 15px auto;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.container button:hover {
+    opacity: 80%;
+}
+
+.container button:active {
+    background-color: #e6fffa;
+    color: #639f93;
+    opacity: 100%;
+}
+
+.selecao_area {
+    background-color: #6FCCBB;
+    border: solid 2px #6FCCBB;
+    color: #fff;
+    width: 400px;
+    height: 40px;
+    font-size: 25px;
+    text-decoration: none;
+    margin: 30px 0;
+}
+
+.selecao_area_opicoes {
+    background-color: #DDF3EF;
+    color: #6FCCBB;
+}
+
+#aux9 {
+    display: block;
+    width: 60%;
+    margin: 40px auto;
+}
+
+.mes_selcionado_adm {
+    color: #117D6A;
+    font-family: 'Carrois Gothic', arial;
+    text-align: center;
+    margin: 30px auto;
+    font-size: 80px;
+}
+
+
+
+#aux10 {
+    text-align: center;
+    margin-top: 20px;
+    display: block;
+}
+
+#aux102 {
+    text-align: center;
+    margin-top: 20px;
+    display: block;
+}
+
+#aux35 {
+    display: block;
+}
+
+#aux31 {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#aux34 {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-close {
+    display: flex;
+    justify-content: right;
+}
+
+.aux34 {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.aux32 {
+    text-align: center;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #063F35;
+}
+
+.aux33 {
+    text-align: center;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0B5A4C;
+}
+
+.btn_avancar_conograma_adm {
+    margin-top: 30px;
+    margin-bottom: 105px;
+    background-color: #99E8DA;
+    color: #117D6A;
+    font-size: 30px;
+    border: solid 2px #36AB96;
+    width: 300px;
+    height: 44px;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    .btn_avancar_conograma_adm:hover {
+        background-color: #b3eae0;
+    }
+
+    .btn_avancar_conograma_adm:active {
+        background-color: rgb(244, 252, 251);
+    }
+
+
+.linha_1_cronograma_enf {
+    text-align: center;
+    background-color: #FFE9C8;
+    border-left: solid 100% #DB9103;
+    font-weight: 600;
+    color: #063F35;
+}
+
+
+.leitos_titulo {
+    font-size: 23px;
+    font-weight: 600;
+    font-family: arial;
+    margin: 10px 0;
+}
+
+.leitos_input {
+    background-color: #FFE9C8;
+    border: solid 1.5px #FFAB08;
+    width: 400px;
+    height: 25px;
+    font-size: 20px;
+    font-family: arial;
+    color: #0B5A4C;
+}
+
+.aux11 {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.aux12 {
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+}
+
+#btn_finalizar_cronograma {
+    background-color: #4ABEA9;
+    border: solid 2px #117D6A;
+    color: #fff;
+    font-family: arial;
+    font-size: 29px;
+    width: 220px;
+    height: 40px;
+    border-radius: 9px;
+    text-decoration: none;
+    margin: 30px auto;
+    cursor: pointer;
+}
+
+    #btn_finalizar_cronograma:hover {
+        background-color: #53d1ba;
+    }
+
+    #btn_finalizar_cronograma:active {
+        background-color: #fff;
+        color: #4ABEA9;
+    }
+
+.aux13 {
+    width: 95%;
+    margin: 0 auto;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: scroll;
+}
+
+.tabela_crono_adm {
+    margin: 60px auto 0 auto;
+    width: 100%;
+    border-top: solid 2px #DB9103;
+    border-left: solid 2px #DB9103;
+    border-right: solid 2px #DB9103;
+    font-size: 20px;
+    font-family: arial;
+    background-color: #FFE9C8;
+}
+
+.tabela_cronograma_adm {
+    font-size: 18px;
+    font-family: arial;
+    margin: 0px auto 0 auto;
+    width: 100%;
+    border: solid 2px #DB9103;
+    background-color: #FBC45D;
+    font-size: 20px;
+    font-family: arial;
+}
+
+
+.opcao_tabela_cronograma_enf {
+    border-bottom: solid 2px #FFF1D7;
+    border-right: solid 2px #DB9103;
+}
+
+
+.select_cronograma_adm {
+    text-align: center;
+    border: 0;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: arial;
+    background-color: #FBC45D;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    cursor: pointer;
+}
+
+    .select_cronograma_adm:hover {
+        color: #117D6A;
+    }
+
+    .select_cronograma_adm:active {
+        color: #0B5A4C;
+    }
+
+
+
+
+.nome_infermeiro_tabela_adm {
+    width: 300px;
+}
+
+.corem_infermeiro_tabela_adm {
+    text-align: center;
+    width: 100px;
+}
+
+.select_infermeiro_tabela_adm {
+    width: 33px;
+}

@@ -22,8 +22,9 @@ namespace Nurzed.Controllers
             }
             else
             {
-                return RedirectToAction("Listar");
+                return RedirectToAction("HomeAdm");
             }
+          
         }
 
         [HttpPost]
@@ -42,19 +43,19 @@ namespace Nurzed.Controllers
 
                     if (usuarios.Status1 == "ativado")
                     {
-                        if (usuarios.Privilegios == "adm")
+                        if (usuarios.Id_Cargo == "SUPORTE TI")
                         {
                             HttpContext.Session.SetString("usuarios", JsonConvert.SerializeObject(usuarios));
                             TempData["value"] = true;
                             return RedirectToAction("HomeAdm");
                         }
-                        else if (usuarios.Privilegios == "Gestor")
+                        else if (usuarios.Id_Cargo == "Gestor de Enfermagem")
                         {
                             HttpContext.Session.SetString("usuarios", JsonConvert.SerializeObject(usuarios));
                             TempData["value"] = true;
                             return RedirectToAction("HomeGestor");
                         }
-                        else if (usuarios.Privilegios == "Enfermeiro")
+                        else if (usuarios.Id_Cargo == "Enfermeiro" || usuarios.Id_Cargo == "Auxiliar de Enfermagem")
                         {
                             HttpContext.Session.SetString("usuarios", JsonConvert.SerializeObject(usuarios));
                             TempData["value"] = true;
@@ -93,6 +94,7 @@ namespace Nurzed.Controllers
 
         }
 
+       
 
 
         public IActionResult Cadastrar()
@@ -130,15 +132,22 @@ namespace Nurzed.Controllers
         {
            Usuarios u = padrao.RetornarObjeto(HttpContext) ;
 
-            Usuarios usuarios = new Usuarios(id, status1, nome, padrao.Criptografar(senha), nome_da_mae, nome_do_pai, data_de_nascimento, sexo, cpf,
-                rg, data_de_inicio_Universidade, data_de_termino_Universidade, coren, cep, telefone, matricula, Id_Especialidade, Id_Cargo, tipo_de_contrato,
-                data_de_criacao, data_de_modificacao, privilegios, id_Universidade, id_Curso, id_Area, u.Nome, periodo);
-            
-            TempData["msgCadastrar"] = usuarios.Cadastrar();
+            if (privilegios == "adm")
+            {
+                Usuarios usuarios = new Usuarios(id, status1, nome, padrao.Criptografar(senha), nome_da_mae, nome_do_pai, data_de_nascimento, sexo, cpf,
+               rg, data_de_inicio_Universidade, data_de_termino_Universidade, coren, cep, telefone, matricula, Id_Especialidade, Id_Cargo, tipo_de_contrato,
+               data_de_criacao, data_de_modificacao, privilegios, id_Universidade, id_Curso, id_Area, u.Nome, periodo);
+                TempData["msg"] = usuarios.Cadastrar();
+            }
+            else
+            {
+                Usuarios usuarios = new Usuarios(id, status1, nome, padrao.Criptografar(senha), nome_da_mae, nome_do_pai, data_de_nascimento, sexo, cpf,
+               rg, "", "", "", "", telefone, matricula, "", "", "",
+               data_de_criacao, data_de_modificacao, privilegios, "", "", "", u.Nome, "");
+                TempData["msg"] = usuarios.Cadastrar();
+            }
 
-            
-            
-            return RedirectToAction("Login");
+            return RedirectToAction("Cadastrar");
 
         }
 
@@ -246,59 +255,13 @@ namespace Nurzed.Controllers
 
         public IActionResult HomeGestor()
         {
-            PadraoController padrao = new PadraoController();
-            if (padrao.Logado(HttpContext) == true)
-            {
-                if (padrao.Privilegios(HttpContext) == "adm")
-                {
-                    return RedirectToAction("HomeAdm");
-                }
-                else if (padrao.Privilegios(HttpContext) == "Gestor")
-                {
-                    return View();
-                }
-                else if (padrao.Privilegios(HttpContext) == "Enfermeiro")
-                {
-                    return RedirectToAction("HomeEnf");
-                }
-                else
-                {
-                    return RedirectToAction("Login");
-                }
-            }
-            else
-            {
-                return RedirectToAction("Login");
-            }
+            return View();
 
         }
 
         public IActionResult HomeEnf()
         {
-            PadraoController padrao = new PadraoController();
-            if (padrao.Logado(HttpContext) == true)
-            {
-                if (padrao.Privilegios(HttpContext) == "adm")
-                {
-                    return RedirectToAction("HomeAdm");
-                }
-                else if (padrao.Privilegios(HttpContext) == "Gestor")
-                {
-                    return RedirectToAction("HomeGestor");
-                }
-                else if (padrao.Privilegios(HttpContext) == "Enfermeiro")
-                {
-                    return View();
-                }
-                else
-                {
-                    return RedirectToAction("Login");
-                }
-            }
-            else
-            {
-                return RedirectToAction("Login");
-            }
+            return View();
         }
 
         public IActionResult Voltar()

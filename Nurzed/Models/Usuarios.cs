@@ -131,7 +131,7 @@ namespace Nurzed.Models
                 MySqlCommand qry = new MySqlCommand("INSERT INTO Usuarios(status1, nome, senha, nome_da_mae, nome_do_pai, data_de_nascimento," +
                     "sexo, cpf, rg, data_de_inicio_Universidade, data_de_termino_Universidade, id_Universidade, id_Curso," +
                     "coren, cep, telefone, matricula,id_Especialidade, id_Cargo, tipo_de_contrato, data_de_criacao, data_de_modificacao," +
-                    "privilegios,id_Area,usuario_modificacao) VALUES('ativado',@nome,@senha,@nome_da_mae,@nome_do_pai,@data_de_nascimento," +
+                    "privilegios,id_Area,usuario_modificacao,periodo) VALUES('ativado',@nome,@senha,@nome_da_mae,@nome_do_pai,@data_de_nascimento," +
                     "@sexo,@cpf,@rg,@data_de_inicio_Universidade,@data_de_termino_Universidade,@id_Universidade,@id_Curso," +
                     "@coren,@cep,@telefone,@matricula,@id_Especialidade,@id_Cargo,@tipo_de_contrato,@data_de_criacao,@data_de_modificacao," +
                     "@privilegios,@id_Area,@usuario_modificacao,@periodo); ", con);
@@ -166,6 +166,15 @@ namespace Nurzed.Models
 
                 qry.ExecuteNonQuery();
                 return "Usuário cadastrado com Sucesso";
+            }
+            catch (MySqlException e)
+            {
+                switch(e.Number){
+                    case 100: return "mensagem"; break;
+                    case 1000: return "mensagem"; break;
+                    case 10000: return "mensagem"; break;
+                    default: return "Erro inesperado, entre em contado com o administrador";
+                }
             }
             catch (Exception e)
             {

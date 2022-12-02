@@ -26,15 +26,15 @@ namespace Nurzed.Controllers
         {
             
 
-            if (RetornarObjeto(httpContext).Privilegios == "adm")
+            if (RetornarObjeto(httpContext).Id_Cargo == "SUPORTE TI")
             {
                 return "adm";
             }
-            else if (RetornarObjeto(httpContext).Privilegios == "Gestor")
+            else if (RetornarObjeto(httpContext).Id_Cargo == "Gestor de Enfermagem")
             {
                 return "Gestor";
             }
-            else if (RetornarObjeto(httpContext).Privilegios == "Enfermeiro")
+            else if (RetornarObjeto(httpContext).Id_Cargo == "Enfermeiro" || RetornarObjeto(httpContext).Id_Cargo == "Auxiliar de Enfermagem")
             {
                 return "Enfermeiro";
             }
@@ -47,20 +47,26 @@ namespace Nurzed.Controllers
         public string Criptografar(string senha)
         {
             
-            SHA256 sha256 = SHA256.Create();
-
-            
-            byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(senha));
-
-            
-            StringBuilder builder = new StringBuilder();
-            for (int i = 0; i < bytes.Length; i++)
+            if(senha != null)
             {
-                builder.Append(bytes[i].ToString("x2"));
-            }
+                SHA256 sha256 = SHA256.Create();
 
-           
-            return builder.ToString();
+
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(senha));
+
+
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+
+
+                return builder.ToString();
+            } else
+            {
+                return "";
+            }
         }
         public Usuarios RetornarObjeto(HttpContext httpContext)
         {

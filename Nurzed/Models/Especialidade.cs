@@ -1,15 +1,16 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Nurzed.Models
 {
     public class Especialidade
     {
-        private string id, nome,nome_Area;
+        private string id, nome, nome_Area;
         static MySqlConnection con = new MySqlConnection("server=localhost;database=vct;user id=teste;password=12345678");
 
-        public Especialidade(string id, string nome,string nome_Area)
+        public Especialidade(string id, string nome, string nome_Area)
         {
             this.id = id;
             this.nome = nome;
@@ -17,6 +18,8 @@ namespace Nurzed.Models
         }
 
         public string Id { get => id; set => id = value; }
+
+        [Required(ErrorMessage ="O nome da especialidade é obrigatório")]
         public string Nome { get => nome; set => nome = value; }
         public string Nome_Area { get => nome_Area; set => nome_Area = value; }
 

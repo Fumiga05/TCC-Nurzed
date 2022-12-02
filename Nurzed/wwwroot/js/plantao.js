@@ -3,11 +3,17 @@ var listaTecnicos = []
 var listaAux = []
 var listaAusentes = []
 
+var mes 
+var dia  
+var mesTexto
+pegarValorLocalStorage()
 
-var data1 = '2022-12-10'
+var data1 = '2022-'+mes+'-'+dia
 var periodo = 'manha'
+
 clicar()
 function clicar() {
+  
     listaEnfermeiros = []
     listaTecnicos = []
     listaAux = []
@@ -35,8 +41,10 @@ function clicar() {
             AdicionarAuxEnf()
             AdicionarAusentes()
 
+            console.log('Sucesso na execução da API')
+
         })
-        .catch((error) => console.log('Erro: ' + error.status));
+        .catch((error) => console.log('Erro: ' + error));
 
     
 
@@ -251,4 +259,18 @@ function EscolherPeriodo(valor) {
     clicar()
     return periodo
 
+}
+
+function pegarValorLocalStorage() {
+     dia = localStorage.getItem("dia_adm")
+     mes = localStorage.getItem("mesNumeral")
+     mesTexto = localStorage.getItem("mes")
+
+    
+    
+}
+
+function atualizarData() {
+    let cabecalho_dia_adm = document.getElementsByClassName('cabecalho_dia_adm')
+    cabecalho_dia_adm.innerHTML = mesTexto
 }

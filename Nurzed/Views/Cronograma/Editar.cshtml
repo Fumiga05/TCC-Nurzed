@@ -1,0 +1,204 @@
+﻿@using Microsoft.AspNetCore.Http
+@using Newtonsoft.Json
+@{
+    IEnumerable<Usuarios> listaEnfermeiros = ViewData["listaEnfermeiros"] as IEnumerable<Usuarios>;
+    IEnumerable<Usuarios> listaTecnicos = ViewData["listaTecnicos"] as IEnumerable<Usuarios>;
+    IEnumerable<Usuarios> listaAux = ViewData["listaAux"] as IEnumerable<Usuarios>;
+    IEnumerable<string> listaDias = ViewData["listaDias"] as IEnumerable<string>;
+  
+
+    Usuarios u = JsonConvert.DeserializeObject<Usuarios>(Context.Session.GetString("usuarios"));
+}
+@if(u.Id_Cargo == "SUPORTE TI")
+{
+    <link rel="stylesheet" href="~/css/cronograma.css">
+}
+else
+{
+    <link rel="stylesheet" href="~/css/cronograma_Gestor.css">
+    <style>
+        .titulo_pagina_adm{
+            color:#FFAB08;
+        }
+        .mes_selcionado_adm{
+            color:#DB9103;
+        }
+        #linha_horario_adm{
+            background-color: #DB9103 !important;
+            border: solid 2px #DB9103 !important;
+        }
+
+    </style>
+}
+
+<link rel="stylesheet" href="~/css/periodo.css">
+
+
+
+
+    <div class="contaner_titulo_index">
+        <a asp-action="Voltar" asp-controller="Usuarios">
+            <button class="btn_voltar_adm">
+                <img src="~/img/voltar.png" alt="" class="img_btn_voltar">
+            </button>
+        </a>
+    </div>
+    <h1 class="titulo_pagina_adm">Editar Cronograma</h1>
+   
+        
+       
+       @* <form asp-action="Cadastrar2">*@
+        <input type="hidden" id="mesRes" name="mes" value="teste">
+
+@if(u.Id_Cargo == "SUPORTE TI")
+{
+    <div id="aux9">
+          <select name="cars" id="" class="selecao_area">
+            <option selected disabled value="">Selecione a Área</option>
+            <option class="selecao_area_opicoes">################# </option>
+          </select>
+        </div>
+
+}
+
+        <p>@u.Id_Area</p>
+
+
+    <h1 class="mes_selcionado_adm" id="h1_mes">AGOSTO</h1>
+    <input type="hidden" id="ano" name="ano">
+    <div class="conteiner_hario">
+        <div class="vazio"></div>
+    
+
+
+      
+        <div class="conteiner_hora">
+
+            <input type="radio" name="periodo" id="manha" checked class="radio_hora" onclick="EscolherPeriodo(this)" value="manha">
+            <p class="radio_hora_text">07:00 às 13:00</p>
+        </div>
+
+        <div class="conteiner_hora">
+            <input type="radio" name="periodo" id="tarde" class="radio_hora" onclick="EscolherPeriodo(this)" value="tarde">
+            <p class="radio_hora_text">13:00 às 19:00</p>
+        </div>
+
+        <div class="conteiner_hora">
+            <input type="radio" name="periodo" id="noite" class="radio_hora" onclick="EscolherPeriodo(this)" value="noite">
+            <p class="radio_hora_text">21:00 às 07:00</p>
+        </div>
+
+        <div class="vazio"></div>
+    </div>
+    <input type="hidden" id="periodoRes" name="periodo">
+    <hr id="linha_horario_adm">
+    </div>
+
+    <div id="aux31">
+        <button class="btn_avancar_conograma_adm" onclick="f5()">Trocar Horário</button>
+    </div>
+
+    <form id="myForm" asp-action="Cadastrar">
+    <section id="aux30">
+
+        <div class="aux11">
+            <p class="leitos_titulo">Leitos ativos:</p>
+            <input type="number" class="leitos_input" min="0" minlength="2" maxlength="250" required/>
+        </div>
+
+        <div class="aux11">
+            <p class="leitos_titulo">Leitos desativados:</p>
+            <input type="number" class="leitos_input" min="0" minlength="2" maxlength="250" />
+        </div>
+
+    
+        <div class="aux13" id="div_Enfermeiros">
+                <table class="tabela_crono_adm" id="tabela">
+                    <tbody id="tbody_Enfermeiros">
+                        <tr id="tr_Enfermeiros" class="linha_1_cronograma_enf">
+            
+            
+                       </tr>
+
+                    </tbody>         
+
+                </table>
+        </div>
+
+
+
+        <!-------------------------------------------------------------------->
+
+        <div class="aux13" id="div_Tecnicos">
+            <table class="tabela_crono_adm" >
+                <tbody id="tbody_Tecnicos">
+                    <tr id="tr_Tecnicos" class="linha_1_cronograma_enf" >
+                    
+
+                    </tr>
+              </tbody>
+            </table>
+        </div>
+
+        <!----------------------------------------------------------------------->
+
+
+        <div class="aux13" id="div_AuxEnf">
+            <table class="tabela_crono_adm">
+                <tbody id="tbody_AuxEnf">
+                    <tr id="tr_AuxEnf"class="linha_1_cronograma_enf">
+                   
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+       
+
+        <input type="hidden" id="legendas" name="legenda">
+
+
+        <div class="aux12">
+            <button type="submit" id="btn_finalizar_cronograma">Finalizar</button>
+        </div>
+         </form>
+        <br><br>
+        <section id="sec_legenda">
+
+            <div class="container_legenda">
+                <h3 id="title_legenda">Legenda</h3>
+                <hr class="linha_legenda">
+                <div class="info_legenda_container">
+                    <p class="info_legenda">
+                        PR:Presente <br>
+                        X: Folga <br>
+                        ABA: Folga Abonada <br>
+                        LTS: Licença tratamento de saúde <br>
+                        LP: Licença Prêmio  <br>
+                        LG: Licença gala <br>
+                        FE: Férias <br>
+                    </p>
+
+                    <p class="info_legenda">
+                        FI: Falta injustificada <br>
+                        PF: Ponto Facultativo <br>
+                        CH: Compensação de hora <br>
+                        TL: Projeto Trocando de Lugar <br>
+                        AF: Afastado <br>
+                        TC: Término de contrato <br>
+                        FT:Folga trabalhada<br>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+          <br><br>
+
+    </section>
+
+
+<script src="~/js/funcao.js"></script>
+<script src="~/js/cronograma_Editar.js"></script>
+

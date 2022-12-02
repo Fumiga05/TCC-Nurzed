@@ -456,3 +456,5 @@ F:\Senai\3DSB\Sprint4\TCC-Nurzed\Nurzed\obj\Debug\netcoreapp3.1\Nurzed.dll
 F:\Senai\3DSB\Sprint4\TCC-Nurzed\Nurzed\obj\Debug\netcoreapp3.1\Nurzed.pdb
 F:\Senai\3DSB\Sprint4\TCC-Nurzed\Nurzed\obj\Debug\netcoreapp3.1\Nurzed.genruntimeconfig.cache
 F:\Senai\3DSB\Sprint4\TCC-Nurzed\Nurzed\obj\Debug\netcoreapp3.1\Razor\Views\Plantao\Plantao.cshtml.g.cs
+F:\Senai\3DSB\Sprint4\TCC-Nurzed\Nurzed\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Toast.cshtml.g.cs
+F:\Senai\3DSB\Sprint4\TCC-Nurzed\Nurzed\obj\Debug\netcoreapp3.1\Razor\Views\Cronograma\Editar.cshtml.g.cs

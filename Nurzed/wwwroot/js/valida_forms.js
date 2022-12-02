@@ -28,20 +28,7 @@ function campoVazio() {
     let senha = document.querySelector("#senha").value;
 
     if (nomecompleto == "" || nomemae == "" || nomepai == "" || data_nascimento == "" || cpf == "" || sexo == "" || rg == "" || cep == "" || telefone == "" || uni_inicio == "" || uni_fim == "" || coren == "" || matricula == "" || senha == "") {
-        // nomecompleto = ""
-        // nomemae= ""
-        // nomepai= ""
-        // data_nascimento = 0
-        // cpf= 0
-        // sexo= ""
-        // rg= 0
-        // cep= 0
-        // telefone= 0
-        // uni_inicio= 0
-        // uni_fim= 0
-        // coren= ""
-        // matricula= 0
-        // senha= ""
+        
 
         MostrarMensagem('Preencha todos os campos vazios', 'orange', 'Atenção', 'fa-solid fa-triangle-exclamation')
         //alert("Campo vazio! Verifique os campos.")
@@ -286,26 +273,16 @@ function ValidarCPF() {
 }
 
 function ValidacaoGeral() {
-
+    campoVazio()
     if (CPFValido == true && DataValida == true) {
-        const myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'), {
-            keyboard: true,
-            focus: true,
-            backdrop: 'static'
-        })
-        myModal.show();
-        // btn_Finalizar_adm.setAttribute("data-bs-toggle","modal") 
-    } else {
-        // btn_Finalizar_adm.removeAttribute("data-bs-toggle")
+        return true;
+    }else{    
         console.log('não validou, algo está errado')
+        return false;
     }
 }
 
-document.querySelector('#myForm').addEventListener('submit', evt => {
-    evt.preventDefault();
-    campoVazio();
-    ValidacaoGeral();
-});
+
 
 function MostrarMensagem(texto, cor, titulo, icon) {
     texto = (texto !== 'undefined') ? texto : 'Testando Atencao'
@@ -316,9 +293,5 @@ function MostrarMensagem(texto, cor, titulo, icon) {
         color: cor,
         icon: icon
     })
-}
-
-function CadastrarUsuario() {
-    MostrarMensagem('Usuário Cadastrado com sucesso', 'green', 'Sucesso', 'fa-sharp fa-solid fa-check')
 }
 

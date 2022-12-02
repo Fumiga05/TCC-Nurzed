@@ -6,9 +6,7 @@ namespace Nurzed.Controllers
     public class PlantaoController : Controller
     {
         public IActionResult Plantao(string data1, string id_Cargo, string periodo, string id_Area)
-        {
-            data1 = "2022-11-10";
-            periodo = "manha";           
+        {                     
 
             ViewData["listaEnfermeiros"] = Usuarios.ListarUsuariosPlantao(data1,"5", periodo, "");
             ViewData["listaTecnicos"] = Usuarios.ListarUsuariosPlantao(data1, "1", periodo, "");

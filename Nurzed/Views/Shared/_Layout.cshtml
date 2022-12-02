@@ -1,18 +1,20 @@
 ﻿@using Microsoft.AspNetCore.Http
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Nurzed</title>
     <link rel="stylesheet" href="~/css/index.css">
-  
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*   <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-   
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    @* <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">*@
+
 </head>
 <body>
+
+
     @if (Context.Session.GetString("usuarios") != null)
     {
 
@@ -27,22 +29,16 @@
         <br>
         <br>
         <br>
+
     }
 
 
     @RenderBody()
 
 
-    @*<footer class="border-top footer text-muted">
-    <img src="~/img/cartaicon.png" id="logo_rodape" alt="">
-    <div id="redes_socias_rodape">
-    <span id="linha_rodape"></span>
-    <img src="~/img/whatsicon.png" alt="">
-    <img src="~/img/instaicon.png" alt="">
-    <img src="~/img/cartaicon.png" alt="">
-    </div>
-    </footer>*@
+    
 
     @RenderSection("Scripts", required: false)
+    <script src="~/iziToast/dist/js/iziToast.min.js"></script>
 </body>
 </html>

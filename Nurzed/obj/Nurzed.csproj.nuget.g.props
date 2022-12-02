@@ -13,6 +13,7 @@
     <SourceRoot Include="C:\Users\victo\.nuget\packages\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgjQuery Condition=" '$(PkgjQuery)' == '' ">C:\Users\victo\.nuget\packages\jquery\1.6.3</PkgjQuery>
     <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\victo\.nuget\packages\microsoft.codeanalysis.analyzers\2.9.4</PkgMicrosoft_CodeAnalysis_Analyzers>
   </PropertyGroup>
 </Project>

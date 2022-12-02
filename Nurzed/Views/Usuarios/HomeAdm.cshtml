@@ -9,19 +9,19 @@
 
     
 
-<body>
+
         <div class="container_home">
         <br><br><br><p id="area_trab_adm">Área de trabalho:@u.Id_Area</p>
 
         <div class="container_home_btn">
             <a asp-controller="Usuarios" asp-action="Plantao"><button class="btn_acoens_home_adm" <img src="~/img/calendario_adm.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_adm">Ver Plantão</p></button></a>
-            <a asp-controller="Especialidade" asp-action="Cadastrar"><button class="btn_acoens_home_adm" ><img src="~/img/adm_add.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_adm">Add Especialidades</p></button></a>
+            <a asp-controller="Especialidade" asp-action="Cadastrar"><button class="btn_acoens_home_adm" ><img src="~/img/adm_add.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_adm">Adicionar Especialidades</p></button></a>
             
         </div>
 
         <div class="container_home_btn">
-            <a asp-controller="Usuarios" asp-action="Cadastrar"><button class="btn_acoens_home_adm"><img src="~/img/adm_add4.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_adm">Adicionar User</p></button></a>
-            <a><button class="btn_acoens_home_adm"><img src="~/img/Historico_adm.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_adm">Histórico</p></button></a>
+            <a asp-controller="Usuarios" asp-action="Cadastrar"><button class="btn_acoens_home_adm"><img src="~/img/adm_add4.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_adm">Adicionar Usuário</p></button></a>
+            <a asp-controller="Cronograma" asp-action="Cadastrar"><button class="btn_acoens_home_adm"><img src="~/img/Historico_adm.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_adm">Adicionar Cronograma</p></button></a>
         </div>
 
         <div class="container_home_btn">
@@ -30,9 +30,7 @@
         </div>
 
     </div>
-</body>
 
 
     <p id="nome_rodape">@u.Nome</p>
 
-            <script src="~/js/site.js"></script>

@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "jHMxry4x3gjgwCMfZNiX6yXw4phh5aWK9BYOwYAPsEAEwg0BvLa6UZTkuoV3OgGO1XaYtpiOoURaZvbsMltsfg==",
+  "dgSpecHash": "NH3iYEb4ztnlBnzhn0Groui8Zld4my2OTaTzKpg5s5ugYX50k4iOHwmm5rfAate+n+nDFmqpjZVxbD7sYnuyGQ==",
   "success": true,
   "projectFilePath": "F:\\Senai\\3DSB\\Sprint4\\TCC-Nurzed\\Nurzed\\Nurzed.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\victo\\.nuget\\packages\\bouncycastle.netcore\\1.8.3\\bouncycastle.netcore.1.8.3.nupkg.sha512",
     "C:\\Users\\victo\\.nuget\\packages\\google.protobuf\\3.11.4\\google.protobuf.3.11.4.nupkg.sha512",
+    "C:\\Users\\victo\\.nuget\\packages\\jquery\\1.6.3\\jquery.1.6.3.nupkg.sha512",
     "C:\\Users\\victo\\.nuget\\packages\\k4os.compression.lz4\\1.1.11\\k4os.compression.lz4.1.1.11.nupkg.sha512",
     "C:\\Users\\victo\\.nuget\\packages\\k4os.compression.lz4.streams\\1.1.11\\k4os.compression.lz4.streams.1.1.11.nupkg.sha512",
     "C:\\Users\\victo\\.nuget\\packages\\k4os.hash.xxhash\\1.0.6\\k4os.hash.xxhash.1.0.6.nupkg.sha512",
@@ -152,7 +153,8 @@
     "C:\\Users\\victo\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\victo\\.nuget\\packages\\system.xml.xmldocument\\4.0.1\\system.xml.xmldocument.4.0.1.nupkg.sha512",
     "C:\\Users\\victo\\.nuget\\packages\\system.xml.xpath\\4.0.1\\system.xml.xpath.4.0.1.nupkg.sha512",
-    "C:\\Users\\victo\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.0.1\\system.xml.xpath.xmldocument.4.0.1.nupkg.sha512"
+    "C:\\Users\\victo\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.0.1\\system.xml.xpath.xmldocument.4.0.1.nupkg.sha512",
+    "C:\\Users\\victo\\.nuget\\packages\\toastr\\2.1.1\\toastr.2.1.1.nupkg.sha512"
   ],
   "logs": []
 }

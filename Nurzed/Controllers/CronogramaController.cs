@@ -9,6 +9,8 @@ namespace Nurzed.Controllers
 {
     public class CronogramaController : Controller
     {
+        PadraoController padrao = new PadraoController();
+
         public IActionResult Cadastrar(string id_Cargo, string periodo, string id_Area, int ano, int mes)
         {
             ano = 2022;
@@ -33,14 +35,14 @@ namespace Nurzed.Controllers
         public Object Cadastrar([FromBody] Object cronograma)
         {
             dynamic cronogram = JsonConvert.DeserializeObject(cronograma.ToString());
-              Console.WriteLine(cronogram.ToString());
+           
             string id = cronogram.id;
             string id_Usuarios = cronogram.id_Usuarios;
             string data = cronogram.data;
             string legenda = cronogram.legenda;
             string periodo = cronogram.periodo;
-            Atualizar(periodo);
-            Cronograma.Cadastrar(id, id_Usuarios, data, legenda, periodo);
+            Usuarios usuario = padrao.RetornarObjeto(HttpContext);            
+            Cronograma.Cadastrar(id_Usuarios, data, legenda, periodo,usuario.Nome,"","");
 
             
             return cronograma;
@@ -54,11 +56,33 @@ namespace Nurzed.Controllers
 
             return u;
         }
-       
-     
+
+        public IActionResult Editar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public Object Editar([FromBody] Object cronograma)
+        {
+            dynamic cronogram = JsonConvert.DeserializeObject(cronograma.ToString());
+
+            string id = cronogram.id;
+            string id_Usuarios = cronogram.id_Usuarios;
+            string data = cronogram.data;
+            string legenda = cronogram.legenda;
+            string periodo = cronogram.periodo;
+            Usuarios usuario = padrao.RetornarObjeto(HttpContext);
+            Cronograma.Editar(id,id_Usuarios, data, legenda, periodo, usuario.Nome, "");
+
+
+            return cronograma;
+
+        }
 
 
 
+        //Método para enviar quantidade dias para o Front-End
         public  List<string> DiasDoMes(int ano,int mes)
         {
             List<string> listaDias = new List<string>();
