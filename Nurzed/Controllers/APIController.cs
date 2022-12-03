@@ -17,7 +17,7 @@ namespace Nurzed
             List<Usuarios> listaEnf = Usuarios.ListarUsuarios("5", periodo, "");
             List<Usuarios> listaTec = Usuarios.ListarUsuarios("1", periodo, "");
             List<Usuarios> listaAux = Usuarios.ListarUsuarios("4", periodo, "");
-            
+
 
             List<Object> lista = new List<Object>();
             lista.Add(listaEnf);
@@ -30,10 +30,10 @@ namespace Nurzed
 
         [HttpGet]
         [Route("/api/[Controller]/data/{data1}/{periodo}")]
-        public IActionResult RetornarUsuariosPlantao(string data1,string periodo)
+        public IActionResult RetornarUsuariosPlantao(string data1, string periodo)
         {
-            
-            List<Usuarios> listaEnf = Usuarios.ListarUsuariosPlantao(data1,"5", periodo, "");
+
+            List<Usuarios> listaEnf = Usuarios.ListarUsuariosPlantao(data1, "5", periodo, "");
             List<Usuarios> listaTec = Usuarios.ListarUsuariosPlantao(data1, "1", periodo, "");
             List<Usuarios> listaAux = Usuarios.ListarUsuariosPlantao(data1, "4", periodo, "");
             List<Usuarios> listaAusentes = Usuarios.ListarUsuariosAusentesPlantao(data1, periodo, "");
@@ -47,18 +47,21 @@ namespace Nurzed
 
 
         [HttpGet]
-        [Route("/api/[Controller]/cronograma_editar/{mes}")]
-        public IActionResult RetornarCronograma(string mes)
+        [Route("/api/[Controller]/cronograma_editar/{mes}/{ano}/{periodo}")]
+        public IActionResult RetornarCronograma(string mes, string ano, string periodo)
         {
-            List<Cronograma> listaCronograma = Cronograma.Listar(mes);
+            List<Usuarios> listaEnf = Usuarios.selecionarUsuariosDoCronograma(mes, ano, "5", periodo);
+            List<Usuarios> listaTec = Usuarios.selecionarUsuariosDoCronograma(mes, ano, "1", periodo);
+            List<Usuarios> listaAux = Usuarios.selecionarUsuariosDoCronograma(mes, ano, "4", periodo);
+            List<Object> lista = new List<Object>();
 
-            return Ok(listaCronograma);
+            lista.Add(listaEnf);
+            lista.Add(listaTec);
+            lista.Add(listaAux);
+            return Ok(lista);
 
         }
 
 
-
-
     }
-
-    }
+}

@@ -72,6 +72,14 @@ function mandaStorage(dia) {
 
 }
 
+function mandaStorageEditar() {
+    let volta_mes = voltarMes(); //devolve numero do mes -1
+    localStorage.setItem("mes", months[volta_mes])
+
+    let mesNumeral = voltarMes() + 1;
+    localStorage.setItem("mesNumeral", mesNumeral)
+}
+
 function showCalendar(month, year) {
 
     let firstDay = (new Date(year, month)).getDay();

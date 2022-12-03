@@ -356,7 +356,9 @@ namespace Nurzed.Models
             try
             {
                 con.Open();
-                MySqlCommand qry = new MySqlCommand("SELECT usuarios.nome AS usuariosNome,usuarios.id AS usuariosId,cargo.nome AS cargoNome,cronograma.legenda FROM Usuarios INNER JOIN Cronograma INNER JOIN Cargo ON usuarios.id = cronograma.id_Usuarios AND usuarios.id_Cargo = cargo.id AND cronograma.data1 = @data1 AND usuarios.periodo = @periodo AND cronograma.legenda != 'PR';", con);
+                MySqlCommand qry = new MySqlCommand("SELECT usuarios.nome AS usuariosNome,usuarios.id AS usuariosId,cargo.nome AS cargoNome," +
+                    "cronograma.legenda FROM Usuarios INNER JOIN Cronograma INNER JOIN Cargo ON usuarios.id = cronograma.id_Usuarios AND usuarios.id_Cargo = cargo.id " +
+                    "AND cronograma.data1 = @data1 AND usuarios.periodo = @periodo AND cronograma.legenda != 'PR';", con);
                 qry.Parameters.AddWithValue("@data1", data1);               
                 qry.Parameters.AddWithValue("@periodo", periodo);
                 qry.Parameters.AddWithValue("@id_Area", id_Area);
@@ -381,7 +383,39 @@ namespace Nurzed.Models
             }
         }
 
+        public static List<Usuarios> selecionarUsuariosDoCronograma(string mes,string ano,string id_Cargo,string periodo)
+        {
+            List<Usuarios> listaUsuario = new List<Usuarios>();
+            try
+            {
+                con.Open();
+                MySqlCommand qry = new MySqlCommand("SELECT DISTINCT usuarios.nome,Usuarios.id,usuarios.coren,usuarios.id_Cargo FROM Usuarios INNER JOIN Cronograma WHERE MONTH(cronograma.data1) = @mes " +
+                    "AND YEAR(cronograma.data1) = @ano AND usuarios.periodo = @periodo AND usuarios.id_Cargo = @id_Cargo;", con);
+                qry.Parameters.AddWithValue("@mes", mes);
+                qry.Parameters.AddWithValue("@ano", ano);
+                qry.Parameters.AddWithValue("@periodo", periodo);
+                qry.Parameters.AddWithValue("@id_Cargo", id_Cargo);
+                MySqlDataReader leitor = qry.ExecuteReader();
 
+                while(leitor.Read())
+                {
+                    Usuarios usuarios = new Usuarios(leitor["id"].ToString(), "", leitor["nome"].ToString(), "",
+                      "", "", "", "", "", "", "", "", leitor["coren"].ToString(), "", "", "", "", "", "", "", "", "", "", "",
+                       "", "", "");
+                    listaUsuario.Add(usuarios);
+                }
+
+                return listaUsuario;
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
 
 
 
