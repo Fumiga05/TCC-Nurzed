@@ -13,7 +13,7 @@ namespace Nurzed.Models
             privilegios, id_Universidade, id_Curso, id_Area, usuario_modificacao, periodo;
 
 
-        static MySqlConnection con = new MySqlConnection("server=localhost;database=vct;user id=teste;password=12345678");
+        static MySqlConnection con = new MySqlConnection("server=localhost;database=vct;user id=root;password=TJBghjkFGYUI842");
 
         public Usuarios(string id, string status1, string nome, string senha, string nome_da_mae,
             string nome_do_pai, string data_de_nascimento, string sexo, string cpf, string rg,
@@ -151,7 +151,7 @@ namespace Nurzed.Models
                 qry.Parameters.AddWithValue("@coren", coren);
                 qry.Parameters.AddWithValue("@cep", cep);
                 qry.Parameters.AddWithValue("@telefone", telefone);
-                qry.Parameters.AddWithValue("@matricula", int.Parse(matricula));
+                qry.Parameters.AddWithValue("@matricula", matricula);
                 qry.Parameters.AddWithValue("@id_Especialidade", id_Especialidade);
                 qry.Parameters.AddWithValue("@id_Cargo", id_Cargo);
                 qry.Parameters.AddWithValue("@tipo_de_contrato", tipo_de_contrato);
@@ -170,9 +170,12 @@ namespace Nurzed.Models
             catch (MySqlException e)
             {
                 switch(e.Number){
-                    case 100: return "mensagem"; break;
-                    case 1000: return "mensagem"; break;
-                    case 10000: return "mensagem"; break;
+                    case 1406: return "Texto Muito Grande no Campo"; break;
+
+                    case 1062: return "O cpf inserido ja está sendo usado"; break;
+
+                    case 1048: return "Favor Preencher Todos os Campos Obrigatórios"; break;
+                   
                     default: return "Erro inesperado, entre em contado com o administrador";
                 }
             }
@@ -316,7 +319,7 @@ namespace Nurzed.Models
             try
             {
                 con.Open();
-                MySqlCommand qry = new MySqlCommand("SELECT * FROM Usuarios INNER JOIN Cronograma ON usuarios.id = cronograma.id_Usuarios AND cronograma.data1 = @data1 AND usuarios.periodo = @periodo AND usuarios.id_Cargo = @id_Cargo AND cronograma.legenda = 'PR';", con);
+                MySqlCommand qry = new MySqlCommand("SELECT * FROM Usuarios INNER JOIN Cronograma ON usuarios.id = cronograma.id_Usuarios AND cronograma.data1 = @data1 AND usuarios.periodo = @periodo AND usuarios.id_Cargo = @id_Cargo AND cronograma.legenda = 'PR' AND usuarios.status1 = 'ativado';", con);
                 qry.Parameters.AddWithValue("@data1", data1);
                 qry.Parameters.AddWithValue("@id_Cargo", id_Cargo);
                 qry.Parameters.AddWithValue("@periodo", periodo);

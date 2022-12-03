@@ -15,7 +15,7 @@ namespace Nurzed.Controllers
 
         public IActionResult Login()
         {
-            
+
             if (HttpContext.Session.GetString("usuarios") == null)
             {
                 return View();
@@ -24,7 +24,7 @@ namespace Nurzed.Controllers
             {
                 return RedirectToAction("HomeAdm");
             }
-          
+
         }
 
         [HttpPost]
@@ -34,7 +34,7 @@ namespace Nurzed.Controllers
             {
 
 
-                Usuarios u = new Usuarios("", "", "", padrao.Criptografar(senha), "", "", "", "", cpf, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "","");
+                Usuarios u = new Usuarios("", "", "", padrao.Criptografar(senha), "", "", "", "", cpf, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
                 Usuarios usuarios = u.Verificar();
 
 
@@ -94,15 +94,15 @@ namespace Nurzed.Controllers
 
         }
 
-       
+
 
 
         public IActionResult Cadastrar()
         {
-            
+
             if (padrao.Logado(HttpContext) == true)
             {
-                if(padrao.Privilegios(HttpContext) == "adm" || padrao.Privilegios(HttpContext) == "Gestor")
+                if (padrao.Privilegios(HttpContext) == "adm" || padrao.Privilegios(HttpContext) == "Gestor")
                 {
                     ViewData["listaUniversidade"] = Universidade.Listar();
                     ViewData["listaCurso"] = Curso.Listar();
@@ -114,6 +114,7 @@ namespace Nurzed.Controllers
                 }
                 else
                 {
+                    
                     TempData["msgPrivilegios"] = "Privilegios insuficientes";
                     return RedirectToAction("HomeEnf", "Usuarios");
                 }
@@ -122,64 +123,79 @@ namespace Nurzed.Controllers
             {
                 return RedirectToAction("Login");
             }
-           
+
         }
         [HttpPost]
-        public IActionResult Cadastrar(string id,string status1, string nome, string senha, string nome_da_mae, string nome_do_pai, string data_de_nascimento,
+        public IActionResult Cadastrar(string id, string status1, string nome, string senha, string nome_da_mae, string nome_do_pai, string data_de_nascimento,
             string sexo, string cpf, string rg, string data_de_inicio_Universidade, string data_de_termino_Universidade, string coren, string cep, string telefone,
             string matricula, string Id_Especialidade, string Id_Cargo, string tipo_de_contrato, string data_de_criacao, string data_de_modificacao, string privilegios,
-            string id_Universidade, string id_Curso,string id_Area, string periodo)
+            string id_Universidade, string id_Curso, string id_Area, string periodo)
         {
-           Usuarios u = padrao.RetornarObjeto(HttpContext) ;
+            Usuarios u = padrao.RetornarObjeto(HttpContext);
+
 
             if (privilegios == "adm")
+            {
+                Usuarios usuarios = new Usuarios(id, status1, nome, padrao.Criptografar(senha), nome_da_mae, nome_do_pai, data_de_nascimento, sexo, cpf,
+              rg, "", "", "", "", telefone, matricula, "", "", "",
+              data_de_criacao, data_de_modificacao, privilegios, "", "", "", u.Nome, "");
+                TempData["msg"] = usuarios.Cadastrar();
+
+
+            }
+            else
             {
                 Usuarios usuarios = new Usuarios(id, status1, nome, padrao.Criptografar(senha), nome_da_mae, nome_do_pai, data_de_nascimento, sexo, cpf,
                rg, data_de_inicio_Universidade, data_de_termino_Universidade, coren, cep, telefone, matricula, Id_Especialidade, Id_Cargo, tipo_de_contrato,
                data_de_criacao, data_de_modificacao, privilegios, id_Universidade, id_Curso, id_Area, u.Nome, periodo);
                 TempData["msg"] = usuarios.Cadastrar();
             }
+            if (TempData["msg"].ToString().Contains("Sucesso"))
+            {
+                return RedirectToAction("Cadastrar");
+            }
             else
             {
-                Usuarios usuarios = new Usuarios(id, status1, nome, padrao.Criptografar(senha), nome_da_mae, nome_do_pai, data_de_nascimento, sexo, cpf,
-               rg, "", "", "", "", telefone, matricula, "", "", "",
-               data_de_criacao, data_de_modificacao, privilegios, "", "", "", u.Nome, "");
-                TempData["msg"] = usuarios.Cadastrar();
+                ViewData["listaUniversidade"] = Universidade.Listar();
+                ViewData["listaCurso"] = Curso.Listar();
+                ViewData["listaEspecialidade"] = Especialidade.Listar();
+                ViewData["listaCargo"] = Cargo.Listar();
+                ViewData["listaArea"] = Area.Listar();
+                return View();
             }
 
-            return RedirectToAction("Cadastrar");
-
+            
         }
 
 
 
-       public IActionResult Listar()        
+        public IActionResult Listar()
         {
             ViewData["listaUsuarios"] = Usuarios.Listar();
             return View(Usuarios.Listar());
         }
-        
+
 
         public IActionResult Ativar(string cpf)
         {
 
-            
-                Usuarios usuarios = new Usuarios("","","","","","","", "", cpf, "", "", "", "", "", "", "", "", "", "", "", "","","","","","","");
 
-                TempData["msgAtivar"] = usuarios.AtivarInativar("ativar");
-                return RedirectToAction("Listar");
-           
+            Usuarios usuarios = new Usuarios("", "", "", "", "", "", "", "", cpf, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+
+            TempData["msgAtivar"] = usuarios.AtivarInativar("ativar");
+            return RedirectToAction("Listar");
+
 
         }
         public IActionResult Inativar(string cpf)
         {
-            Usuarios usuarios = new Usuarios("","", "", "", "", "", "", "",cpf, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "","","","");
+            Usuarios usuarios = new Usuarios("", "", "", "", "", "", "", "", cpf, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
 
             TempData["msgInativar"] = usuarios.AtivarInativar("inativar");
             return RedirectToAction("Listar");
         }
 
-        public IActionResult Editar(string id,string cpf, string especialidade, string cargo)
+        public IActionResult Editar(string id, string cpf, string especialidade, string cargo)
         {
             TempData["id"] = id;
             TempData["cpf"] = cpf;
@@ -194,24 +210,24 @@ namespace Nurzed.Controllers
         }
 
         [HttpPost]
-        public IActionResult Editar(string id,string status1, string nome, string senha, string nome_da_mae, string nome_do_pai,
+        public IActionResult Editar(string id, string status1, string nome, string senha, string nome_da_mae, string nome_do_pai,
             string data_de_nascimento, string sexo, string cpf, string rg, string data_de_inicio_Universidade, string data_de_termino_Universidade,
             string coren, string cep, string telefone, string matricula, string Id_Especialidade, string Id_Cargo, string tipo_de_contrato,
-            string data_de_criacao, string data_de_modificacao, string privilegios, string id_Universidade, string id_Curso,string id_Area,string periodo)
+            string data_de_criacao, string data_de_modificacao, string privilegios, string id_Universidade, string id_Curso, string id_Area, string periodo)
         {
             Usuarios u = padrao.RetornarObjeto(HttpContext);
             Usuarios usuarios = new Usuarios(id, status1, nome, senha, nome_da_mae, nome_do_pai, data_de_nascimento, sexo, cpf, rg, data_de_inicio_Universidade,
                 data_de_termino_Universidade, coren, cep, telefone, matricula, Id_Especialidade, Id_Cargo, tipo_de_contrato, data_de_criacao, data_de_modificacao,
-                privilegios, id_Universidade, id_Curso, id_Area, u.Nome,periodo);
+                privilegios, id_Universidade, id_Curso, id_Area, u.Nome, periodo);
 
             TempData["id"] = id;
             TempData["msgEditar"] = usuarios.Editar(id);
 
             return RedirectToAction("Listar");
-            
-        }      
 
-       
+        }
+
+
         public IActionResult Sair()
         {
             HttpContext.Session.Remove("usuarios");
@@ -226,7 +242,7 @@ namespace Nurzed.Controllers
         public IActionResult HomeAdm()
         {
             PadraoController padrao = new PadraoController();
-          
+
             if (padrao.Logado(HttpContext) == true)
             {
                 if (padrao.Privilegios(HttpContext) == "adm")
@@ -250,7 +266,7 @@ namespace Nurzed.Controllers
             {
                 return RedirectToAction("Login");
             }
-            
+
         }
 
         public IActionResult HomeGestor()
@@ -271,14 +287,14 @@ namespace Nurzed.Controllers
 
         public IActionResult Plantao(string id_Cargo, string periodo, string id_Area)
         {
-            
+
             return View();
         }
 
         [HttpPost]
         public IActionResult Plantao()
         {
-            
+
 
             return View();
         }

@@ -5,6 +5,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic&display=swap');
 
+
+
+#folga{
+    background-color:yellow !important;
+}
+#falta_injustificada{
+    background-color:darkred !important;
+    color:white !important;
+}
 #aux30{
     display: block;
 }
@@ -303,13 +312,13 @@ margin: 0 auto;
     border-right:solid 2px #DB9103;
 }
 
-.select_cronograma_adm{
+.select_cronograma_adm {
     text-align: center;
     border: 0;
     font-weight: 600;
     font-size: 14px;
     font-family: arial;
-    background-color: #BFEBE3;
+    background-color: inherit;
     -webkit-appearance: none;
     -moz-appearance: none;
     text-indent: 1px;
@@ -362,5 +371,6 @@ margin: 0 auto;
 
 .select_infermeiro_tabela_adm{
     width: 33px;
+    margin-left:3px;
 }
 

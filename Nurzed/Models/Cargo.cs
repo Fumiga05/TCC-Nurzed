@@ -8,7 +8,7 @@ namespace Nurzed.Models
     {
 
         private string id, nome;
-        static MySqlConnection con = new MySqlConnection("server=localhost;database=vct;user id=teste;password=12345678");
+        static MySqlConnection con = new MySqlConnection("server=localhost;database=vct;user id=root;password=TJBghjkFGYUI842");
 
         public Cargo(string id, string nome)
         {

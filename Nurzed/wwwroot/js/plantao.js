@@ -40,7 +40,7 @@ function clicar() {
             AdicionarTecnicos()
             AdicionarAuxEnf()
             AdicionarAusentes()
-
+            atualizarData()
             console.log('Sucesso na execução da API')
 
         })
@@ -89,7 +89,7 @@ function AdicionarEnfermeiros() {
 
     var funcio_periodo_coren = document.createElement("p")
     dados_user_periodo.appendChild(funcio_periodo_coren)
-    funcio_periodo_coren.innerText = "COREN:" + item["coren"]
+    funcio_periodo_coren.innerText = item["coren"]
     funcio_periodo_coren.setAttribute("class", "funcio_periodo_dados")
        
     
@@ -132,7 +132,7 @@ function AdicionarTecnicos() {
 
         var funcio_periodo_coren = document.createElement("p")
         dados_user_periodo.appendChild(funcio_periodo_coren)
-        funcio_periodo_coren.innerText = "COREN:" + item["coren"]
+        funcio_periodo_coren.innerText =  item["coren"]
         funcio_periodo_coren.setAttribute("class", "funcio_periodo_dados")
 
     })
@@ -143,7 +143,7 @@ function AdicionarTecnicos() {
 function AdicionarAuxEnf() {
     var div_Aux = document.getElementById("div_Aux")
     var n_aux = document.getElementById("n_aux")
-    n_aux.innerHTML = "Técnicos de enfermagem:" + listaAux[0].length
+    n_aux.innerHTML = "Auxliares de enfermagem:" + listaAux[0].length
 
     listaAux[0].forEach(item => {
 
@@ -175,7 +175,7 @@ function AdicionarAuxEnf() {
 
     var funcio_periodo_coren = document.createElement("p")
     dados_user_periodo.appendChild(funcio_periodo_coren)
-    funcio_periodo_coren.innerText = "COREN:" + item["coren"]
+    funcio_periodo_coren.innerText = item["coren"]
     funcio_periodo_coren.setAttribute("class", "funcio_periodo_dados")
 
     })
@@ -248,6 +248,7 @@ function EscolherPeriodo(valor) {
     periodo = valor.value
     var horario = document.getElementById("horario")
 
+   
     if (periodo == 'manha') {
         horario.innerHTML = "7:00 às 13:30"
     } else if (periodo == 'tarde') {
@@ -271,6 +272,10 @@ function pegarValorLocalStorage() {
 }
 
 function atualizarData() {
-    let cabecalho_dia_adm = document.getElementsByClassName('cabecalho_dia_adm')
-    cabecalho_dia_adm.innerHTML = mesTexto
+    let cabecalho_mes_adm = document.getElementById('cabecalho_mes_adm')    
+    cabecalho_mes_adm.innerHTML = mesTexto
+
+    let cabecalho_dia_adm = document.getElementById('cabecalho_dia_adm')
+    cabecalho_dia_adm.innerHTML = dia
+    console.log(mesTexto)
 }

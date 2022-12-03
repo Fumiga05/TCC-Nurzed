@@ -1,0 +1,50 @@
+﻿@model Nurzed.Models.Area
+
+@{
+    ViewData["Title"] = "Cadastrar";
+    IEnumerable<Area> listaArea = ViewData["listaArea"] as IEnumerable<Area>;
+    IEnumerable<Especialidade> listaEspecialidade = ViewData["listaEspecialidade"] as IEnumerable<Especialidade>;
+}
+<partial name="_Toast" />
+<link rel="stylesheet" href="~/css/add_area.css">
+
+<div class="contaner_titulo_index">
+    <a asp-action="Voltar" asp-controller="Usuarios">
+        <button class="btn_voltar_adm">
+            <img src="~/img/voltar.png" alt="" class="img_btn_voltar">
+        </button>
+    </a>
+</div>
+<h1 class="titulo_pagina_adm">Adicionar Área</h1>
+
+
+<form asp-action="Cadastrar">
+<div id="container_addAreas">
+    <div class="registro_areas_existentes">
+        <h2 id="titulo_areas_add">Áreas cadastradas no sistema</h2>
+        <hr id="linha_add_area">
+        <div id="area_preenchida">
+            <p class="areas_adicionadas"></p>
+            @foreach(var item in listaArea)
+            {
+            <p class="areas_adicionadas">@item.Nome</p>
+            }
+           
+        
+        </div>
+
+        
+
+    </div>
+    <div class="add_area">
+        <label for="" class="label_add_area">Digite uma nova área:</label>
+        <input type="text" name="nome" class="input_add_area" minlength="2" maxlength="250" >
+ 
+      
+        <button id="btn_add_area" type="submit">Adicionar nova área</button>
+        
+    </div>
+</div>
+</form>
+
+

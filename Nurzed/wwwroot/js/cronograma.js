@@ -302,6 +302,7 @@ function AdicionarEnfermeiros() {
             td.append(select)
             select.setAttribute("class", "select_cronograma_adm select_infermeiro_tabela_adm")
             select.setAttribute("name", "Legenda")
+            select.setAttribute("onchange", "mudarLegenda(this)")            
             //declaração das options
             opções.forEach(item => {
                 var option = document.createElement("option")
@@ -375,6 +376,7 @@ function AdicionarTecnicos() {
             td.append(select)
             select.setAttribute("class", "select_cronograma_adm select_infermeiro_tabela_adm")
             select.setAttribute("name", "Legenda")
+            select.setAttribute("onchange", "mudarLegenda(this)")
             //declaração das options
             opções.forEach(item => {
                 var option = document.createElement("option")
@@ -450,6 +452,7 @@ function AdicionarAuxEnf() {
             td.append(select)
             select.setAttribute("class", "select_cronograma_adm select_infermeiro_tabela_adm")
             select.setAttribute("name", "Legenda")
+            select.setAttribute("onchange", "mudarLegenda(this)")
             //declaração das options
             opções.forEach(item => {
                 var option = document.createElement("option")
@@ -638,6 +641,30 @@ function Remover() {
     
 }
 
+
+    
+
+
+const select_cronograma_adm = document.getElementsByName('Legenda')
+function mudarLegenda(elemento) {
+    console.log('teste')
+    if (elemento.value == 'PR') {
+        elemento.parentElement.removeAttribute("id")  
+        elemento.removeAttribute("id")   
+        elemento.setAttribute('class', 'select_cronograma_adm select_infermeiro_tabela_adm')
+
+
+    } else if (elemento.value == 'FI') {
+        elemento.parentElement.setAttribute('id', 'falta_injustificada')
+        elemento.setAttribute('class', 'select_cronograma_adm select_infermeiro_tabela_adm')
+        elemento.setAttribute('id', 'falta_injustificada')
+    } else {        
+        elemento.setAttribute('class', 'select_cronograma_adm select_infermeiro_tabela_adm ')
+        elemento.parentElement.setAttribute('id', 'folga')
+        elemento.setAttribute('id', 'folga')
+    }
+    console.log(elemento)
+}
 
 
 

@@ -15,10 +15,10 @@ namespace Nurzed.Controllers
         public IActionResult Cadastrar(string id,string nome,string nome_Area)
         {
             Especialidade especialidade = new Especialidade(id, nome,nome_Area);
-
-            if(especialidade.Cadastrar().Contains("Duplicate"))
+            TempData["msg"] = especialidade.Cadastrar();
+            if (especialidade.Cadastrar().Contains("Duplicate"))
             {
-                TempData["msg"] = "Já está cadastrado";
+               
 
                 return View();
             } else

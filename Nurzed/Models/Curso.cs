@@ -9,7 +9,7 @@ namespace Nurzed.Models
     public class Curso
     {
         private string id,nome;
-        static MySqlConnection con = new MySqlConnection("server=localhost;database=vct;user id=teste;password=12345678");
+        static MySqlConnection con = new MySqlConnection("server=localhost;database=vct;user id=root;password=TJBghjkFGYUI842");
 
         public Curso(string id,string nome)
         {   

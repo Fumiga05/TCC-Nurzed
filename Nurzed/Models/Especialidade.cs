@@ -8,7 +8,7 @@ namespace Nurzed.Models
     public class Especialidade
     {
         private string id, nome, nome_Area;
-        static MySqlConnection con = new MySqlConnection("server=localhost;database=vct;user id=teste;password=12345678");
+        static MySqlConnection con = new MySqlConnection("server=localhost;database=vct;user id=root;password=TJBghjkFGYUI842");
 
         public Especialidade(string id, string nome, string nome_Area)
         {
@@ -37,7 +37,21 @@ namespace Nurzed.Models
 
                 return "Especialidade cadastrada com sucesso";
 
-            }catch(Exception e)
+            }
+            catch (MySqlException e)
+            {
+                switch (e.Number)
+                {
+                    case 1406: return "Texto Muito Grande no Campo"; break;
+
+                    case 1062: return "A especialidade inserida já foi cadastrada"; break;
+
+                    case 1048: return "Favor Preencher Todos os Campos Obrigatórios"; break;
+
+                    default: return "Erro inesperado, entre em contado com o administrador";
+                }
+            }
+            catch (Exception e)
             {
                 return "Erro: " + e;
             }

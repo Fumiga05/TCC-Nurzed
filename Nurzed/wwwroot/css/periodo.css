@@ -7,8 +7,9 @@
     margin: auto;
 }
 
-.vazio{
+.vazio {
     width: 450px;
+    cabecalho_dia_adm
 }
 
 #aux15{
@@ -196,7 +197,7 @@ background-color: #c6e9e2;
     margin: 60px auto;
 }
 
-.cabecalho_dia_adm{
+#cabecalho_dia_adm{
     margin: 0 20px;
     color: #fff;
     font-size: 140px;
@@ -456,11 +457,11 @@ width: 65% ;
 
 .status_ausencia_adm{
    margin-left: 10%;
-    color: #0B5A4C;
-    margin-top: 4px ;
+    color: #0B5A4C;    
     font-size: 50px;
     font-family: 'Inter', Arial;
     font-weight: 600;
+    margin-bottom:0px !important;
 }
 
 .status_ausencia_gest{

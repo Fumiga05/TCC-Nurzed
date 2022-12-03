@@ -458,3 +458,9 @@ F:\Senai\3DSB\Sprint4\TCC-Nurzed\Nurzed\obj\Debug\netcoreapp3.1\Nurzed.genruntim
 F:\Senai\3DSB\Sprint4\TCC-Nurzed\Nurzed\obj\Debug\netcoreapp3.1\Razor\Views\Plantao\Plantao.cshtml.g.cs
 F:\Senai\3DSB\Sprint4\TCC-Nurzed\Nurzed\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Toast.cshtml.g.cs
 F:\Senai\3DSB\Sprint4\TCC-Nurzed\Nurzed\obj\Debug\netcoreapp3.1\Razor\Views\Cronograma\Editar.cshtml.g.cs
+F:\Senai\3DSB\Sprint4\TCC-Nurzed\Nurzed\obj\Debug\netcoreapp3.1\staticwebassets\Nurzed.StaticWebAssets.Pack.cache
+F:\Senai\3DSB\Sprint4\TCC-Nurzed\Nurzed\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.Nurzed.Microsoft.AspNetCore.StaticWebAssets.props
+F:\Senai\3DSB\Sprint4\TCC-Nurzed\Nurzed\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.build.Nurzed.props
+F:\Senai\3DSB\Sprint4\TCC-Nurzed\Nurzed\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildMultiTargeting.Nurzed.props
+F:\Senai\3DSB\Sprint4\TCC-Nurzed\Nurzed\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildTransitive.Nurzed.props
+F:\Senai\3DSB\Sprint4\TCC-Nurzed\Nurzed\obj\Debug\netcoreapp3.1\Razor\Views\Area\Cadastrar.cshtml.g.cs

@@ -8,7 +8,7 @@ namespace Nurzed.Models
     {
         private string id, id_Usuarios, legenda, periodo, data, usuario_modificacao, data_de_criacao, data_de_modificacao;
 
-        public static MySqlConnection con = new MySqlConnection("server=localhost;database=vct;user id=teste;password=12345678");
+        public static MySqlConnection con = new MySqlConnection("server=localhost;database=vct;user id=root;password=TJBghjkFGYUI842");
 
         public Cronograma(string id, string id_Usuarios, string data, string legenda, string periodo, string usuario_modificacao, string data_de_modificacao, string data_de_criacao)
         {

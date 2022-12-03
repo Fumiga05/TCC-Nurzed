@@ -7,16 +7,26 @@ namespace Nurzed.Controllers
     {
         public IActionResult Cadastrar()
         {
+            ViewData["listaArea"] = Area.Listar();
             return View();
         }
+
         [HttpPost]
         public IActionResult Cadastrar(string id, string nome, string status1)
         {
             Area area = new Area(id, nome, status1);
-
+            
             TempData["msg"] = area.Cadastrar();
-
-            return RedirectToAction("Listar");
+            if (TempData["msg"].ToString().Contains("Sucesso"))
+            {
+                return RedirectToAction("Cadastrar");
+            }
+            else
+            {
+                ViewData["listaArea"] = Area.Listar();
+                return View();
+            }
+            
         }
 
 

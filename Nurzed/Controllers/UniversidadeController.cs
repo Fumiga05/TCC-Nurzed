@@ -37,7 +37,7 @@ namespace Nurzed.Controllers
             Universidade universidade = new Universidade(id,nome,sigla);
             
             TempData["msg"] = universidade.Cadastrar();
-            return RedirectToAction("Login");
+            return View();
         }
 
         
