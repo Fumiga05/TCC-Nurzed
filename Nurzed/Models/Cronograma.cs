@@ -96,21 +96,26 @@ namespace Nurzed.Models
             }
         }
 
-        public static List<Cronograma> Listar(string mes)
+        public static List<Cronograma> Listar(string mes,string ano,string id_Cargo,string periodo)
         {
             try
             {
                 con.Open();
-                MySqlCommand qry = new MySqlCommand("SELECT * FROM Usuarios INNER JOIN Cronograma ON usuarios.id = cronograma.id_Usuarios AND month(cronograma.data1) = @mes", con);
+                MySqlCommand qry = new MySqlCommand("SELECT usuarios.nome,cronograma.id_Usuarios,cronograma.legenda,cronograma.id," +
+                    "cronograma.data1,usuarios.id FROM Cronograma INNER JOIN Usuarios WHERE MONTH(cronograma.data1) = @mes AND" +
+                    " YEAR(cronograma.data1) = @ano AND usuarios.id = cronograma.id_Usuarios AND usuarios.id_Cargo = @id_Cargo AND cronograma.periodo = @periodo ORDER BY usuarios.nome,cronograma.id;", con);
                 qry.Parameters.AddWithValue("@mes", mes);
+                qry.Parameters.AddWithValue("@ano", ano);
+                qry.Parameters.AddWithValue("@id_Cargo", id_Cargo);
+                qry.Parameters.AddWithValue("@periodo", periodo);
 
                 MySqlDataReader leitor = qry.ExecuteReader();
                 List<Cronograma> lista = new List<Cronograma>();
                 while (leitor.Read())
                 {
-                    Cronograma crograma = new Cronograma(leitor["id"].ToString(), leitor["id_Usuarios"].ToString(),
-                        leitor["data1"].ToString(), leitor["legenda"].ToString(), leitor["periodo"].ToString(), leitor["usuario_modificacao"].ToString(),
-                        leitor["data_de_modificacao"].ToString(), leitor["data_de_criacao"].ToString());
+                    Cronograma crograma = new Cronograma("", leitor["id_Usuarios"].ToString(),
+                        "", leitor["legenda"].ToString(), "","",
+                        "", "");
                     lista.Add(crograma);
 
 
@@ -127,7 +132,7 @@ namespace Nurzed.Models
             }
         }
 
-
+ 
 
     }
 }

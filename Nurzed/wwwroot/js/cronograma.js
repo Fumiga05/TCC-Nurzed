@@ -53,7 +53,7 @@ var aux = []
 
 
 VerificarMes()
-clicar()
+atualizar()
 
 
 
@@ -96,7 +96,7 @@ myForm.addEventListener("submit", async evt => {
 })
 
 /////////////////////////////////////////////////////////////////////////////////
-function clicar() {
+function atualizar() {
 
      listaEnfermeiros = []
      listaTecnicos = []
@@ -681,7 +681,7 @@ function EscolherMes(nome) {
     
     Remover()
    
-    clicar()
+    atualizar()
     
     return mes
 }
@@ -694,7 +694,7 @@ function DiasDoMes() {
 function EscolherPeriodo(valor) {
     periodo = valor.value
     periodoRes.setAttribute("value", periodo)
-    clicar()
+    atualizar()
     return console.log(periodo)
 
 }

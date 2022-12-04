@@ -279,7 +279,7 @@ namespace Nurzed.Models
             {
 
                 con.Open();
-                MySqlCommand qry = new MySqlCommand("SELECT * FROM Usuarios WHERE id_Cargo = @id_Cargo AND periodo = @periodo AND id_Area =  1", con);
+                MySqlCommand qry = new MySqlCommand("SELECT * FROM Usuarios WHERE id_Cargo = @id_Cargo AND periodo = @periodo AND id_Area =  1 ORDER BY Usuarios.nome;", con);
                 qry.Parameters.AddWithValue("@id_Cargo", id_Cargo);
                 qry.Parameters.AddWithValue("@periodo", periodo);
                 qry.Parameters.AddWithValue("@id_Area", id_Area);
@@ -390,7 +390,7 @@ namespace Nurzed.Models
             {
                 con.Open();
                 MySqlCommand qry = new MySqlCommand("SELECT DISTINCT usuarios.nome,Usuarios.id,usuarios.coren,usuarios.id_Cargo FROM Usuarios INNER JOIN Cronograma WHERE MONTH(cronograma.data1) = @mes " +
-                    "AND YEAR(cronograma.data1) = @ano AND usuarios.periodo = @periodo AND usuarios.id_Cargo = @id_Cargo;", con);
+                    "AND YEAR(cronograma.data1) = @ano AND usuarios.periodo = @periodo AND usuarios.id_Cargo = @id_Cargo ORDER BY Usuarios.nome", con);
                 qry.Parameters.AddWithValue("@mes", mes);
                 qry.Parameters.AddWithValue("@ano", ano);
                 qry.Parameters.AddWithValue("@periodo", periodo);

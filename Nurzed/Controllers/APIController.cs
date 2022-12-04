@@ -50,15 +50,35 @@ namespace Nurzed
         [Route("/api/[Controller]/cronograma_editar/{mes}/{ano}/{periodo}")]
         public IActionResult RetornarCronograma(string mes, string ano, string periodo)
         {
+          
+
+            
             List<Usuarios> listaEnf = Usuarios.selecionarUsuariosDoCronograma(mes, ano, "5", periodo);
             List<Usuarios> listaTec = Usuarios.selecionarUsuariosDoCronograma(mes, ano, "1", periodo);
             List<Usuarios> listaAux = Usuarios.selecionarUsuariosDoCronograma(mes, ano, "4", periodo);
-            List<Object> lista = new List<Object>();
 
-            lista.Add(listaEnf);
-            lista.Add(listaTec);
-            lista.Add(listaAux);
-            return Ok(lista);
+            
+            List<Cronograma> listaLegendasEnf = Cronograma.Listar(mes,ano,"5",periodo);
+            List<Cronograma> listaLegendasTec = Cronograma.Listar(mes, ano, "1", periodo);
+            List<Cronograma> listaLegendasAux = Cronograma.Listar(mes, ano, "4", periodo);
+
+            if(listaLegendasEnf.Count == 0 && listaLegendasTec.Count == 0 && listaLegendasAux.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                List<Object> lista = new List<Object>();
+
+                lista.Add(listaEnf);
+                lista.Add(listaTec);
+                lista.Add(listaAux);
+                lista.Add(listaLegendasEnf);
+                lista.Add(listaLegendasTec);
+                lista.Add(listaLegendasAux);
+                return Ok(lista);
+            }
+            
 
         }
 
