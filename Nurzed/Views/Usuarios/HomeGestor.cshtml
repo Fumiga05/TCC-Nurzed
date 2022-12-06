@@ -13,14 +13,13 @@
         </div>
 
         <div class="container_home_btn">
-           <a href="ver_plantao_gest.html"> <button class="btn_acoens_home_gest"><img src="~/img/calendario_gest.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_gest">Ver plantão</p></button></a>
+           <a asp-controller="Usuarios" asp-action="Plantao"> <button class="btn_acoens_home_gest"><img src="~/img/calendario_gest.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_gest">Ver plantão</p></button></a>
            <a asp-controller="Cronograma" asp-action="Cadastrar"><button class="btn_acoens_home_gest"><img src="~/img/Historico_gest.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_gest">Add cronograma</p></button></a>
         </div>
 
         <div class="container_home_btn">
-            <a href="cadastro_gest.html"> <button class="btn_acoens_home_gest"><img src="~/img/gest_add.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_gest">Adicionar enfermeiro</p></button></a>
-            <a href="solicitacoes.html"> <button class="btn_acoens_home_gest"><img src="~/img/permissao.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_gest">Solicitações</p></button></a>
+            <a asp-controller="Usuarios" asp-action="Cadastrar"> <button class="btn_acoens_home_gest"><img src="~/img/gest_add.png" class="img_btn_home_enf" alt=""> <p class="texto_btn_gest">Adicionar enfermeiro</p></button></a>
         </div>
     </div>
 
-    <p id="nome_rodape_gest">nome completo</p>
+    <p id="nome_rodape_gest">@u.Nome</p>

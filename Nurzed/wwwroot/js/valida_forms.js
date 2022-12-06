@@ -295,3 +295,18 @@ function MostrarMensagem(texto, cor, titulo, icon) {
     })
 }
 
+
+function escolherTipoUsuario(elemento) {
+    let div_dadosHospitalares = document.getElementById('div_dadosHospitalares')
+    if (elemento.value == "Administrador") {
+       
+        div_dadosHospitalares.style.display = 'none'
+    } else {
+        div_dadosHospitalares.style.display = 'block'
+    }
+
+    
+
+}
+
+

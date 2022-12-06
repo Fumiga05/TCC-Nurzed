@@ -43,19 +43,19 @@ namespace Nurzed.Controllers
 
                     if (usuarios.Status1 == "ativado")
                     {
-                        if (usuarios.Id_Cargo == "SUPORTE TI")
+                        if (usuarios.Privilegios == "Administrador")
                         {
                             HttpContext.Session.SetString("usuarios", JsonConvert.SerializeObject(usuarios));
                             TempData["value"] = true;
                             return RedirectToAction("HomeAdm");
                         }
-                        else if (usuarios.Id_Cargo == "Gestor de Enfermagem")
+                        else if (usuarios.Privilegios == "Gestor")
                         {
                             HttpContext.Session.SetString("usuarios", JsonConvert.SerializeObject(usuarios));
                             TempData["value"] = true;
                             return RedirectToAction("HomeGestor");
                         }
-                        else if (usuarios.Id_Cargo == "Enfermeiro" || usuarios.Id_Cargo == "Auxiliar de Enfermagem")
+                        else if (usuarios.Privilegios == "Comum")
                         {
                             HttpContext.Session.SetString("usuarios", JsonConvert.SerializeObject(usuarios));
                             TempData["value"] = true;
@@ -72,7 +72,7 @@ namespace Nurzed.Controllers
                     }
                     else
                     {
-                        TempData["msg"] = "Usuário/Senha Incorreto(s)";
+                        TempData["msg"] = "Sua conta está desativada, entre em contato com o Administrador";
                         TempData["value"] = false;
                         return RedirectToAction("Login");
                     }
@@ -102,7 +102,7 @@ namespace Nurzed.Controllers
 
             if (padrao.Logado(HttpContext) == true)
             {
-                if (padrao.Privilegios(HttpContext) == "adm" || padrao.Privilegios(HttpContext) == "Gestor")
+                if (padrao.Privilegios(HttpContext) == "Administrador" || padrao.Privilegios(HttpContext) == "Gestor")
                 {
                     ViewData["listaUniversidade"] = Universidade.Listar();
                     ViewData["listaCurso"] = Curso.Listar();
@@ -114,7 +114,7 @@ namespace Nurzed.Controllers
                 }
                 else
                 {
-                    
+
                     TempData["msgPrivilegios"] = "Privilegios insuficientes";
                     return RedirectToAction("HomeEnf", "Usuarios");
                 }
@@ -134,11 +134,11 @@ namespace Nurzed.Controllers
             Usuarios u = padrao.RetornarObjeto(HttpContext);
 
 
-            if (privilegios == "adm")
+            if (privilegios == "Administrador")
             {
                 Usuarios usuarios = new Usuarios(id, status1, nome, padrao.Criptografar(senha), nome_da_mae, nome_do_pai, data_de_nascimento, sexo, cpf,
-              rg, "", "", "", "", telefone, matricula, "", "", "",
-              data_de_criacao, data_de_modificacao, privilegios, "", "", "", u.Nome, "");
+              rg, "", "", "", cep, telefone, "00000000000", "13", "3", "",
+              data_de_criacao, data_de_modificacao, privilegios, "10", "8", "7", u.Nome, "");
                 TempData["msg"] = usuarios.Cadastrar();
 
 
@@ -164,15 +164,33 @@ namespace Nurzed.Controllers
                 return View();
             }
 
-            
+
         }
 
 
 
         public IActionResult Listar()
         {
-            ViewData["listaUsuarios"] = Usuarios.Listar();
-            return View(Usuarios.Listar());
+            if (padrao.Logado(HttpContext) == true)
+            {
+                if (padrao.Privilegios(HttpContext) != "Administrador")
+                {
+                    return padrao.Home(HttpContext);
+                }
+                else
+                {
+
+                    ViewData["listaUsuarios"] = Usuarios.Listar();
+                    return View(Usuarios.Listar());
+                }
+
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+
+            
         }
 
 
@@ -241,26 +259,19 @@ namespace Nurzed.Controllers
 
         public IActionResult HomeAdm()
         {
-            PadraoController padrao = new PadraoController();
+           
 
             if (padrao.Logado(HttpContext) == true)
             {
-                if (padrao.Privilegios(HttpContext) == "adm")
+                if(padrao.Privilegios(HttpContext) != "Administrador")
                 {
-                    return View();
-                }
-                else if (padrao.Privilegios(HttpContext) == "Gestor")
-                {
-                    return RedirectToAction("HomeGestor");
-                }
-                else if (padrao.Privilegios(HttpContext) == "Enfermeiro")
-                {
-                    return RedirectToAction("HomeEnf");
+                    return padrao.Home(HttpContext);
                 }
                 else
                 {
-                    return RedirectToAction("Login");
+                    return View();
                 }
+               
             }
             else
             {
@@ -271,18 +282,58 @@ namespace Nurzed.Controllers
 
         public IActionResult HomeGestor()
         {
-            return View();
+            if (padrao.Logado(HttpContext) == true)
+            {
+                if (padrao.Privilegios(HttpContext) != "Gestor")
+                {
+                    return padrao.Home(HttpContext);
+                }
+                else
+                {
+                    return View();
+                }
+
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
 
         }
 
         public IActionResult HomeEnf()
         {
-            return View();
+            if (padrao.Logado(HttpContext) == true)
+            {
+                if (padrao.Privilegios(HttpContext) != "Comum")
+                {
+                    return padrao.Home(HttpContext);
+                }
+                else
+                {
+                    return View();
+                }
+
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
         }
 
         public IActionResult Voltar()
         {
-            return padrao.Home(HttpContext);
+            if (padrao.Privilegios(HttpContext) == "Administrador")
+            {
+                return RedirectToAction("HomeAdm");
+            }else if (padrao.Privilegios(HttpContext) == "Gestor")  
+            {
+                return RedirectToAction("HomeGestor");
+            }
+            else
+            {
+                return RedirectToAction("HomeEnf"); 
+            }
         }
 
         public IActionResult Plantao(string id_Cargo, string periodo, string id_Area)

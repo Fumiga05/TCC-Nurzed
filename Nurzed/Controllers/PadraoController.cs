@@ -26,17 +26,17 @@ namespace Nurzed.Controllers
         {
             
 
-            if (RetornarObjeto(httpContext).Id_Cargo == "SUPORTE TI")
+            if (RetornarObjeto(httpContext).Privilegios == "Administrador")
             {
-                return "adm";
+                return "Administrador";
             }
-            else if (RetornarObjeto(httpContext).Id_Cargo == "Gestor de Enfermagem")
+            else if (RetornarObjeto(httpContext).Privilegios == "Gestor")
             {
                 return "Gestor";
             }
-            else if (RetornarObjeto(httpContext).Id_Cargo == "Enfermeiro" || RetornarObjeto(httpContext).Id_Cargo == "Auxiliar de Enfermagem")
+            else if (RetornarObjeto(httpContext).Privilegios == "Comum")
             {
-                return "Enfermeiro";
+                return "Comum";
             }
             else
             {
@@ -77,16 +77,16 @@ namespace Nurzed.Controllers
 
         public IActionResult Home(HttpContext httpContext)
         {
-            if (Privilegios(httpContext) == "adm")
+            if (Privilegios(httpContext) == "Administrador")
             {
-                return RedirectToAction("HomeAdm");
+                return RedirectToAction("HomeAdm","Usuarios");
             }else if(Privilegios(httpContext) == "Gestor")
             {
-                return RedirectToAction("HomeGestor");
+                return RedirectToAction("HomeGestor","Usuarios");
             }
             else
             {
-                return RedirectToAction("HomeEnf");
+                return RedirectToAction("HomeEnf","Usuarios");
             }
         }
 

@@ -1,4 +1,51 @@
-﻿
+﻿@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
+@{
+    Usuarios u = JsonConvert.DeserializeObject<Usuarios>(Context.Session.GetString("usuarios"));
+}
+
+@if (u.Privilegios == "Gestor")
+{
+    <style>
+        .container_calendario_adm {
+            margin: 10px auto;
+            width: 70%;
+            background-color: #FDBD48 !important;
+            height: 700px;
+        }
+
+        .nome_do_mes_adm {
+            color: #DB9103 !important;
+            font-size: 110px;
+            text-align: center;
+            font-family: 'Carrois Gothic', Arial;
+        }
+
+        .titulo_pagina_adm {
+            font-size: 40px;
+            font-family: 'Inter', Arial;
+            font-weight: 600;
+            margin-bottom: 60px;
+            text-align: center;
+            color: #FFAB08;
+        }
+
+        .btn_Imprimir_adm {
+            margin: 15px 0;
+            background-color: #FFAB08 !important;
+            border: solid 2px #DB9103 !important;
+            width: 200px;
+            height: 40px;
+            font-size: 28px;
+            font-family: arial;
+            color: #fff;
+            border-radius: 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+
+}
 <link rel="stylesheet" href="~/css/verplantao.css">
 
 <div class="contaner_titulo_index">
@@ -14,9 +61,9 @@
 
 <div class="aux7">
     <a asp-action="Editar" asp-controller="Cronograma">
-    <button onclick="mandaStorageEditar()" class="btn_edita_calen">
+        <button onclick="mandaStorageEditar()" class="btn_edita_calen">
             <img src="~/img/editar_calendario.png" class="img_edit_calendario" alt="">
-            
+
         </button>
 
     </a>
@@ -33,10 +80,26 @@
 <h3 class="nome_do_mes_adm" id="monthAndYear"></h3>
 
 <div class="setas">
+    @if (u.Privilegios == "Gestor")
+    {
+        <img src="~/img/seta_gest.png" alt="" id="seta_esquerda" onclick="previous()">
 
-    <img src="~/img/seta_adm.png" alt="" id="seta_esquerda"  onclick="previous()">
+        <img src="~/img/seta_gest.png" alt="" id="seta_direita" onclick="next()">
+    }
+    else if (u.Privilegios == "Administrador")
+    {
+        <img src="~/img/seta_adm.png" alt="" id="seta_esquerda" onclick="previous()">
 
-    <img src="~/img/seta_adm.png" alt="" id="seta_direita"  onclick="next()">
+        <img src="~/img/seta_adm.png" alt="" id="seta_direita" onclick="next()">
+    }
+    else
+    {
+        <img src="~/img/seta_enf.png" alt="" id="seta_esquerda" onclick="previous()">
+
+        <img src="~/img/seta_enf.png" alt="" id="seta_direita" onclick="next()">
+    }
+
+
 </div>
 
 

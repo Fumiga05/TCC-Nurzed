@@ -647,12 +647,12 @@ function Remover() {
 
 const select_cronograma_adm = document.getElementsByName('Legenda')
 function mudarLegenda(elemento) {
-    console.log('teste')
+    console.log(elemento.value)
     if (elemento.value == 'PR') {
         elemento.parentElement.removeAttribute("id")  
         elemento.removeAttribute("id")   
         elemento.setAttribute('class', 'select_cronograma_adm select_infermeiro_tabela_adm')
-
+        
 
     } else if (elemento.value == 'FI') {
         elemento.parentElement.setAttribute('id', 'falta_injustificada')
@@ -662,6 +662,7 @@ function mudarLegenda(elemento) {
         elemento.setAttribute('class', 'select_cronograma_adm select_infermeiro_tabela_adm ')
         elemento.parentElement.setAttribute('id', 'folga')
         elemento.setAttribute('id', 'folga')
+        console.log('entrou no if')
     }
     console.log(elemento)
 }
@@ -718,3 +719,4 @@ function VerificarMes() {
     return mesTexto
 
 }
+

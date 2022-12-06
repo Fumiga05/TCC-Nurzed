@@ -62,12 +62,7 @@ namespace Nurzed
             List<Cronograma> listaLegendasTec = Cronograma.Listar(mes, ano, "1", periodo);
             List<Cronograma> listaLegendasAux = Cronograma.Listar(mes, ano, "4", periodo);
 
-            if(listaLegendasEnf.Count == 0 && listaLegendasTec.Count == 0 && listaLegendasAux.Count == 0)
-            {
-                return null;
-            }
-            else
-            {
+           
                 List<Object> lista = new List<Object>();
 
                 lista.Add(listaEnf);
@@ -77,7 +72,7 @@ namespace Nurzed
                 lista.Add(listaLegendasTec);
                 lista.Add(listaLegendasAux);
                 return Ok(lista);
-            }
+            
             
 
         }
