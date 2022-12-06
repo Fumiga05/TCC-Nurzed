@@ -8,7 +8,7 @@ namespace Nurzed.Models
     public class Especialidade
     {
         private string id, nome, nome_Area;
-        static MySqlConnection con = new MySqlConnection("server=localhost;database=vct;user id=root;password=TJBghjkFGYUI842");
+        static MySqlConnection con = new MySqlConnection(Conexao.conexaoString());
 
         public Especialidade(string id, string nome, string nome_Area)
         {

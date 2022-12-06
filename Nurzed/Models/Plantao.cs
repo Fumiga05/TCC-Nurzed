@@ -7,7 +7,7 @@ namespace Nurzed.Models
     {
         private string nome;
         private int numeroDoMes, qtdDias;
-        static MySqlConnection con = new MySqlConnection("server=localhost;database=vct;user id=root;password=TJBghjkFGYUI842");
+        static MySqlConnection con = new MySqlConnection(Conexao.conexaoString());
 
         public Plantao(string nome, int numeroDoMes, int qtdDias)
         {

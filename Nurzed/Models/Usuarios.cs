@@ -13,7 +13,7 @@ namespace Nurzed.Models
             privilegios, id_Universidade, id_Curso, id_Area, usuario_modificacao, periodo;
 
 
-        static MySqlConnection con = new MySqlConnection("server=localhost;database=vct;user id=root;password=TJBghjkFGYUI842");
+        static MySqlConnection con = new MySqlConnection(Conexao.conexaoString());
 
         public Usuarios(string id, string status1, string nome, string senha, string nome_da_mae,
             string nome_do_pai, string data_de_nascimento, string sexo, string cpf, string rg,

@@ -7,8 +7,7 @@ namespace Nurzed.Models
     public class Area
     {
         private string id, nome, status1;
-        static MySqlConnection con = new MySqlConnection("server=localhost;database=vct;user id=root;password=TJBghjkFGYUI842");
-
+        static MySqlConnection con = new MySqlConnection(Conexao.conexaoString());
         public Area(string id, string nome, string status1)
         {
             this.id = id;
