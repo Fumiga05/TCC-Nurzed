@@ -14,8 +14,7 @@ namespace Nurzed.Controllers
         public IActionResult Cadastrar(string id_Cargo, string periodo, string id_Area, int ano, int mes)
         {
             ano = 2022;
-            mes = 10;
-            periodo = "tarde";
+            
 
 
             ViewData["listaEnfermeiros"] = Usuarios.ListarUsuarios("5", periodo, "");
@@ -57,8 +56,9 @@ namespace Nurzed.Controllers
             return u;
         }
 
-        public IActionResult Editar()
+        public IActionResult Editar(string mes,string ano,string periodo)
         {
+            ViewData["listaCronograma"] = Cronograma.Listar( "12","2022","5", "manha");
             return View();
         }
 

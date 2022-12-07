@@ -5,7 +5,17 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic&display=swap');
 
+.center {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
+.dadosDeEdicao {
+    width: 20%;
+    justify-content: center;
+    text-align: center;
+}
 #folga {
     background-color: yellow !important;
 }

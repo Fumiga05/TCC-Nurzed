@@ -9,187 +9,308 @@
     IEnumerable<Especialidade> listaEspecialidade = ViewData["listaEspecialidade"] as IEnumerable<Especialidade>;
     IEnumerable<Cargo> listaCargo = ViewData["listaCargo"] as IEnumerable<Cargo>;
     IEnumerable<Area> listaArea = ViewData["listaArea"] as IEnumerable<Area>;
-     IEnumerable<Usuarios> dados = ViewData["dados"] as IEnumerable<Usuarios>;
-    
+    IEnumerable<Usuarios> dados = ViewData["dados"] as IEnumerable<Usuarios>;
+    Usuarios u = JsonConvert.DeserializeObject<Usuarios>(Context.Session.GetString("usuarios"));
 }
 
-<h1>Editar</h1>
+<partial name="_Toast" />
+<link rel="stylesheet" href="~/css/cadastro.css">
 
-<h4>Usuarios</h4>
-<hr />
-     
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Editar">
-             @foreach(var item in dados){
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <h1>@item.Id</h1>
-            <div class="form-group">
-                <label asp-for="Status1" class="control-label"></label>
-                <input asp-for="Status1" value="@item.Status1" class="form-control" />
-                <span asp-validation-for="Status1" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" value="@item.Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
-          
-            <div class="form-group">
-                <label asp-for="Nome_da_mae" class="control-label"></label>
-                <input asp-for="Nome_da_mae" value="@item.Nome_da_mae" class="form-control" />
-                <span asp-validation-for="Nome_da_mae" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Nome_do_pai" class="control-label"></label>
-                <input asp-for="Nome_do_pai" value="@item.Nome_do_pai" class="form-control" />
-                <span asp-validation-for="Nome_do_pai" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Data_de_nascimento" class="control-label"></label>
-                <input asp-for="Data_de_nascimento" value="@item.Data_de_nascimento" class="form-control" />
-                <span asp-validation-for="Data_de_nascimento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Sexo" class="control-label"></label>
-                <input asp-for="Sexo" value="@item.Sexo" class="form-control" />
-                <span asp-validation-for="Sexo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cpf" class="control-label"></label>
-                <input asp-for="Cpf" value="@item.Cpf" class="form-control" />
-                <span asp-validation-for="Cpf" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Rg" class="control-label"></label>
-                <input asp-for="Rg" value="@item.Rg" class="form-control" />
-                <span asp-validation-for="Rg" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Data_de_inicio_Universidade" class="control-label"></label>
-                <input asp-for="Data_de_inicio_Universidade" value="@item.Data_de_inicio_Universidade" class="form-control" />
-                <span asp-validation-for="Data_de_inicio_Universidade" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Data_de_termino_Universidade" class="control-label"></label>
-                <input asp-for="Data_de_termino_Universidade" value="@item.Data_de_termino_Universidade" class="form-control" />
-                <span asp-validation-for="Data_de_termino_Universidade" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Coren" class="control-label"></label>
-                <input asp-for="Coren" value="@item.Coren" class="form-control" />
-                <span asp-validation-for="Coren" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cep" class="control-label"></label>
-                <input asp-for="Cep" value="@item.Cep" class="form-control" />
-                <span asp-validation-for="Cep" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Telefone" class="control-label"></label>
-                <input asp-for="Telefone" value="@item.Telefone" class="form-control" />
-                <span asp-validation-for="Telefone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Matricula" class="control-label"></label>
-                <input asp-for="Matricula" value="@item.Matricula" class="form-control" />
-                <span asp-validation-for="Matricula" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label  class="control-label">Especialidade</label>
-                <select asp-for="Id_Especialidade" class="form-control">
-                <option value="@item.Id_Especialidade">@item.Id_Especialidade</option>
-                @foreach(var itemEspecialidade in listaEspecialidade)
-                {
-                            if(item.Id_Especialidade != itemEspecialidade.Nome)
-                            {
-                                <option value="@itemEspecialidade.Nome">@itemEspecialidade.Nome</option>
-                            }
-                    
-                }
-                </select>
-                <span asp-validation-for="Id_Especialidade" class="text-danger"></span>
+
+
+<div class="contaner_titulo_index">
+    <a asp-action="Voltar">
+        <button class="btn_voltar_adm">
+            <img src="~/img/voltar.png" alt="" class="img_btn_voltar">
+        </button>
+    </a>
+</div>
+
+<h1 class="titulo_pagina_adm">Editar usuário</h1>
+
+<form asp-action="Editar">
+    @foreach(var item in dados)
+    {
+        
+   
+    <div id="area_selecao_user">
+        <h3>Que tipo de usúario deseja adicionar ? </h3>
+
+
+        <div class="opicao_area_selecao_user">
+            <input type="radio" name="privilegios" checked value="Comum"
+                   class="radio_opicao_area_selecao_user" onclick="escolherTipoUsuario(this)">
+            <p>Usuário Comum</p>
+        </div>
+        @if (u.Privilegios == "Administrador")
+        {
+            <div class="opicao_area_selecao_user">
+                <input type="radio" name="privilegios" value="Gestor"
+                   class="radio_opicao_area_selecao_user" onclick="escolherTipoUsuario(this)">
+                <p>Usuário Gestor</p>
             </div>
 
-            <div class="form-group">
-                <label  class="control-label">Cargo</label>
-                <select asp-for="Id_Cargo" class="form-control">
-                    <option value="@item.Id_Cargo">@item.Id_Cargo</option>
-                    @foreach(var itemCargo in listaCargo)
-                    {
-                            if(item.Id_Cargo != itemCargo.Nome)
-                            {
-                                <option asp-for="Id_Cargo" value="@itemCargo.Nome">@itemCargo.Nome</option>
-                            }
-                            
-                    }              
-                
-                </select>
-                <span asp-validation-for="Id_Cargo" class="text-danger"></span>
+            <div class="opicao_area_selecao_user">
+                <input type="radio" name="privilegios" value="Administrador"
+                   class="radio_opicao_area_selecao_user" onclick="escolherTipoUsuario(this)">
+                <p>Usuário Administrador</p>
             </div>
-            <div class="form-group">
-                <label  class="control-label">Tipo de Contrato</label>
-                <input asp-for="Tipo_de_contrato" value="@item.Tipo_de_contrato" class="form-control" />
-                <span asp-validation-for="Tipo_de_contrato" class="text-danger"></span>
-            </div>
-            
-            <div class="form-group">
-                <label asp-for="Privilegios" class="control-label">Privilegios</label>
-                <input asp-for="Privilegios" value="@item.Privilegios" class="form-control" />
-                <span asp-validation-for="Privilegios" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label  class="control-label">Universidade</label>
-                <select id="select" asp-for="Id_Universidade" class="form-control">
-                    <option value="@item.Id_Universidade">@item.Id_Universidade</option>
-                    @foreach(var itemUniversidade in listaUniversidade)
-                    {
-                            if(item.Id_Universidade != itemUniversidade.Nome)
-                            {
-                                <option value="@itemUniversidade.Nome">@itemUniversidade.Nome (@itemUniversidade.Sigla)</option>
-                            }
-                            
-                    }
-                </select>
-            </div>
-            <div class="form-group">
-                <label  class="control-label">Curso</label>
-                 <select asp-for="Id_Curso" class="form-control">
-                     <option value="@item.Id_Curso">@item.Id_Curso</option>
-                    @foreach(var itemCurso in listaCurso)
-                    {
-                            if(item.Id_Curso != itemCurso.Nome)
-                            {
-                                <option value="@itemCurso.Nome">@itemCurso.Nome </option>
-                            }
-                            
-                    }
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label  class="control-label">Data Modificação</label>
-                <input asp-for="Data_de_modificacao" disabled="" value="@item.Data_de_modificacao" class="form-control" />
-                <span asp-validation-for="Data_de_modificacao" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label  class="control-label">Usuário Executor</label>
-                <input name="Nome_do_usuario" disabled="" value="@item.Usuario_modificacao" class="form-control" />
-                <span asp-validation-for="Usuario_modificacao" class="text-danger"></span>
-            </div>
-            
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary"/>
-            </div>
-            }
-        </form>
+        }
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <section id="sec_cadastro">
+        <Label class="label_cadastro">Nome Completo: </Label><sup class="asteritico">*</sup><br>
+        <input type="text" name="nome" id="nomecompleto" value="@item.Nome" class="caixa_texto" minlength="2" maxlength="100"><br>
+
+        <Label class="label_cadastro">Nome da mãe: </Label><sup class="asteritico">*</sup><br>
+        <input type="text" name="nome_da_mae" id="nomemae" class="caixa_texto"
+               minlength="2" maxlength="100" value="@item.Nome_da_mae"><br>
+
+
+        <Label class="label_cadastro">Nome do pai: </Label><br>
+        <input type="text" name="nome_do_pai" id="nomepai" class="caixa_texto"
+               minlength="2" maxlength="100" value="@item.Nome_do_pai">
+
+        <div class="input2">
+            <div id="auxCamila">
+                <Label class="label_cadastro">Data de nascimento: </Label><sup class="asteritico">*</sup><br>
+                <input type="text" name="data_de_nascimento" id="data_nascimento"
+                       class="caixa_texto_mini" value="@item.Data_de_nascimento">
+            </div>
+
+            <div>
+                <Label class="label_cadastro">CPF: </Label><sup class="asteritico">*</sup><br>
+                <input type="text" name="cpf" id="cpf" class="caixa_texto_mini"
+                       minlength="14" maxlength="14" value="@item.Cpf">
+            </div>
+        </div>
+
+        <div class="input2">
+            <div id="auxCamila">
+                <Label class="label_cadastro">Sexo: </Label><sup class="asteritico">*</sup><br>
+                <select id="sexo" name="sexo" class="caixa_texto" style="margin: 10px 30px 0 0; width: 415px;">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                </select>
+            </div>
+
+            <div>
+                <Label class="label_cadastro">RG: </Label><sup class="asteritico">*</sup><br>
+                <input type="text" name="rg" id="rg" class="caixa_texto_mini" minlength="12"
+                       maxlength="12" value="@item.Rg">
+            </div>
+        </div>
+
+        <div class="input2">
+            <div id="auxCamila">
+                <Label class="label_cadastro">CEP: </Label><sup class="asteritico">*</sup><br>
+                <input type="text" name="cep" id="cep" class="caixa_texto_mini" minlength="9"
+                       maxlength="9" value="@item.Cep">
+            </div>
+
+            <div>
+                <Label class="label_cadastro">Telefone: </Label><sup class="asteritico">*</sup><br>
+                <input type="text" name="telefone" id="telefone" class="caixa_texto_mini"
+                       minlength="14" maxlength="14" value="@item.Telefone">
+            </div>
+        </div>
+
+        <div id="div_dadosHospitalares">
+            <hr class="linha_cadastro">
+
+            <Label class="label_cadastro"> Curso:</Label><sup class="asteritico">*</sup><br>
+            <select class="caixa_texto" name="id_Curso">
+
+                @foreach (var itemCurso in listaCurso)
+                {
+                        if (item.Id_Curso == itemCurso.Id)
+                        {
+                            <option checked value="@itemCurso.Id">@itemCurso.Nome </option>
+                        }else{
+                            <option value="@itemCurso.Id">@itemCurso.Nome </option>
+                        }
+                        
+                }
+            </select>
+            <br>
+
+            <Label class="label_cadastro">Universidade:</Label><sup class="asteritico">*</sup><br>
+            <select class="caixa_texto" name="id_Universidade">
+
+                @foreach (var itemUniversidade in listaUniversidade)
+                {
+                        @if (item.Id_Universidade == itemUniversidade.Nome)
+                        {
+                            <option selected value="@itemUniversidade.Id">@itemUniversidade.Nome (@itemUniversidade.Sigla) </option>
+                        }else{
+                            <option value="@itemUniversidade.Id">@itemUniversidade.Nome (@itemUniversidade.Sigla) </option>
+                        }
+                        
+                }
+            </select>
+            <br>
+
+            <div class="input2">
+                <div id="auxCamila">
+                    <Label class="label_cadastro">Data de início universidade: </Label><sup class="asteritico">*</sup><br>
+                    <input type="text" name="data_de_inicio_Universidade" id="uni_inicio" class="caixa_texto_mini"
+                           minlength="8" >
+                </div>
+
+                <div>
+                    <Label class="label_cadastro">Data término universidade: </Label><sup class="asteritico">*</sup><br>
+                    <input type="text" name="data_de_termino_Universidade" id="uni_fim" class="caixa_texto_mini">
+                </div>
+            </div>
+
+            <hr class="linha_cadastro">
+
+            <Label class="label_cadastro">Cargo:</Label><sup class="asteritico">*</sup><br>
+            <select class="caixa_texto" name="id_Cargo">
+
+                @foreach (var itemCargo in listaCargo)
+                {
+                        @if (item.Id_Cargo == itemCargo.Nome)
+                        {
+                            <option selected value="@itemCargo.Id">@itemCargo.Nome </option>
+                        }else{
+                            <option value="@itemCargo.Id">@itemCargo.Nome </option>
+                        }
+                        
+                }
+            </select>
+            <br>
+
+            <Label class="label_cadastro">Área:</Label><sup class="asteritico">*</sup><br>
+            <select class="caixa_texto" name="id_Area">
+
+                @foreach (var itemArea in listaArea)
+                {
+                        @if(item.Id_Area == itemArea.Nome)
+                        {
+                            <option selected value="@itemArea.Id">@itemArea.Nome </option>
+                        }else{
+                            <option value="@itemArea.Id">@itemArea.Nome </option>
+                        }
+                        
+                }
+            </select>
+            <br>
+
+            <Label class="label_cadastro">Especialidade:</Label><sup class="asteritico">*</sup><br>
+            <select class="caixa_texto" name="id_Especialidade">
+
+                @foreach (var itemEspecialidade in listaEspecialidade)
+                {
+                        @if (item.Id_Especialidade == itemEspecialidade.Nome)
+                        {
+                            <option selected value="@itemEspecialidade.Id">@itemEspecialidade.Nome </option>
+                        }
+                        else
+                        {
+                            <option value="@itemEspecialidade.Id">@itemEspecialidade.Nome </option>
+                        }
+                        
+                }
+            </select>
+            <br>
+
+            <Label class="label_cadastro">Periodo:</Label><sup class="asteritico">*</sup><br>
+            <select class="caixa_texto" name="periodo">
+                    @if (item.Periodo == "manha")
+                    {
+                        <option selected asp-for="Tipo_de_contrato" value="manha">Manhã</option>
+                        <option asp-for="Tipo_de_contrato" value="tarde">Tarde</option>
+                        <option asp-for="Tipo_de_contrato" value="noite">Noite</option>
+                    }
+                    else if(item.Periodo == "tarde")
+                    {
+                        <option selected asp-for="Tipo_de_contrato" value="tarde">Tarde</option>
+                        <option asp-for="Tipo_de_contrato" value="manha">Manhã</option>
+                        <option asp-for="Tipo_de_contrato" value="noite">Noite</option>
+                    }
+                    else
+                    {
+                        <option selected asp-for="Tipo_de_contrato" value="noite">Noite</option>
+                        <option asp-for="Tipo_de_contrato" value="manha">Manhã</option>
+                        <option asp-for="Tipo_de_contrato" value="tarde">Tarde</option>
+                    }
+                    
+                
+                
+            </select>
+            <br>
+
+            <Label class="label_cadastro">Tipo de contrato:</Label><sup class="asteritico">*</sup><br>
+            <select class="caixa_texto" name="tipo_de_contrato">
+                <option value="Concursado">Concursado</option>
+                <option value="Terceirizado">Terceirizado</option>
+            </select>
+            <br>
+
+            <div class="input2">
+                <div id="auxCamila">
+                    <Label class="label_cadastro">COREN: </Label><sup class="asteritico">*</sup><br>
+                    <input type="text" name="coren" id="coren" class="caixa_texto_mini" minlength="2" maxlength="250" value="@item.Coren">
+                </div>
+
+                <div>
+                    <Label class="label_cadastro">Matrícula: </Label><sup class="asteritico">*</sup><br>
+                    <input type="text" name="matricula" id="matricula" class="caixa_texto_mini" minlength="8"
+                           maxlength="8" value="@item.Matricula">
+                </div>
+            </div>
+        </div>
+        <div class="input2">
+            <div id="auxCamila">
+                <Label class="label_cadastro">Senha: </Label><sup class="asteritico">*</sup><br>
+                <input type="password" name="senha" id="senha" class="caixa_texto_mini" minlength="8" maxlength="40">
+            </div>
+
+        </div>
+
+    </section>
+
+    <div id="btn_final_cadastro_adm">
+        <button class="btn_Finalizar_adm" onclick="ValidacaoGeral() " type="submit">Finalizar</button>
+        <br>
+    </div>
+
+
+    <input disabled value="@item.Usuario_modificacao"/>
+    <input disabled value="@item.Data_de_modificacao"/>
+     }
+</form>
+
+
+
+
+
+<script src="~/js/valida_forms.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+<script src="~/js/jquery.mask.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $('#rg').mask('00.000.000-00');
+        $('#cep').mask('00000-000');
+        $('#cpf').mask('000.000.000-00')
+        $('#telefone').mask('(00) 00000-0000')
+        $('#coren').mask('COREN-AA 000.000-AAAA')
+        $('#data_nascimento').mask('00/00/0000')
+        $('#uni_inicio').mask('00/00/0000')
+        $('#uni_fim').mask('00/00/0000')
+    })
+</script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

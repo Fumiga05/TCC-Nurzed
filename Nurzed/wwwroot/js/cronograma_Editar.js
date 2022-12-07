@@ -85,20 +85,20 @@ function atualizarLegendas() {
 
 
     //Atualizar legenda dos Tecnicos
-    //let select_Tecnico = document.getElementByClassName('select_Tecnico')
-    //let auxiliarTec = listaLegendaTec[0]
+    let select_Tecnico = document.getElementsByClassName('select_Tecnico')
+    let auxiliarTec = listaLegendaTec[0]
+   
+    for (let i = 0; i < select_Tecnico.length; i++) {
+        select_Tecnico[i].childNodes.forEach(item => {
+            if (item.value == auxiliarTec[i]["legenda"]) {
+                item.setAttribute("selected", "true")
+            }
+        })
+    }
 
-    //for (let i = 0; i < select_Tecnico.length; i++) {
-    //    select_Tecnico[i].childNodes.forEach(item => {
-    //        if (item.value == auxiliarTec[i]["legenda"]) {
-    //            item.setAttribute("selected", "true")
-    //        }
-    //    })
-    //}
-
-    //Array.from(select_Tecnico).forEach(item => {
-    //    item.dispatchEvent(new Event('change'));
-    //})
+    Array.from(select_Tecnico).forEach(item => {
+        item.dispatchEvent(new Event('change'));
+    })
 
     //Atualizar Auxiliares
     let select_Auxiliar = document.getElementsByClassName('select_Auxiliar')

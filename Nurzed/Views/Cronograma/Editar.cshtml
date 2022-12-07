@@ -5,7 +5,7 @@
     IEnumerable<Usuarios> listaTecnicos = ViewData["listaTecnicos"] as IEnumerable<Usuarios>;
     IEnumerable<Usuarios> listaAux = ViewData["listaAux"] as IEnumerable<Usuarios>;
     IEnumerable<string> listaDias = ViewData["listaDias"] as IEnumerable<string>;
-  
+    IEnumerable<Cronograma> listaCronograma = ViewData["listaCronograma"] as IEnumerable<Cronograma>;
 
     Usuarios u = JsonConvert.DeserializeObject<Usuarios>(Context.Session.GetString("usuarios"));
 }
@@ -147,11 +147,30 @@ else
        
 
         <input type="hidden" id="legendas" name="legenda">
+        <br /><br />
 
+        <div class="center" style="display:flex">
+            <input class="dadosDeEdicao" style="background:none; border:none;"  disabled value="Ultima Modificação" />
+            <input class="dadosDeEdicao" style="background:none; border:none;" disabled value="Data de Modificação" />
+        </div>
+
+        <div class="center">
+            @foreach (var item in listaCronograma)
+            {
+                <input class="dadosDeEdicao" disabled value="@item.Usuario_modificacao" />
+                <input class="dadosDeEdicao" disabled value="@item.Data_de_modificacao" />
+                break;
+            }
+        </div>
+        
 
         <div class="aux12">
             <button type="submit" id="btn_finalizar_cronograma">Finalizar</button>
         </div>
+       
+            
+       
+        
          </form>
         <br><br>
         <section id="sec_legenda">
