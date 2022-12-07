@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Senai\\3DSB\\Sprint4\\TCC-Nurzed\\Nurzed\\Nurzed.csproj": {}
+    "C:\\VFM\\TCC-Nurzed\\Nurzed\\Nurzed.csproj": {}
   },
   "projects": {
-    "F:\\Senai\\3DSB\\Sprint4\\TCC-Nurzed\\Nurzed\\Nurzed.csproj": {
+    "C:\\VFM\\TCC-Nurzed\\Nurzed\\Nurzed.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Senai\\3DSB\\Sprint4\\TCC-Nurzed\\Nurzed\\Nurzed.csproj",
+        "projectUniqueName": "C:\\VFM\\TCC-Nurzed\\Nurzed\\Nurzed.csproj",
         "projectName": "Nurzed",
-        "projectPath": "F:\\Senai\\3DSB\\Sprint4\\TCC-Nurzed\\Nurzed\\Nurzed.csproj",
-        "packagesPath": "C:\\Users\\Victor Hugo\\.nuget\\packages\\",
-        "outputPath": "F:\\Senai\\3DSB\\Sprint4\\TCC-Nurzed\\Nurzed\\obj\\",
+        "projectPath": "C:\\VFM\\TCC-Nurzed\\Nurzed\\Nurzed.csproj",
+        "packagesPath": "C:\\Users\\aluno\\.nuget\\packages\\",
+        "outputPath": "C:\\VFM\\TCC-Nurzed\\Nurzed\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Victor Hugo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\aluno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -59,8 +63,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -72,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

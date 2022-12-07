@@ -88,7 +88,7 @@ myForm.addEventListener("submit", async evt => {
 
             }
         }
-        alert(marcador)
+       alert('Cronograma cadastrado com sucesso')
     }
     catch (e) {
         console.log(e)
@@ -189,7 +189,7 @@ function AdicionarDatas() {
         }
         
         listaAllDias.push(data)
-        console.log(i)
+       
     }
 
    

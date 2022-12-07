@@ -279,7 +279,7 @@ namespace Nurzed.Models
             {
 
                 con.Open();
-                MySqlCommand qry = new MySqlCommand("SELECT * FROM Usuarios WHERE id_Cargo = @id_Cargo AND periodo = @periodo AND id_Area =  1 ORDER BY Usuarios.nome;", con);
+                MySqlCommand qry = new MySqlCommand("SELECT * FROM Usuarios WHERE id_Cargo = @id_Cargo AND periodo = @periodo AND id_Area =  1 AND usuarios.status1 = 'ativado' ORDER BY Usuarios.nome;", con);
                 qry.Parameters.AddWithValue("@id_Cargo", id_Cargo);
                 qry.Parameters.AddWithValue("@periodo", periodo);
                 qry.Parameters.AddWithValue("@id_Area", id_Area);

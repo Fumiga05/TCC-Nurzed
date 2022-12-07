@@ -32,7 +32,7 @@ namespace Nurzed.Controllers
 
 
         [HttpPost]
-        public Object Cadastrar([FromBody] Object cronograma)
+        public IActionResult Cadastrar([FromBody] Object cronograma)
         {
             dynamic cronogram = JsonConvert.DeserializeObject(cronograma.ToString());
            
@@ -42,10 +42,10 @@ namespace Nurzed.Controllers
             string legenda = cronogram.legenda;
             string periodo = cronogram.periodo;
             Usuarios usuario = padrao.RetornarObjeto(HttpContext);            
-            Cronograma.Cadastrar(id_Usuarios, data, legenda, periodo,usuario.Nome,"","");
-
+            TempData["msg"] = Cronograma.Cadastrar(id_Usuarios, data, legenda, periodo,usuario.Nome,"","");
             
-            return cronograma;
+
+            return RedirectToAction("Cadastrar","Cronograma");
           
         }
 

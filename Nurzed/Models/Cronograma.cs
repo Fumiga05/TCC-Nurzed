@@ -52,7 +52,7 @@ namespace Nurzed.Models
                 qry.Parameters.AddWithValue("@data_de_modificacao", data_de_modificacao);
                 qry.Parameters.AddWithValue("@data_de_criacao", data_de_criacao);
                 qry.ExecuteNonQuery();
-                return "Cronograma Cadastrado com sucesso";
+                return "Cronograma cadastrado com sucesso";
             }
             catch (Exception e)
             {

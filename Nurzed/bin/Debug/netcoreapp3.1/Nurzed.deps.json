@@ -8,14 +8,7 @@
       "TRACE",
       "DEBUG",
       "NETCOREAPP",
-      "NETCOREAPP3_1",
-      "NETCOREAPP1_0_OR_GREATER",
-      "NETCOREAPP1_1_OR_GREATER",
-      "NETCOREAPP2_0_OR_GREATER",
-      "NETCOREAPP2_1_OR_GREATER",
-      "NETCOREAPP2_2_OR_GREATER",
-      "NETCOREAPP3_0_OR_GREATER",
-      "NETCOREAPP3_1_OR_GREATER"
+      "NETCOREAPP3_1"
     ],
     "languageVersion": "8.0",
     "platform": "",
@@ -1285,8 +1278,16 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
-      "System.Collections.Immutable/1.7.0": {},
-      "System.ComponentModel.Annotations/4.7.0": {},
+      "System.Collections.Immutable/1.7.0": {
+        "compile": {
+          "lib/netstandard2.0/System.Collections.Immutable.dll": {}
+        }
+      },
+      "System.ComponentModel.Annotations/4.7.0": {
+        "compile": {
+          "ref/netstandard2.1/System.ComponentModel.Annotations.dll": {}
+        }
+      },
       "System.Composition/1.0.31": {
         "dependencies": {
           "System.Composition.AttributedModel": "1.0.31",
@@ -1440,7 +1441,11 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.Diagnostics.DiagnosticSource/4.7.0": {},
+      "System.Diagnostics.DiagnosticSource/4.7.0": {
+        "compile": {
+          "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {}
+        }
+      },
       "System.Diagnostics.Tools/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
