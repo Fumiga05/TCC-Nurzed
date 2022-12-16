@@ -35,7 +35,7 @@ namespace Nurzed.Controllers
         {
             dynamic cronogram = JsonConvert.DeserializeObject(cronograma.ToString());
            
-            string id = cronogram.id;
+            
             string id_Usuarios = cronogram.id_Usuarios;
             string data = cronogram.data;
             string legenda = cronogram.legenda;
@@ -62,18 +62,15 @@ namespace Nurzed.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpPut]
         public Object Editar([FromBody] Object cronograma)
         {
             dynamic cronogram = JsonConvert.DeserializeObject(cronograma.ToString());
 
-            string id = cronogram.id;
-            string id_Usuarios = cronogram.id_Usuarios;
-            string data = cronogram.data;
-            string legenda = cronogram.legenda;
-            string periodo = cronogram.periodo;
+            string id = cronogram.id;                     
+            string legenda = cronogram.legenda;           
             Usuarios usuario = padrao.RetornarObjeto(HttpContext);
-            Cronograma.Editar(id,id_Usuarios, data, legenda, periodo, usuario.Nome, "");
+            Cronograma.Editar(id,legenda,usuario.Nome, "");
 
 
             return cronograma;

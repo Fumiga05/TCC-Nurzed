@@ -64,19 +64,18 @@ namespace Nurzed.Models
             }
         }
 
-        public static string Editar(string id, string id_Usuarios, string data, string legenda, string periodo, string usuario_modificacao, string data_de_modificacao)
+        public static string Editar(string id,string legenda,string usuario_modificacao, string data_de_modificacao)
         {
             try
             {
                 con.Open();
-                MySqlCommand qry = new MySqlCommand("UPDATE Cronograma SET data1 = @data,legenda = @legenda,periodo = @periodo," +
-                    "usuario_modificacao = @usuario_modificacao,data_de_modificacao = @data_de_modificacao WHERE id = @id ", con);
+                MySqlCommand qry = new MySqlCommand("UPDATE Cronograma SET legenda = @legenda,data_de_modificacao = @data_de_modificacao, usuario_modificacao = @usuario_modificacao" +
+                    " WHERE id = @id", con);
 
-                qry.Parameters.AddWithValue("@id", id);
-                qry.Parameters.AddWithValue("@id_Usuarios", id_Usuarios);
-                qry.Parameters.AddWithValue("@data", data);
-                qry.Parameters.AddWithValue("@legenda", legenda);
-                qry.Parameters.AddWithValue("@periodo", periodo);
+                var date = DateTime.Now;
+                data_de_modificacao = String.Format("{0:yyyy-MM-dd HH:mm:ss}", date);
+                qry.Parameters.AddWithValue("@id", id);       
+                qry.Parameters.AddWithValue("@legenda", legenda);               
                 qry.Parameters.AddWithValue("usuario_modificacao", usuario_modificacao);
                 qry.Parameters.AddWithValue("data_de_modificacao", data_de_modificacao);
 
@@ -100,7 +99,7 @@ namespace Nurzed.Models
             try
             {
                 con.Open();
-                MySqlCommand qry = new MySqlCommand("SELECT usuarios.nome,cronograma.id_Usuarios,cronograma.legenda,cronograma.id," +
+                MySqlCommand qry = new MySqlCommand("SELECT usuarios.nome,cronograma.id_Usuarios,cronograma.legenda,cronograma.id AS cronoID," +
                     "cronograma.data1,usuarios.id,cronograma.usuario_modificacao,cronograma.data_de_modificacao FROM Cronograma " +
                     "INNER JOIN Usuarios WHERE MONTH(cronograma.data1) = @mes AND YEAR(cronograma.data1) = @ano AND usuarios.id = cronograma.id_Usuarios" +
                     " AND usuarios.id_Cargo = @id_Cargo AND cronograma.periodo = @periodo ORDER BY usuarios.nome,cronograma.id;", con);
@@ -113,8 +112,8 @@ namespace Nurzed.Models
                 List<Cronograma> lista = new List<Cronograma>();
                 while (leitor.Read())
                 {
-                    Cronograma cronograma = new Cronograma("", leitor["id_Usuarios"].ToString(),
-                        "", leitor["legenda"].ToString(), "", leitor["usuario_modificacao"].ToString(),
+                    Cronograma cronograma = new Cronograma(leitor["cronoID"].ToString(), leitor["id_Usuarios"].ToString(),
+                       leitor["data1"].ToString(), leitor["legenda"].ToString(), "", leitor["usuario_modificacao"].ToString(),
                         leitor["data_de_modificacao"].ToString(), "");
                     lista.Add(cronograma);
 

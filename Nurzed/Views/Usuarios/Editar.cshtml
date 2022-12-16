@@ -154,12 +154,12 @@
                 <div id="auxCamila">
                     <Label class="label_cadastro">Data de início universidade: </Label><sup class="asteritico">*</sup><br>
                     <input type="text" name="data_de_inicio_Universidade" id="uni_inicio" class="caixa_texto_mini"
-                           minlength="8" >
+                           minlength="8" value="@item.Data_de_inicio_Universidade" >
                 </div>
 
                 <div>
                     <Label class="label_cadastro">Data término universidade: </Label><sup class="asteritico">*</sup><br>
-                    <input type="text" name="data_de_termino_Universidade" id="uni_fim" class="caixa_texto_mini">
+                    <input type="text" name="data_de_termino_Universidade" id="uni_fim" class="caixa_texto_mini" value="@item.Data_de_termino_Universidade">
                 </div>
             </div>
 
@@ -264,7 +264,7 @@
         <div class="input2">
             <div id="auxCamila">
                 <Label class="label_cadastro">Senha: </Label><sup class="asteritico">*</sup><br>
-                <input type="password" name="senha" id="senha" class="caixa_texto_mini" minlength="8" maxlength="40">
+                <input type="password" name="senha" id="senha" class="caixa_texto_mini" minlength="8" maxlength="40" value="@item.Senha">
             </div>
 
         </div>

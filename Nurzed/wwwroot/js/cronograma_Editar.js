@@ -8,6 +8,8 @@ var mesNumeral = localStorage.getItem('mesNumeral')
 var anoDoMes = localStorage.getItem('anoDoMes')
 var periodo = 'manha'
 
+var listaAllIdCronograma = []
+
 
 var listaEnfermeiros = []
 var listaTecnicos = []
@@ -17,7 +19,39 @@ var listaLegendaTec = []
 var listaLegendaAux = []
 var aux = []
 
+
 atualizar()
+
+
+myForm.addEventListener("submit", async evt => {
+    evt.preventDefault();
+    listaAllLegenda = AdicionarLegendas()
+    listaAllLegenda = listaAllLegenda[0]
+    try {
+        console.log(listaAllIdCronograma.length)
+        for (let j = 0; j < listaAllIdCronograma.length; j++) {
+            console.log('teste')
+            const req = await fetch('/Cronograma/Editar', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    "id": listaAllIdCronograma[j],
+                    "legenda": listaAllLegenda[j],
+
+
+
+                })
+
+            });
+        }
+        alert('Cronograma editado com sucesso')
+    }
+    catch (e) {
+        console.log(e)
+    }
+})
+
+
 
 
 function atualizar() {
@@ -54,7 +88,7 @@ function atualizar() {
             AdicionarAuxEnf()
             atualizarLegendas()
 
-            throw new Error('O cronograma deste periodo ainda não foi cadastrado')
+    
         })
         
         .catch((error) => console.log('Erro: ' + error + '\n Req:' + req));
@@ -68,20 +102,29 @@ function atualizar() {
 //Atualiza as legendas dos funcionarios
 function atualizarLegendas() {
     //Atualiza legenda dos enfermeiros
+    
     let select_Enfermeiro = document.getElementsByClassName('select_Enfermeiro')
-    let auxiliarEnf = listaLegendaEnf[0] 
+    let auxiliarEnf = listaLegendaEnf[0]
+
     for (let i = 0; i < select_Enfermeiro.length; i++) {
+       
+       
         select_Enfermeiro[i].childNodes.forEach(item => {
             if (item.value == auxiliarEnf[i]["legenda"]) {
                 item.setAttribute("selected", "true")
                 
             }
+
+            
         })
+        listaAllIdCronograma.push(auxiliarEnf[i]["id"])
        
-    }    
+    }
+    console.log(listaAllIdCronograma)
     Array.from(select_Enfermeiro).forEach(item => {
         item.dispatchEvent(new Event('change'));
     })
+
 
 
     //Atualizar legenda dos Tecnicos
@@ -138,6 +181,37 @@ function mudarLegenda(elemento) {
     
 }
 
+
+function AdicionarLegendas() {
+    var legenda = document.getElementsByName('Legenda')
+
+    var listaAllLegenda = []
+
+    
+
+
+    var aux = []
+    var index = 0
+    legenda.forEach(item => {
+        listaAllLegenda.push(item.value)
+
+    })
+
+
+    for (let i = 0; i < listaEnfermeiros[0].length; i++) {
+        var legendaUser = []
+        for (let j = 0; j < diasDoMes; j++) {
+            legendaUser.push(listaAllLegenda[index])
+            index += 1
+        }
+
+        aux.push(legendaUser)
+
+    }
+
+    return aux
+
+}
 
 
 function AdicionarEnfermeiros() {
@@ -200,6 +274,10 @@ function AdicionarEnfermeiros() {
             select.setAttribute("class", "select_cronograma_adm select_infermeiro_tabela_adm select_Enfermeiro")
             select.setAttribute("name", "Legenda")
             select.setAttribute("onChange", "mudarLegenda(this)")
+
+          
+
+
             //declaração das options
             opções.forEach(item => {
                 var option = document.createElement("option")
